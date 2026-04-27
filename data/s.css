@@ -1,0 +1,629 @@
+img {
+    object-fit: cover;
+}
+footer {
+    margin-top: 2rem;
+    background: linear-gradient(to bottom, var(--transShadow2), var(--transShadow) 25%);
+    padding: 4rem 1rem;
+    display: flex;
+    color: var(--white);
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+footer div:first-child { width: 33%; }
+footer h2 {
+    font-size: 1.25rem;
+    color: var(--yellow);
+    border-bottom: 2px solid var(--yellow);
+    padding-bottom: 1rem;
+}
+footer h2, footer h4 {
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+footer h4 { opacity: 0.66; }
+footer h5, footer .arrow-links a::after, footer .copyright { opacity: 0.5; }
+footer code {
+    font: bold 0.9rem courier;
+    padding: 0.125rem 0.25rem;
+    display: inline;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+}
+footer a { text-decoration: underline; }
+footer p, footer ul:not(.list) { margin-top: 1rem; }
+footer ul:not(.list) li { margin-top: 0.5rem; }
+footer .list .list { padding-left: 1rem; }
+footer .arrow-links {
+    padding-top: 4rem;
+}
+footer .arrow-links a {
+    text-decoration: none;
+}
+footer .arrow-links img {
+    height: 1.25rem;
+}
+footer .arrow-links a::after {
+    content: '>';
+    display: inline;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+footer .arrow-links a:hover::after,
+footer .arrow-links a:focus::after,
+footer .arrow-links a:active::after {
+    margin-left: 1rem;
+    margin-right: 0;
+    opacity: 1;
+}
+footer hr { margin-top: 1rem; }
+footer .copyright {
+    width: 100%;
+    padding-top: 3rem;
+}
+footer .copyright a {
+    text-decoration: none;
+}
+@media screen and (max-width: 640px){
+    footer {
+        flex-wrap: wrap;
+        padding: 2rem 1rem;
+    }
+    footer div { width: 100% !important; }
+    footer .arrow-links { text-align: center; }
+    footer .copyright, footer .arrow-links {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--transLight);
+    }
+    footer .copyright { text-align: center; }
+}
+h3 {
+    padding: 2rem;
+    font-size: 1.75rem;
+    color: var(--yellow);
+    text-align: center;
+    text-shadow: 0 0.05rem 0.05rem var(--transShadow), 0 0 1rem var(--transShadow2);
+    border-bottom: 0.15rem solid var(--yellow);
+}
+#Start {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: calc(100vh - 5rem);
+    overflow-x: hidden;
+}
+#Start h2 {
+    text-align: center;
+    text-shadow: 0 0 1rem var(--transShadow2);
+    color: var(--yellow);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+#Start h2 + p { color: var(--lightAqua); }
+#Start h2 b { color: var(--orange); }
+#Start h2, #Start ul a { align-self: center; }
+#Start ul {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#Start ul li {
+    margin-top: 1rem;
+    align-self: center;
+}
+#Start ul a {
+    display: inline-block;
+    font-size: 1.375rem;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to bottom, var(--lightAqua), var(--lightBlue2));
+    color: var(--black);
+    border-radius: 1rem;
+    cursor: pointer;
+    text-shadow: none !important;
+    animation: J 7s ease-in-out 0s alternate infinite;
+    margin-right: 1rem;
+}
+#Start p { text-align: center; }
+@media screen and (max-width: 960px){
+    #Start h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+    #Start p { margin-bottom: 0.5rem; }
+    #Start ul a { font-size: 1.25rem; }
+}
+@media screen and (max-width: 640px){
+    #Start h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    #Start p { margin-bottom: 0rem; }
+    #Start ul a { font-size: 1.125rem; }
+}
+#Start ul li:last-child a { margin-right: 0; }
+#Start ul a.A {
+    background: linear-gradient(to bottom, var(--yellow) 25%, var(--orange));
+    margin-right: 1rem;
+    padding-left: 1.5rem !important;
+}
+#Start ul a span, #Start ul a.A::before {
+    display: inline-block;
+    vertical-align: middle;
+}
+#Start ul a sub {
+    display: block;
+    font-size: 1rem;
+}
+#Start ul a.A::before {
+    content: '>';
+    margin-right: 1.5rem;
+    transform: scale(1.75);
+    transform-origin: center;
+    position: relative;
+    left: 0;
+    animation: _C 0.75s linear 0.5s alternate 4;
+}
+@media screen and (max-width: 640px), (max-width: 960px){
+    #Start ul li { margin-top: 0.5rem; }
+    #Start ul li.W {
+        width: 100%;
+        text-align: center;
+    }
+    #Start a { margin: 0 !important; }
+}
+@media screen and (max-width: 960px){
+    #Start a {
+        padding: 0.875rem 1.25rem !important;
+        font-size: 1.125rem !important;
+    }
+}
+@media screen and (max-width: 640px){
+    #Start a {
+        padding: 0.75rem 1rem !important;
+        font-size: 1rem !important;
+    }
+}
+#Start ul a:hover, #Start ul a:active, #Start ul a:focus {  background: linear-gradient(to bottom, var(--lightBlue2), var(--lightBlue2)); }
+#Start ul a.A:hover, #Start ul a.A:active, #Start ul a.A:focus { background: linear-gradient(to bottom, var(--orange), var(--orange)); }
+#Start ul a.A:hover::before, #Start ul a.A:active:before, #Start ul a.A:focus::before { animation: _B 0.75s linear 0s alternate infinite; }
+@keyframes _B {
+    to {
+        transform: rotate(90deg) scale(2);
+        transform-origin: 0.25rem 1.1rem;
+        color: var(--transShadow3);
+    }
+}
+@keyframes _C {
+    to {
+        left: 0.5rem;
+        color: var(--transShadow3);
+    }
+}
+#Install ol {
+    margin: 1rem 5rem;
+    color: var(--white);
+}
+@media screen and (min-width: 961px){ #Install ol { margin: 1rem 10rem; } }
+@media screen and (max-width: 640px){ #Install ol { margin: 1rem; } }
+#Install li { padding-bottom: 1rem; }
+#Install a { text-decoration: underline; }
+.P, pre + blockquote, pre + span, span + pre, span + blockquote {
+    margin-top: 1rem;
+    display: block;
+}
+@media screen and (max-width: 640px){
+    pre + span {
+        margin-top: 1rem;
+        display: block;
+    }
+}
+pre { overflow: auto; }
+pre, .P {
+    border-radius: 1rem;
+    padding: 1rem;
+}
+pre, .C::before {
+    background: var(--black);
+    color: var(--white);
+}
+pre + div { text-align: right; }
+hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--transLight);
+    margin: 0.5rem 0;
+}
+.C { text-decoration: none !important; }
+.C::before {
+    content: 'Copiar';
+    padding: 0 1rem;
+    border-radius: 1rem;
+    border-bottom: 0.5rem solid var(--black);
+    font-weight: bold;
+    margin-right: 1rem;
+    position: relative;
+    top: -1px;
+}
+.C:hover::before { color: var(--yellow); }
+.C:active::before, .C:focus::before {
+    content: '¡Copiado!';
+    color: var(--orange);
+}
+pre:not(.B), .C::before {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+pre::selection,
+pre *::selection  {
+    background: var(--white) !important;
+    color: var(--black) !important;
+}
+.P {
+    color: var(--black);
+    background: var(--white);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.P a {
+    color: var(--gray);
+    font-weight: normal;
+    text-decoration: none !important;
+}
+.P a:hover, .P a:active, .P a:focus { color: var(--black); }
+@media screen and (max-width: 640px){
+    .P .N {
+        display: block;
+        margin-top: 0.5rem;
+    }
+}
+.P a[data-text-tab-selected] {
+    color: var(--black);
+    font-weight: bold;
+}
+.CA { color: var(--orange); }
+.CB { color: var(--lightAqua); }
+.CC { color: var(--white);}
+.CD, .CD a { color: var(--yellow); }
+blockquote {
+    border-radius: 1rem;
+    padding: 1rem;
+    background: var(--yellow) linear-gradient(to bottom, var(--orange), transparent 25%);
+}
+blockquote, blockquote a, blockquote a:hover, blockquote a:active, blockquote a:focus { color: var(--black); }
+blockquote a { text-decoration: underline; }
+blockquote > h5 { margin-bottom: 0.5rem; }
+blockquote > ul li, .list li {
+    padding-bottom: 0 !important;
+    padding-top: 0.5rem;
+}
+blockquote > ul li::before, .list li::before {
+    content: '—';
+    display: inline-block;
+    width: 1rem;
+    overflow: hidden;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+}
+h3, blockquote { margin-bottom: 1rem; }
+#Install details.A_ > summary + blockquote { margin-bottom: 2rem; }
+#Install .A_ > ol > li::before {
+    font-size: 2rem;
+    color: var(--black);
+    display: inline-block;
+    width: 1.5rem;
+}
+blockquote.A {
+    border: 1px solid var(--lightBlue2);
+    background: none;
+}
+blockquote.A, blockquote.A a { color: var(--white); }
+#Downloads > ul {
+    border: 1px solid var(--lightBlue2);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 1rem;
+}
+#Downloads > ul > li { padding: 1rem; }
+#Downloads > ul:nth-child(3) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+#Downloads > ul:nth-child(3) > li {
+    border: 0;
+    font-weight: bold;
+}
+#Downloads > ul:nth-child(4) {
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: var(--lightAqua);
+}
+#Downloads > ul > li:nth-child(3n-2) {
+    width: 10%;
+    padding-right: 1rem;
+}
+#Downloads > ul > li:nth-child(3n-1) {
+    width: 15%;
+    padding-right: 1rem;
+}
+#Downloads > ul > li:nth-child(3n) {
+    width: 75%;
+    overflow-x: auto;
+}
+#Downloads > ul > li {
+    padding-top: 1rem;
+    margin-top: 1px;
+    border-top: 1px solid var(--lightBlue2);
+    overflow: hidden;
+}
+#Downloads > ul > li:nth-child(3n) b, #Downloads li a::before { color: var(--darkColor); }
+#Downloads li a {
+    padding: 0.25rem 0.5rem;
+    font-weight: bold;
+    border: 1px solid var(--transLight);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+#Downloads li a::before {
+    content: 'Archivo:';
+    margin-right: 0.5rem;
+}
+@media screen and (max-width: 640px){
+    #Downloads li a {
+        display: block;
+        width: 30rem;
+    }
+}
+#Downloads > ul ul {
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+#Downloads > ul:nth-child(4) > li { background: linear-gradient(to bottom, var(--transLight), transparent 25%); }
+#Downloads > ul:nth-child(4), #Downloads li a { color: var(--black); }
+#Downloads li a:hover,
+#Downloads li a:active, 
+#Downloads li a:focus {
+    color: var(--white);
+    background: var(--black);
+    border-color: var(--black);
+}
+#Downloads li a:hover::before {
+    content: "Copiar:";
+    color: var(--yellow);
+}
+#Downloads li a:active::before, 
+#Downloads li a:focus::before {
+    content: '¡Copiado!';
+    color: var(--orange);
+}
+@media screen and (max-width: 640px){
+    #Downloads > ul > li:nth-child(3n-2) { width: 17.5%; }
+    #Downloads > ul > li:nth-child(3n-1) { width: 25%; }
+    #Downloads > ul > li:nth-child(3n) { width: 57.5%; }
+}
+
+article > h2, details.A_ > summary > span,
+article > h4, details.A_ > h4,
+article > p, details.A_ > p,
+article > blockquote, details.A_ > blockquote,
+article > ul, article > ol, details.A_ > ul, details.A_ > ol,
+article > section:not(.I), details.A_ > section:not(.I){ margin: 0 5rem 1rem 5rem; }
+
+@media screen and (min-width: 961px){
+    article > h2, details.A_ > summary > span,
+    article > h4, details.A_ > h4,
+    article > p, details.A_ > p,
+    article > blockquote, details.A_ > blockquote,
+    article > ul, article > ol, details.A_ > ul, details.A_ > ol,
+    article > section:not(.I), details.A_ > section:not(.I)
+    { margin: 0 10rem 1rem 10rem; }
+}
+@media screen and (max-width: 640px){
+    article > h2, details.A_ > summary > span,
+    article > h4, details.A_ > h4,
+    article > p, details.A_ > p,
+    article > blockquote, details.A_ > blockquote,
+    article > ul, article > ol, details.A_ > ul, details.A_ > ol,
+    article > section:not(.I), details.A_ > section:not(.I)
+    { margin: 0 1rem 1rem 1rem; }
+}
+#Description { margin: 0 1rem; }
+#Description, #Description .I {
+    display: flex;
+    flex-wrap: wrap;
+}
+#Description h3 { width: 100%; }
+#Description p {
+    width: calc(65% - 6rem);
+    text-align: justify;
+    margin: 0;
+    align-self: center;
+    margin: 0 4rem 0 2rem;
+}
+#Description .I {
+    width: calc(35% - 4rem);
+    margin-bottom: 1rem;
+    margin-left: 4rem;
+}
+#Description .I a {
+    line-height: 0;
+    width: 50%;
+    align-self: center;
+} 
+#Description .I img { width: 100%; } 
+@media screen and (max-width: 640px), (max-width: 960px) {
+    #Description { flex-flow: column; }
+    #Description .I { margin-right: 0; }
+    #Description .I a { width: 25%; }
+    #Description > * {
+        width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+    }
+    #Description p { text-align: left; }
+}
+@media screen and (max-width: 640px){
+    #Description .I a { width: 50%; }
+}
+
+#Get-started p a,
+#Get-started p a:hover,
+#Get-started p a:active,
+#Get-started p a:focus {
+    text-decoration: underline;
+    color: var(--white);
+}
+@media screen and (max-width: 640px){
+    #Get-started section blockquote { margin-bottom: 0 !important; }
+}
+#Get-started .A_ > h4, article .K { font-size: 1.25rem; }
+#Get-started .A_ > blockquote ul { margin-bottom: 1rem; }
+blockquote.N {
+    border-color: var(--transLight);
+    background: var(--transShadow);
+}
+
+section:not(.I),
+section:not(.I) > div { display: flex; }
+
+section:not(.I) > * { align-self: center; }
+section:not(.I) > div {
+    width: calc(30% - 2rem);
+    margin-right: 2rem;
+}
+section.G > div {
+    margin-right: 0;
+    margin-left: 2rem;
+}
+section:not(.I) > div a { line-height: 0; }
+section:not(.I) > div a img { width: 100%; }
+section:not(.I) > div + *, section.G > *:first-child { width: 70%; }
+
+@media screen and (max-width: 960px){
+    section:not(.I) > div { width: calc(40% - 2rem); }
+    section:not(.I) > div + *, section.G > *:first-child { width: 60%; }
+}
+@media screen and (max-width: 640px){
+    section:not(.I) { flex-flow: column; }
+    section:not(.I) > div { text-align: center; }
+    section:not(.I) > * {
+        width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+    }
+}
+
+#Docs ol, #Install ol {
+    counter-reset: item;
+    list-style-type: none;
+}
+#Docs ol > li, #Install ol > li { counter-increment: item; }
+#Docs ol > li::before, #Install ol > li::before {
+    content: counters(item, '.') '. ';
+    display: inline-block;
+    font-weight: bold;
+}
+#Docs li::before { margin-right: 0.5rem; }
+#Docs > ol > li::before { width: 1rem; }
+#Docs > ol > li > ol > li::before { width: 1.5rem; }
+#Docs > ol > li > ol > li > ol > li::before {
+    width: 2rem;
+    color: var(--lightBlue2);
+}
+#Docs > ol > li > ol > li > ol > li > ol > li::before { width: 3rem; }
+
+#Docs ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#Docs > ol > li > ol,
+#Docs > ol > li > ol > li > ol,
+#Docs > ol > li > ol > li > ol > li > ol { padding-left: 1rem; }
+
+#Docs > ol:not(#I) li,
+#Docs ol h4 + section { margin-top: 1rem; }
+#Docs > ol:not(#I) > li { margin-top: 3rem; }
+
+#Docs ol > li::before, #Docs ol h4, #Docs ol h5, #Docs ol h6 { color: var(--lightAqua); }
+
+#Docs ol a { text-decoration: underline; }
+#Docs ol h4, #Docs ol h5, #Docs ol h6 { display: inline-block; }
+#Docs ol h5, #Docs ol h6 { margin-bottom: 0.5rem; }
+#Docs h4, #Docs > ol > li::before { font-size: 1.25rem; }
+#Docs h5, #Docs > ol > li > ol > li::before, #I > li > a { font-size: 1.125rem; }
+#Docs li blockquote { overflow-x: auto; }
+
+#I > li > a { font-weight: bold; }
+#I > li { margin-bottom: 1rem;}
+#I ol { margin: 0; }
+#I li::before { margin-right: 1rem !important; }
+
+@media screen and (min-width: 961px){
+    #Docs {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 1rem;
+    }
+    #Docs h3 { width: 100%; }
+    #Docs > ol { margin: 0 !important; }
+    #I { width: 35%; }
+    #D {
+        width: calc(65% - 1rem);
+        margin-left: 1rem !important;
+    }
+    #D > li:first-child { margin-top: 0 !important; }
+}
+.CS { font-size: 0.77rem; }
+details.A_ > summary > span {
+    font-size: 1.5rem;
+    color: var(--white);
+    background: linear-gradient(to bottom, var(--transShadow2), var(--transShadow3));
+    text-align: center;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+details.A_ > summary {
+    list-style: none;
+    outline: none;
+}
+details.A_ > summary::-webkit-details-marker {
+    display: none;
+}
+details.A_ > summary > span {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    transition: transform 0.1s;
+}
+details.A_ > summary > span:active {
+    transform: scale(0.98);
+}
+details.A_ > summary > span::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--yellow);
+    font-size: 2.5rem;
+    line-height: 0;
+}
+details.A_[open] > summary > span{
+    font-weight: bold;
+}
+details.A_[open] > summary > span::after {
+    content: '—';
+    color: var(--orange);
+}
+details.A_ > *:not(summary) {
+    animation: B_ 0.4s ease-out;
+}
+@keyframes B_ {
+    from { opacity: 0; transform: translateY(-0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
