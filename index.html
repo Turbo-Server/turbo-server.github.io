@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html spellcheck="false" lang="es">
 	<head>
 	<meta charset="UTF-8">
 
 	<title>Turbo</title>
 	<link rel="icon" href="./i.png">
+	<link rel="apple-touch-icon" href="./i.png">
+	<link rel="canonical" href="https://turbo.okzgn.com">
 
-	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
+	<meta name="robots" content="index, follow, max-image-preview:large">
 	<meta name="author" content="OKZGN">
 	<meta name="theme-color" content="#3b7697">
 
+	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; child-src 'self';">
 
 	<meta property="og:title" content="Turbo">
@@ -20,9 +24,40 @@
 	<meta property="og:site_name" content="OKZGN">
 	<meta property="og:type" content="website">
 
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Turbo">
+	<meta name="twitter:description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
+	<meta name="twitter:image" content="https://turbo.okzgn.com/i.png">
+
+	<link rel="preload" href="./i.png" as="image">
+	<link rel="preload" href="./data/t.css" as="style">
+	<link rel="preload" href="./data/s.css" as="style">
+	<link rel="preload" href="./data/x.js" as="script">
+
+	<link rel="preload" href="./data/fb.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="./data/fr.ttf" as="font" type="font/ttf" crossorigin>
+
 	<link rel="stylesheet" href="./data/t.css">
 	<link rel="stylesheet" href="./data/s.css">
 	<script src="./data/x.js"></script>
+
+	<script type="application/ld+json">
+	{
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Turbo",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Cross-platform",
+      "url": "https://turbo.okzgn.com",
+      "logo": "https://turbo.okzgn.com/i.png",
+      "description": "Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.",
+      "author": {
+        "@type": "Person",
+        "name": "Elias Francisco Alvarado Soshina",
+        "jobTitle": "Applied AI, Platform & Software Developer"
+      }
+    }
+	</script>
 </head>
 <body>
 	<header>
@@ -692,7 +727,10 @@ StandardError=/dev/null
 					</ol>
 				</li>
 				<li>
-					<h4 id="al">Archivos <i>logs</i></h4>
+					<h4 id="al">Archivos de registros (<i>logs</i>)</h4>
+					<section>
+					       <p>Para registrar los accesos rechazados por el limitador de frecuencia, cree un archivo accesible llamado <b class="CB">turbo.denials</b>, y para registrar cada acceso a cada archivo o ruta en el servidor, cree otro archivo llamado <b class="CB">turbo.visits</b>, en el mismo directorio donde esté el ejecutable de <b class="CB">Turbo</b>. Ya que pueden aumentar mucho de tamaño, no cree estos archivos si no necesita registros. Cualquier otro registro se mostrará en la salida estándar (<i>stdout</i>) o en la consola.</p>
+					</section>
 				</li>
 			</ol>
 		</article>
