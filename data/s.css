@@ -24,7 +24,7 @@ footer h2, footer h4 {
 footer h4 { opacity: 0.66; }
 footer h5, footer .arrow-links a::after, footer .copyright { opacity: 0.5; }
 footer code {
-    font: bold 0.9rem courier;
+    font: bold 0.9rem 'Courier New', Courier, monospace;
     padding: 0.125rem 0.25rem;
     display: inline;
     background: rgba(0, 0, 0, 0.2);
@@ -387,7 +387,7 @@ blockquote.A, blockquote.A a { color: var(--white); }
 #Downloads > ul:nth-child(4) > li { background: linear-gradient(to bottom, var(--transLight), transparent 25%); }
 #Downloads > ul:nth-child(4), #Downloads li a { color: var(--black); }
 #Downloads li a:hover,
-#Downloads li a:active, 
+#Downloads li a:active,
 #Downloads li a:focus {
     color: var(--white);
     background: var(--black);
@@ -397,7 +397,7 @@ blockquote.A, blockquote.A a { color: var(--white); }
     content: "Copiar:";
     color: var(--yellow);
 }
-#Downloads li a:active::before, 
+#Downloads li a:active::before,
 #Downloads li a:focus::before {
     content: '¡Copiado!';
     color: var(--orange);
@@ -455,8 +455,8 @@ article > section:not(.I), details.A_ > section:not(.I){ margin: 0 5rem 1rem 5re
     line-height: 0;
     width: 50%;
     align-self: center;
-} 
-#Description .I img { width: 100%; } 
+}
+#Description .I img { width: 100%; }
 @media screen and (max-width: 640px), (max-width: 960px) {
     #Description { flex-flow: column; }
     #Description .I { margin-right: 0; }
