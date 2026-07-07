@@ -23,8 +23,11 @@ footer h2, footer h4 {
 }
 footer h4 { opacity: 0.66; }
 footer h5, footer .arrow-links a::after, footer .copyright { opacity: 0.5; }
+footer code, pre, pre * {
+    font-family: 'Z', 'Courier New', Courier, monospace !important;
+}
 footer code {
-    font: bold 0.9rem 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
     padding: 0.125rem 0.25rem;
     display: inline;
     background: rgba(0, 0, 0, 0.2);
