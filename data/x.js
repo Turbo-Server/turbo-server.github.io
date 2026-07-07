@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U){
+  console.log('Turbo website ready.');
     function V(a, b, c, d, e){
         if(typeof b != 'function' && typeof c != 'function'){ return; }
         d = new IntersectionObserver(function(h){
@@ -16,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function(A, B, C, D, E, F, G, H, I
     if((A = document.getElementById('m')) && (B = document.querySelectorAll('#M nav a'))){ B.forEach(function(a){ a.onclick = function(){ A.checked = false; } }); }
     if(C = document.getElementById('M')){ V('header', function(){ C.removeAttribute('class'); }, function(){ C.className = 'M'; }); }
     V(
-        'main article',
-        function(a, b){ if(b = document.querySelector('[data-index] [href="#' + this.id + '"]')){ b.className = a; } },
-        function(a){ if(a = document.querySelector('[data-index] [href="#' + this.id + '"]')){ a.removeAttribute('class'); } }
+        'main article, footer',
+      function (a, b) { if(b = document.querySelector('[data-index] [href="/#' + this.id + '"]')){ b.className = a; } },
+        function(a){ if(a = document.querySelector('[data-index] [href="/#' + this.id + '"]')){ a.removeAttribute('class'); } }
     );
     if(D = document.getElementsByClassName('D')){
         for(E = 0; E < D.length; E++){
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(A, B, C, D, E, F, G, H, I
                 if(navigator.clipboard && navigator.clipboard.writeText){
                     navigator.clipboard.writeText(f.innerText), f.parentNode.scrollLeft = 0;
                     return;
-                } 
+                }
                 window.location = f.innerText;
             }
         }
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function(A, B, C, D, E, F, G, H, I
     if(F = document.getElementsByTagName('pre')){
         for(E = 0; E < F.length; E++){
             G = document.createElement('div'), F[E].insertAdjacentElement('afterend', G);
-            D = document.createElement('a'), 
+            D = document.createElement('a'),
             D.className = 'C', D.setAttribute('href', '#'), G.appendChild(D);
             D.onclick = function(e, f, g){
                 e.preventDefault(), f = this, g = f.parentNode.previousElementSibling, setTimeout(function(){ f.blur(); }, 567);
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function(A, B, C, D, E, F, G, H, I
             });
         }
     }
-    if(H = document.getElementById('I')){
+  if (H = document.getElementById('I')) {
         I = document.querySelectorAll('#Docs ol h4');
         for(E = 0; E < I.length; E++){
             J = document.createElement('a'), J.innerText = I[E].innerText, J.setAttribute('href', ('#' + I[E].id));

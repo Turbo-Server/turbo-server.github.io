@@ -4,12 +4,14 @@
 	<meta charset="UTF-8">
 
 	<title>Turbo</title>
-	<link rel="icon" href="/i.png">
+	<link rel="icon" href="./i.png">
 
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<meta name="description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
 	<meta name="author" content="OKZGN">
 	<meta name="theme-color" content="#3b7697">
+
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; child-src 'self';">
 
 	<meta property="og:title" content="Turbo">
 	<meta property="og:description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
@@ -318,7 +320,7 @@ StandardError=/dev/null
 		</article>
 		<article id="Docs">
 			<h3>Documentación</h3>
-			<ol id="I"><li><a href="/#cp">Configuración general</a><ol><li><a href="/#cp-0">Cambiar usuario</a></li><li><a href="/#cp-1">Cambiar contraseña</a></li><li><a href="/#cp-2">Directorio de sitios</a></li><li><a href="/#cp-3">Guardar configuración</a></li></ol></li><li><a href="/#tp">Tiempo para cada petición</a><ol><li><a href="/#tp-0">Lectura de cabeceras</a></li><li><a href="/#tp-1">Lectura total de petición</a></li><li><a href="/#tp-2">Escritura de respuesta</a></li><li><a href="/#tp-3">Cierre de conexión inactiva</a></li></ol></li><li><a href="/#fp">Frecuencias de peticiones</a><ol><li><a href="/#fp-0">Contador de peticiones por intervalo</a></li><li><a href="/#fp-1">Peticiones máximas por intervalo</a></li><li><a href="/#fp-2">Tiempo de reinicio de contador</a></li></ol></li><li><a href="/#lp">Límites para cada petición</a><ol><li><a href="/#lp-0">Tamaño máximo de URIs</a></li><li><a href="/#lp-1">Tamaño máximo de cabeceras</a></li><li><a href="/#lp-2">Tamaño máximo de contenidos</a></li></ol></li><li><a href="/#as">Agregar sitio</a><ol><li><a href="/#as-0">Validez de cada sitio</a></li></ol></li><li><a href="/#oss">Opciones para sitios y subdominios</a><ol><li><a href="/#oss-0">Agregar alias</a></li><li><a href="/#oss-1">Crear SSL</a><ol></ol></li><li><a href="/#oss-2">Redirección a HTTPS (R. HTTPS)</a><ol></ol></li><li><a href="/#oss-3">Subir archivos</a></li><li><a href="/#oss-4">Borrar sitio/subdominio</a></li></ol></li><li><a href="/#ossr">Opciones para sitios o subdominios raíz</a><ol><li><a href="/#ossr-0">Redirección a www (R. www)</a><ol></ol></li><li><a href="/#ossr-1">Redirección a raíz (R. raíz)</a><ol></ol></li></ol></li><li><a href="/#aso">Agregar subdominio</a></li><li><a href="/#so">Opciones de subdominios</a><ol><li><a href="/#so-0">Agregar MIME</a></li><li><a href="/#so-1">Agregar cabecera</a></li><li><a href="/#so-2">Agregar reescritura</a><ol></ol></li><li><a href="/#so-3">Agregar preprocesador</a></li><li><a href="/#so-4">Agregar índice</a></li></ol></li></ol>
+			<ol id="I"></ol>
 			<ol id="D">
 				<li>
 					<h4 id="cp">Configuración general</h4>
@@ -688,6 +690,9 @@ StandardError=/dev/null
 							</section>
 						</li>
 					</ol>
+				</li>
+				<li>
+					<h4 id="al">Archivos <i>logs</i></h4>
 				</li>
 			</ol>
 		</article>
