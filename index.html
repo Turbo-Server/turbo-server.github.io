@@ -82,7 +82,7 @@
 				<a><img src="./data/root-sites-subdomains-options.png" alt="Opciones para sitios o subdominios raíz"></a>
 				<a><img src="./data/subdomains-options.png" alt="Opciones para subdominios"></a>
 			</section>
-			<p>Turbo es un servidor web rápido que incluye una interfaz sencilla para configurarlo en tiempo real; organizar uno o más sitios web como dominios y subdominios multinivel; instalar y cambiar certificados SSL fácilmente, o crearlos y renovarlos con la integración a Certbot; adaptar distintos lenguajes de programación asignando preprocesadores para archivos con extensiones específicas; aplicar direcciones web alias, redirecciones de URL y reescrituras de URI; incluir cabeceras (<i>headers</i>) adicionales o modificar cabeceras de tipos de contenidos (MIME) según extensiones de archivos; ajustar frecuencias y cantidades permitidas de peticiones; o limitar tiempos de procesamiento y tamaños para peticiones (<i>requests</i>).</p>
+			<p>Turbo es un servidor web rápido que incluye una interfaz sencilla para configurarlo en tiempo real; organizar uno o más sitios web como dominios y subdominios multinivel; instalar y cambiar certificados SSL fácilmente, o crearlos y renovarlos con la integración a Certbot; adaptar distintos lenguajes de programación asignando preprocesadores para archivos con extensiones específicas; aplicar direcciones web alias, redirecciones de URL y reescrituras de URI; incluir cabeceras (<i>headers</i>) adicionales o modificar cabeceras de tipos de contenidos (MIME) según extensiones de archivos; ajustar frecuencias y cantidades permitidas de peticiones; o limitar tiempos de procesamiento y tamaños para peticiones (<i>requests</i>); e incluye mitigación nativa integrada contra la vulnerabilidad DDoS HTTP/2 Rapid Reset (CVE-2023-44487).</p>
 		</article>
 		<article id="Install">
 			<h3>Instalación</h3>
@@ -260,7 +260,7 @@ StandardError=/dev/null
 				<li><b>Windows</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
 				<li>
-					<a class="D" href="https://github.com/okzgn/turbo-go/releases/download/v2.3.rc2/turbo-v2.3.rc3-windows-x64.exe">https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe</a>
+					<a class="D" href="https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe">https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe</a>
 					<ul>
 						<li><b>Checksum SHA256:</b> <i class="CS">3b110d14278b23c5ae353c174ea9e1f87de14e5289cc77a4fcf8a9ffa40edfc1</i></li>
 						<li><b>Tamaño:</b> 7.81 MB</li>
@@ -339,8 +339,9 @@ StandardError=/dev/null
 					<h5>IMPORTANTE</h5>
 					<ul>
 						<li><b>Los datos de acceso por defecto se restablecen en caso de:</b> reiniciar el proceso, servicio o servidor (VPS, etc.), o al cerrar y volver a ejecutar Turbo.</li>
-						<li><b>Para cambiar los datos de acceso por defecto</b>, compile Turbo desde el código fuente y con las instrucciones del <a target="_blank" href="https://github.com/okzgn/turbo-go">repositorio oficial de Turbo</a>.</li>
-						<li><b>Variables de entorno para usuario, contraseña y directorio de sitios:</b> TURBO_USER, TURBO_PASSWORD, TURBO_DIR (respectivamente).</li>
+						<li><b>Para cambiar los datos de acceso por defecto desde el binario</b>, compile Turbo desde el código fuente y con las instrucciones del <a target="_blank" href="https://github.com/okzgn/turbo-go">repositorio oficial de Turbo</a>.</li>
+						<li><b>Variables de entorno para cambiar usuario, contraseña y directorio de sitios:</b> TURBO_USER, TURBO_PASSWORD, TURBO_DIR (respectivamente). O cambie las credenciales desde la interfaz y guarde la configuración.</li>
+						<li><b>Personalización de la interfaz (GUI):</b> Puede sobreescribir o reemplazar completamente los archivos del panel de administración en tiempo real creando una carpeta llamada <b class="CD">turbo.dev</b> en el directorio de sitios.</li>
 					</ul>
 				</blockquote>
 				<section class="G">
@@ -464,7 +465,7 @@ StandardError=/dev/null
 						<div>
 							<a><img src="./data/add-site.png" alt="Imagen de Agregar sitio"></a>
 						</div>
-						<p>Esta opción crea la estructura de directorios (carpetas) para cada sitio en el <i>directorio de sitios</i>. Se puede agregar como: <i>localhost</i>, IP (v4), o dirección web multinivel (con o sin <i>wildcards</i>). Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier sitio agregado se mostrarán las opciones disponibles, las configuraciones de cada sitio y sus subdominios. En cada sitio, se incluye automáticamente el subdominio raíz, que equivale al mismo sitio, para configurarlo específicamente. No hay límite de sitios ni datos relativos a sitios.</p>
+						<p>Esta opción crea la estructura de directorios (carpetas) para cada sitio en el <i>directorio de sitios</i>. Se puede agregar como: <i>localhost</i>, IP (v4), o dirección web multinivel (con o sin <i>wildcards</i>). Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier sitio agregado se mostrarán las opciones disponibles, las configuraciones de cada sitio y sus subdominios. En cada sitio, se incluye automáticamente el subdominio raíz, que equivale al mismo sitio, para configurarlo específicamente. No hay límite de sitios ni datos relativos a sitios. Los archivos públicos de cada sitio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="CD">@</b>.</p>
 					</section>
 					<ol>
 						<li>
@@ -510,7 +511,7 @@ StandardError=/dev/null
 						<li>
 							<h5 id="oss-2">Redirección a HTTPS (R. HTTPS)</h5>
 							<section>
-								<p>Activa la redirección al protocolo HTTPS de todas las visitas o peticiones por medio de HTTP del sitio o subdominio. Para activar esta opción, se necesita un certificado SSL previamente obtenido con <i>Crear SSL</i>; o colocar archivos válidos (<i>fullchain.pem</i> y <i>privkey.pem</i>) de certificados SSL en el directorio (carpeta) del sitio o subdominio para instalarlos al hacer clic.</p>
+								<p>Activa la redirección al protocolo HTTPS de todas las visitas o peticiones por medio de HTTP del sitio o subdominio. Para activar esta opción, se necesita un certificado SSL previamente obtenido con <i>Crear SSL</i>; o colocar archivos válidos (<i>fullchain.pem</i> y <i>privkey.pem</i>) de certificados SSL en el directorio (carpeta) del sitio o subdominio para instalarlos al hacer clic. La instalación, actualización o desactivación de certificados SSL se realiza en tiempo real en la memoria RAM sin interrumpir las conexiones activas ni requerir el reinicio del servidor.</p>
 							</section>
 							<ol>
 								<li>
@@ -588,7 +589,7 @@ StandardError=/dev/null
 						<div>
 							<a><img src="./data/add-subdomain.png" alt="Imagen de Agregar subdominio"></a>
 						</div>
-						<p>Esta opción crea la estructura de directorios (carpetas) de cada subdominio dentro del directorio del sitio al que pertenece, a excepción del subdominio raíz. Se puede agregar como multinivel (nivel3.nivel2.subdominio) y puede incluir <i>wildcards</i>. Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier subdominio agregado se mostrarán las opciones disponibles y las configuraciones de cada subdominio. No hay límite de subdominios ni datos relativos a subdominios.</p>
+						<p>Esta opción crea la estructura de directorios (carpetas) de cada subdominio dentro del directorio del sitio al que pertenece, a excepción del subdominio raíz. Se puede agregar como multinivel (nivel3.nivel2.subdominio) y puede incluir <i>wildcards</i>. Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier subdominio agregado se mostrarán las opciones disponibles y las configuraciones de cada subdominio. No hay límite de subdominios ni datos relativos a subdominios. Los archivos públicos de cada subdominio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="CD">@</b>.</p>
 					</section>
 				</li>
 				<li>
@@ -713,7 +714,7 @@ StandardError=/dev/null
 								<div>
 									<a><img src="./data/add-preprocessors.png" alt="Imagen de Agregar preprocesador"></a>
 								</div>
-								<p>Asigna el preprocesador determinado para todos los archivos con la extensión especificada del subdominio. El preprocesador requiere procesar y responder, <b class="CB">mediante CGI y las variables de entorno respectivas</b>, las peticiones de los archivos con la extensión especificada.</p>
+								<p>Asigna el preprocesador determinado para todos los archivos con la extensión especificada del subdominio. El preprocesador requiere procesar y responder, <b class="CB">mediante CGI y las variables de entorno respectivas</b>, las peticiones de los archivos con la extensión especificada. Para preprocesadores como <b class="CD">php-cgi</b>, Turbo inyecta automáticamente la variable de entorno <b class="CD">REDIRECT_STATUS=CGI</b>, permitiendo ejecutar scripts de PHP directamente sin modificar el archivo <i>php.ini</i>.</p>
 							</section>
 						</li>
 						<li>
@@ -731,6 +732,24 @@ StandardError=/dev/null
 					<h4 id="al">Archivos de registros (<i>logs</i>)</h4>
 					<section>
 					       <p>Para registrar los accesos rechazados por el limitador de frecuencia, cree un archivo accesible llamado <b class="CB">turbo.denials</b>, y para registrar cada acceso a cada archivo o ruta en el servidor, cree otro archivo llamado <b class="CB">turbo.visits</b>, en el mismo directorio donde esté el ejecutable de <b class="CB">Turbo</b>. Ya que pueden aumentar mucho de tamaño, no cree estos archivos si no necesita registros. Cualquier otro registro se mostrará en la salida estándar (<i>stdout</i>) o en la consola.</p>
+					</section>
+				</li>
+				<li>
+					<h4 id="aid">Agregar IP denegado</h4>
+					<section>
+						<p>Permite bloquear de forma manual e inmediata direcciones IP específicas (IPv4 o IPv6). Se ingresa la dirección IP y la fecha en formato <b class="CD">timestamp UNIX</b> hasta la cual la IP permanecerá bloqueada. Transcurrido ese tiempo, el servidor la desbloquea automáticamente. Para eliminar el bloqueo manualmente antes de la fecha, haga clic sobre la <b class="CD">X</b> de la IP en la lista.</p>
+					</section>
+				</li>
+				<li>
+					<h4 id="arc">Agregar respuesta a código HTTP</h4>
+					<section>
+						<p>Permite personalizar la respuesta o plantilla de texto/HTML devuelta por el servidor cuando ocurre un código de estado de error HTTP determinado (códigos entre <b class="CB">400 y 599</b>, o <b class="CB">0</b> para la respuesta general por defecto). Se utiliza la etiqueta <b class="CD">{TURBO_RESPONSE_CODE}</b> para incluir dinámicamente el código de error en la respuesta.</p>
+					</section>
+				</li>
+				<li>
+					<h4 id="arcr">Agregar reemplazo de caracteres</h4>
+					<section>
+						<p>Permite definir reglas globales de sustitución de caracteres especiales en las URIs recibidas. Sustituye caracteres que puedan causar conflictos con delimitadores de URL (por ejemplo: <b class="CD">;</b> por <b class="CB">-.-</b>, <b class="CD">#</b> por <b class="CB">-,-</b>, o <b class="CD">&amp;</b> por <b class="CB">-_-</b>) por cadenas seguras antes de ser procesadas por el motor de rutas y la interfaz.</p>
 					</section>
 				</li>
 			</ol>
