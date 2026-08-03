@@ -341,7 +341,7 @@ StandardError=/dev/null
 						<li><b>Los datos de acceso por defecto se restablecen en caso de:</b> reiniciar el proceso, servicio o servidor (VPS, etc.), o al cerrar y volver a ejecutar Turbo.</li>
 						<li><b>Para cambiar los datos de acceso por defecto desde el binario</b>, compile Turbo desde el código fuente y con las instrucciones del <a target="_blank" href="https://github.com/okzgn/turbo-go">repositorio oficial de Turbo</a>.</li>
 						<li><b>Variables de entorno para cambiar usuario, contraseña y directorio de sitios:</b> TURBO_USER, TURBO_PASSWORD, TURBO_DIR (respectivamente). O cambie las credenciales desde la interfaz y guarde la configuración.</li>
-						<li><b>Personalización de la interfaz (GUI):</b> Puede sobreescribir o reemplazar completamente los archivos del panel de administración en tiempo real creando una carpeta llamada <b>turbo.dev</b> con sus archivos respectivos (<b>turbo.dev/admin/#.html</b>, <b>turbo.dev/inside/#.html</b>) en el directorio de sitios. <b>Implica conocer a profundidad y de manera avanzada la API comunicativa del backend</b>.</li>
+						<li><b>Personalización de la interfaz (GUI):</b> Puede sobreescribir o reemplazar completamente los archivos del panel de administración en tiempo real creando una carpeta llamada <b>turbo.dev</b> con sus archivos respectivos (<b>turbo.dev/admin/#.html</b>, <b>turbo.dev/inside/#.html</b>) en el directorio de sitios. <b>Implica conocer a profundidad y de manera avanzada la API comunicativa del backend</b> (<a href="https://github.com/okzgn/turbo-go/API_SPECIFICATION.md">documentación de API</a>).</li>
 					</ul>
 				</blockquote>
 				<section class="G">
@@ -465,7 +465,7 @@ StandardError=/dev/null
 						<div>
 							<a><img src="./data/add-site.png" alt="Imagen de Agregar sitio"></a>
 						</div>
-						<p>Esta opción crea la estructura de directorios (carpetas) para cada sitio en el <i>directorio de sitios</i>. Se puede agregar como: <i>localhost</i>, IP (v4), o dirección web multinivel (con o sin <i>wildcards</i>). Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier sitio agregado se mostrarán las opciones disponibles, las configuraciones de cada sitio y sus subdominios. En cada sitio, se incluye automáticamente el subdominio raíz, que equivale al mismo sitio, para configurarlo específicamente. No hay límite de sitios ni datos relativos a sitios. Los archivos públicos de cada sitio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="CD">@</b>.</p>
+						<p>Esta opción crea la estructura de directorios (carpetas) para cada sitio en el <i>directorio de sitios</i>. Se puede agregar como: <i>localhost</i>, IP (v4), o dirección web multinivel (con o sin <i>wildcards</i>). Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier sitio agregado se mostrarán las opciones disponibles, las configuraciones de cada sitio y sus subdominios. En cada sitio, se incluye automáticamente el subdominio raíz, que equivale al mismo sitio, para configurarlo específicamente. No hay límite de sitios ni datos relativos a sitios. Los archivos públicos de cada sitio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="CD">@</b>. El servidor traducirá a <b class="CD">#</b> físicamente en el disco los comodines <b class="CD">*</b> de los dominios con <i>wildcards</i> (ej. <b class="CD">`*.ejemplo.com`</b>).</p>
 					</section>
 					<ol>
 						<li>
@@ -589,7 +589,7 @@ StandardError=/dev/null
 						<div>
 							<a><img src="./data/add-subdomain.png" alt="Imagen de Agregar subdominio"></a>
 						</div>
-						<p>Esta opción crea la estructura de directorios (carpetas) de cada subdominio dentro del directorio del sitio al que pertenece, a excepción del subdominio raíz. Se puede agregar como multinivel (nivel3.nivel2.subdominio) y puede incluir <i>wildcards</i>. Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier subdominio agregado se mostrarán las opciones disponibles y las configuraciones de cada subdominio. No hay límite de subdominios ni datos relativos a subdominios. Los archivos públicos de cada subdominio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="CD">@</b>.</p>
+						<p>Esta opción crea la estructura de directorios (carpetas) de cada subdominio dentro del directorio del sitio al que pertenece, a excepción del subdominio raíz. Se puede agregar como multinivel (nivel3.nivel2.subdominio) y puede incluir <i>wildcards</i>. Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier subdominio agregado se mostrarán las opciones disponibles y las configuraciones de cada subdominio. No hay límite de subdominios ni datos relativos a subdominios. Los archivos públicos de cada subdominio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="CD">@</b>. El servidor traducirá a <b class="CD">#</b> físicamente en el disco los comodines <b class="CD">*</b> de los subdominios con <i>wildcards</i> (ej. <b class="CD">`*.ejemplo.com`</b>).</p>
 					</section>
 				</li>
 				<li>
