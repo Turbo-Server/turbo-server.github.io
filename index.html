@@ -181,7 +181,7 @@ StandardError=/dev/null
 						<blockquote class="A">
 							<h5>Otros comandos:</h5>
 							<ul>
-								<li>Para detener <b>momentáneamente</b> el servicio, use el comando <b class="CA"><i>stop</i></b>.</span></li>
+								<li>Para detener <b>momentáneamente</b> el servicio, use el comando <b class="CA"><i>stop</i></b>.</li>
 								<li>O use <b class="CA"><i>disable</i></b> para detener <b>completamente</b> el servicio del servidor web.</li>
 							</ul>
 						</blockquote>
@@ -341,7 +341,7 @@ StandardError=/dev/null
 						<li><b>Los datos de acceso por defecto se restablecen en caso de:</b> reiniciar el proceso, servicio o servidor (VPS, etc.), o al cerrar y volver a ejecutar Turbo.</li>
 						<li><b>Para cambiar los datos de acceso por defecto desde el binario</b>, compile Turbo desde el código fuente y con las instrucciones del <a target="_blank" href="https://github.com/okzgn/turbo-go">repositorio oficial de Turbo</a>.</li>
 						<li><b>Variables de entorno para cambiar usuario, contraseña y directorio de sitios:</b> TURBO_USER, TURBO_PASSWORD, TURBO_DIR (respectivamente). O cambie las credenciales desde la interfaz y guarde la configuración.</li>
-						<li><b>Personalización de la interfaz (GUI):</b> Puede sobreescribir o reemplazar completamente los archivos del panel de administración en tiempo real creando una carpeta llamada <b>turbo.dev</b> con sus archivos respectivos (<b>turbo.dev/admin/#.html</b>, <b>turbo.dev/inside/#.html</b>) en el directorio de sitios.</li>
+						<li><b>Personalización de la interfaz (GUI):</b> Puede sobreescribir o reemplazar completamente los archivos del panel de administración en tiempo real creando una carpeta llamada <b>turbo.dev</b> con sus archivos respectivos (<b>turbo.dev/admin/#.html</b>, <b>turbo.dev/inside/#.html</b>) en el directorio de sitios. <b>Implica conocer a profundidad y de manera avanzada la API comunicativa del backend</b>.</li>
 					</ul>
 				</blockquote>
 				<section class="G">
@@ -470,7 +470,7 @@ StandardError=/dev/null
 					<ol>
 						<li>
 							<h5 id="as-0">Validez de cada sitio</h5><br>
-							<span>Para que el servidor web responda a las peticiones de cada sitio agregado, necesita tener la dirección IP o que el dominio o subdominio web real apunte a la IP del servidor (mediante DNS).</span>
+							<span>Para que el servidor web responda a las peticiones de cada sitio agregado, necesita tener la dirección IP o que el dominio o subdominio web real apunte al IP del servidor (mediante DNS).</span>
 						</li>
 					</ol>
 				</li>
@@ -638,7 +638,7 @@ StandardError=/dev/null
 									<ol>
 										<li>
 											<h6 data-x="">TURBO_CURRENT_DIR</h6><br>
-											<span>Contiene la ruta desde donde se sirve los sitios web.</span>
+											<span>Contiene la ruta desde donde se sirven los sitios web.</span>
 										</li>
 										<li>
 											<h6 data-x="">WILDCARD_SITE</h6><br>
@@ -731,13 +731,13 @@ StandardError=/dev/null
 				<li>
 					<h4 id="al">Archivos de registros (<i>logs</i>)</h4>
 					<section>
-					       <p>Para registrar los accesos rechazados por el limitador de frecuencia, cree un archivo accesible llamado <b class="CB">turbo.denials</b>, y para registrar cada acceso a cada archivo o ruta en el servidor, cree otro archivo llamado <b class="CB">turbo.visits</b>, en el mismo directorio donde esté el ejecutable de <b class="CB">Turbo</b>. Ya que pueden aumentar mucho de tamaño, no cree estos archivos si no necesita registros. Cualquier otro registro se mostrará en la salida estándar (<i>stdout</i>) o en la consola.</p>
+					    <p>Para registrar los accesos rechazados por el limitador de frecuencia, cree un archivo accesible llamado <b class="CB">turbo.denials</b>, y para registrar cada acceso a cada archivo o ruta en el servidor, cree otro archivo llamado <b class="CB">turbo.visits</b>, en el mismo directorio donde esté el ejecutable de <b class="CB">Turbo</b>. Ya que pueden aumentar mucho de tamaño, no cree estos archivos si no necesita registros. Cualquier otro registro se mostrará en la salida estándar (<i>stdout</i>) o en la consola.</p>
 					</section>
 				</li>
 				<li>
 					<h4 id="aid">Agregar IP denegado</h4>
 					<section>
-						<p>Permite bloquear de forma manual e inmediata direcciones IP específicas (IPv4 o IPv6). Se ingresa la dirección IP y la fecha en formato <b class="CD">timestamp UNIX</b> hasta la cual la IP permanecerá bloqueada. Transcurrido ese tiempo, el servidor la desbloquea automáticamente. Para eliminar el bloqueo manualmente antes de la fecha, haga clic sobre la <b class="CD">X</b> de la IP en la lista.</p>
+						<p>Permite bloquear de forma manual e inmediata direcciones IP específicas (IPv4 o IPv6). Se ingresa la dirección IP y la fecha en formato <b class="CD">timestamp UNIX</b> hasta el cual el IP permanecerá bloqueado. Transcurrido ese tiempo, el servidor la desbloquea automáticamente. Para eliminar el bloqueo manualmente antes de la fecha, haga clic sobre la <b class="CD">X</b> del IP en la lista.</p>
 					</section>
 				</li>
 				<li>
