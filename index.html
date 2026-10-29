@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html spellcheck="false" lang="es">
-	<head>
+<head>
 	<meta charset="UTF-8">
 
-	<title>Turbo</title>
+	<title>Turbo – Servidor web de alto rendimiento con interfaz visual</title>
 	<link rel="icon" href="./i.png">
 	<link rel="apple-touch-icon" href="./i.png">
 	<link rel="canonical" href="https://turbo.okzgn.com">
@@ -12,7 +12,7 @@
 	<meta name="description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
 	<meta name="robots" content="index, follow, max-image-preview:large">
 	<meta name="author" content="OKZGN">
-	<meta name="theme-color" content="#3b7697">
+	<meta name="theme-color" content="#2f6283">
 
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; child-src 'self';">
@@ -24,69 +24,75 @@
 	<meta property="og:site_name" content="OKZGN">
 	<meta property="og:type" content="website">
 
-	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Turbo">
 	<meta name="twitter:description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
 	<meta name="twitter:image" content="https://turbo.okzgn.com/i.png">
 
 	<link rel="preload" href="./i.png" as="image">
-	<link rel="preload" href="./data/t.css" as="style">
-	<link rel="preload" href="./data/s.css" as="style">
-	<link rel="preload" href="./data/x.js" as="script">
+	<link rel="preload" href="./data/base.css" as="style">
+	<link rel="preload" href="./data/site.css" as="style">
+	<link rel="preload" href="./data/site.js" as="script">
 
 	<link rel="preload" href="./data/fb.ttf" as="font" type="font/ttf" crossorigin>
 	<link rel="preload" href="./data/fr.ttf" as="font" type="font/ttf" crossorigin>
 	<link rel="preload" href="./data/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
 
-	<link rel="stylesheet" href="./data/t.css">
-	<link rel="stylesheet" href="./data/s.css">
-	<script src="./data/x.js"></script>
+	<link rel="stylesheet" href="./data/base.css">
+	<link rel="stylesheet" href="./data/site.css">
+	<script src="./data/site.js" defer></script>
 
 	<script type="application/ld+json">
 	{
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Turbo",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Cross-platform",
-      "url": "https://turbo.okzgn.com",
-      "image": "https://turbo.okzgn.com/i.png",
-      "description": "Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.",
-      "author": {
-        "@type": "Person",
-        "name": "Elias Francisco Alvarado Soshina",
-        "jobTitle": "Applied AI, Platform & Software Developer"
-      }
-    }
+		"@context": "https://schema.org",
+		"@type": "SoftwareApplication",
+		"name": "Turbo",
+		"applicationCategory": "DeveloperApplication",
+		"operatingSystem": "Linux, Windows",
+		"softwareVersion": "2.3.rc3",
+		"url": "https://turbo.okzgn.com",
+		"image": "https://turbo.okzgn.com/i.png",
+		"description": "Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.",
+		"offers": {
+			"@type": "Offer",
+			"price": "0",
+			"priceCurrency": "USD"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "Elias Francisco Alvarado Soshina",
+			"jobTitle": "Applied AI, Platform & Software Developer"
+		}
+	}
 	</script>
 </head>
 <body>
 	<header>
-		<h1><img src="./i.png" alt="Logotipo de OKZGN" data-nosnippet><span>Turbo</span></h1>
+		<h1><img src="./i.png" alt="Logotipo de Turbo"><span>Turbo</span></h1>
 	</header>
 	<main>
 		<article id="Start">
 			<h2>Servidor web de alto rendimiento<b> con interfaz visual para configuración en tiempo real.</b></h2>
-			<p>Soporta dominios y subdominios multinivel, certificados SSL, direcciones alias, redirecciones, reescrituras, <i>headers</i> o MIME personalizados. Adapta diferentes lenguajes de programación. Controla frecuencias, cantidades, tiempos y tamaños de <i>requests</i>.</p>
+			<p>Soporta dominios y subdominios multinivel, certificados SSL, direcciones alias, redirecciones, reescrituras, cabeceras (<i>headers</i>) o MIME personalizados. Adapta diferentes lenguajes de programación. Controla frecuencias, cantidades, tiempos y tamaños de las peticiones (<i>requests</i>).</p>
 			<ul>
 				<li><a href="/#Description"><span>Descripción</span></a></li>
 				<li><a href="/#Install"><span>Instalación</span></a></li>
-				<li class="W"><a href="/#Downloads" class="A"><span>Descargar gratis<sub>Versión: 2.3.rc3</sub></span></a></li>
+				<li class="wide"><a href="/#Downloads" class="cta"><span>Descargar gratis<sub>Versión: 2.3.rc3</sub></span></a></li>
 			</ul>
 		</article>
 		<article id="Description">
 			<h3>Descripción</h3>
-			<section class="I">
-				<a><img src="./data/signin.png" alt="Formulario de acceso a la interfaz"></a>
-				<a><img src="./data/gui.png" alt="Vista inicial de la interfaz"></a>
-				<a><img src="./data/root-sites-subdomains-options.png" alt="Opciones para sitios o subdominios raíz"></a>
-				<a><img src="./data/subdomains-options.png" alt="Opciones para subdominios"></a>
+			<section class="gallery">
+				<a href="./data/signin.png"><img src="./data/signin.png" alt="Formulario de acceso a la interfaz" width="1920" height="1080" loading="lazy"></a>
+				<a href="./data/gui.png"><img src="./data/gui.png" alt="Vista inicial de la interfaz" width="1920" height="1080" loading="lazy"></a>
+				<a href="./data/root-sites-subdomains-options.png"><img src="./data/root-sites-subdomains-options.png" alt="Opciones para sitios y subdominios" width="1920" height="1080" loading="lazy"></a>
+				<a href="./data/subdomains-options.png"><img src="./data/subdomains-options.png" alt="Opciones para subdominios" width="1920" height="1080" loading="lazy"></a>
 			</section>
-			<p>Turbo es un servidor web rápido que incluye una interfaz sencilla para configurarlo en tiempo real; organizar uno o más sitios web como dominios y subdominios multinivel; instalar y cambiar certificados SSL fácilmente, o crearlos y renovarlos con la integración a Certbot; adaptar distintos lenguajes de programación asignando preprocesadores para archivos con extensiones específicas; aplicar direcciones web alias, redirecciones de URL y reescrituras de URI; incluir cabeceras (<i>headers</i>) adicionales o modificar cabeceras de tipos de contenidos (MIME) según extensiones de archivos; ajustar frecuencias y cantidades permitidas de peticiones; o limitar tiempos de procesamiento y tamaños para peticiones (<i>requests</i>); e incluye mitigación nativa integrada contra la vulnerabilidad DDoS HTTP/2 Rapid Reset (CVE-2023-44487).</p>
+			<p>Turbo es un servidor web rápido que incluye una interfaz sencilla para configurarlo en tiempo real. Con ella se pueden organizar uno o más sitios web como dominios y subdominios multinivel; instalar y cambiar certificados SSL fácilmente, o crearlos y renovarlos con la integración a Certbot; adaptar distintos lenguajes de programación asignando preprocesadores a archivos con extensiones específicas; aplicar direcciones web alias, redirecciones de URL y reescrituras de URI; incluir cabeceras (<i>headers</i>) adicionales o modificar los tipos de contenido (MIME) según la extensión de los archivos; ajustar las frecuencias y cantidades de peticiones permitidas; y limitar los tiempos de procesamiento y los tamaños de las peticiones (<i>requests</i>). Además, incluye mitigación nativa contra el ataque DDoS HTTP/2 Rapid Reset (CVE-2023-44487).</p>
 		</article>
 		<article id="Install">
 			<h3>Instalación</h3>
-			<details class="A_">
+			<details class="accordion">
 				<summary><span>Linux</span></summary>
 				<blockquote>
 					<h5>REQUISITOS</h5>
@@ -99,96 +105,98 @@
 				</blockquote>
 				<ol>
 					<li>
-						<span><b>Identificar</b> la <b>arquitectura</b> del sistema operativo: <b>ARM64</b> (AArch64) o <b>64 <i>bits</i></b> (x64, x86-64, AMD64).</span>
+						<span><b>Identificar</b> la <b>arquitectura</b> del sistema operativo. Los ejecutables publicados son para <b>64 <i>bits</i></b> (x64, x86-64, AMD64); para otras arquitecturas, como <b>ARM64</b> (AArch64), compile Turbo desde el código fuente siguiendo las instrucciones del <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go">repositorio oficial</a>.</span>
 
-						<h4 class="P">Ejemplo:</h4>
+						<h4 class="pre-title">Ejemplo:</h4>
 	<pre>&gt; <b>uname -m</b></pre>
 
 					</li>
 					<li>
-						<span><b>Obtener</b> <b class="CD">privilegios</b> de usuario <b><i>root</i></b>.</span>
+						<span><b>Verificar</b> que se tienen <b class="c-yellow">privilegios</b> de usuario <b><i>root</i></b> (los comandos siguientes usan <i>sudo</i>).</span>
 
-						<h4 class="P">Ejemplo:</h4>
-	<pre>&gt; <b class="CD">sudo</b></pre>
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; <b class="c-yellow">sudo -v</b></pre>
 
 					</li>
 					<li>
 						<span><b>Habilitar o desbloquear</b> los puertos 80 y 443.</span>
-						<blockquote class="A">Para usuarios de proveedores de VPS (como AWS, Google Cloud, etc.), las opciones están en las consolas de administración.</blockquote>
+						<h4 class="pre-title">Ejemplo (con <i>ufw</i>):</h4>
+	<pre>&gt; sudo <b class="c-yellow">ufw allow</b> 80,443/tcp</pre>
+							<blockquote class="note">Si usa un proveedor de VPS (como AWS, Azure, Google Cloud, etc.), recuerde que también deberá abrir estos puertos desde la consola de administración en la nube.</blockquote>
 					</li>
 					<li>
-						<span><b class="CD">Crear</b> un <b class="CB">directorio (carpeta)</b> para el servidor web.</span>
+						<span><b class="c-yellow">Crear</b> un <b class="c-aqua">directorio (carpeta)</b> para el servidor web.</span>
 
-						<h4 class="P">Ejemplo:</h4>
-	<pre>&gt; sudo <b class="CD">mkdir</b> <b class="CB">/home/server/</b></pre>
-
-					</li>
-					<li>
-						<span><b class="CD"><a href="/#Downloads">Descargar</a></b> el ejecutable para la <b class="CA">arquitectura correspondiente</b> en el <b class="CB">directorio anterior</b>.</span>
-
-							<h4 class="P">Ejemplo: <span class="N"><a data-text-tab-selected="" data-text-tab-target-box="#_s5box" data-text-tab-target="#_s5arch" data-text-tab-content="-amd64" href="/#">64 <i>bits</i></a> <!--| <a data-text-tab-target-box="#_s5box" data-text-tab-target="#_s5arch" data-text-tab-content="-aarch64" href="/#">ARM64</a></span>--></h4>
-	<pre id="_s5box">&gt; sudo <b class="CD">wget https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-linux<b id="_s5arch" class="CA">-amd64</b> -O <b class="CB">/home/server/</b>turbo</b></pre>
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-yellow">mkdir</b> <b class="c-aqua">/home/server/</b></pre>
 
 					</li>
 					<li>
-						<span><b>Otorgar</b> <b class="CD">permisos</b> de lectura, escritura y ejecución al <b class="CA">ejecutable descargado</b>.</span>
+						<span><b class="c-yellow"><a href="/#Downloads">Descargar</a></b> el ejecutable para <b class="c-orange">64 <i>bits</i></b> en el <b class="c-aqua">directorio anterior</b>.</span>
 
-						<h4 class="P">Ejemplo:</h4>
-	<pre>&gt; sudo <b class="CD">chmod 755 /home/server/<b class="CA">turbo</b></b></pre>
+							<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-yellow">wget https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-linux<b class="c-orange">-amd64</b> -O <b class="c-aqua">/home/server/</b>turbo</b></pre>
 
-						<blockquote class="A"><b>Para pruebas</b>, pasar de aquí a <a href="/#Get-started">Cómo utilizar</a>.</blockquote>
 					</li>
 					<li>
-						<span><b>Configurar</b> el ejecutable como servicio (para ejecución en segundo plano).<br><br>En el directorio <b class="CA">/etc/systemd/system/</b>, crear el archivo <b class="CD">turbo.service</b>.</span>
+						<span><b>Otorgar</b> <b class="c-yellow">permisos</b> de lectura, escritura y ejecución al <b class="c-orange">ejecutable descargado</b>.</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-yellow">chmod 755 /home/server/<b class="c-orange">turbo</b></b></pre>
+
+						<blockquote class="note"><b>Para pruebas</b>, pasar de aquí a <a href="/#Get-started">Cómo utilizar</a>.</blockquote>
+					</li>
+					<li>
+						<span><b>Configurar</b> el ejecutable como servicio (para ejecución en segundo plano).<br><br>En el directorio <b class="c-orange">/etc/systemd/system/</b>, crear el archivo <b class="c-yellow">turbo.service</b>.</span>
 
 
-							<h4 class="P">Ejemplo:</h4>
-	<pre>&gt; cd <b class="CA">/etc/systemd/system/</b>
-&gt; sudo <b class="CD">nano turbo.service</b></pre>
+							<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; cd <b class="c-orange">/etc/systemd/system/</b>
+&gt; sudo <b class="c-yellow">nano turbo.service</b></pre>
 
-						<span>Escribir o pegar este <b class="CD">contenido</b> en el editor:</span>
+						<span>Escribir o pegar este <b class="c-yellow">contenido</b> en el editor:</span>
 
-	<pre class="B CD">[Unit]
+	<pre class="file c-yellow">[Unit]
 Description=Turbo
 After=network.target
 
-[Install]
-WantedBy=multi-user.target
-
 [Service]
 Type=simple
-ExecStart=<span class="CC">/home/server/turbo</span>
-WorkingDirectory=<span class="CC">/home/server/</span>
+ExecStart=<span class="c-white">/home/server/turbo</span>
+WorkingDirectory=<span class="c-white">/home/server/</span>
 Restart=always
 RestartSec=5
-StandardOutput=/dev/null
-StandardError=/dev/null
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
 </pre>
 
-						<span>Guardar el archivo <b class="CD">turbo.service</b> (<b>Ctrl + O</b>, <b>Enter</b>, <b>Ctrl + X</b>).<br><br><b class="CA">Actualizar</b> el sistema y <b class="CB">habilitar</b> el servicio.</span>
+						<span>Guardar el archivo <b class="c-yellow">turbo.service</b> (<b>Ctrl + O</b>, <b>Enter</b>, <b>Ctrl + X</b>).<br><br><b class="c-orange">Actualizar</b> el sistema y <b class="c-aqua">habilitar</b> el servicio.</span>
 
-						<h4 class="P">Ejemplo:</h4>
-	<pre>&gt; sudo <b class="CA">systemctl daemon-reload</b>
-&gt; sudo <b class="CB">systemctl enable turbo</b></pre>
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-orange">systemctl daemon-reload</b>
+&gt; sudo <b class="c-aqua">systemctl enable turbo</b></pre>
 
 					</li>
 					<li>
-						<span><b class="CD">Iniciar</b> el servicio de Turbo.</span>
+						<span><b class="c-yellow">Iniciar</b> el servicio de Turbo.</span>
 
-						<h4 class="P">Ejemplo:</h4>
-	<pre>&gt; sudo <b class="CD">systemctl <b class="CA">start</b> turbo</b></pre>
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-yellow">systemctl <b class="c-orange">start</b> turbo</b></pre>
 
-						<blockquote class="A">
+						<blockquote class="note">
 							<h5>Otros comandos:</h5>
 							<ul>
-								<li>Para detener <b>momentáneamente</b> el servicio, use el comando <b class="CA"><i>stop</i></b>.</li>
-								<li>O use <b class="CA"><i>disable</i></b> para detener <b>completamente</b> el servicio del servidor web.</li>
+								<li>Para detener <b>momentáneamente</b> el servicio, use el comando <b class="c-orange"><i>stop</i></b>.</li>
+								<li>O use <b class="c-orange"><i>disable --now</i></b> para detener <b>completamente</b> el servicio e impedir que se inicie con el sistema.</li>
 							</ul>
 						</blockquote>
 					</li>
 				</ol>
 			</details>
-			<details class="A_">
+			<details class="accordion">
 				<summary><span>Windows</span></summary>
 				<blockquote>
 					<h5>REQUISITOS</h5>
@@ -201,31 +209,31 @@ StandardError=/dev/null
 				</blockquote>
 				<ol>
 					<li>
-						<span><b>Crear</b> un <b class="CB">directorio (carpeta)</b> para el servidor web.</span>
+						<span><b>Crear</b> un <b class="c-aqua">directorio (carpeta)</b> para el servidor web.</span>
 
-						<h4 class="P">Ejemplo:</h4>
-	<pre>&gt; <b class="CD">mkdir</b> <b class="CB">C:\server\</b></pre>
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; <b class="c-yellow">mkdir</b> <b class="c-aqua">C:\server\</b></pre>
 					</li>
 					<li>
-						<span><b class="CD"><a href="/#Downloads">Descargar</a></b> y renombrar el ejecutable para Windows en el <b class="CB">directorio anterior</b>.</span>
+						<span><b class="c-yellow"><a href="/#Downloads">Descargar</a></b> el ejecutable para Windows en el <b class="c-aqua">directorio anterior</b>, con el nombre <b class="c-orange">turbo.exe</b>.</span>
 
-						<h4 class="P">Ejemplo:</h4>
-	<pre>&gt; <b class="CD">Invoke-WebRequest https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe -OutFile <b class="CB">C:\server\</b><b class="CA">turbo.exe</b></b></pre>
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; <b class="c-yellow">Invoke-WebRequest https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe -OutFile <b class="c-aqua">C:\server\</b><b class="c-orange">turbo.exe</b></b></pre>
 					</li>
 					<li>
-						<span><b class="CD">Habilitar o desbloquear</b> los puertos 80 y 443 en el <i>firewall</i> de Windows.</span>
+						<span><b class="c-yellow">Habilitar o desbloquear</b> los puertos 80 y 443 en el <i>firewall</i> de Windows.</span>
 
-						<h4 class="P">Ejemplo (ejecutar como Administrador):</h4>
-	<pre>&gt; <b class="CD">New-NetFirewallRule</b> -DisplayName "Turbo" -Direction Inbound -LocalPort 80,443 -Protocol TCP -Action Allow</pre>
-						<blockquote class="A">Para usuarios de proveedores de VPS (Azure, AWS, etc.), recuerde que también deberá abrir estos puertos desde la consola de administración en la nube.</blockquote>
+						<h4 class="pre-title">Ejemplo (ejecutar como Administrador):</h4>
+	<pre>&gt; <b class="c-yellow">New-NetFirewallRule</b> -DisplayName "Turbo" -Direction Inbound -LocalPort 80,443 -Protocol TCP -Action Allow</pre>
+						<blockquote class="note">Si usa un proveedor de VPS (como AWS, Azure, Google Cloud, etc.), recuerde que también deberá abrir estos puertos desde la consola de administración en la nube.</blockquote>
 					</li>
 					<li>
-						<span><b class="CA">Ejecutar Turbo</b> desde la terminal para <b>permitir que el servidor escuche</b> en los puertos 80 y 443.</span>
+						<span><b class="c-orange">Ejecutar Turbo</b> desde la terminal para <b>permitir que el servidor escuche</b> en los puertos 80 y 443.</span>
 
-						<h4 class="P">Ejemplo (ejecutar como Administrador):</h4>
-	<pre>&gt; cd <b class="CB">C:\server\</b>
-&gt; <b class="CA">.\turbo.exe</b></pre>
-						<blockquote class="A"><b>Nota:</b> En Windows, si cierra la ventana de la terminal, el servidor se detendrá. Para mantenerlo activo en segundo plano de forma permanente, puede configurar <i>turbo.exe</i> como un servicio de Windows utilizando herramientas gratuitas como <b>WinSW</b> (recomendado), <b>NSSM</b> o mediante el <b>Programador de tareas</b>.</blockquote>
+						<h4 class="pre-title">Ejemplo (ejecutar como Administrador):</h4>
+	<pre>&gt; cd <b class="c-aqua">C:\server\</b>
+&gt; <b class="c-orange">.\turbo.exe</b></pre>
+						<blockquote class="note"><b>Nota:</b> En Windows, si cierra la ventana de la terminal, el servidor se detendrá. Para mantenerlo activo en segundo plano de forma permanente, puede configurar <i>turbo.exe</i> como un servicio de Windows utilizando herramientas gratuitas como <b>WinSW</b> (recomendado), <b>NSSM</b> o mediante el <b>Programador de tareas</b>.</blockquote>
 					</li>
 				</ol>
 			</details>
@@ -242,27 +250,18 @@ StandardError=/dev/null
 				<li><b>Linux</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
 				<li>
-					<a class="D" href="https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-linux-amd64">https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-linux-amd64</a>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-linux-amd64">https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-linux-amd64</a>
 					<ul>
-						<li><b>Checksum SHA256:</b> <i class="CS">778ba79615dde051d625a4976502e81004d2c9968d06d8b8e7a7024c0fb7787b</i></li>
+						<li><b>Checksum SHA256:</b> <i class="checksum">778ba79615dde051d625a4976502e81004d2c9968d06d8b8e7a7024c0fb7787b</i></li>
 						<li><b>Tamaño:</b> 7.61 MB</li>
 					</ul>
 				</li>
-				<!--<li>Linux</li>
-				<li><b>ARM64</b><br>AArch64</li>
-				<li>
-					<a class="D" href="https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-linux-aarch64">https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-linux-aarch64</a>
-					<ul>
-						<li><b>Checksum SHA256:</b> <i class="CS">...</i></li>
-						<li><b>Tamaño:</b> ... MB</li>
-					</ul>
-				</li>-->
 				<li><b>Windows</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
 				<li>
-					<a class="D" href="https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe">https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe</a>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe">https://github.com/okzgn/turbo-go/releases/download/v2.3.rc3/turbo-v2.3.rc3-windows-x64.exe</a>
 					<ul>
-						<li><b>Checksum SHA256:</b> <i class="CS">3b110d14278b23c5ae353c174ea9e1f87de14e5289cc77a4fcf8a9ffa40edfc1</i></li>
+						<li><b>Checksum SHA256:</b> <i class="checksum">3b110d14278b23c5ae353c174ea9e1f87de14e5289cc77a4fcf8a9ffa40edfc1</i></li>
 						<li><b>Tamaño:</b> 7.81 MB</li>
 					</ul>
 				</li>
@@ -270,102 +269,102 @@ StandardError=/dev/null
 		</article>
 		<article id="Get-started">
 			<h3>Cómo utilizar</h3>
-			<details class="A_">
+			<details class="accordion">
 				<summary><span>Linux</span></summary>
 				<blockquote>
 					<h5>IMPORTANTE</h5>
 					<span><b>Como mínimo</b>, completar la <a href="/#Install">instalación</a> hasta el paso 6.</span>
 				</blockquote>
-				<blockquote class="A">
+				<blockquote class="note">
 					<h5>EN CASO DE:</h5>
 					<ul>
 						<li>No instalar o no iniciar Turbo como servicio (paso 7 u 8).</li>
 						<li>Hacer pruebas.</li>
 					</ul>
-					<span><b class="CA">Ejecutar Turbo</b> para continuar.</span>
+					<span><b class="c-orange">Ejecutar Turbo</b> para continuar.</span>
 
-					<h4 class="P">Ejemplo:</h4>
+					<h4 class="pre-title">Ejemplo:</h4>
 	<pre>&gt; cd /home/server/
-&gt; <b class="CA">sudo ./turbo</b></pre>
+&gt; <b class="c-orange">sudo ./turbo</b></pre>
 
-					<h4 class="P">Ejemplo, ejecutar SIN <i>sudo</i>:</h4>
+					<h4 class="pre-title">Ejemplo, ejecutar SIN <i>sudo</i>:</h4>
 	<pre>&gt; cd /home/server/
 &gt; sudo setcap cap_net_bind_service=+ep ./turbo
-&gt; <b class="CA">./turbo</b></pre>
+&gt; <b class="c-orange">./turbo</b></pre>
 
 				</blockquote>
 			</details>
-			<details class="A_">
+			<details class="accordion">
 				<summary><span>Windows</span></summary>
-				<blockquote class="A">
+				<blockquote class="note">
 					<h5>EN CASO DE:</h5>
 					<ul>
 						<li>Hacer pruebas de configuración.</li>
 						<li>Haber cerrado la terminal donde se ejecutaba el servidor.</li>
 					</ul>
-					<span><b class="CA">Ejecutar Turbo</b> (como Administrador) para continuar.</span>
+					<span><b class="c-orange">Ejecutar Turbo</b> (como Administrador) para continuar.</span>
 
-					<h4 class="P">Ejemplo:</h4>
+					<h4 class="pre-title">Ejemplo:</h4>
 	<pre>&gt; cd C:\server\
-&gt; <b class="CA">.\turbo.exe</b></pre>
+&gt; <b class="c-orange">.\turbo.exe</b></pre>
 				</blockquote>
 			</details>
-			<details id="Get-started-on-interface" class="A_" open>
+			<details id="Get-started-on-interface" class="accordion" open>
 				<summary><span>Interfaz de configuración</span></summary>
-				<p>Acceda a la interfaz (panel de control o administración, GUI) <b class="CD">a través de una de las siguientes direcciones web.</b></p>
+				<p>Acceda a la interfaz (panel de control o administración, GUI) a través de una de las siguientes direcciones web.</p>
 
-				<p>Mediante la <b class="CA">IP pública</b> o el <b class="CA">dominio web</b> del servidor donde instaló Turbo.</p>
+				<p>Mediante la <b class="c-orange">IP pública</b> o el <b class="c-orange">dominio web</b> del servidor donde instaló Turbo.</p>
 				<h4>Ejemplos:</h4>
-				<blockquote class="A N">
-					<b class="K CD">http://<b class="CA">11.22.33.44</b>/admin:</b>
+				<blockquote class="note muted">
+					<b class="text-lg c-yellow">http://<b class="c-orange">11.22.33.44</b>/admin</b>
 					<hr>
-					<b class="K CD">http://<b class="CA">dominio.com</b>/admin:</b>
+					<b class="text-lg c-yellow">http://<b class="c-orange">dominio.com</b>/admin</b>
 				</blockquote>
 
-				<p>O con <b class="CA">localhost</b>, si no está conectado a Internet:</p>
-				<blockquote class="A N"><b class="K CD">http://<b class="CA">localhost</b>/admin:</b></blockquote>
+				<p>O con <b class="c-orange">localhost</b>, desde el mismo equipo donde se ejecuta Turbo:</p>
+				<blockquote class="note muted"><b class="text-lg c-yellow">http://<b class="c-orange">localhost</b>/admin</b></blockquote>
 
 				<p><b>Allí</b>, el formulario de acceso se verá como a continuación.</p>
 				<section>
 					<div>
-						<a><img src="./data/signin.png" alt="Formulario de acceso a la interfaz"></a>
+						<a href="./data/signin.png"><img src="./data/signin.png" alt="Formulario de acceso a la interfaz" width="1920" height="1080" loading="lazy"></a>
 					</div>
-					<blockquote class="A">
+					<blockquote class="note">
 						<h5>Ingrese con los datos por defecto:</h5>
-						<span>Usuario: <b class="CB">Turbo</b><br>Contraseña: <b class="CB">Admin</b></span>
+						<span>Usuario: <b class="c-aqua">Turbo</b><br>Contraseña: <b class="c-aqua">Admin</b></span>
 					</blockquote>
 				</section>
 				<blockquote>
 					<h5>IMPORTANTE</h5>
 					<ul>
 						<li><b>Los datos de acceso por defecto se restablecen en caso de:</b> reiniciar el proceso, servicio o servidor (VPS, etc.), o al cerrar y volver a ejecutar Turbo.</li>
-						<li><b>Para cambiar los datos de acceso por defecto desde el binario</b>, compile Turbo desde el código fuente y con las instrucciones del <a target="_blank" href="https://github.com/okzgn/turbo-go">repositorio oficial de Turbo</a>.</li>
+						<li><b>Para cambiar los datos de acceso por defecto desde el binario</b>, compile Turbo desde el código fuente, siguiendo las instrucciones del <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go">repositorio oficial de Turbo</a>.</li>
 						<li><b>Variables de entorno para cambiar usuario, contraseña y directorio de sitios:</b> TURBO_USER, TURBO_PASSWORD, TURBO_DIR (respectivamente). O cambie las credenciales desde la interfaz y guarde la configuración.</li>
-						<li><b>Personalización de la interfaz (GUI):</b> Puede sobreescribir o reemplazar completamente los archivos del panel de administración en tiempo real creando una carpeta llamada <b>turbo.dev</b> con sus archivos respectivos (<b>turbo.dev/admin/#.html</b>, <b>turbo.dev/inside/#.html</b>) en el directorio de sitios. <b>Implica conocer a profundidad y de manera avanzada la API</b> (<a href="https://github.com/okzgn/turbo-go/blob/main/API_SPECIFICATION.md">documentación de API</a>).</li>
+						<li><b>Personalización de la interfaz (GUI):</b> Puede sobrescribir o reemplazar completamente los archivos del panel de administración en tiempo real creando una carpeta llamada <b>turbo.dev</b> con sus archivos respectivos (<b>turbo.dev/admin/#.html</b>, <b>turbo.dev/inside/#.html</b>) en el directorio de sitios. <b>Implica conocer en profundidad la API</b> (<a href="https://github.com/okzgn/turbo-go/blob/main/API_SPECIFICATION.md">documentación de API</a>).</li>
 					</ul>
 				</blockquote>
-				<section class="G">
-					<p><b>Al ingresar</b>, según la pantalla del dispositivo, la interfaz luce como en la imagen. Desde dentro podrá cambiar el usuario y la contraseña por defecto, o instalar certificados SSL para conectarse de forma segura. <b class="CB">Cada sesión es única y se cierra automáticamente si el lapso de inactividad supera 1 minuto.</b></p>
+				<section class="media-right">
+					<p><b>Al ingresar</b>, según la pantalla del dispositivo, la interfaz luce como en la imagen. Desde dentro podrá cambiar el usuario y la contraseña por defecto, o instalar certificados SSL para conectarse de forma segura. <b>Cada sesión es única y se cierra automáticamente si el lapso de inactividad supera 1 minuto.</b></p>
 					<div>
-						<a><img src="./data/gui.png" alt="Vista de la interfaz"></a>
+						<a href="./data/gui.png"><img src="./data/gui.png" alt="Vista inicial de la interfaz" width="1920" height="1080" loading="lazy"></a>
 					</div>
 				</section>
 				<p>
-					<span><b>Continúe a <a href="/#Docs">Documentación</a></b> para conocer las opciones de la interfaz.</span>
+					<span><b>Continúe con la <a href="/#Docs">Documentación</a></b> para conocer las opciones de la interfaz.</span>
 				</p>
 			</details>
 		</article>
 		<article id="Docs">
 			<h3>Documentación</h3>
-			<ol id="I"></ol>
-			<ol id="D">
+			<ol id="toc"></ol>
+			<ol id="docs-list">
 				<li>
 					<h4 id="cp">Configuración general</h4>
 					<section>
 						<div>
-							<a><img src="./data/config.png" alt="Imagen de Configuración general"></a>
+							<a href="./data/config.png"><img src="./data/config.png" alt="Imagen de Configuración general" width="1920" height="1080" loading="lazy"></a>
 						</div>
-						<p>Estas opciones requerirán la contraseña en el primer cuadro de diálogo. Si se usan por primera vez, ingrese la contraseña por defecto (<a href="/#Get-started-on-interface">vea la sección <i>interfaz de configuración</i></a>).</p>
+						<p>Estas opciones requerirán la contraseña en el primer cuadro de diálogo. Si se usan por primera vez, ingrese la contraseña por defecto (vea la sección <a href="/#Get-started-on-interface"><i>Interfaz de configuración</i></a>).</p>
 					</section>
 					<ol>
 						<li>
@@ -374,15 +373,15 @@ StandardError=/dev/null
 						</li>
 						<li>
 							<h5 id="cp-1">Cambiar contraseña</h5><br>
-							<span>Establecerá la nueva contraseña para la <i>configuración general</i> y el acceso a la interfaz.</span>
+							<span>Establecerá la nueva contraseña para la <i>Configuración general</i> y el acceso a la interfaz.</span>
 						</li>
 						<li>
 							<h5 id="cp-2">Directorio de sitios</h5><br>
-							<span>Cambiará el directorio (carpeta) que el servidor web utiliza para leer, guardar o servir archivos de sitios web. Por defecto, se usa el directorio donde está el ejecutable de Turbo. También puede ingresar la variable: <b class="CD">{TURBO_CURRENT_DIR}</b></span>
+							<span>Cambiará el directorio (carpeta) que el servidor web utiliza para leer, guardar o servir archivos de sitios web. Por defecto, se usa el directorio donde está el ejecutable de Turbo. También puede ingresar la variable: <b class="c-yellow">{TURBO_CURRENT_DIR}</b>.</span>
 						</li>
 						<li>
 							<h5 id="cp-3">Guardar configuración</h5><br>
-							<span>Crea un archivo con toda la configuración del servidor web al momento de guardarse, dentro del <i>directorio de sitios</i>. El archivo se sobrescribe cuando se guarda.</span>
+							<span>Crea un archivo con toda la configuración del servidor web al momento de guardarse, dentro del <i>Directorio de sitios</i>. El archivo se sobrescribe cuando se guarda.</span>
 						</li>
 					</ol>
 				</li>
@@ -390,26 +389,26 @@ StandardError=/dev/null
 					<h4 id="tp">Tiempo para cada petición</h4>
 					<section>
 						<div>
-							<a><img src="./data/request-times.png" alt="Imagen de Tiempo para cada petición"></a>
+							<a href="./data/request-times.png"><img src="./data/request-times.png" alt="Imagen de Tiempo para cada petición" width="1920" height="1080" loading="lazy"></a>
 						</div>
 						<p>Estas opciones se refieren a los tiempos permitidos para procesar o responder las peticiones recibidas por el servidor web. Se pueden especificar en milisegundos (<i>ms</i>), segundos (<i>s</i>) o minutos (<i>m</i>).</p>
 					</section>
 					<ol>
 						<li>
 							<h5 id="tp-0">Lectura de cabeceras</h5><br>
-							<span>Límite de tiempo para procesar los primeros datos estructurales o cabeceras (<i>headers</i>) de cada petición entrante. Superado el límite, se cierra la conexión con el emisor de la petición. Para evitar este límite, escriba: <b class="CD"><i>0s</i></b></span>
+							<span>Límite de tiempo para procesar los primeros datos estructurales o cabeceras (<i>headers</i>) de cada petición entrante. Superado el límite, se cierra la conexión con el emisor de la petición. Para evitar este límite, escriba: <b class="c-yellow"><i>0s</i></b>.</span>
 						</li>
 						<li>
 							<h5 id="tp-1">Lectura total de petición</h5><br>
-							<span>Límite de tiempo para procesar contenidos que están a continuación de las cabeceras (<i>headers</i>) de cada petición entrante, como <i>uploads</i> de archivos. Este límite empieza con la <i>lectura de cabeceras</i>. Superado el límite, se cierra la conexión con el emisor de la petición. Para evitar este límite, escriba: <b class="CD"><i>0s</i></b></span>
+							<span>Límite de tiempo para procesar contenidos que están a continuación de las cabeceras (<i>headers</i>) de cada petición entrante, como <i>uploads</i> de archivos. Este límite empieza con la <i>Lectura de cabeceras</i>. Superado el límite, se cierra la conexión con el emisor de la petición. Para evitar este límite, escriba: <b class="c-yellow"><i>0s</i></b>.</span>
 						</li>
 						<li>
 							<h5 id="tp-2">Escritura de respuesta</h5><br>
-							<span>Límite de tiempo para responder a cada petición procesada. Superado el límite, se corta la respuesta y se cierra la conexión con el receptor. Para evitar este límite, escriba: <b class="CD"><i>0s</i></b></span>
+							<span>Límite de tiempo para responder a cada petición procesada. Superado el límite, se corta la respuesta y se cierra la conexión con el receptor. Para evitar este límite, escriba: <b class="c-yellow"><i>0s</i></b>.</span>
 						</li>
 						<li>
 							<h5 id="tp-3">Cierre de conexión inactiva</h5><br>
-							<span>Límite de tiempo para esperar la siguiente petición, sin cerrar la conexión, con el emisor de cada petición. Superado el límite, se cierra la conexión con el emisor. Para evitar este límite, escriba: <b class="CD"><i>0s</i></b></span>
+							<span>Límite de tiempo para esperar la siguiente petición, sin cerrar la conexión, con el emisor de cada petición. Superado el límite, se cierra la conexión con el emisor. Para evitar este límite, escriba: <b class="c-yellow"><i>0s</i></b>.</span>
 						</li>
 					</ol>
 				</li>
@@ -417,22 +416,22 @@ StandardError=/dev/null
 					<h4 id="fp">Frecuencias de peticiones</h4>
 					<section>
 						<div>
-							<a><img src="./data/rate-limiting.png" alt="Imagen de Frecuencias de peticiones"></a>
+							<a href="./data/rate-limiting.png"><img src="./data/rate-limiting.png" alt="Imagen de Frecuencias de peticiones" width="1920" height="1080" loading="lazy"></a>
 						</div>
 						<p>Estas opciones fijan lapsos de tiempo de referencia y el número de peticiones que, durante esos lapsos, el servidor web aceptará de cada emisor (IP).</p>
 					</section>
 					<ol>
 						<li>
 							<h5 id="fp-0">Contador de peticiones por intervalo</h5><br>
-							<span>Lapso de tiempo referencial para contabilizar las peticiones recibidas de cada emisor, por cada lapso, hasta el límite de <i>peticiones máximas por intervalo</i>. Este contador aumenta con cada petición y se reinicia al <i>tiempo de reinicio de contador</i>. Se escribe el número en milisegundos <b class="CD">sin <i>ms</i></b>.</span>
+							<span>Lapso de tiempo referencial para contabilizar las peticiones recibidas de cada emisor, por cada lapso, hasta el límite de <i>Peticiones máximas por intervalo</i>. Este contador aumenta con cada petición y se reinicia al <i>Tiempo de reinicio de contador</i>. Se escribe el número en milisegundos <b class="c-yellow">sin <i>ms</i></b>.</span>
 						</li>
 						<li>
 							<h5 id="fp-1">Peticiones máximas por intervalo</h5><br>
-							<span>Número límite de peticiones aceptables proporcional para cada <i>contador de peticiones por intervalo</i>. Superado el límite, se cierra y se bloquea temporalmente cualquier conexión con el emisor de peticiones. Se escribe un número <b class="CD">mayor a 0 y compatible con la interfaz</b> (no debe afectar su visualización).</span>
+							<span>Número máximo de peticiones que se aceptan por cada <i>Contador de peticiones por intervalo</i>. Superado el límite, se cierra y se bloquea temporalmente cualquier conexión con el emisor de peticiones. Se escribe un número <b>mayor que 0 y compatible con la interfaz</b> (no debe afectar su visualización).</span>
 						</li>
 						<li>
 							<h5 id="fp-2">Tiempo de reinicio de contador</h5><br>
-							<span>Límite de tiempo para reiniciar el <i>contador de peticiones por intervalo</i> para cada emisor de peticiones. Se escribe el número en milisegundos <b class="CD">sin <i>ms</i></b>.</span>
+							<span>Límite de tiempo para reiniciar el <i>Contador de peticiones por intervalo</i> para cada emisor de peticiones. Se escribe el número en milisegundos <b class="c-yellow">sin <i>ms</i></b>.</span>
 						</li>
 					</ol>
 				</li>
@@ -440,22 +439,22 @@ StandardError=/dev/null
 					<h4 id="lp">Límites para cada petición</h4>
 					<section>
 						<div>
-							<a><img src="./data/request-limits.png" alt="Imagen de Límites para cada petición"></a>
+							<a href="./data/request-limits.png"><img src="./data/request-limits.png" alt="Imagen de Límites para cada petición" width="1920" height="1080" loading="lazy"></a>
 						</div>
 						<p>Estas opciones especifican la cantidad de <i>bytes</i> que el servidor procesará de las peticiones entrantes.</p>
 					</section>
 					<ol>
 						<li>
-							<h5 id="lp-0">Tamaño máximo de <i>URIs</i></h5><br>
-							<span>Límite de longitud de la ruta del archivo, directorio (carpeta) o recurso que se solicita en cada petición. Superado el límite, se rechaza la petición con <b class="CB">estado 414</b>.</span>
+							<h5 id="lp-0">Tamaño máximo de las <i>URI</i></h5><br>
+							<span>Límite de longitud de la ruta del archivo, directorio (carpeta) o recurso que se solicita en cada petición. Superado el límite, se rechaza la petición con <b class="c-aqua">estado 414</b>.</span>
 						</li>
 						<li>
 							<h5 id="lp-1">Tamaño máximo de cabeceras</h5><br>
-							<span>Límite de <i>bytes</i> de cabeceras (<i>headers</i>) de cada petición. Superado el límite, se rechaza la petición con <b class="CB">estado 431</b>.</span>
+							<span>Límite de <i>bytes</i> de cabeceras (<i>headers</i>) de cada petición. Superado el límite, se rechaza la petición con <b class="c-aqua">estado 431</b>.</span>
 						</li>
 						<li>
 							<h5 id="lp-2">Tamaño máximo de contenidos</h5><br>
-							<span>Límite de <i>bytes</i> de contenidos adjuntos a cada petición, como <i>uploads</i> de archivos o POST <i>bodies</i>, entre otros. Por defecto, el servidor no procesa los contenidos adjuntos, el límite aplica siempre que sean utilizados (por la interfaz, por preprocesadores, etc.). Superado el límite, se rechaza la petición con <b class="CB">estado 400</b>.</span>
+							<span>Límite de <i>bytes</i> de contenidos adjuntos a cada petición, como cargas (<i>uploads</i>) de archivos o cuerpos (<i>bodies</i>) de peticiones POST, entre otros. Por defecto, el servidor no procesa los contenidos adjuntos; el límite aplica siempre que sean utilizados (por la interfaz, por preprocesadores, etc.). Superado el límite, se rechaza la petición con <b class="c-aqua">estado 400</b>.</span>
 						</li>
 					</ol>
 				</li>
@@ -463,14 +462,14 @@ StandardError=/dev/null
 					<h4 id="as">Agregar sitio</h4>
 					<section>
 						<div>
-							<a><img src="./data/add-site.png" alt="Imagen de Agregar sitio"></a>
+							<a href="./data/add-site.png"><img src="./data/add-site.png" alt="Imagen de Agregar sitio" width="1920" height="1080" loading="lazy"></a>
 						</div>
-						<p>Esta opción crea la estructura de directorios (carpetas) para cada sitio en el <i>directorio de sitios</i>. Se puede agregar como: <i>localhost</i>, IP (v4), o dirección web multinivel (con o sin <i>wildcards</i>). Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier sitio agregado se mostrarán las opciones disponibles, las configuraciones de cada sitio y sus subdominios. En cada sitio, se incluye automáticamente el subdominio raíz, que equivale al mismo sitio, para configurarlo específicamente. No hay límite de sitios ni datos relativos a sitios. Los archivos públicos de cada sitio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="CD">@</b>. El servidor traducirá a <b class="CD">#</b> físicamente en el disco los comodines <b class="CD">*</b> de los dominios con <i>wildcards</i> (ej. <b class="CD">*.org</b>, <b class="CD">*.com.es</b>).</p>
+						<p>Esta opción crea la estructura de directorios (carpetas) para cada sitio en el <i>Directorio de sitios</i>. Se puede agregar como <i>localhost</i>, IP (v4) o dirección web multinivel, con o sin comodines (<i>wildcards</i>). Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier sitio agregado se mostrarán las opciones disponibles, las configuraciones de cada sitio y sus subdominios. En cada sitio, se incluye automáticamente el subdominio raíz, que equivale al mismo sitio, para configurarlo específicamente. No hay límite de sitios ni datos relativos a sitios. Los archivos públicos de cada sitio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="c-yellow">@</b>. El servidor traducirá a <b class="c-yellow">#</b> físicamente en el disco los comodines <b class="c-yellow">*</b> de los dominios con <i>wildcards</i> (p. ej. <b class="c-yellow">*.org</b>, <b class="c-yellow">*.com.es</b>).</p>
 					</section>
 					<ol>
 						<li>
 							<h5 id="as-0">Validez de cada sitio</h5><br>
-							<span>Para que el servidor web responda a las peticiones de cada sitio agregado, necesita tener la dirección IP o que el dominio o subdominio web real apunte al IP del servidor (mediante DNS).</span>
+							<span>Para que el servidor web responda a las peticiones de cada sitio agregado, este debe ser la dirección IP del servidor o un dominio o subdominio web real que apunte a la IP del servidor (mediante DNS).</span>
 						</li>
 					</ol>
 				</li>
@@ -478,7 +477,7 @@ StandardError=/dev/null
 					<h4 id="oss">Opciones para sitios y subdominios</h4>
 					<section>
 						<div>
-							<a><img src="./data/root-sites-subdomains-options.png" alt="Imagen de Opciones para sitios y subdominios"></a>
+							<a href="./data/root-sites-subdomains-options.png"><img src="./data/root-sites-subdomains-options.png" alt="Imagen de Opciones para sitios y subdominios" width="1920" height="1080" loading="lazy"></a>
 						</div>
 						<p>Opciones disponibles para cualquier sitio o subdominio.</p>
 					</section>
@@ -487,20 +486,20 @@ StandardError=/dev/null
 							<h5 id="oss-0">Agregar alias</h5>
 							<section>
 								<div>
-									<a><img src="./data/site-aliases.png" alt="Imagen de Agregar alias"></a>
+									<a href="./data/site-aliases.png"><img src="./data/site-aliases.png" alt="Imagen de Agregar alias" width="1920" height="1080" loading="lazy"></a>
 								</div>
-								<p>Añade direcciones que dirigen al mismo sitio o subdominio, <b class="CB">sin redireccionar</b>. Los alias añadidos se eliminan haciendo clic en cada uno.</p>
+								<p>Añade direcciones que dirigen al mismo sitio o subdominio, <b>sin redireccionar</b>. Los alias añadidos se eliminan haciendo clic en cada uno.</p>
 							</section>
 						</li>
 						<li>
 							<h5 id="oss-1">Crear SSL</h5>
 							<section>
-								<p>Ejecuta Certbot, si está instalado, para solicitar el certificado SSL para el sitio o subdominio. Certbot se ejecutará en segundo plano, y se mostrará el resultado o el estado del proceso haciendo clic en <i>Respuesta SSL</i>. Si el sitio o subdominio es <i>wildcard</i>, Certbot podría necesitar instalar componentes adicionales para obtener el certificado.</p>
+								<p>Ejecuta Certbot, si está instalado, para solicitar el certificado SSL para el sitio o subdominio. Certbot se ejecutará en segundo plano y se mostrará el resultado o el estado del proceso haciendo clic en <i>Respuesta SSL</i>. Si el sitio o subdominio es <i>wildcard</i>, Certbot podría necesitar instalar componentes adicionales para obtener el certificado.</p>
 							</section>
 							<ol>
 								<li>
 									<h6>Borrar SSL</h6><br>
-									<span>Elimina los archivos del certificado SSL relativos al sitio o subdominio. Si el certificado está activo por la opción <i>Redirección HTTPS (R. HTTPS)</i>, <b class="CD">se mantendrá en memoria RAM hasta que se desactive</b>, aunque esté expirado.</span>
+									<span>Elimina los archivos del certificado SSL relativos al sitio o subdominio. Si el certificado está activo por la opción <i>Redirección a HTTPS (R. HTTPS)</i>, <b>se mantendrá en memoria RAM hasta que se desactive</b>, aunque esté expirado.</span>
 								</li>
 								<li>
 									<h6>Respuesta SSL</h6><br>
@@ -516,19 +515,19 @@ StandardError=/dev/null
 							<ol>
 								<li>
 									<h6>Sin redirección a HTTPS (Sin r. HTTPS)</h6><br>
-									<span>Desinstala y borra de la memoria RAM el certificado SSL activo del sitio o subdominio. Pero no elimina los archivos del certificado del directorio (carpeta) del sitio o subdominio.</span>
+									<span>Desinstala y borra de la memoria RAM el certificado SSL activo del sitio o subdominio, pero no elimina los archivos del certificado del directorio (carpeta) del sitio o subdominio.</span>
 								</li>
 								<li>
 									<h6>Colocación de archivos de certificado SSL</h6><br>
-									<span>Las ubicaciones correctas de <b class="CD">archivos de certificados SSL</b> en el <b class="CA">directorio (carpeta)</b> de cada sitio o subdominio son como las siguientes.<br><br><b>Para sitios o subdominios raíz</b>:</span>
-									<blockquote class="A N">
-										<b class="CB">/home/server/</b><b class="CA">dominio.com/</b><b class="CD">fullchain.pem</b><br>
-										<b class="CB">/home/server/</b><b class="CA">dominio.com/</b><b class="CD">privkey.pem</b>
+									<span>Las ubicaciones correctas de <b class="c-yellow">archivos de certificados SSL</b> en el <b class="c-orange">directorio (carpeta)</b> de cada sitio o subdominio son como las siguientes.<br><br><b>Para sitios o subdominios raíz</b>:</span>
+									<blockquote class="note muted">
+										<b class="c-aqua">/home/server/</b><b class="c-orange">dominio.com/</b><b class="c-yellow">fullchain.pem</b><br>
+										<b class="c-aqua">/home/server/</b><b class="c-orange">dominio.com/</b><b class="c-yellow">privkey.pem</b>
 									</blockquote>
 									<span><b>Para otros subdominios</b>:</span>
-									<blockquote class="A N">
-										<b class="CB">/home/server/</b><b class="CA">dominio.com/subdominio/</b><b class="CD">fullchain.pem</b><br>
-										<b class="CB">/home/server/</b><b class="CA">dominio.com/subdominio/</b><b class="CD">privkey.pem</b>
+									<blockquote class="note muted">
+										<b class="c-aqua">/home/server/</b><b class="c-orange">dominio.com/subdominio/</b><b class="c-yellow">fullchain.pem</b><br>
+										<b class="c-aqua">/home/server/</b><b class="c-orange">dominio.com/subdominio/</b><b class="c-yellow">privkey.pem</b>
 									</blockquote>
 								</li>
 							</ol>
@@ -536,13 +535,13 @@ StandardError=/dev/null
 						<li>
 							<h5 id="oss-3">Subir archivos</h5>
 							<section>
-								<p>Elimina el contenido del directorio (carpeta) del sitio o subdominio y sube en su lugar los archivos o directorios seleccionados.</p>
+								<p>Elimina los archivos públicos del sitio o subdominio y sube en su lugar los archivos o directorios seleccionados. Los certificados SSL no se ven afectados, ya que se guardan separados de los archivos públicos.</p>
 							</section>
 						</li>
 						<li>
 							<h5 id="oss-4">Borrar sitio/subdominio</h5>
 							<section>
-								<p>Elimina todo lo relacionado con un sitio o subdominio, incluido el directorio (carpeta). Si es sitio, los subdominios también se eliminarán con toda la información relacionada. Si es subdominio raíz, esta opción se mostrará como <i>Borrar sitio</i>, ya que equivale al mismo sitio. En cualquier caso, no se harán cambios en el archivo de configuración hasta que se utilice la opción <i>guardar configuración</i>.</p>
+								<p>Elimina todo lo relacionado con un sitio o subdominio, incluido el directorio (carpeta). Si es sitio, los subdominios también se eliminarán con toda la información relacionada. Si es subdominio raíz, esta opción se mostrará como <i>Borrar sitio</i>, ya que equivale al mismo sitio. En cualquier caso, no se harán cambios en el archivo de configuración hasta que se utilice la opción <i>Guardar configuración</i>.</p>
 							</section>
 						</li>
 					</ol>
@@ -556,9 +555,9 @@ StandardError=/dev/null
 						<li>
 							<h5 id="ossr-0">Redirección a www (R. www)</h5><br>
 							<span>Redirige automáticamente hacia el subdominio www las visitas o peticiones al subdominio raíz. Si esta opción se activa, la redirección contraria no podrá activarse. Ejemplo:</span>
-							<blockquote class="A N">
-								<b>Visita: </b><b class="CD">https://dominio.com</b><br>
-								<b>Redirección: </b><b class="CA">https://www.dominio.com</b>
+							<blockquote class="note muted">
+								<b>Visita: </b><b class="c-yellow">https://dominio.com</b><br>
+								<b>Redirección: </b><b class="c-orange">https://www.dominio.com</b>
 							</blockquote>
 							<ol>
 								<li>
@@ -570,9 +569,9 @@ StandardError=/dev/null
 						<li>
 							<h5 id="ossr-1">Redirección a raíz (R. raíz)</h5><br>
 							<span>Redirige automáticamente hacia el subdominio raíz las visitas o peticiones al subdominio www. Si esta opción se activa, la redirección contraria no podrá activarse. Ejemplo:</span>
-							<blockquote class="A N">
-								<b>Visita: </b><b class="CD">https://www.dominio.com</b><br>
-								<b>Redirección: </b><b class="CA">https://dominio.com</b>
+							<blockquote class="note muted">
+								<b>Visita: </b><b class="c-yellow">https://www.dominio.com</b><br>
+								<b>Redirección: </b><b class="c-orange">https://dominio.com</b>
 							</blockquote>
 							<ol>
 								<li>
@@ -587,16 +586,16 @@ StandardError=/dev/null
 					<h4 id="aso">Agregar subdominio</h4>
 					<section>
 						<div>
-							<a><img src="./data/add-subdomain.png" alt="Imagen de Agregar subdominio"></a>
+							<a href="./data/add-subdomain.png"><img src="./data/add-subdomain.png" alt="Imagen de Agregar subdominio" width="1920" height="1080" loading="lazy"></a>
 						</div>
-						<p>Esta opción crea la estructura de directorios (carpetas) de cada subdominio dentro del directorio del sitio al que pertenece, a excepción del subdominio raíz. Se puede agregar como multinivel (nivel3.nivel2.subdominio) y puede incluir <i>wildcards</i>. Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier subdominio agregado se mostrarán las opciones disponibles y las configuraciones de cada subdominio. No hay límite de subdominios ni datos relativos a subdominios. Los archivos públicos de cada subdominio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="CD">@</b>. El servidor traducirá a <b class="CD">#</b> físicamente en el disco los comodines <b class="CD">*</b> de los subdominios con <i>wildcards</i> (ej. <b class="CD">*.ejemplo.com</b>, <b class="CD">*.area.dominio.org</b>).</p>
+						<p>Esta opción crea la estructura de directorios (carpetas) de cada subdominio dentro del directorio del sitio al que pertenece, a excepción del subdominio raíz. Se puede agregar como multinivel (nivel3.nivel2.subdominio) y puede incluir <i>wildcards</i>. Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier subdominio agregado se mostrarán las opciones disponibles y las configuraciones de cada subdominio. No hay límite de subdominios ni datos relativos a subdominios. Los archivos públicos de cada subdominio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="c-yellow">@</b>. El servidor traducirá a <b class="c-yellow">#</b> físicamente en el disco los comodines <b class="c-yellow">*</b> de los subdominios con <i>wildcards</i> (p. ej. <b class="c-yellow">*.ejemplo.com</b>, <b class="c-yellow">*.area.dominio.org</b>).</p>
 					</section>
 				</li>
 				<li>
 					<h4 id="so">Opciones de subdominios</h4>
 					<section>
 						<div>
-							<a><img src="./data/subdomains-options.png" alt="Imagen de Opciones de subdominios"></a>
+							<a href="./data/subdomains-options.png"><img src="./data/subdomains-options.png" alt="Imagen de Opciones de subdominios" width="1920" height="1080" loading="lazy"></a>
 						</div>
 						<p>Opciones disponibles para cualquier subdominio.</p>
 					</section>
@@ -605,104 +604,104 @@ StandardError=/dev/null
 							<h5 id="so-0">Agregar MIME</h5>
 							<section>
 								<div>
-									<a><img src="./data/add-mimes.png" alt="Imagen de Agregar MIME"></a>
+									<a href="./data/add-mimes.png"><img src="./data/add-mimes.png" alt="Imagen de Agregar MIME" width="1920" height="1080" loading="lazy"></a>
 								</div>
-								<p>Agrega una sobrescritura de la cabecera (<i>header</i>) <i>Content-Type</i> por defecto de los archivos con la extensión especificada del subdominio, por el contenido ingresado. Es posible especificar una extensión vacía para referirse a archivos sin extensión (como en la imagen).</p>
+								<p>Reemplaza la cabecera (<i>header</i>) <i>Content-Type</i> por defecto de los archivos del subdominio que tengan la extensión especificada, por el contenido ingresado. Es posible especificar una extensión vacía para referirse a archivos sin extensión (como en la imagen).</p>
 							</section>
 						</li>
 						<li>
 							<h5 id="so-1">Agregar cabecera</h5>
 							<section>
 								<div>
-									<a><img src="./data/add-headers.png" alt="Imagen de Agregar cabecera"></a>
+									<a href="./data/add-headers.png"><img src="./data/add-headers.png" alt="Imagen de Agregar cabecera" width="1920" height="1080" loading="lazy"></a>
 								</div>
-								<p>Agrega la cabecera (<i>header</i>) con el nombre y contenido especificado a todos los archivos del subdominio.</p>
+								<p>Agrega la cabecera (<i>header</i>) con el nombre y el contenido especificados a todos los archivos del subdominio.</p>
 							</section>
 						</li>
 						<li>
 							<h5 id="so-2">Agregar reescritura</h5>
 							<section>
 								<div>
-									<a><img src="./data/add-rewrites.png" alt="Imagen de Agregar reescritura"></a>
+									<a href="./data/add-rewrites.png"><img src="./data/add-rewrites.png" alt="Imagen de Agregar reescritura" width="1920" height="1080" loading="lazy"></a>
 								</div>
-								<p>Agrega una reescritura de la ruta de archivo, directorio, o recurso (URI) determinado, para tratarlo internamente como otra ruta de archivo, directorio o recurso especificado <b class="CB">sin redireccionarlo</b>. No es obligatorio ingresar una URI existente. Se puede acceder a la información de la primera URI y datos del sitio y subdominio con palabras clave (útil en sitios o subdominios con <i>wildcards</i> y para preprocesadores).<br><br><b class="CB">Para redireccionar normalmente</b> una ruta relativa, ingrese solo el dominio de destino. La ruta se añadirá automáticamente al dominio.</p>
+								<p>Agrega una reescritura de la ruta de archivo, directorio o recurso (URI) determinado, para tratarlo internamente como otra ruta de archivo, directorio o recurso especificado <b>sin redireccionarlo</b>. No es obligatorio ingresar una URI existente. Se puede acceder a la información de la primera URI y datos del sitio y subdominio con palabras clave (útil en sitios o subdominios con <i>wildcards</i> y para preprocesadores).<br><br><b>Para redireccionar normalmente</b> una ruta relativa, ingrese solo el dominio de destino. La ruta se añadirá automáticamente al dominio.</p>
 							</section>
 							<ol>
 								<li>
 									<h6>Información accesible</h6><br>
-									<span>Al incluir <b class="CB">palabras clave</b> en las reescrituras, se reemplazarán por la información respectiva. Se escriben de la siguiente <b class="CA">manera</b>:</span>
-									<blockquote class="A N K">
-										<b class="CA">{<b class="CB">PALABRA_CLAVE</b>}</b>
+									<span>Al incluir <b>palabras clave</b> en las reescrituras, se reemplazarán por la información respectiva. Se escriben de la siguiente manera:</span>
+									<blockquote class="note muted text-lg">
+										<b class="c-orange">{<b class="c-aqua">PALABRA_CLAVE</b>}</b>
 									</blockquote>
 									<span><b>Palabras clave disponibles:</b></span>
 									<ol>
 										<li>
-											<h6 data-x="">TURBO_CURRENT_DIR</h6><br>
+											<h6 data-no-toc="">TURBO_CURRENT_DIR</h6><br>
 											<span>Contiene la ruta desde donde se sirven los sitios web.</span>
 										</li>
 										<li>
-											<h6 data-x="">WILDCARD_SITE</h6><br>
+											<h6 data-no-toc="">WILDCARD_SITE</h6><br>
 											<span>Contiene la dirección web completa (con subdominio y dominio) del sitio <i>wildcard</i> al que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">WILDCARD_DOMAIN</h6><br>
+											<h6 data-no-toc="">WILDCARD_DOMAIN</h6><br>
 											<span>Contiene el dominio web del sitio <i>wildcard</i> al que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">WILDCARD_SUBDOMAIN</h6><br>
+											<h6 data-no-toc="">WILDCARD_SUBDOMAIN</h6><br>
 											<span>Contiene el subdominio web del sitio <i>wildcard</i> al que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">DOMAIN</h6><br>
+											<h6 data-no-toc="">DOMAIN</h6><br>
 											<span>Contiene el dominio web del sitio al que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">SUBDOMAIN</h6><br>
+											<h6 data-no-toc="">SUBDOMAIN</h6><br>
 											<span>Contiene el subdominio web del sitio al que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">SITE</h6><br>
+											<h6 data-no-toc="">SITE</h6><br>
 											<span>Contiene la dirección web completa (con subdominio y dominio) del sitio al que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">FIRST_DOMAIN</h6><br>
+											<h6 data-no-toc="">FIRST_DOMAIN</h6><br>
 											<span>Contiene el dominio web alias al que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">FIRST_SUBDOMAIN</h6><br>
+											<h6 data-no-toc="">FIRST_SUBDOMAIN</h6><br>
 											<span>Contiene el subdominio web alias al que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">FIRST_SITE</h6><br>
-											<span>Contiene la dirección web alias completa (con subdominio y dominio) al que pertenece.</span>
+											<h6 data-no-toc="">FIRST_SITE</h6><br>
+											<span>Contiene la dirección web alias completa (con subdominio y dominio) a la que pertenece.</span>
 										</li>
 										<li>
-											<h6 data-x="">FIRST_REQUEST</h6><br>
+											<h6 data-no-toc="">FIRST_REQUEST</h6><br>
 											<span>Contiene la ruta o URI completa que se reescribió.</span>
 										</li>
 										<li>
-											<h6 data-x="">FIRST_QUERY</h6><br>
-											<span>Contiene las <i>querys</i> de la URI que se reescribió.</span>
+											<h6 data-no-toc="">FIRST_QUERY</h6><br>
+											<span>Contiene los parámetros de consulta (<i>query string</i>) de la URI que se reescribió.</span>
 										</li>
 										<li>
-											<h6 data-x="">DIR</h6><br>
+											<h6 data-no-toc="">DIR</h6><br>
 											<span>Contiene el directorio (carpeta) de la URI que se reescribió.</span>
 										</li>
 										<li>
-											<h6 data-x="">FILE</h6><br>
+											<h6 data-no-toc="">FILE</h6><br>
 											<span>Contiene el nombre del archivo que se reescribió.</span>
 										</li>
 										<li>
-											<h6 data-x="">EXT</h6><br>
+											<h6 data-no-toc="">EXT</h6><br>
 											<span>Contiene la extensión del archivo que se reescribió.</span>
 										</li>
 										<li>
-											<h6 data-x="">REWRITE</h6><br>
+											<h6 data-no-toc="">REWRITE</h6><br>
 											<span>Contiene la reescritura misma.</span>
 										</li>
 										<li>
-											<h6 data-x="">REWRITE_COMPLEMENT</h6><br>
-											<span>Contiene las <i>querys</i> de la reescritura misma.</span>
+											<h6 data-no-toc="">REWRITE_COMPLEMENT</h6><br>
+											<span>Contiene los parámetros de consulta (<i>query string</i>) de la reescritura misma.</span>
 										</li>
 									</ol>
 								</li>
@@ -712,18 +711,18 @@ StandardError=/dev/null
 							<h5 id="so-3">Agregar preprocesador</h5>
 							<section>
 								<div>
-									<a><img src="./data/add-preprocessors.png" alt="Imagen de Agregar preprocesador"></a>
+									<a href="./data/add-preprocessors.png"><img src="./data/add-preprocessors.png" alt="Imagen de Agregar preprocesador" width="1920" height="1080" loading="lazy"></a>
 								</div>
-								<p>Asigna el preprocesador determinado para todos los archivos con la extensión especificada del subdominio. El preprocesador requiere procesar y responder, <b class="CB">mediante CGI y las variables de entorno respectivas</b>, las peticiones de los archivos con la extensión especificada.<br>Para preprocesadores como <b class="CD">php-cgi</b>, Turbo inyecta automáticamente la variable de entorno <b class="CD">REDIRECT_STATUS=CGI</b>, permitiendo ejecutar scripts de PHP directamente sin modificar el archivo <i>php.ini</i>.<br><br><b class="CD">IMPORTANTE:</b> En caso de que el binario no exista o la configuración para preprocesar los archivos no esté activa, los archivos para uso dinámico (preprocesados, usualmente código) serán servidos como estáticos (texto plano, etc., dependiendo del MIME), <b class="CB">lo que puede exponer la confidencialidad de estos archivos y su código fuente</b>.</p>
+								<p>Asigna el preprocesador determinado para todos los archivos con la extensión especificada del subdominio. El preprocesador debe procesar y responder, mediante CGI y las variables de entorno respectivas, las peticiones de los archivos con la extensión especificada.<br><br>Para preprocesadores como <b class="c-yellow">php-cgi</b>, Turbo inyecta automáticamente la variable de entorno <b class="c-yellow">REDIRECT_STATUS=CGI</b>, permitiendo ejecutar scripts de PHP directamente sin modificar el archivo <i>php.ini</i>.<br><br><b>IMPORTANTE:</b> En caso de que el binario no exista o la configuración para preprocesar los archivos no esté activa, los archivos para uso dinámico (preprocesados, usualmente código) serán servidos como estáticos (texto plano, etc., dependiendo del MIME), <b>lo que puede comprometer la confidencialidad de estos archivos y su código fuente</b>.</p>
 							</section>
 						</li>
 						<li>
 							<h5 id="so-4">Agregar índice</h5>
 							<section>
 								<div>
-									<a><img src="./data/add-indexes.png" alt="Imagen de Agregar índice"></a>
+									<a href="./data/add-indexes.png"><img src="./data/add-indexes.png" alt="Imagen de Agregar índice" width="1920" height="1080" loading="lazy"></a>
 								</div>
-								<p>Agrega el archivo por defecto para responder a peticiones (<i>requests</i>) de directorios (carpetas). Es necesario que el archivo especificado exista en cada directorio. Si se especifica más de uno, la prioridad son los archivos asociados con preprocesadores.</p>
+								<p>Agrega el archivo por defecto para responder a peticiones (<i>requests</i>) de directorios (carpetas). Es necesario que el archivo especificado exista en cada directorio. Si se especifica más de uno, tienen prioridad los archivos asociados con preprocesadores.</p>
 							</section>
 						</li>
 					</ol>
@@ -731,25 +730,25 @@ StandardError=/dev/null
 				<li>
 					<h4 id="al">Archivos de registros (<i>logs</i>)</h4>
 					<section>
-					    <p>Para registrar los accesos rechazados por el limitador de frecuencia, cree un archivo accesible llamado <b class="CB">turbo.denials</b>, y para registrar cada acceso a cada archivo o ruta en el servidor, cree otro archivo llamado <b class="CB">turbo.visits</b>, en el mismo directorio donde esté el ejecutable de <b class="CB">Turbo</b>. Ya que pueden aumentar mucho de tamaño, no cree estos archivos si no necesita registros. Cualquier otro registro se mostrará en la salida estándar (<i>stdout</i>) o en la consola.</p>
+						<p>Para registrar los accesos rechazados por el limitador de frecuencia, cree un archivo accesible llamado <b class="c-aqua">turbo.denials</b>, y para registrar cada acceso a cada archivo o ruta en el servidor, cree otro archivo llamado <b class="c-aqua">turbo.visits</b>, en el mismo directorio donde esté el ejecutable de <b class="c-aqua">Turbo</b>. Ya que pueden aumentar mucho de tamaño, no cree estos archivos si no necesita registros. Cualquier otro registro se mostrará en la salida estándar (<i>stdout</i>) o en la consola.</p>
 					</section>
 				</li>
 				<li>
-					<h4 id="aid">Agregar IP denegado</h4>
+					<h4 id="aid">Agregar IP denegada</h4>
 					<section>
-						<p>Permite bloquear de forma manual e inmediata direcciones IP específicas (IPv4 o IPv6). Se ingresa la dirección IP y la fecha en formato <b class="CD">timestamp UNIX</b> hasta el cual el IP permanecerá bloqueado. Transcurrido ese tiempo, el servidor la desbloquea automáticamente. Para eliminar el bloqueo manualmente antes de la fecha, haga clic sobre la <b class="CD">X</b> del IP en la lista.</p>
+						<p>Permite bloquear de forma manual e inmediata direcciones IP específicas (IPv4 o IPv6). Se ingresa la dirección IP y la fecha en formato <b class="c-yellow">timestamp UNIX</b> hasta la cual la IP permanecerá bloqueada. Transcurrido ese tiempo, el servidor la desbloquea automáticamente. Para eliminar el bloqueo manualmente antes de la fecha, haga clic sobre la <b class="c-yellow">X</b> de la IP en la lista.</p>
 					</section>
 				</li>
 				<li>
 					<h4 id="arc">Agregar respuesta a código HTTP</h4>
 					<section>
-						<p>Permite personalizar la respuesta o plantilla de texto/HTML devuelta por el servidor cuando ocurre un código de estado de error HTTP determinado (códigos entre <b class="CB">400 y 599</b>, o <b class="CB">0</b> para la respuesta general por defecto). Se utiliza la etiqueta <b class="CD">{TURBO_RESPONSE_CODE}</b> para incluir dinámicamente el código de error en la respuesta.</p>
+						<p>Permite personalizar la respuesta o plantilla de texto/HTML devuelta por el servidor cuando ocurre un código de estado de error HTTP determinado (códigos entre <b class="c-aqua">400 y 599</b>, o <b class="c-aqua">0</b> para la respuesta general por defecto). Se utiliza la etiqueta <b class="c-yellow">{TURBO_RESPONSE_CODE}</b> para incluir dinámicamente el código de error en la respuesta.</p>
 					</section>
 				</li>
 				<li>
 					<h4 id="arcr">Agregar reemplazo de caracteres</h4>
 					<section>
-						<p>Permite definir reglas globales de sustitución de caracteres especiales en las URIs recibidas. Sustituye caracteres que puedan causar conflictos con delimitadores de URL (por ejemplo: <b class="CD">;</b> por <b class="CB">-.-</b>, <b class="CD">#</b> por <b class="CB">-,-</b>, o <b class="CD">&amp;</b> por <b class="CB">-_-</b>) por cadenas seguras antes de ser procesadas por el motor de rutas y la interfaz.</p>
+						<p>Permite definir reglas globales de sustitución de caracteres especiales en las URI recibidas. Sustituye caracteres que puedan causar conflictos con delimitadores de URL (por ejemplo: <b class="c-yellow">;</b> por <b class="c-aqua">-.-</b>, <b class="c-yellow">#</b> por <b class="c-aqua">-,-</b>, o <b class="c-yellow">&amp;</b> por <b class="c-aqua">-_-</b>) por cadenas seguras antes de ser procesadas por el motor de rutas y la interfaz.</p>
 					</section>
 				</li>
 			</ol>
@@ -757,13 +756,12 @@ StandardError=/dev/null
 	</main>
 	<footer id="License">
 		<div>
-			<div class="O"><img src="./i.png" alt="Isotipo de OKZGN"><b>Turbo</b></div>
-			<!--<p>...</p>-->
+			<div class="brand"><img src="./i.png" alt="Logotipo de Turbo"><b>Turbo</b></div>
 			<h2>Licencia</h2>
 			<p>Turbo utiliza un modelo de licencia dual:</p>
 			<ul class="list">
-				<li><strong>Código Abierto (AGPL v3):</strong> Es software libre bajo la licencia <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License (AGPL v3)</a>. Al modificar este software y ofrecerlo como servicio a través de una red, debe publicar los cambios bajo la misma licencia.</li>
-				<li><strong>Licencia Comercial:</strong> Si desea usar Turbo en proyectos propietarios, integrarlo en un producto cerrado o eximirse de los requisitos de la AGPL v3, puede adquirir una licencia comercial. Para consultas o contacto, visite uno de los siguientes enlaces:
+				<li><strong>Código abierto (AGPL v3):</strong> Es software libre bajo la licencia <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License (AGPL v3)</a>. Al modificar este software y ofrecerlo como servicio a través de una red, debe publicar los cambios bajo la misma licencia.</li>
+				<li><strong>Licencia comercial:</strong> Si desea usar Turbo en proyectos propietarios, integrarlo en un producto cerrado o eximirse de los requisitos de la AGPL v3, puede adquirir una licencia comercial. Para consultas o contacto, visite uno de los siguientes enlaces:
 					<ul class="list">
 						<li><a href="https://okzgn.com/#contact">https://okzgn.com/#contact</a></li>
 						<li><a href="https://okzgn.github.io/#contact">https://okzgn.github.io/#contact</a></li>
@@ -771,29 +769,29 @@ StandardError=/dev/null
 				</li>
 			</ul>
 			<hr>
-			<h4>Componentes de Terceros</h4>
-			<p>El paquete <code class="CB">customNetHttp</code> contiene una versión modificada de la librería estándar <code class="CB">net/http</code> de Go (basada en v1.19/1.18), distribuida bajo la licencia <a target="_blank" href="https://opensource.org/license/bsd-3-clause">BSD de 3 cláusulas</a>. Consulte los archivos <code class="CB">customNetHttp/LICENSE</code>, <code class="CB">customNetHttp/PATENTS</code> y <code class="CB">customNetHttp/NOTICE</code> en el directorio para obtener todos los detalles y atribuciones.</p>
+			<h4>Componentes de terceros</h4>
+			<p>El paquete <code class="c-aqua">customNetHttp</code> contiene una versión modificada de la librería estándar <code class="c-aqua">net/http</code> de Go (basada en v1.19/1.18), distribuida bajo la licencia <a target="_blank" rel="noopener" href="https://opensource.org/license/bsd-3-clause">BSD de 3 cláusulas</a>. Consulte los archivos <code class="c-aqua">customNetHttp/LICENSE</code>, <code class="c-aqua">customNetHttp/PATENTS</code> y <code class="c-aqua">customNetHttp/NOTICE</code> en el directorio para obtener todos los detalles y atribuciones.</p>
 			<hr>
 			<h4>GitHub</h4>
-			<p><a target="_blank" href="https://github.com/okzgn/turbo-go">https://github.com/okzgn/turbo-go</a></p>
-			<div class="copyright">&copy; 2026 <a target="_blank" href="https://okzgn.com">OKZGN</a></div>
+			<p><a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go">https://github.com/okzgn/turbo-go</a></p>
+			<div class="copyright">&copy; 2026 <a target="_blank" rel="noopener" href="https://okzgn.com">OKZGN</a></div>
 		</div>
 		<div class="arrow-links">
-			<h5><img src="okzgn_logo_mobile.svg" alt="Logotipo de OKZGN"></h5>
+			<p><img src="okzgn_logo_mobile.svg" alt="Logotipo de OKZGN"></p>
 			<ul>
-				<li><a target="_blank" href="https://okzgn.com/#main">Inicio</a></li>
-				<li><a target="_blank" href="https://okzgn.com/#services">Servicios</a></li>
-				<li><a target="_blank" href="https://okzgn.com/#projects">Proyectos</a></li>
-				<li><a target="_blank" href="https://okzgn.com/#contact">Contacto</a></li>
+				<li><a target="_blank" rel="noopener" href="https://okzgn.com/#main">Inicio</a></li>
+				<li><a target="_blank" rel="noopener" href="https://okzgn.com/#services">Servicios</a></li>
+				<li><a target="_blank" rel="noopener" href="https://okzgn.com/#projects">Proyectos</a></li>
+				<li><a target="_blank" rel="noopener" href="https://okzgn.com/#contact">Contacto</a></li>
 			</ul>
 		</div>
 	</footer>
-	<div id="M">
-		<a><img src="./i.png" alt="Isotipo de Turbo"></a>
-		<input type="checkbox" id="m"><label for="m" aria-label="Menu"><b></b><b></b><b></b></label>
+	<div id="menu">
+		<a><img src="./i.png" alt="Logotipo de Turbo"></a>
+		<input type="checkbox" id="menu-toggle" aria-label="Menú"><label for="menu-toggle"><b></b><b></b><b></b></label>
 		<nav>
 			<ol data-index="">
-				<li><a href="/#Start" class="A">Inicio</a></li>
+				<li><a href="/#Start" class="is-active">Inicio</a></li>
 				<li><a href="/#Description">Descripción</a></li>
 				<li><a href="/#Install">Instalación</a></li>
 				<li><a href="/#Downloads">Descargas</a></li>
@@ -803,7 +801,9 @@ StandardError=/dev/null
 			</ol>
 		</nav>
 	</div>
-	<div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div><div class="L"></div>
-	<div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div><div class="R"></div>
+	<div id="rain" aria-hidden="true">
+		<div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div>
+		<div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div>
+	</div>
 </body>
 </html>

@@ -1,0 +1,623 @@
+/* Base: design tokens, reset, shared components (code blocks, notes, accordion), header, menu and background rain. */
+
+:root {
+	--navy: #214263;
+	--navy-90: rgba(33, 66, 99, 0.9);
+
+	--blue: #2f6283;
+	--blue-light: #639ebf;
+	--aqua: #b3dcff;
+
+	--gray: #808080;
+	--white: #f0f0f0;
+	--black: #000;
+	--orange: #ff9d2d;
+	--orange-text: #ffbd6e;
+	--yellow: #ffdd66;
+
+	--shade-1: rgba(0, 0, 0, 0.125);
+	--shade-2: rgba(0, 0, 0, 0.25);
+	--shade-3: rgba(0, 0, 0, 0.5);
+	--light-1: rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- Fonts ---------- */
+
+@font-face {
+	font-family: 'Body';
+	src: url(fr.ttf) format('truetype');
+	font-weight: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Body';
+	src: url(fb.ttf) format('truetype');
+	font-weight: bold;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Mono';
+	src: url(IBMPlexMono-Regular.ttf) format('truetype');
+	font-display: swap;
+}
+
+/* ---------- Reset and globals ---------- */
+
+*, ::after, ::before {
+	outline: 0;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scrollbar-color: var(--black) var(--gray);
+	scrollbar-width: thin;
+	transition-property: color, background-color, border-color, opacity, transform;
+	transition-duration: 0.125s;
+	font-family: 'Body', Helvetica, Arial, sans-serif;
+	font-size: inherit;
+}
+:active, :focus {
+	outline: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+	outline: 0.15rem solid var(--yellow);
+	outline-offset: 0.15rem;
+}
+::selection {
+	background: var(--black) !important;
+	color: var(--gray);
+}
+::placeholder {
+	color: var(--white);
+	opacity: 0.5;
+}
+::-webkit-scrollbar {
+	width: 0.25rem;
+	height: 0.25rem;
+}
+::-webkit-scrollbar-thumb { background: var(--black); }
+::-webkit-scrollbar-track { background: var(--gray); }
+html, body {
+	width: 100%;
+	height: 100%;
+}
+html {
+	background: linear-gradient(to bottom, var(--blue), var(--navy)) fixed;
+	scroll-behavior: smooth;
+}
+body {
+	overscroll-behavior: none;
+	text-align: left;
+	font-size: 1rem;
+	line-height: 1.55;
+	color: var(--white);
+	text-shadow: 0 0.05rem 0.05rem var(--shade-1);
+}
+h1, h2, h3, h4, h5, h6 { line-height: 1.25; }
+a {
+	text-decoration: none;
+	color: var(--white);
+}
+a:hover, a:active, a:focus { color: var(--orange-text); }
+ol, ul { list-style: none; }
+img { height: auto; }
+hr {
+	width: 100%;
+	height: 1px;
+	background: var(--light-1);
+	margin: 0.5rem 0;
+}
+h3 {
+	padding: 2rem;
+	font-size: 1.75rem;
+	color: var(--yellow);
+	text-align: center;
+	text-shadow: 0 0.05rem 0.05rem var(--shade-1), 0 0 1rem var(--shade-2);
+	border-bottom: 0.15rem solid var(--yellow);
+}
+
+/* ---------- Color utilities ---------- */
+
+.c-orange { color: var(--orange-text); }
+.c-aqua { color: var(--aqua); }
+.c-white { color: var(--white); }
+.c-yellow, .c-yellow a { color: var(--yellow); }
+
+/* ---------- Code blocks: title, block and copy button ---------- */
+
+.pre-title, pre + blockquote, pre + span, span + pre, span + blockquote {
+	margin-top: 1rem;
+	display: block;
+}
+pre, pre * { font-family: 'Mono', 'Courier New', Courier, monospace !important; }
+pre { overflow: auto; }
+pre, .pre-title {
+	border-radius: 1rem;
+	padding: 1rem;
+}
+pre, .copy::before {
+	background: var(--black);
+	color: var(--white);
+}
+/* The button hangs from the bottom edge of the code block, so it must sit at the very top of its line. */
+pre + div {
+	text-align: right;
+	line-height: 1.25;
+}
+.copy {
+	display: inline-block;
+	vertical-align: top;
+	text-decoration: none !important;
+}
+.copy::before {
+	display: block;
+	content: 'Copiar';
+	padding: 0 1rem;
+	border-radius: 1rem;
+	border-bottom: 0.5rem solid var(--black);
+	font-weight: bold;
+	margin-right: 1rem;
+	position: relative;
+	top: -1px;
+}
+.copy:hover::before { color: var(--yellow); }
+.copy:active::before, .copy[data-copied]::before {
+	content: '¡Copiado!';
+	color: var(--orange);
+}
+pre:not(.file), .copy::before {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+pre::selection,
+pre *::selection {
+	background: var(--white) !important;
+	color: var(--black) !important;
+}
+.pre-title {
+	color: var(--black);
+	background: var(--white);
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+/* ---------- Notes (blockquote) ---------- */
+
+blockquote {
+	border-radius: 1rem;
+	padding: 1rem;
+	background: var(--yellow) linear-gradient(to bottom, var(--orange), transparent 25%);
+}
+blockquote, blockquote a, blockquote a:hover, blockquote a:active, blockquote a:focus { color: var(--black); }
+blockquote a { text-decoration: underline; }
+blockquote > h5 { margin-bottom: 0.5rem; }
+blockquote > ul li, .list li {
+	padding-bottom: 0 !important;
+	padding-top: 0.5rem;
+}
+blockquote > ul li::before, .list li::before {
+	content: '—';
+	display: inline-block;
+	width: 1rem;
+	overflow: hidden;
+	margin-right: 0.25rem;
+	vertical-align: middle;
+}
+h3, blockquote { margin-bottom: 1rem; }
+blockquote.note {
+	border: 1px solid var(--blue-light);
+	background: none;
+}
+blockquote.note, blockquote.note a { color: var(--white); }
+blockquote.muted {
+	border-color: var(--light-1);
+	background: var(--shade-1);
+}
+blockquote:not(.note) a:focus-visible { outline-color: var(--black); }
+.text-lg { font-size: 1.25rem; }
+
+/* ---------- Accordion (details) ---------- */
+
+details.accordion > summary { list-style: none; }
+details.accordion > summary::-webkit-details-marker { display: none; }
+details.accordion > summary > span {
+	font-size: 1.5rem;
+	color: var(--white);
+	background: linear-gradient(to bottom, var(--shade-2), var(--shade-3));
+	text-align: center;
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
+	line-height: 1.25;
+	display: block;
+	cursor: pointer;
+	position: relative;
+	user-select: none;
+	transition: transform 0.1s;
+}
+details.accordion > summary > span:active { transform: scale(0.98); }
+details.accordion > summary > span::after {
+	content: '+';
+	position: absolute;
+	right: 1.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--yellow);
+	font-size: 2.5rem;
+	line-height: 0;
+}
+details.accordion[open] > summary > span { font-weight: bold; }
+details.accordion[open] > summary > span::after {
+	content: '—';
+	color: var(--orange);
+}
+details.accordion > *:not(summary) { animation: accordion-in 0.4s ease-out; }
+@keyframes accordion-in {
+	from { opacity: 0; transform: translateY(-0.5rem); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Header and brand ---------- */
+
+header {
+	padding: 1rem;
+	display: flex;
+}
+h1, .brand {
+	line-height: 0 !important;
+	position: relative;
+	font-size: 1.75rem;
+	display: flex;
+}
+h1 > *, .brand > * { align-self: center; }
+h1 img, .brand img {
+	height: 3rem;
+	filter: drop-shadow(0 0.05rem 0.05rem var(--shade-1));
+	margin-right: 1rem;
+}
+.brand:hover, .brand:active, .brand:focus { color: var(--white); }
+
+/* ---------- Menu (#menu gets .is-compact once the header scrolls out of view) ---------- */
+
+#menu input, #menu label, nav {
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+#menu.is-compact > a {
+	background: linear-gradient(to bottom, var(--black), var(--navy-90));
+	display: flex !important;
+	padding: 1rem;
+	position: fixed;
+	top: 0;
+	left: -7rem;
+	opacity: 0;
+	animation: menu-logo-in 0.5s ease-out 0s normal forwards;
+	border-bottom-right-radius: 2rem;
+}
+#menu.is-compact > a img {
+	width: 3rem;
+	height: 3rem;
+}
+h1, #menu.is-compact > a { z-index: 3; }
+@keyframes menu-logo-in {
+	to {
+		left: 0;
+		opacity: 1;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	#menu label, #menu label b { cursor: pointer; }
+	#menu li:last-child { margin: 0 !important; }
+	#menu > a { display: none; }
+	nav {
+		background: var(--navy) linear-gradient(to bottom, var(--blue-light), transparent);
+		width: 5%;
+		height: 5vh;
+		overflow: hidden;
+		z-index: 1;
+		display: none;
+		animation: menu-open 0.25s ease-in-out 0s normal 1 forwards;
+		border-radius: 50%;
+		box-shadow: none;
+	}
+	nav, nav li { opacity: 0; }
+	nav li { animation: fade-in 0.25s ease-in-out 0.125s normal 1 forwards; }
+	nav li a {
+		display: block;
+		padding: 0.5rem 0 0.25rem 0;
+		box-shadow: 0 0 0.5rem var(--shade-1);
+	}
+	nav li a:hover, nav li a:focus, nav li a:active, nav li a.is-active, nav li a.is-near {
+		transform: scale(1.125);
+		background: linear-gradient(to left, transparent, var(--shade-2), transparent);
+		box-shadow: 0 0 0.5rem var(--shade-1);
+	}
+	nav li a.is-active { background: linear-gradient(to left, transparent, var(--light-1), transparent); }
+	nav li a.is-active, nav li a.is-near {
+		color: var(--yellow);
+		font-weight: bold;
+	}
+	nav li a::after {
+		content: '';
+		display: block;
+		margin-top: 0.25rem;
+		width: 50%;
+		height: 0.15rem;
+		position: relative;
+		transform: rotate3d(0, 0, 1, 90deg);
+		left: -25%;
+		opacity: 0;
+	}
+	nav li a:hover::after, nav li a:focus::after, nav li a:active::after, nav li a.is-active::after {
+		filter: drop-shadow(0 0.05rem 0.05rem var(--shade-1));
+		background: linear-gradient(to right, var(--orange), transparent);
+		transform: rotate3d(0, 0, 0, 0deg);
+		left: 0;
+		opacity: 1;
+		transition: all 0.25s;
+	}
+	nav li a.is-active::after {
+		background: linear-gradient(to right, var(--yellow), transparent);
+	}
+	@keyframes fade-in { to { opacity: 1; } }
+	@keyframes menu-open {
+		50% {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		75% { box-shadow: none; }
+		to {
+			border-radius: 2rem;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			width: 66%;
+			height: 100vh;
+			opacity: 1;
+			box-shadow: 0 0 5rem var(--navy);
+		}
+	}
+	#menu input, #menu label { display: block; }
+	#menu input {
+		opacity: 0;
+		width: 1px;
+		height: 1px;
+		pointer-events: none;
+	}
+	#menu input:focus-visible + label {
+		outline: 0.15rem solid var(--yellow);
+		outline-offset: -0.5rem;
+	}
+	#menu label {
+		z-index: 2;
+		padding: 1.675rem 1rem;
+	}
+	#menu.is-compact label {
+		border-bottom-left-radius: 2rem;
+		background: linear-gradient(to bottom, var(--black), var(--navy-90));
+	}
+	#menu label b {
+		position: relative;
+		display: block;
+		width: 1.75rem;
+		height: 0.375rem;
+		border-radius: 0.25rem;
+		background: var(--white);
+		filter: drop-shadow(0 0.05rem 0.05rem var(--shade-1));
+		transition: transform 0.125s, top 0.125s, opacity 0.125s, background-color 0.125s;
+	}
+	#menu label b:first-child, #menu label b:first-child + b, nav li { margin-bottom: 0.25rem; }
+	#menu label:hover b { background: var(--yellow); }
+	#menu label:active b { background: var(--orange); }
+	#menu input:checked + label { background: transparent !important; }
+	#menu input:checked + label b:first-child {
+		transform: rotate(45deg);
+		top: 0.625rem;
+	}
+	#menu input:checked + label b:first-child + b { opacity: 0; }
+	#menu input:checked + label b:last-child {
+		top: -0.625rem;
+		transform: rotate(-45deg);
+	}
+	#menu input:checked + label + nav { display: block; }
+	#menu ol {
+		display: flex;
+		flex-flow: column;
+		height: 100%;
+		justify-content: center;
+		text-align: center;
+	}
+}
+@media screen and (max-width: 640px) {
+	@keyframes menu-open {
+		50% { border-top-right-radius: 0; }
+		to {
+			width: 100%;
+			height: 100vh;
+			border-radius: 0;
+			opacity: 1;
+		}
+	}
+}
+@media screen and (min-width: 961px) {
+	#menu > input, #menu label { display: none; }
+	#menu > a { display: none !important; }
+	#menu nav ol {
+		padding: 1rem 0.25rem;
+		display: flex;
+		height: 5rem;
+		overflow: hidden;
+		justify-content: flex-end;
+	}
+	#menu.is-compact nav ol {
+		background: linear-gradient(to bottom, var(--black), var(--navy-90));
+		border-bottom-left-radius: 2rem;
+	}
+	#menu nav li {
+		align-self: center;
+		font-weight: bold;
+	}
+	#menu nav a {
+		display: inline-block;
+		padding: 0 0.75rem;
+		position: relative;
+	}
+	#menu nav a.is-active {
+		color: var(--yellow);
+		top: 0.15rem;
+	}
+	#menu nav a.is-active::after {
+		content: '';
+		display: block;
+		height: 0.15rem;
+		margin-top: 0.15rem;
+		background: var(--yellow);
+	}
+}
+
+/* ---------- Background rain (24 lines on the left, 25 on the right) ---------- */
+
+.rain-l, .rain-r {
+	position: absolute;
+	top: -75vh;
+	height: 75vh;
+	background-image: linear-gradient(0deg, transparent 50%, var(--aqua) 50%);
+	background-size: 0.75rem 0.75rem;
+	opacity: 0.3;
+	pointer-events: none;
+}
+.rain-l { left: 0; }
+.rain-r { right: 0; }
+.rain-l:nth-child(even) { width: 0.075rem; }
+.rain-l:nth-child(odd) { width: 0.125rem; }
+.rain-r:nth-child(even) { width: 0.1rem; }
+.rain-r:nth-child(odd) { width: 0.15rem; }
+
+.rain-l:nth-child(1) { left: 4vw; animation: rain-short 1s linear 0.1s alternate infinite; }
+.rain-l:nth-child(2) { left: 8vw; animation: rain-long 1.5s linear 0s alternate infinite; }
+.rain-l:nth-child(3) { left: 12vw; animation: rain-short 1s linear 0.4s alternate infinite; }
+.rain-l:nth-child(4) { left: 16vw; animation: rain-long 1.5s linear 0.05s alternate infinite; }
+.rain-l:nth-child(5) { left: 20vw; animation: rain-short 1s linear 0.7s alternate infinite; }
+.rain-l:nth-child(6) { left: 24vw; animation: rain-long 1.5s linear 0.1s alternate infinite; }
+.rain-l:nth-child(7) { left: 28vw; animation: rain-short 1s linear 1s alternate infinite; }
+.rain-l:nth-child(8) { left: 32vw; animation: rain-long 1.5s linear 0.15s alternate infinite; }
+.rain-l:nth-child(9) { left: 36vw; animation: rain-short 1s linear 1.3s alternate infinite; }
+.rain-l:nth-child(10) { left: 40vw; animation: rain-long 1.5s linear 0.2s alternate infinite; }
+.rain-l:nth-child(11) { left: 44vw; animation: rain-short 1s linear 1.6s alternate infinite; }
+.rain-l:nth-child(12) { left: 48vw; animation: rain-long 1.5s linear 0.25s alternate infinite; }
+.rain-l:nth-child(13) { left: 52vw; animation: rain-short 1s linear 1.9s alternate infinite; }
+.rain-l:nth-child(14) { left: 56vw; animation: rain-long 1.5s linear 0.3s alternate infinite; }
+.rain-l:nth-child(15) { left: 60vw; animation: rain-short 1s linear 2.2s alternate infinite; }
+.rain-l:nth-child(16) { left: 64vw; animation: rain-long 1.5s linear 0.35s alternate infinite; }
+.rain-l:nth-child(17) { left: 68vw; animation: rain-short 1s linear 2.5s alternate infinite; }
+.rain-l:nth-child(18) { left: 72vw; animation: rain-long 1.5s linear 0.4s alternate infinite; }
+.rain-l:nth-child(19) { left: 76vw; animation: rain-short 1s linear 2.8s alternate infinite; }
+.rain-l:nth-child(20) { left: 80vw; animation: rain-long 1.5s linear 0.45s alternate infinite; }
+.rain-l:nth-child(21) { left: 84vw; animation: rain-short 1s linear 3.1s alternate infinite; }
+.rain-l:nth-child(22) { left: 88vw; animation: rain-long 1.5s linear 0.5s alternate infinite; }
+.rain-l:nth-child(23) { left: 92vw; animation: rain-short 1s linear 3.4s alternate infinite; }
+.rain-l:nth-child(24) { left: 96vw; animation: rain-long 1.5s linear 0.55s alternate infinite; }
+
+.rain-r:nth-child(25) { right: 2vw; animation: rain-long 1.5s linear 0.1s alternate infinite; }
+.rain-r:nth-child(26) { right: 6vw; animation: rain-mid 1.75s linear 0s alternate infinite; }
+.rain-r:nth-child(27) { right: 10vw; animation: rain-long 1.5s linear 0.4s alternate infinite; }
+.rain-r:nth-child(28) { right: 14vw; animation: rain-mid 1.75s linear 0.1s alternate infinite; }
+.rain-r:nth-child(29) { right: 18vw; animation: rain-long 1.5s linear 0.7s alternate infinite; }
+.rain-r:nth-child(30) { right: 22vw; animation: rain-mid 1.75s linear 0.2s alternate infinite; }
+.rain-r:nth-child(31) { right: 26vw; animation: rain-long 1.5s linear 1s alternate infinite; }
+.rain-r:nth-child(32) { right: 30vw; animation: rain-mid 1.75s linear 0.3s alternate infinite; }
+.rain-r:nth-child(33) { right: 34vw; animation: rain-long 1.5s linear 1.3s alternate infinite; }
+.rain-r:nth-child(34) { right: 38vw; animation: rain-mid 1.75s linear 0.4s alternate infinite; }
+.rain-r:nth-child(35) { right: 42vw; animation: rain-long 1.5s linear 1.6s alternate infinite; }
+.rain-r:nth-child(36) { right: 46vw; animation: rain-mid 1.75s linear 0.5s alternate infinite; }
+.rain-r:nth-child(37) { right: 50vw; animation: rain-long 1.5s linear 1.9s alternate infinite; }
+.rain-r:nth-child(38) { right: 54vw; animation: rain-mid 1.75s linear 0.6s alternate infinite; }
+.rain-r:nth-child(39) { right: 58vw; animation: rain-long 1.5s linear 2.2s alternate infinite; }
+.rain-r:nth-child(40) { right: 62vw; animation: rain-mid 1.75s linear 0.7s alternate infinite; }
+.rain-r:nth-child(41) { right: 66vw; animation: rain-long 1.5s linear 2.5s alternate infinite; }
+.rain-r:nth-child(42) { right: 70vw; animation: rain-mid 1.75s linear 0.8s alternate infinite; }
+.rain-r:nth-child(43) { right: 74vw; animation: rain-long 1.5s linear 2.8s alternate infinite; }
+.rain-r:nth-child(44) { right: 78vw; animation: rain-mid 1.75s linear 0.9s alternate infinite; }
+.rain-r:nth-child(45) { right: 82vw; animation: rain-long 1.5s linear 3.1s alternate infinite; }
+.rain-r:nth-child(46) { right: 86vw; animation: rain-mid 1.75s linear 1s alternate infinite; }
+.rain-r:nth-child(47) { right: 90vw; animation: rain-long 1.5s linear 3.4s alternate infinite; }
+.rain-r:nth-child(48) { right: 94vw; animation: rain-mid 1.75s linear 1.1s alternate infinite; }
+.rain-r:nth-child(49) { right: 98vw; animation: rain-long 1.5s linear 3.7s alternate infinite; }
+
+@media screen and (min-width: 961px) {
+	.rain-l, .rain-r {
+		opacity: 0.35;
+		background-size: 0.9rem 0.9rem;
+	}
+}
+@media screen and (max-width: 640px) {
+	.rain-l, .rain-r {
+		opacity: 0.25;
+		background-size: 0.6rem 0.6rem;
+	}
+	#rain > :nth-child(4n), #rain > :nth-child(4n+1) { display: none; }
+}
+
+@keyframes rain-short {
+	66% { height: 25vh; }
+	to {
+		top: 100vh;
+		opacity: 0;
+	}
+}
+@keyframes rain-mid {
+	to {
+		top: 125vh;
+		opacity: 0;
+	}
+}
+@keyframes rain-long {
+	66% { height: 100vh; }
+	to {
+		top: 150vh;
+		opacity: 0;
+	}
+}
+
+/* ---------- Image viewer (dialog opened by site.js) ---------- */
+
+a[href$='.png'] { cursor: zoom-in; }
+.viewer {
+	margin: auto;
+	max-width: 96vw;
+	max-height: 96vh;
+	background: none;
+	overflow: visible;
+	cursor: zoom-out;
+}
+.viewer::backdrop { background: rgba(0, 0, 0, 0.85); }
+.viewer img {
+	display: block;
+	max-width: 96vw;
+	max-height: calc(96vh - 3rem);
+	border-radius: 0.5rem;
+	box-shadow: 0 0 2rem var(--shade-3);
+}
+.viewer p {
+	margin-top: 0.5rem;
+	text-align: center;
+	color: var(--white);
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+	:not(#rain > *), ::before, ::after {
+		animation-duration: 0.01ms !important;
+		animation-delay: 0s !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+	html { scroll-behavior: auto; }
+	/* The rain stays as part of the identity, but slow and faint. */
+	#rain > * {
+		animation-duration: 8s;
+		opacity: 0.15;
+	}
+}
