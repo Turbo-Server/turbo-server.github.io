@@ -152,7 +152,7 @@ pre + div {
 }
 .copy::before {
 	display: block;
-	content: 'Copiar';
+	content: 'Copy';
 	padding: 0 1rem;
 	border-radius: 1rem;
 	border-bottom: 0.5rem solid var(--black);
@@ -163,9 +163,11 @@ pre + div {
 }
 .copy:hover::before { color: var(--yellow); }
 .copy:active::before, .copy[data-copied]::before {
-	content: '¡Copiado!';
+	content: 'Copied!';
 	color: var(--orange);
 }
+:lang(es) .copy::before { content: 'Copiar'; }
+:lang(es) .copy:active::before, :lang(es) .copy[data-copied]::before { content: '¡Copiado!'; }
 pre:not(.file), .copy::before {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;

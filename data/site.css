@@ -290,7 +290,7 @@ section:not(.gallery) > div + *, section.media-right > *:first-child { width: 70
 	border-radius: 1rem;
 }
 #Downloads li a::before {
-	content: 'Archivo:';
+	content: 'File:';
 	margin-right: 0.5rem;
 }
 #Downloads li a:hover,
@@ -303,9 +303,13 @@ section:not(.gallery) > div + *, section.media-right > *:first-child { width: 70
 #Downloads li a:hover::before,
 #Downloads li a:active::before,
 #Downloads li a:focus-visible::before {
-	content: 'Descargar:';
+	content: 'Download:';
 	color: var(--yellow);
 }
+:lang(es) #Downloads li a::before { content: 'Archivo:'; }
+:lang(es) #Downloads li a:hover::before,
+:lang(es) #Downloads li a:active::before,
+:lang(es) #Downloads li a:focus-visible::before { content: 'Descargar:'; }
 .checksum { font-size: 0.77rem; }
 /* On phones each download becomes a card: OS and architecture side by side, the file below. */
 @media screen and (max-width: 640px) {

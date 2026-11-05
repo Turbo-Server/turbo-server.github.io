@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html spellcheck="false" lang="es">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Turbo – Servidor web de alto rendimiento con interfaz visual</title>
+	<link rel="icon" href="../i.png">
+	<link rel="apple-touch-icon" href="../i.png">
+	<link rel="canonical" href="https://turbo.okzgn.com/es/">
+	<link rel="alternate" hreflang="en" href="https://turbo.okzgn.com/">
+	<link rel="alternate" hreflang="es" href="https://turbo.okzgn.com/es/">
+	<link rel="alternate" hreflang="x-default" href="https://turbo.okzgn.com/">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
+	<meta name="robots" content="index, follow, max-image-preview:large">
+	<meta name="author" content="OKZGN">
+	<meta name="theme-color" content="#2f6283">
+
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; child-src 'self';">
+
+	<meta property="og:title" content="Turbo">
+	<meta property="og:description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
+	<meta property="og:image" content="https://turbo.okzgn.com/i.png">
+	<meta property="og:url" content="https://turbo.okzgn.com/es/">
+	<meta property="og:site_name" content="OKZGN">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="es_ES">
+	<meta property="og:locale:alternate" content="en_US">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Turbo">
+	<meta name="twitter:description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
+	<meta name="twitter:image" content="https://turbo.okzgn.com/i.png">
+
+	<link rel="preload" href="../i.png" as="image">
+	<link rel="preload" href="../data/base.css" as="style">
+	<link rel="preload" href="../data/site.css" as="style">
+	<link rel="preload" href="../data/site.js" as="script">
+
+	<link rel="preload" href="../data/fb.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../data/fr.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="preload" href="../data/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+	<link rel="stylesheet" href="../data/base.css">
+	<link rel="stylesheet" href="../data/site.css">
+	<script src="../data/site.js" defer></script>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "SoftwareApplication",
+		"name": "Turbo",
+		"applicationCategory": "DeveloperApplication",
+		"operatingSystem": "Linux, Windows",
+		"softwareVersion": "2.4.2",
+		"url": "https://turbo.okzgn.com/es/",
+		"inLanguage": "es",
+		"image": "https://turbo.okzgn.com/i.png",
+		"description": "Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.",
+		"offers": {
+			"@type": "Offer",
+			"price": "0",
+			"priceCurrency": "USD"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "Elias Francisco Alvarado Soshina",
+			"jobTitle": "Applied AI, Platform & Software Developer"
+		}
+	}
+	</script>
+</head>
+<body>
+	<header>
+		<h1><img src="../i.png" alt="Logotipo de Turbo"><span>Turbo</span></h1>
+	</header>
+	<main>
+		<article id="Start">
+			<h2>Servidor web de alto rendimiento<b> con interfaz visual para configuración en tiempo real.</b></h2>
+			<p>Soporta dominios y subdominios multinivel, certificados SSL, direcciones alias, redirecciones, reescrituras, cabeceras (<i>headers</i>) o MIME personalizados. Adapta diferentes lenguajes de programación. Controla frecuencias, cantidades, tiempos y tamaños de las peticiones (<i>requests</i>).</p>
+			<ul>
+				<li><a href="/es/#Description"><span>Descripción</span></a></li>
+				<li><a href="/es/#Install"><span>Instalación</span></a></li>
+				<li class="wide"><a href="/es/#Downloads" class="cta"><span>Descargar gratis<sub>Versión: 2.4.2</sub></span></a></li>
+			</ul>
+		</article>
+		<article id="Description">
+			<h3>Descripción</h3>
+			<section class="gallery">
+				<a href="../data/signin.png"><img src="../data/signin.png" alt="Formulario de acceso a la interfaz" width="1920" height="1080" loading="lazy"></a>
+				<a href="../data/gui.png"><img src="../data/gui.png" alt="Vista inicial de la interfaz" width="1920" height="1080" loading="lazy"></a>
+				<a href="../data/root-sites-subdomains-options.png"><img src="../data/root-sites-subdomains-options.png" alt="Opciones para sitios y subdominios" width="1920" height="1080" loading="lazy"></a>
+				<a href="../data/subdomains-options.png"><img src="../data/subdomains-options.png" alt="Opciones para subdominios" width="1920" height="1080" loading="lazy"></a>
+			</section>
+			<p>Turbo es un servidor web rápido que incluye una interfaz sencilla para configurarlo en tiempo real. Con ella se pueden organizar uno o más sitios web como dominios y subdominios multinivel; instalar y cambiar certificados SSL fácilmente, o crearlos y renovarlos con la integración a Certbot; adaptar distintos lenguajes de programación asignando preprocesadores a archivos con extensiones específicas; aplicar direcciones web alias, redirecciones de URL y reescrituras de URI; incluir cabeceras (<i>headers</i>) adicionales o modificar los tipos de contenido (MIME) según la extensión de los archivos; ajustar las frecuencias y cantidades de peticiones permitidas; y limitar los tiempos de procesamiento y los tamaños de las peticiones (<i>requests</i>). Por HTTPS usa TLS 1.3, y TLS 1.2 solo con ECDHE y AES-GCM o ChaCha20-Poly1305. Además, incluye mitigación contra el ataque DDoS HTTP/2 Rapid Reset (CVE-2023-44487): la protección de Go más un límite propio de tramas <i>RST_STREAM</i> que cancelan un <i>stream</i> abierto (200 por segundo y conexión).</p>
+			<p>La interfaz y los mensajes de Turbo están en inglés: esta documentación cita cada opción con el nombre que muestra la interfaz, entre paréntesis. Los cambios de cada versión y cómo actualizar están en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/CHANGELOG.es.md">registro de cambios</a>.</p>
+		</article>
+		<article id="Install">
+			<h3>Instalación</h3>
+			<blockquote class="note"><b>Si actualiza desde una versión anterior</b> (v2.4.1, v2.4 o v2.3.rc3), lea primero en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/CHANGELOG.es.md">registro de cambios</a> la sección de actualización de su versión, y haga una copia de la carpeta de sitios, <b>turbo.config</b> incluido. v2.4.2 corrige fallos de seguridad: actualice cuanto antes. Entre sus cambios incompatibles, la contraseña por defecto (<i>Admin</i>) solo inicia sesión desde el propio equipo (vea <a href="/es/#Get-started-on-interface"><i>Interfaz de configuración</i></a>): ponga antes su propia contraseña, o <b>TURBO_PASSWORD</b>.</blockquote>
+			<details class="accordion">
+				<summary><span>Linux</span></summary>
+				<blockquote>
+					<h5>REQUISITOS</h5>
+					<ul>
+						<li>Conocimiento de servidores (VPS, <i>bare metal</i>...), sistema operativo <b>Linux</b> y línea de comandos <b>Bash</b>.</li>
+						<li>Distribución de Linux con <b><i>systemd</i></b>, <b><i>nano</i></b> y <b><i>wget</i></b> (comúnmente preinstalados).</li>
+						<li>Servidor con arquitectura de <b>64 <i>bits</i></b> y 128 MB de RAM disponible (mínimo recomendado).</li>
+						<li>Los ejecutables publicados son estáticos y no requieren bibliotecas del sistema. Si compila Turbo con <i>cgo</i>, el ejecutable requiere <b>glibc 2.34</b> o superior. Para compilar Turbo desde el código fuente se necesita <b>Go 1.26.10</b> (un Go anterior lo descarga).</li>
+						<li>Opcional: instalación de <b>Certbot</b> (<a href="https://certbot.eff.org/">instrucciones</a>), para obtener y renovar certificados SSL. Con el servicio de <i>systemd</i> de abajo, instálelo con <b><i>apt</i></b> o <b><i>pip</i></b>: el de <i>snap</i> no funciona con él.</li>
+					</ul>
+				</blockquote>
+				<ol>
+					<li>
+						<span><b>Identificar</b> la <b>arquitectura</b> del sistema operativo. Los ejecutables publicados son para <b>64 <i>bits</i></b>: x64 (x86-64, AMD64) y, en Linux, también <b>ARM64</b> (AArch64); para otras arquitecturas, compile Turbo desde el código fuente siguiendo las instrucciones del <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go">repositorio oficial</a>.</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; <b>uname -m</b></pre>
+
+					</li>
+					<li>
+						<span><b>Verificar</b> que se tienen <b class="c-yellow">privilegios</b> de usuario <b><i>root</i></b> (los comandos siguientes usan <i>sudo</i>).</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; <b class="c-yellow">sudo -v</b></pre>
+
+					</li>
+					<li>
+						<span><b>Habilitar o desbloquear</b> los puertos 80 y 443.</span>
+						<h4 class="pre-title">Ejemplo (con <i>ufw</i>):</h4>
+	<pre>&gt; sudo <b class="c-yellow">ufw allow</b> 80,443/tcp</pre>
+							<blockquote class="note">Si usa un proveedor de VPS (como AWS, Azure, Google Cloud, etc.), recuerde que también deberá abrir estos puertos desde la consola de administración en la nube.</blockquote>
+					</li>
+					<li>
+						<span><b class="c-yellow">Crear</b> un <b class="c-aqua">directorio (carpeta)</b> para el servidor web.</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-yellow">mkdir</b> <b class="c-aqua">/home/server/</b></pre>
+
+					</li>
+					<li>
+						<span><b class="c-yellow"><a href="/es/#Downloads">Descargar</a></b> el ejecutable para <b class="c-orange">64 <i>bits</i></b> en un <b class="c-aqua">directorio temporal</b>.</span>
+
+							<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; cd <b class="c-aqua">$(mktemp -d)</b>
+&gt; <b class="c-yellow">wget https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux<b class="c-orange">-amd64</b></b></pre>
+							<blockquote class="note">En ARM64 (AArch64), descargue <b class="c-orange">turbo-linux-arm64</b> (y use ese nombre en el paso siguiente). Compruebe la descarga con el archivo <b>SHA256SUMS</b> de la versión, descargado en el mismo directorio (<b>sha256sum -c --ignore-missing SHA256SUMS</b>: <i>--ignore-missing</i> comprueba solo los ejecutables descargados).</blockquote>
+
+					</li>
+					<li>
+						<span><b class="c-yellow">Instalar</b> el <b class="c-orange">ejecutable descargado</b> en <b class="c-aqua">/usr/local/bin/</b>, con el nombre <b>turbo</b>, de <i>root</i> y con permisos de lectura y ejecución. Queda fuera del directorio de sitios, donde los preprocesadores pueden escribir, así que no pueden sustituirlo.</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-yellow">install -o root -g root -m 0755 turbo-linux<b class="c-orange">-amd64</b> <b class="c-aqua">/usr/local/bin/</b>turbo</b></pre>
+
+						<blockquote class="note"><b>Para pruebas</b>, pasar de aquí a <a href="/es/#Get-started">Cómo utilizar</a>.</blockquote>
+					</li>
+					<li>
+						<span><b>Configurar</b> el ejecutable como servicio (para ejecución en segundo plano). El servicio ejecuta Turbo con un <b>usuario sin privilegios</b> (<i>turbo</i>), que también ejecuta los preprocesadores y Certbot.<br><br><b class="c-yellow">Crear</b> el usuario y darle la propiedad del <b class="c-aqua">directorio del servidor</b>, sin permisos para los demás usuarios.</span>
+
+							<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-yellow">useradd --system --home-dir <b class="c-aqua">/home/server</b> --shell /usr/sbin/nologin turbo</b>
+&gt; sudo <b class="c-yellow">mkdir -p <b class="c-aqua">/home/server</b> &amp;&amp; sudo chown -R turbo:turbo <b class="c-aqua">/home/server</b> &amp;&amp; sudo chmod 0750 <b class="c-aqua">/home/server</b></b>
+&gt; sudo <b class="c-yellow">install -d -o root -g root -m 0755 <b class="c-aqua">/home/server/</b>turbo.dev</b>
+&gt; sudo <b class="c-yellow">install -d -o root -g root -m 0755 /etc/turbo</b>
+&gt; sudo <b class="c-yellow">install -o root -g root -m 0600 /dev/null /etc/turbo/credentials</b>
+&gt; sudoedit <b class="c-yellow">/etc/turbo/credentials</b></pre>
+
+						<span>En <b class="c-yellow">/etc/turbo/credentials</b>, escribir el usuario y la contraseña del panel, uno por línea: <b>TURBO_USER=</b><i>usuario</i> y <b>TURBO_PASSWORD=</b><i>contraseña</i> (de 12 a 64 <i>bytes</i>).</span>
+						<blockquote class="note">Con este archivo, el panel nunca responde con las credenciales por defecto (<i>Turbo</i>/<i>Admin</i>), tampoco antes del primer acceso; sin él, la contraseña por defecto solo inicia sesión desde el propio equipo (por ejemplo, con un túnel SSH). Esas variables mandan sobre <i>turbo.config</i> en cada arranque: para cambiarlas, edite el archivo y reinicie el servicio (un cambio desde el panel dura hasta el siguiente arranque); o, tras el primer acceso, cámbielas desde el panel, guarde la configuración y borre el archivo. La carpeta <b>turbo.dev</b> (de <i>root</i>) tiene que existir: el servicio no arranca sin ella, y así ningún preprocesador puede crearla para cambiar el panel.</blockquote>
+
+						<span>En el directorio <b class="c-orange">/etc/systemd/system/</b>, crear el archivo <b class="c-yellow">turbo.service</b>.</span>
+
+							<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; cd <b class="c-orange">/etc/systemd/system/</b>
+&gt; sudo <b class="c-yellow">nano turbo.service</b></pre>
+
+						<span>Escribir o pegar este <b class="c-yellow">contenido</b> en el editor (es la unidad de referencia del repositorio, <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/deploy/turbo.service">deploy/turbo.service</a>, sin sus comentarios):</span>
+
+	<pre class="file c-yellow">[Unit]
+Description=Turbo
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=turbo
+Group=turbo
+WorkingDirectory=<span class="c-white">/home/server/</span>
+ExecStart=/usr/local/bin/turbo
+EnvironmentFile=-/etc/turbo/credentials
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=<span class="c-white">/home/server/</span>
+ReadOnlyPaths=<span class="c-white">/home/server/</span>turbo.dev
+PrivateTmp=true
+UMask=0027
+ProtectHome=tmpfs
+BindPaths=<span class="c-white">/home/server</span>
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=capget capset prctl
+SystemCallErrorNumber=EPERM
+KillMode=mixed
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+</pre>
+						<blockquote class="note"><b>CAP_NET_BIND_SERVICE</b> permite abrir los puertos 80 y 443 sin ser <i>root</i>, y Turbo la quita de lo que ejecuta (preprocesadores y Certbot no la heredan). Con <i>ProtectSystem=strict</i>, Turbo solo puede escribir en <i>ReadWritePaths</i>; la personalización de la interfaz (<b>turbo.dev</b>) es de solo lectura para el servicio, y <i>PrivateTmp</i> le da un <i>/tmp</i> propio (las subidas de archivos de PHP funcionan).<br><br><b>Endurecimiento:</b> el resto de líneas limita lo que puede hacer en el equipo un preprocesador comprometido: no ve más carpeta personal que <i>/home/server</i> (<i>ProtectHome</i> con <i>BindPaths</i>) ni más dispositivos que los virtuales, no puede crear <i>namespaces</i>, cargar módulos, cambiar la hora, el nombre del equipo o los ajustes del núcleo, usar archivos <i>set-user-ID</i> ni más <i>sockets</i> que Unix, IPv4, IPv6 y <i>netlink</i>, ni hacer llamadas al sistema fuera de las de un servicio (<i>@system-service</i>, más <i>capget</i>, <i>capset</i> y <i>prctl</i>, que Turbo usa para quitar las capacidades de lo que ejecuta). Los archivos se crean sin permisos para otros usuarios (<i>UMask=0027</i>). Si una extensión de PHP necesita algo más (una llamada al sistema, una familia de direcciones), añádalo con un <i>drop-in</i> (<b>systemctl edit turbo</b>) en lugar de borrar la línea entera.<br><br><b>Certbot</b> trabaja en <b>turbo.certificates</b>, dentro del directorio de sitios. Con <i>NoNewPrivileges</i>, el Certbot de <i>snap</i> no funciona: instálelo con <i>apt</i> o con <i>pip</i>, también sus complementos DNS (<i>python3-certbot-dns-*</i>). Si usa una configuración de Certbot que escriba en otro directorio (como <i>/etc/letsencrypt</i>), añádalo a <i>ReadWritePaths</i>.<br><br><b>PHP:</b> guarde las sesiones dentro del directorio de sitios (<i>session.save_path</i> en <i>php.ini</i>), o añada su carpeta a <i>ReadWritePaths</i>.<br><br><b>Modelo de confianza:</b> los preprocesadores (PHP, etc.) y Certbot se ejecutan como el usuario <i>turbo</i>, así que un preprocesador puede modificar los sitios, <b>turbo.config</b> y los certificados (no el ejecutable, que es de <i>root</i>, ni <b>turbo.dev</b>), y leer el entorno de Turbo, con las credenciales de <i>/etc/turbo/credentials</i> (Certbot y sus <i>hooks</i> lo reciben sin las variables <i>TURBO_*</i>). Si un sitio no es de confianza, dele otro servidor, o un usuario propio detrás de un proxy.<br><br><b>Detrás de un proxy</b>, Turbo puede escuchar en otras direcciones añadiendo, en la sección <i>[Service]</i>, líneas como <b>Environment=TURBO_HTTP_ADDR=127.0.0.1:8080</b> y <b>Environment=TURBO_HTTPS_ADDR=127.0.0.1:8443</b>. Solo si las dos usan puertos por encima de 1023 deja de necesitar <i>CAP_NET_BIND_SERVICE</i> (sin <i>TURBO_HTTPS_ADDR</i>, HTTPS sigue en <b>:443</b>). Un proxy en el mismo equipo debe enviar <i>X-Forwarded-For</i>, <i>Forwarded</i> o <i>X-Real-IP</i>: si no, Turbo toma a sus clientes por el propio equipo (vea <a href="/es/#Get-started-on-interface"><i>Interfaz de configuración</i></a>).<br><br><b>Al parar</b> el servicio (<i>KillMode=mixed</i>), systemd envía la señal solo a Turbo, que deja terminar hasta 10 s las peticiones en curso, también las de los preprocesadores.<br><br><b>Si cambia el directorio de sitios</b> a una carpeta fuera de <i>/home/server</i>, cambie también <i>WorkingDirectory</i>, <i>BindPaths</i>, <i>ReadWritePaths</i> y <i>ReadOnlyPaths</i> (la carpeta <b>turbo.dev</b> de ese directorio, de <i>root</i>).<br><br><b>Si actualiza</b> una instalación anterior, instale el ejecutable como en el paso 6, cree <b>turbo.dev</b> y <i>/etc/turbo/credentials</i> como arriba si no los tiene, ponga <i>/home/server</i> en <b>0750</b>, sustituya el contenido de <b>turbo.service</b> por este y ejecute <b>sudo systemctl daemon-reload</b> y <b>sudo systemctl restart turbo</b>; después compruebe que sus preprocesadores siguen funcionando y, si el ejecutable anterior estaba en el directorio de sitios, bórrelo de allí.</blockquote>
+
+						<span>Guardar el archivo <b class="c-yellow">turbo.service</b> (<b>Ctrl + O</b>, <b>Enter</b>, <b>Ctrl + X</b>).<br><br><b class="c-orange">Actualizar</b> el sistema y <b class="c-aqua">habilitar</b> el servicio.</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-orange">systemctl daemon-reload</b>
+&gt; sudo <b class="c-aqua">systemctl enable turbo</b></pre>
+
+					</li>
+					<li>
+						<span><b class="c-yellow">Iniciar</b> el servicio de Turbo.</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; sudo <b class="c-yellow">systemctl <b class="c-orange">start</b> turbo</b></pre>
+
+						<blockquote class="note">
+							<h5>Otros comandos:</h5>
+							<ul>
+								<li>Para detener <b>momentáneamente</b> el servicio, use el comando <b class="c-orange"><i>stop</i></b>.</li>
+								<li>O use <b class="c-orange"><i>disable --now</i></b> para detener <b>completamente</b> el servicio e impedir que se inicie con el sistema.</li>
+								<li>Los mensajes de Turbo (con nivel y hora) quedan en el registro del sistema (<i>journal</i>); para verlos, use <b class="c-orange"><i>journalctl -u turbo</i></b> (con <b><i>-f</i></b>, para seguirlos en tiempo real).</li>
+								<li>La primera línea de cada arranque (<b><i>msg=Starting</i></b>) dice la versión de Turbo, el commit del que se compiló y la versión de Go, por ejemplo <b><i>version=v2.4.2 commit=… go=go1.26.10</i></b> (<b class="c-orange"><i>journalctl -u turbo | grep msg=Starting</i></b>): compárela con las versiones afectadas de un aviso de seguridad.</li>
+							</ul>
+						</blockquote>
+					</li>
+				</ol>
+			</details>
+			<details class="accordion">
+				<summary><span>Windows</span></summary>
+				<blockquote>
+					<h5>REQUISITOS</h5>
+					<ul>
+						<li>Sistema operativo <b>Windows 10 / Server 2016</b> o superior.</li>
+						<li>Equipo o servidor con arquitectura de <b>64 <i>bits</i></b> (x64, AMD64).</li>
+						<li>Privilegios de <b>Administrador</b>, solo para crear la regla del <i>firewall</i> de Windows. Ejecutar Turbo y abrir los puertos 80 y 443 no los requiere (Windows no tiene puertos privilegiados), siempre que ningún otro programa, como IIS, los use.</li>
+						<li><b>PowerShell</b> instalado y actualizado, para ejecutar los siguientes comandos (ejemplos).</li>
+					</ul>
+				</blockquote>
+				<ol>
+					<li>
+						<span><b>Crear</b> un <b class="c-aqua">directorio (carpeta)</b> para el servidor web.</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; <b class="c-yellow">mkdir</b> <b class="c-aqua">C:\server\</b></pre>
+					</li>
+					<li>
+						<span><b class="c-yellow"><a href="/es/#Downloads">Descargar</a></b> el ejecutable para Windows en el <b class="c-aqua">directorio anterior</b>, con el nombre <b class="c-orange">turbo.exe</b>.</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; <b class="c-yellow">Invoke-WebRequest https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe -OutFile <b class="c-aqua">C:\server\</b><b class="c-orange">turbo.exe</b></b></pre>
+						<blockquote class="note">Compruebe la descarga con la suma de <a href="/es/#Downloads">Descargas</a> (<b>Get-FileHash C:\server\turbo.exe</b>).</blockquote>
+					</li>
+					<li>
+						<span><b class="c-yellow">Habilitar o desbloquear</b> los puertos 80 y 443 en el <i>firewall</i> de Windows.</span>
+
+						<h4 class="pre-title">Ejemplo (ejecutar como Administrador):</h4>
+	<pre>&gt; <b class="c-yellow">New-NetFirewallRule</b> -DisplayName "Turbo" -Direction Inbound -LocalPort 80,443 -Protocol TCP -Action Allow</pre>
+						<blockquote class="note">La regla es necesaria para recibir peticiones desde otros equipos, y crearla requiere Administrador (también desde el aviso del <i>firewall</i> que Windows puede mostrar la primera vez que se ejecuta Turbo).<br><br>Si usa un proveedor de VPS (como AWS, Azure, Google Cloud, etc.), recuerde que también deberá abrir estos puertos desde la consola de administración en la nube.</blockquote>
+					</li>
+					<li>
+						<span><b class="c-orange">Ejecutar Turbo</b> desde la terminal para <b>permitir que el servidor escuche</b> en los puertos 80 y 443 (no requiere Administrador).</span>
+
+						<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; cd <b class="c-aqua">C:\server\</b>
+&gt; <b class="c-orange">.\turbo.exe</b></pre>
+						<blockquote class="note"><b>Nota:</b> En Windows, si cierra la ventana de la terminal, el servidor se detendrá. Para mantenerlo activo en segundo plano de forma permanente, puede configurar <i>turbo.exe</i> como un servicio de Windows utilizando herramientas gratuitas como <b>WinSW</b> (recomendado), <b>NSSM</b> o mediante el <b>Programador de tareas</b>.<br><br>En Windows, los permisos <i>0600</i> con que Turbo escribe <b>turbo.config</b>, sus copias y las claves de los certificados no tienen efecto: los archivos toman los permisos (ACL) de su carpeta, así que restrinja quién puede leer el directorio de sitios.</blockquote>
+					</li>
+				</ol>
+			</details>
+		</article>
+		<article id="Downloads">
+			<h3>Descargas</h3>
+			<blockquote>La versión gratuita se distribuye bajo la licencia <b><a href="/es/#License">GNU Affero General Public License (AGPL v3)</a></b>. Al descargarla, acepta sus términos.</blockquote>
+			<ul>
+				<li>S.O.</li>
+				<li>Arquitectura</li>
+				<li>Ejecutable</li>
+			</ul>
+			<ul>
+				<li><b>Linux</b></li>
+				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
+				<li>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-amd64">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-amd64</a>
+					<ul>
+						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
+						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
+					</ul>
+				</li>
+				<li><b>Linux</b></li>
+				<li><b>64 <i>bits</i></b><br>ARM64<br>AArch64</li>
+				<li>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-arm64">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-arm64</a>
+					<ul>
+						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
+						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
+					</ul>
+				</li>
+				<li><b>Windows</b></li>
+				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
+				<li>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe</a>
+					<ul>
+						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
+						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
+					</ul>
+				</li>
+			</ul>
+		</article>
+		<article id="Get-started">
+			<h3>Cómo utilizar</h3>
+			<details class="accordion">
+				<summary><span>Linux</span></summary>
+				<blockquote>
+					<h5>IMPORTANTE</h5>
+					<span><b>Como mínimo</b>, completar la <a href="/es/#Install">instalación</a> hasta el paso 6.</span>
+				</blockquote>
+				<blockquote class="note">
+					<h5>EN CASO DE:</h5>
+					<ul>
+						<li>No instalar o no iniciar Turbo como servicio (paso 7 u 8).</li>
+						<li>Hacer pruebas.</li>
+					</ul>
+					<span><b class="c-orange">Ejecutar Turbo</b> para continuar.</span>
+
+					<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; cd /home/server/
+&gt; <b class="c-orange">sudo /usr/local/bin/turbo</b></pre>
+
+					<h4 class="pre-title">Ejemplo, ejecutar SIN <i>sudo</i> (en puertos por encima de 1023):</h4>
+	<pre>&gt; cd /home/server/
+&gt; <b class="c-orange">TURBO_HTTP_ADDR=:8080 TURBO_HTTPS_ADDR=:8443 /usr/local/bin/turbo</b></pre>
+					<span>Si Turbo no puede abrir el puerto 80 (o la dirección indicada en <b>TURBO_HTTP_ADDR</b>), termina con un error.</span>
+
+				</blockquote>
+			</details>
+			<details class="accordion">
+				<summary><span>Windows</span></summary>
+				<blockquote class="note">
+					<h5>EN CASO DE:</h5>
+					<ul>
+						<li>Hacer pruebas de configuración.</li>
+						<li>Haber cerrado la terminal donde se ejecutaba el servidor.</li>
+					</ul>
+					<span><b class="c-orange">Ejecutar Turbo</b> (no requiere Administrador) para continuar.</span>
+
+					<h4 class="pre-title">Ejemplo:</h4>
+	<pre>&gt; cd C:\server\
+&gt; <b class="c-orange">.\turbo.exe</b></pre>
+				</blockquote>
+			</details>
+			<details id="Get-started-on-interface" class="accordion" open>
+				<summary><span>Interfaz de configuración</span></summary>
+				<p>Acceda a la interfaz (panel de control o administración, GUI) a través de una de las siguientes direcciones web.</p>
+
+				<p>Con <b class="c-orange">localhost</b>, desde el mismo equipo donde se ejecuta Turbo (el único lugar donde sirve la contraseña por defecto):</p>
+				<blockquote class="note muted"><b class="text-lg c-yellow">http://<b class="c-orange">localhost</b>/admin:</b></blockquote>
+
+				<p>O mediante la <b class="c-orange">IP pública</b> o el <b class="c-orange">dominio web</b> del servidor donde instaló Turbo, una vez que tenga su propia contraseña.</p>
+				<h4>Ejemplos:</h4>
+				<blockquote class="note muted">
+					<b class="text-lg c-yellow">http://<b class="c-orange">11.22.33.44</b>/admin:</b>
+					<hr>
+					<b class="text-lg c-yellow">http://<b class="c-orange">example.com</b>/admin:</b>
+				</blockquote>
+
+				<p><b>Allí</b>, el formulario de acceso se verá como a continuación.</p>
+				<section>
+					<div>
+						<a href="../data/signin.png"><img src="../data/signin.png" alt="Formulario de acceso a la interfaz" width="1920" height="1080" loading="lazy"></a>
+					</div>
+					<blockquote class="note">
+						<h5>Ingrese con los datos por defecto:</h5>
+						<span>Usuario: <b class="c-aqua">Turbo</b><br>Contraseña: <b class="c-aqua">Admin</b></span>
+					</blockquote>
+				</section>
+				<blockquote>
+					<h5>IMPORTANTE</h5>
+					<ul>
+						<li><b>La contraseña por defecto solo sirve desde el propio equipo:</b> mientras <i>Admin</i> sea la contraseña del panel, solo abre una sesión desde una dirección de <i>loopback</i> (<b>127.0.0.1</b>, <b>::1</b>), a un <i>host</i> que sea <b>localhost</b>, una dirección de <i>loopback</i> o un <i>host</i> de <a href="/es/#cp-4"><i>Dónde responde el panel</i></a> (una página de otro nombre que apunte a este equipo no puede usarla), y sin las cabeceras que envía un proxy (<i>Forwarded</i>, <i>X-Forwarded-For</i>, <i>X-Real-IP</i>, <i>Via</i>…). Desde otro lugar, el formulario dice por qué no entra, sin contar como intento fallido. En un servidor remoto, use un túnel SSH al puerto HTTP de Turbo:
+	<pre>&gt; <b class="c-yellow">ssh -L 8080:localhost:80</b> <i>usuario</i>@<i>servidor</i></pre>
+						y abra <b>http://localhost:8080/admin:</b> en su equipo. O defina antes <b>TURBO_PASSWORD</b> (vea el paso 7 de la <a href="/es/#Install">instalación</a>). Un proxy en el mismo equipo debe enviar <i>X-Forwarded-For</i> (en nginx, <b>proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</b>), <i>Forwarded</i> o <i>X-Real-IP</i>, o Turbo tomará a sus clientes por el propio equipo.</li>
+						<li><b>Cambie los datos de acceso por defecto desde la interfaz y guarde la configuración</b> (<a href="/es/#cp-6"><i>Guardar configuración</i></a>): el usuario y la contraseña (solo su <i>hash</i> PBKDF2, nunca en texto plano) se guardan en el archivo de configuración. Una contraseña nueva tiene de <b>12 a 64 <i>bytes</i></b>. <b>Si no guarda la configuración</b>, los datos de acceso vuelven a los anteriores al reiniciar el proceso, servicio o servidor (VPS, etc.), o al cerrar y volver a ejecutar Turbo. Mientras se usen los datos por defecto, Turbo lo avisa al arrancar.</li>
+						<li><b>Dé a la interfaz un <i>host</i> propio</b>, que no sirva ningún sitio (por ejemplo <b>admin.example.com</b>, con su certificado, que puede obtener con <a href="/es/#cp-5"><i>Certificado del panel</i></a>), en <a href="/es/#cp-4"><i>Dónde responde el panel</i></a>. Sin él, la interfaz responde en los <i>hosts</i> de todos los sitios, y una página servida por Turbo en uno de ellos (subida por un cliente o comprometida) comparte su origen y podría usar la sesión del administrador. Turbo lo avisa al arrancar mientras no tenga un <i>host</i> propio, y la opción lo indica con <i>(warning: no host of its own)</i>.</li>
+						<li><b>HTTPS:</b> por HTTP, los datos de acceso y la sesión viajan sin cifrar. Cuando un certificado cubre el <i>host</i> por el que se accede (el de <a href="/es/#cp-5"><i>Certificado del panel</i></a> o el de un sitio) y HTTPS está abierto, la interfaz redirige a HTTPS las peticiones que le llegan por HTTP.</li>
+						<li><b>Intentos de acceso:</b> el formulario envía los datos por POST, en el cuerpo de la petición (nunca en la URL). Tras 5 intentos fallidos desde la misma IP en 10 minutos, esa IP debe esperar antes de volver a intentarlo: 1 minuto, y después 2, 4, 8 y hasta 15. En IPv6, todas las direcciones de un mismo bloque <b>/64</b> cuentan como una sola IP, y los /64 de un mismo <b>/48</b> comparten además un límite de 20 intentos fallidos, que no aplica a un cliente que inició sesión correctamente en las últimas 12 horas. Un inicio de sesión que el navegador marca como enviado desde otra página (otro origen) se rechaza, sin contar como intento.</li>
+						<li><b>Contraseña actual:</b> las opciones que la piden (todas las de <a href="/es/#cp"><i>Configuración general</i></a>, tiempos, frecuencias y límites, y las que se indican en cada una) cuentan los errores por sesión: el quinto error en una sesión la cierra, y hay que volver a iniciarla.</li>
+						<li><b>Para cambiar los datos de acceso por defecto desde el binario</b>, compile Turbo desde el código fuente, siguiendo las instrucciones del <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go">repositorio oficial de Turbo</a>.</li>
+						<li><b>Variables de entorno para cambiar usuario, contraseña y directorio de sitios:</b> TURBO_USER, TURBO_PASSWORD, TURBO_DIR (respectivamente). Si están definidas, TURBO_USER y TURBO_PASSWORD tienen prioridad sobre los datos guardados en la configuración. Definidas pero vacías, Turbo no arranca, ni con un TURBO_USER de más de 24 caracteres o un TURBO_PASSWORD de más de 64 <i>bytes</i>, o con caracteres de control; con menos de 12 <i>bytes</i>, o con la contraseña <i>Admin</i>, Turbo avisa al arrancar.</li>
+						<li><b>Variables de entorno para las direcciones de escucha:</b> TURBO_HTTP_ADDR y TURBO_HTTPS_ADDR (por defecto, <b>:80</b> y <b>:443</b>). Aceptan <i>host:puerto</i>, <i>:puerto</i> o solo el puerto (por ejemplo, <b>127.0.0.1:8080</b>), para usar Turbo detrás de un proxy (indique las dos: sin TURBO_HTTPS_ADDR, HTTPS sigue en <b>:443</b> y necesita el permiso para puertos bajos). Si el valor no es válido, Turbo termina con un error. La redirección a HTTPS usa el puerto de TURBO_HTTPS_ADDR si no es 443.</li>
+						<li><b>Detrás de un proxy</b>, Turbo ve la dirección del proxy como IP del cliente: los límites por IP, las IP denegadas, los registros, las redes de <i>Dónde responde el panel</i> y la sesión ligada a la IP solo ven el proxy, y 5 intentos fallidos a través de él bloquean el acceso a la interfaz a todos sus clientes, el administrador incluido, hasta 15 minutos.</li>
+						<li><b>Personalización de la interfaz (GUI):</b> Puede sobrescribir los archivos del panel de administración en tiempo real creando una carpeta llamada <b>turbo.dev</b> en el directorio de sitios, con los archivos que quiera reemplazar (por ejemplo, <b>turbo.dev/admin/#.html</b>, <b>turbo.dev/inside/#.html</b>, o <b>m.css</b>, <b>i.png</b>, <b>r.ttf</b> y <b>b.ttf</b> en <b>turbo.dev/admin/</b>). Los archivos que falten se sirven desde la copia incluida en Turbo. Las páginas incluidas se envían con una <i>Content-Security-Policy</i> estricta, que solo deja ejecutar su propio <i>script</i> y estilo; una página propia se envía solo con <i>frame-ancestors 'none'</i>, así que dele su propia política en su <i>&lt;head&gt;</i> (por ejemplo, <b>&lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'none'"&gt;</b>, con sus <i>scripts</i> y estilos en archivos de la carpeta). Con el servicio de Linux, <b>turbo.dev</b> es de solo lectura para Turbo y sus preprocesadores: modifíquela con otro usuario (por ejemplo, con <i>sudo</i>). <b>Implica conocer en profundidad la API</b> (<a href="https://github.com/okzgn/turbo-go/blob/main/API_SPECIFICATION.es.md">documentación de API</a>).</li>
+					</ul>
+				</blockquote>
+				<section class="media-right">
+					<p><b>Al ingresar</b>, según la pantalla del dispositivo, la interfaz luce como en la imagen. Desde dentro podrá cambiar el usuario y la contraseña por defecto, o instalar certificados SSL para conectarse de forma segura. <b>Cada inicio de sesión genera un token único, que se guarda en una <i>cookie</i> ligada a la IP desde la que se ingresó; la sesión se cierra automáticamente si el lapso de inactividad supera 10 minutos, y como mucho 12 horas después de iniciarla.</b> Por HTTPS, la <i>cookie</i> es <b>__Host-turbo_session</b>, que los navegadores solo aceptan del propio <i>host</i> de la interfaz. Cambiar el usuario o la contraseña, o <a href="/es/#cp-2"><i>Cerrar todas las sesiones</i></a>, cierra todas las sesiones, y el navegador que lo hizo sigue con una nueva.</p>
+					<div>
+						<a href="../data/gui.png"><img src="../data/gui.png" alt="Vista inicial de la interfaz" width="1920" height="1080" loading="lazy"></a>
+					</div>
+				</section>
+				<p>
+					<span><b>Continúe con la <a href="/es/#Docs">Documentación</a></b> para conocer las opciones de la interfaz.</span>
+				</p>
+			</details>
+		</article>
+		<article id="Docs">
+			<h3>Documentación</h3>
+			<ol id="toc"></ol>
+			<ol id="docs-list">
+				<li>
+					<h4 id="cp">Configuración general <i lang="en">(General settings)</i></h4>
+					<section>
+						<div>
+							<a href="../data/config.png"><img src="../data/config.png" alt="Imagen de Configuración general" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Estas opciones piden la contraseña actual en el primer cuadro de diálogo (<i>Certificado del panel</i>, solo para eliminar el certificado). Si se usan por primera vez, ingrese la contraseña por defecto (vea la sección <a href="/es/#Get-started-on-interface"><i>Interfaz de configuración</i></a>). Una contraseña errónea cuenta para la sesión: la quinta la cierra.</p>
+					</section>
+					<ol>
+						<li>
+							<h5 id="cp-0">Cambiar usuario <i lang="en">(Change user)</i></h5><br>
+							<span>Establecerá el nuevo usuario de acceso a la interfaz (de 1 a 24 <i>bytes</i>). Cierra todas las sesiones, y el navegador que lo cambió sigue con una nueva.</span>
+						</li>
+						<li>
+							<h5 id="cp-1">Cambiar contraseña <i lang="en">(Change password)</i></h5><br>
+							<span>Establecerá la nueva contraseña para la <i>Configuración general</i> y el acceso a la interfaz: de <b>12 a 64 <i>bytes</i></b> (<b>ñ</b> o <b>é</b> cuentan como 2). Cierra todas las sesiones, y el navegador que la cambió sigue con una nueva.</span>
+						</li>
+						<li>
+							<h5 id="cp-2">Cerrar todas las sesiones <i lang="en">(Close every session)</i></h5><br>
+							<span>Cierra todas las sesiones de la interfaz, en todos los navegadores y clientes de la API, también las copias del token de la sesión que la usa, que sigue con una sesión nueva. Útil si sospecha que alguien tomó una sesión.</span>
+						</li>
+						<li>
+							<h5 id="cp-3">Directorio de sitios <i lang="en">(Sites directory)</i></h5><br>
+							<span>Cambiará el directorio (carpeta) que el servidor web utiliza para leer, guardar o servir archivos de sitios web; el directorio debe existir. Por defecto, se usa el directorio de trabajo desde el que se ejecuta Turbo (en el servicio de Linux, <i>WorkingDirectory</i>) o el indicado en la variable de entorno <b>TURBO_DIR</b>. La ruta puede ser relativa al directorio de trabajo o usar la variable <b class="c-yellow">{TURBO_CURRENT_DIR}</b>, y se guarda tal como se escribe (así la configuración se puede llevar a otro equipo).<br><br>Si el nuevo directorio tiene un archivo de configuración, se aplica entero, y la respuesta dice qué cambia de <i>Dónde responde el panel</i> y de los datos de acceso. Si no lo tiene, se conservan los ajustes en uso (configuración general, datos de acceso, IP denegadas, respuestas y reemplazos), que se escriben allí al guardar la configuración. Antes de cambiar nada, Turbo comprueba todo: si el archivo de configuración de allí no se puede usar, o lleva a un directorio que no existe o no se puede leer, el cambio se rechaza y todo sigue como estaba. Tras el cambio, la interfaz se recarga.<br><br>Al guardar la configuración con otro directorio de sitios, Turbo deja en el directorio inicial un archivo de configuración que solo apunta al nuevo directorio, para leerlo desde allí al volver a ejecutarse (si había una configuración completa, antes guarda una copia: <b>turbo.config.&lt;fecha&gt;.bak</b>). Turbo sigue como mucho dos directorios contados desde el inicial, al arrancar y en cada recarga. Un archivo de configuración que solo apunta a su propio directorio, o a uno que no existe o no se puede usar, impide arrancar: restaure una de sus copias <b>.bak</b>, o vuelva a hacer disponible ese directorio.</span>
+						</li>
+						<li>
+							<h5 id="cp-4">Dónde responde el panel <i lang="en">(Where the panel answers)</i></h5><br>
+							<span>Limita la interfaz a los <i>hosts</i> y redes (CIDR, como <b class="c-yellow">192.168.1.0/24</b>) indicados, separados por comas (hasta 32); con los dos tipos, una petición necesita uno de los <i>hosts</i> <b>y</b> una de las redes. En los demás casos responde con <b class="c-aqua">estado 404</b>. Vacío o <b class="c-yellow">*</b> (por defecto): sin restricción. Con redes y sin ningún <i>host</i>, la interfaz solo responde en una dirección IP o en <i>localhost</i>, nunca en un nombre (una página cuyo nombre apunte a Turbo podría alcanzarla desde el navegador de alguien de esas redes): para entrar por un nombre, añádalo. <b>Configuración recomendada:</b> un <i>host</i> propio para la interfaz, que no sirva ningún sitio, junto a las redes desde las que se administra; Turbo rechaza un <i>host</i> que sirva un sitio (directamente, por <i>wildcard</i> o como alias), y también un sitio, subdominio o alias nuevo que serviría ese <i>host</i>. El <i>host</i> lo elige el cliente: da a la interfaz un origen propio, pero solo las redes limitan quién accede. En un <i>host</i> de esta opción, todo lo que no sean las páginas de la interfaz se envía sin poder ejecutar <i>scripts</i>.</span>
+						</li>
+						<li>
+							<h5 id="cp-5">Certificado del panel <i lang="en">(Panel certificate)</i></h5><br>
+							<span>Ejecuta Certbot, si está instalado, para solicitar un certificado SSL para los nombres de <i>host</i> de <i>Dónde responde el panel</i> (las direcciones IP quedan fuera). Requiere un e-mail y admite un adaptador DNS opcional (<b class="c-yellow">dns-&lt;proveedor&gt;</b>); sin adaptador, Certbot valida por HTTP en esos <i>hosts</i>, donde Turbo responde a sus retos (<b class="c-yellow">/.well-known/acme-challenge/</b>). El e-mail y el adaptador se guardan en la configuración. Mientras Certbot trabaja, la opción se muestra como <i>(in process)</i>, y con el certificado en uso, como <i>(active)</i>; al hacer clic entonces, ofrece eliminarlo, con la contraseña actual. Turbo lo renueva como los de los sitios (vea <a href="/es/#oss-1"><i>Crear SSL</i></a>).<br><br>El certificado queda en la carpeta <b class="c-aqua">turbo.panel</b> del <i>Directorio de sitios</i> (<b class="c-yellow">fullchain.pem</b> y <b class="c-yellow">privkey.pem</b>). También puede colocar esos archivos a mano: Turbo los vuelve a leer cuando cambian, pero no los renueva. La carpeta <b class="c-aqua">turbo.panel</b> nunca es un sitio y no se sirve nada de ella. Para los nombres que cubre, este certificado tiene prioridad sobre los de los sitios.<br><br>Con un certificado que cubre su <i>host</i> y HTTPS abierto, la interfaz redirige a HTTPS las peticiones por HTTP (<b class="c-aqua">estado 301</b>, o <b class="c-aqua">308</b> para conservar el método y el cuerpo de un POST), y por HTTPS, en un <i>host</i> de <i>Dónde responde el panel</i>, envía la cabecera <i>Strict-Transport-Security</i> (un año).</span>
+						</li>
+						<li>
+							<h5 id="cp-6">Guardar configuración <i lang="en">(Save configuration)</i></h5><br>
+							<span>Crea un archivo (<b class="c-aqua">turbo.config</b>) con toda la configuración del servidor web al momento de guardarse, incluidos el usuario y el <i>hash</i> de la contraseña, dentro del <i>Directorio de sitios</i>. El archivo se sustituye de una vez al guardar (si algo falla, queda el anterior), y antes se guarda una copia en estos casos: si era de una versión anterior de Turbo (<b>turbo.config.v1.bak</b>), si no era JSON válido (<b>turbo.config.invalid.&lt;fecha&gt;.bak</b>) o si cambió fuera de Turbo desde que lo leyó (<b>turbo.config.&lt;fecha&gt;.bak</b>). Las copias se escriben en disco antes de sustituir el archivo. Si el archivo es de una versión posterior de Turbo, guardar perdería sus ajustes nuevos: la interfaz pide confirmarlo.<br><br><b>Si al arrancar el archivo no es JSON válido</b> (por ejemplo, tras editarlo a mano), Turbo no arranca, para no perder la configuración (ni volver a la contraseña por defecto): muestra el archivo, la línea y la columna del error, esa línea con una marca y las copias <b>.bak</b> que haya, para corregirlo o restaurar una. Tampoco arranca si el archivo no se puede leer, si su <i>Dónde responde el panel</i>, su usuario o su contraseña no se pueden usar, si un sitio o una de sus listas no es un objeto JSON, o si una lista está escrita directamente en un sitio, fuera de su sección <b>""</b>; y dice por qué. Si el archivo se rompe con Turbo en marcha, se mantiene la configuración en uso y el mismo mensaje va al registro. Un ajuste suelto que no se puede aplicar (fuera de rango, de otro tipo) no impide arrancar: se usa su valor por defecto, con un aviso en el registro.<br><br><b>Si edita el archivo a mano</b> con Turbo en marcha, Turbo lo revisa cada 30 segundos y, cuando cambia, lo aplica entero y de una vez: lo que ya no está en el archivo (una cabecera, un alias, un preprocesador, una IP denegada, etc.) deja de aplicarse, y <b>los cambios hechos desde la interfaz y no guardados se pierden</b>. Los certificados en uso siguen respondiendo. Las entradas se aplican en un orden fijo: cuando dos chocan (por ejemplo, <i>Redirección a www</i> y <i>Redirección a raíz</i> activas a la vez, la misma extensión escrita como <b>PHP</b> y <b>php</b>, o un alias en dos sitios), gana la primera (con las dos redirecciones, <i>Redirección a raíz</i>), con un aviso en el registro. Un sitio que el archivo nombra solo por sus subdominios, o como <b>{}</b> o <b>null</b>, se sirve como uno encontrado en el disco, con <b>index.html</b> como índice. Hay un ejemplo de <b>turbo.config</b> en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/testdata/config/v2-example.json">repositorio</a>.</span>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<h4 id="tp">Tiempo para cada petición <i lang="en">(Time for each request)</i></h4>
+					<section>
+						<div>
+							<a href="../data/request-times.png"><img src="../data/request-times.png" alt="Imagen de Tiempo para cada petición" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Estas opciones se refieren a los tiempos permitidos para procesar o responder las peticiones recibidas por el servidor web. Se pueden especificar en milisegundos (<i>ms</i>), segundos (<i>s</i>) o minutos (<i>m</i>). Piden la contraseña actual. Un límite desactivado (<b class="c-yellow">0s</b>) deja que un cliente mantenga una conexión, o un preprocesador en marcha, todo el tiempo que quiera: Turbo lo avisa al arrancar y al guardarlo desde la interfaz.</p>
+					</section>
+					<ol>
+						<li>
+							<h5 id="tp-0">Lectura de cabeceras <i lang="en">(Header read)</i></h5><br>
+							<span>Límite de tiempo para procesar los primeros datos estructurales o cabeceras (<i>headers</i>) de cada petición entrante. Superado el límite, se cierra la conexión con el emisor de la petición. Con <b class="c-yellow"><i>0s</i></b>, se usa el valor de la <i>Lectura total de petición</i>. Valores admitidos: de <b>50 ms</b> a <b>7,5 minutos</b>, y no más de la mitad de la <i>Lectura total de petición</i> si esta tiene límite.</span>
+						</li>
+						<li>
+							<h5 id="tp-1">Lectura total de petición <i lang="en">(Total request read)</i></h5><br>
+							<span>Límite de tiempo para procesar contenidos que están a continuación de las cabeceras (<i>headers</i>) de cada petición entrante, como <i>uploads</i> de archivos. Este límite empieza con la <i>Lectura de cabeceras</i>. Superado el límite, se cierra la conexión con el emisor de la petición. Para evitar este límite, escriba: <b class="c-yellow"><i>0s</i></b>. Valores admitidos: de <b>100 ms</b> a <b>15 minutos</b>.</span>
+						</li>
+						<li>
+							<h5 id="tp-2">Escritura de respuesta <i lang="en">(Response write)</i></h5><br>
+							<span>Límite de tiempo para responder a cada petición procesada. Superado el límite, se corta la respuesta y se cierra la conexión con el receptor. También limita la ejecución de los preprocesadores. Si un preprocesador lo supera, el cliente recibe el <b class="c-aqua">estado 504</b>, y se detienen el preprocesador y los procesos que haya lanzado (su grupo de procesos; en Windows, su <i>Job Object</i>), también si el cliente se desconecta antes. Para evitar este límite, escriba: <b class="c-yellow"><i>0s</i></b>. Valores admitidos: de <b>100 ms</b> a <b>30 minutos</b>. Aparte de este límite, una conexión HTTP/2 en la que no se puede escribir nada durante 30 s se cierra.</span>
+						</li>
+						<li>
+							<h5 id="tp-3">Cierre de conexión inactiva <i lang="en">(Idle connection close)</i></h5><br>
+							<span>Límite de tiempo para esperar la siguiente petición, sin cerrar la conexión, con el emisor de cada petición. Superado el límite, se cierra la conexión con el emisor. Con <b class="c-yellow"><i>0s</i></b>, se usa el valor de la <i>Lectura total de petición</i>. Valores admitidos: de <b>100 ms</b> a <b>5 minutos</b>.</span>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<h4 id="fp">Frecuencias de peticiones <i lang="en">(Request rate)</i></h4>
+					<section>
+						<div>
+							<a href="../data/rate-limiting.png"><img src="../data/rate-limiting.png" alt="Imagen de Frecuencias de peticiones" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Estas opciones fijan lapsos de tiempo de referencia y el número de peticiones que, durante esos lapsos, el servidor web aceptará de cada emisor (IP). Cada emisor es una dirección IPv4 o, en IPv6, un bloque <b>/64</b>: todas sus direcciones cuentan como un solo emisor. Al superar el límite, el emisor queda bloqueado durante <b>5 segundos</b>: sus peticiones reciben el <b class="c-aqua">estado 429</b> con la cabecera <i>Retry-After</i> (segundos restantes), y sus conexiones nuevas se cierran. Turbo recuerda hasta 200.000 emisores; por encima, mientras no olvida los antiguos, un emisor nuevo comparte la cuenta de su red (un /24 de IPv4 o un /48 de IPv6, y después un /16 o un /32), sin afectar a los ya conocidos. El límite para el total de peticiones del servidor es otra opción, <i>Límite global de peticiones</i>, desactivada por defecto. Piden la contraseña actual.</p>
+					</section>
+					<ol>
+						<li>
+							<h5 id="fp-0">Contador de peticiones por intervalo <i lang="en">(Request counting window)</i></h5><br>
+							<span>Lapso de tiempo referencial para contabilizar las peticiones recibidas de cada emisor, por cada lapso, hasta el límite de <i>Peticiones máximas por intervalo</i>. Este contador aumenta con cada petición y se reinicia al <i>Tiempo de reinicio de contador</i>; lo que un emisor no usa en un lapso lo puede usar en uno posterior, hasta ese reinicio. Se escribe el número en milisegundos <b class="c-yellow">sin <i>ms</i></b>, de <b>10</b> a <b>50000</b> (por defecto, 1000).</span>
+						</li>
+						<li>
+							<h5 id="fp-1">Peticiones máximas por intervalo <i lang="en">(Maximum requests per interval)</i></h5><br>
+							<span>Número máximo de peticiones que se aceptan por cada <i>Contador de peticiones por intervalo</i>. Superado el límite, se bloquea temporalmente al emisor de peticiones. Se escribe un número <b>mayor que 0</b> (por defecto, 100), <b>no mayor que el <i>Contador de peticiones por intervalo</i></b> (en milisegundos) y tal que el <i>Contador</i> entre este número no supere <b>66</b>, para que la interfaz siga funcionando (con 1000 ms, de 16 a 1000 peticiones).</span>
+						</li>
+						<li>
+							<h5 id="fp-2">Tiempo de reinicio de contador <i lang="en">(Counter reset time)</i></h5><br>
+							<span>Límite de tiempo para reiniciar el <i>Contador de peticiones por intervalo</i> para cada emisor de peticiones. Se escribe el número en milisegundos <b class="c-yellow">sin <i>ms</i></b>, de <b>1000</b> a <b>800000</b> (por defecto, 10000).</span>
+						</li>
+						<li>
+							<h5 id="fp-3">Límite global de peticiones <i lang="en">(Global request limit)</i></h5><br>
+							<span>Número máximo de peticiones por segundo para todo el servidor, entre todos los emisores: por encima, las peticiones nuevas reciben el <b class="c-aqua">estado 503</b> con <i>Retry-After: 1</i>, sin bloquear a ninguna IP. Con <b class="c-yellow">0</b> (por defecto), no hay límite global. Valores admitidos: 0, o de <b>10</b> a <b>1000000</b>.</span>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<h4 id="lp">Límites para cada petición <i lang="en">(Limits for each request)</i></h4>
+					<section>
+						<div>
+							<a href="../data/request-limits.png"><img src="../data/request-limits.png" alt="Imagen de Límites para cada petición" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Estas opciones especifican la cantidad de <i>bytes</i> que el servidor procesará de las peticiones entrantes, y cuántos preprocesadores pueden ejecutarse a la vez. Piden la contraseña actual.</p>
+					</section>
+					<ol>
+						<li>
+							<h5 id="lp-0">Tamaño máximo de las <i>URI</i> <i lang="en">(Max. size of URIs)</i></h5><br>
+							<span>Límite de longitud de la ruta del archivo, directorio (carpeta) o recurso que se solicita en cada petición, de <b>40</b> a <b>10240</b> <i>bytes</i>. Superado el límite, se rechaza la petición con <b class="c-aqua">estado 414</b>.</span>
+						</li>
+						<li>
+							<h5 id="lp-1">Tamaño máximo de cabeceras <i lang="en">(Max. size of headers)</i></h5><br>
+							<span>Límite de <i>bytes</i> de cabeceras (<i>headers</i>) de cada petición, de <b>600</b> a <b>20480</b>. Superado el límite, se rechaza la petición con <b class="c-aqua">estado 431</b>.</span>
+						</li>
+						<li>
+							<h5 id="lp-2">Tamaño máximo de contenidos <i lang="en">(Max. body size)</i></h5><br>
+							<span>Límite de <i>bytes</i> de contenidos adjuntos a cada petición, como cargas (<i>uploads</i>) de archivos o cuerpos (<i>bodies</i>) de peticiones POST, entre otros (hasta 100 MB). Por defecto, el servidor no procesa los contenidos adjuntos; el límite aplica siempre que sean utilizados (por la interfaz y por los preprocesadores, que no reciben más de este límite). Superado el límite, la petición a un preprocesador y la subida de archivos de la interfaz se rechazan con <b class="c-aqua">estado 413</b>. El contenido de una petición a un preprocesador se lee entero antes de pasárselo, hasta este límite, y el preprocesador lo recibe con su tamaño (<i>CONTENT_LENGTH</i>), también si llega por partes (<i>chunked</i>) o por HTTP/2 sin <i>Content-Length</i>: entre todas las peticiones ocupan hasta 32 MiB de memoria, y el resto va a archivos temporales sin nombre (un contenido de más de 1 MiB, según su <i>Content-Length</i>, va directamente a uno). En la subida de archivos de la interfaz cuenta, además del contenido, unos 600 <i>bytes</i> por archivo (lo que ocupa en memoria): un archivo de exactamente este tamaño no cabe, y si una subida lo supera, la salida es aumentarlo, porque cada subida sustituye la carpeta entera.</span>
+						</li>
+						<li>
+							<h5 id="lp-3">Procesos CGI simultáneos <i lang="en">(Concurrent CGI processes)</i></h5><br>
+							<span>Número máximo de preprocesadores (CGI) que pueden ejecutarse a la vez en todo el servidor. Una petición a un preprocesador que no encuentra hueco en 2 segundos recibe el <b class="c-aqua">estado 503</b> con <i>Retry-After: 2</i>. Con <b class="c-yellow">0</b> (por defecto), el valor es automático: 4 por CPU, y al menos 16. Valores admitidos: 0, o de <b>1</b> a <b>100000</b>. Un preprocesador libera su hueco al terminar, aunque su cliente aún no haya recibido toda la respuesta (vea <a href="/es/#so-3"><i>Agregar preprocesador</i></a>); como mucho una cuarta parte de los huecos (al menos uno; la mitad para un /48 de IPv6) puede esperar a respuestas de un mismo cliente que superan sus límites.</span>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<h4 id="as">Agregar sitio <i lang="en">(Add site)</i></h4>
+					<section>
+						<div>
+							<a href="../data/add-site.png"><img src="../data/add-site.png" alt="Imagen de Agregar sitio" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Esta opción crea la estructura de directorios (carpetas) para cada sitio en el <i>Directorio de sitios</i>. Se puede agregar como <i>localhost</i>, IP (v4) o dirección web multinivel, con o sin comodines (<i>wildcards</i>). Las direcciones IPv6 no están soportadas. Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier sitio agregado se mostrarán las opciones disponibles, las configuraciones de cada sitio y sus subdominios. En cada sitio, se incluye automáticamente el subdominio raíz (<i>Root</i>), que equivale al mismo sitio, para configurarlo específicamente. No hay límite de sitios ni datos relativos a sitios. Los archivos públicos de cada sitio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="c-yellow">@</b>. El servidor traducirá a <b class="c-yellow">#</b> físicamente en el disco los comodines <b class="c-yellow">*</b> de los dominios con <i>wildcards</i> (p. ej. <b class="c-yellow">*.org</b>, <b class="c-yellow">*.com.es</b>). Los nombres de los sitios van en minúsculas: una carpeta de sitio con mayúsculas no se sirve, y el registro lo avisa una vez.<br><br>Ningún sitio (ni subdominio suyo) puede llamarse <b class="c-yellow">turbo.dev</b>, <b class="c-yellow">turbo.panel</b>, <b class="c-yellow">turbo.certificates</b>, <b class="c-yellow">turbo.config</b>, <b class="c-yellow">turbo.visits</b> ni <b class="c-yellow">turbo.denials</b>: son las carpetas y archivos que Turbo guarda en el <i>Directorio de sitios</i>. Tampoco pueden existir a la vez el sitio <b class="c-yellow">c.a.b</b> y el subdominio <b class="c-yellow">c</b> de <b class="c-yellow">a.b</b>, que compartirían sus ajustes: si los dos aparecen en la configuración o en el disco, se queda el primero en orden, con un aviso en el registro. Un sitio no puede tener el nombre de un alias (vea <a href="/es/#oss-0"><i>Agregar alias</i></a>). Un sitio creado desde la interfaz empieza con los valores por defecto.</p>
+					</section>
+					<ol>
+						<li>
+							<h5 id="as-0">Validez de cada sitio</h5><br>
+							<span>Para que el servidor web responda a las peticiones de cada sitio agregado, este debe ser la dirección IP del servidor o un dominio o subdominio web real que apunte a la IP del servidor (mediante DNS). El servidor toma el nombre pedido (cabecera <i>Host</i>) en minúsculas, sin punto final y sin puerto, así que <b class="c-yellow">Example.COM.</b> lo sirve el sitio <b class="c-yellow">example.com</b>. Un nombre con caracteres que no sean letras, números, <b class="c-yellow">.</b> o <b class="c-yellow">-</b>, o con una parte que empieza o acaba en <b class="c-yellow">-</b>, recibe el <b class="c-aqua">estado 404</b>, también en los sitios con <i>wildcards</i>. Una cabecera <i>Host</i> que no es un <i>host</i> (corchetes alrededor de un nombre, una zona de IPv6, más de un <b class="c-yellow">:</b> fuera de corchetes, un puerto que no es de 1 a 5 dígitos) recibe el <b class="c-aqua">estado 400</b>, igual que el método <i>CONNECT</i>.</span>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<h4 id="sf">Sitios sin su carpeta <i lang="en">(Sites without their folder)</i></h4>
+					<section>
+						<div>
+							<a href="../data/sites-without-folder.png"><img src="../data/sites-without-folder.png" alt="Imagen de Sitios sin su carpeta" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Un sitio cuya carpeta (o su <b class="c-yellow">@</b>) desaparece, por ejemplo durante un despliegue que borra y vuelve a crear <b class="c-yellow">@</b>, una subida por FTP o un disco de red que no responde un momento, deja de servirse mientras no está, y vuelve con todos sus ajustes (preprocesadores, HTTPS, cabeceras, reescrituras, alias…), también tras reiniciar: siguen en <b>turbo.config</b>. Solo cuenta una carpeta que no existe, la que su carpeta superior, listada, no tiene: si el disco no responde (permisos, E/S, un recurso de red), el sitio sigue como está. Un sitio de <b>turbo.config</b> cuya carpeta aún no existe recibe sus ajustes cuando aparece.<br><br>La interfaz los lista en esta sección, que solo aparece cuando hay alguno. Una vez borrada su carpeta, la <b class="c-yellow">X</b> hace que Turbo olvide sus ajustes (los de un sitio, con sus subdominios); pide la contraseña actual y no borra ninguna carpeta. Mientras un sitio está en esta lista, no se puede crear otro con su nombre desde la interfaz: <b>borrar la carpeta de un sitio no borra el sitio</b>.</p>
+					</section>
+				</li>
+				<li>
+					<h4 id="oss">Opciones para sitios y subdominios</h4>
+					<section>
+						<div>
+							<a href="../data/root-sites-subdomains-options.png"><img src="../data/root-sites-subdomains-options.png" alt="Imagen de Opciones para sitios y subdominios" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Opciones disponibles para cualquier sitio o subdominio.</p>
+					</section>
+					<ol>
+						<li>
+							<h5 id="oss-0">Agregar alias <i lang="en">(Add alias)</i></h5>
+							<section>
+								<div>
+									<a href="../data/site-aliases.png"><img src="../data/site-aliases.png" alt="Imagen de Agregar alias" width="1920" height="1080" loading="lazy"></a>
+								</div>
+								<p>Añade direcciones que dirigen al mismo sitio o subdominio, <b>sin redireccionar</b>. Los alias añadidos se eliminan haciendo clic en cada uno. Por HTTPS, un alias necesita un certificado SSL que cubra su nombre; sin él, se sigue sirviendo por HTTP. Un alias no puede ser el nombre de un sitio o subdominio existente (lo taparía), y no se puede agregar un sitio con el nombre de un alias; si coinciden al cargar la configuración, gana el sitio y el alias se descarta, con un aviso en el registro.</p>
+							</section>
+						</li>
+						<li>
+							<h5 id="oss-1">Crear SSL <i lang="en">(Create SSL)</i></h5>
+							<section>
+								<p>Ejecuta Certbot, si está instalado, para solicitar el certificado SSL para el sitio o subdominio, solo al hacer clic. Requiere un e-mail (para los avisos de Certbot) y admite un adaptador opcional, que solo puede ser un complemento DNS de Certbot (<b class="c-yellow">dns-&lt;proveedor&gt;</b>, como <i>dns-route53</i>); sin adaptador, Certbot valida el dominio a través de la carpeta <b class="c-yellow">@</b> del sitio o subdominio (una petición a <b class="c-yellow">/.well-known/acme-challenge/</b> cuyo archivo está en <b class="c-yellow">@</b> se sirve tal cual, sin reescrituras ni redirecciones a www, raíz o HTTPS). Certbot se ejecutará en segundo plano, en la carpeta <b class="c-aqua">turbo.certificates</b> del <i>Directorio de sitios</i>, y se mostrará el resultado o el estado del proceso (en curso mientras Certbot trabaja) haciendo clic en <i>Respuesta SSL</i>. Si el sitio o subdominio es <i>wildcard</i>, el certificado requiere un adaptador DNS (y el complemento de Certbot respectivo instalado). Si el sitio ya tiene un certificado de menos de 75 días, no se ejecuta Certbot.<br><br>Las carpetas de Certbot de los sitios comparten la cuenta ACME de su e-mail, guardada en <b class="c-aqua">turbo.certificates/_acme-accounts/</b>: obtener certificados para muchos sitios no choca con el límite de Let's Encrypt de 10 cuentas nuevas por IP cada 3 horas. Certbot y sus <i>hooks</i> reciben el entorno de Turbo sin las variables <i>TURBO_*</i>.<br><br>Turbo revisa cada día (y al iniciarse) los certificados que obtuvo con esta opción y los <b>renueva automáticamente</b> cuando les quedan menos de 30 días; si la <i>Redirección a HTTPS</i> está activa, el certificado renovado se usa sin reiniciar. Los certificados colocados manualmente no se renuevan, pero Turbo vuelve a leer los archivos de un certificado a los 30 s de cambiar (por ejemplo, renovado por otro programa); un par que aún no carga (una cadena nueva cuya clave no ha llegado) deja el que está en uso.<br><br><b>Qué certificado recibe un nombre:</b> si varios lo cubren, el del panel; si no, el válido del sitio de ese nombre, después cualquier otro válido, y uno caducado solo si ninguno válido lo cubre. El registro avisa cuando el certificado de un sitio no cubre su nombre.</p>
+							</section>
+							<ol>
+								<li>
+									<h6>Borrar SSL <i lang="en">(Delete SSL)</i></h6><br>
+									<span>Elimina los archivos del certificado SSL relativos al sitio o subdominio, tenga la antigüedad que tenga; si no hay certificado, no hace nada. Pide la contraseña actual. Si el certificado está activo por la opción <i>Redirección a HTTPS (R. HTTPS)</i>, <b>se mantendrá en memoria RAM hasta que se desactive</b>, aunque esté expirado.</span>
+								</li>
+								<li>
+									<h6>Respuesta SSL <i lang="en">(SSL response)</i></h6><br>
+									<span>Muestra la respuesta de Certbot relativa al certificado SSL solicitado del sitio o subdominio.</span>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<h5 id="oss-2">Redirección a HTTPS <i lang="en">(R. HTTPS)</i></h5>
+							<section>
+								<p>Activa la redirección al protocolo HTTPS de todas las visitas o peticiones por medio de HTTP del sitio o subdominio. Para activar esta opción, se necesita un certificado SSL previamente obtenido con <i>Crear SSL</i>; o colocar archivos válidos (<i>fullchain.pem</i> y <i>privkey.pem</i>) de certificados SSL en el directorio (carpeta) del sitio o subdominio para instalarlos al hacer clic. La instalación, actualización o desactivación de certificados SSL se realiza en tiempo real en la memoria RAM sin interrumpir las conexiones activas ni requerir el reinicio del servidor. Un certificado nuevo se instala junto al anterior y lo sustituye solo cuando el par carga.<br><br>Las conexiones HTTPS usan <b>TLS 1.3</b>, y <b>TLS 1.2</b> solo con ECDHE y AES-GCM o ChaCha20-Poly1305 (un cliente muy antiguo que solo tenga cifrados CBC no puede conectar). El certificado se elige por el nombre que pide el cliente (SNI): por HTTPS se rechazan las conexiones a nombres sin certificado y el acceso por IP. La redirección se hace al mismo nombre pedido, solo si un certificado lo cubre.</p>
+							</section>
+							<ol>
+								<li>
+									<h6>Sin redirección a HTTPS <i lang="en">(No r. HTTPS)</i></h6><br>
+									<span>Desinstala y borra de la memoria RAM el certificado SSL activo del sitio o subdominio, pero no elimina los archivos del certificado del directorio (carpeta) del sitio o subdominio.</span>
+								</li>
+								<li>
+									<h6>Colocación de archivos de certificado SSL</h6><br>
+									<span>Las ubicaciones correctas de <b class="c-yellow">archivos de certificados SSL</b> en el <b class="c-orange">directorio (carpeta)</b> de cada sitio o subdominio son como las siguientes.<br><br><b>Para sitios o subdominios raíz</b>:</span>
+									<blockquote class="note muted">
+										<b class="c-aqua">/home/server/</b><b class="c-orange">example.com/</b><b class="c-yellow">fullchain.pem</b><br>
+										<b class="c-aqua">/home/server/</b><b class="c-orange">example.com/</b><b class="c-yellow">privkey.pem</b>
+									</blockquote>
+									<span><b>Para otros subdominios</b>:</span>
+									<blockquote class="note muted">
+										<b class="c-aqua">/home/server/</b><b class="c-orange">example.com/subdomain/</b><b class="c-yellow">fullchain.pem</b><br>
+										<b class="c-aqua">/home/server/</b><b class="c-orange">example.com/subdomain/</b><b class="c-yellow">privkey.pem</b>
+									</blockquote>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<h5 id="oss-3">Subir archivos <i lang="en">(Upload files)</i></h5>
+							<section>
+								<p>Elimina todo el contenido de la carpeta <b class="c-yellow">@</b> del sitio o subdominio (archivos y subcarpetas) y sube en su lugar los archivos o directorios seleccionados. Del directorio seleccionado se sube su contenido: el primer segmento de cada ruta (la carpeta elegida) se descarta. La respuesta informa de los archivos descartados: los que saldrían de <b class="c-yellow">@</b> y, en todos los sistemas, los nombres que Windows trata de forma especial (acabados en punto o espacio, como <b>CON</b>, <b>NUL</b> o <b>COM1</b>, o con <b>~</b> seguido de un número, como los nombres cortos <b>INDEX~1.PHP</b>, o con un carácter que Windows no admite: <b>&lt; &gt; " | ? *</b> o de control), los que los sistemas de archivos no admiten por largos (un nombre de más de 255 <i>bytes</i> o una ruta de más de 1024), y, de un archivo y una carpeta con el mismo nombre (<b>a</b> y <b>a/b</b>), el segundo. La subida está sujeta al <i>Tamaño máximo de contenidos</i> y admite hasta 10000 archivos. Los certificados SSL no se ven afectados, ya que se guardan separados de los archivos públicos. La carpeta <b class="c-yellow">@</b> se sustituye de una vez al terminar: si algo falla, o se descartan todos los archivos, queda como estaba. Pide la contraseña actual.</p>
+							</section>
+						</li>
+						<li>
+							<h5 id="oss-4">Borrar sitio/subdominio <i lang="en">(Delete site / Delete subdomain)</i></h5>
+							<section>
+								<p>Elimina todo lo relacionado con un sitio o subdominio, incluido el directorio (carpeta). Si es sitio, los subdominios también se eliminarán con toda la información relacionada. Si es subdominio raíz, esta opción se mostrará como <i>Delete site</i>, ya que equivale al mismo sitio. Pide la contraseña actual. En cualquier caso, no se harán cambios en el archivo de configuración hasta que se utilice la opción <i>Guardar configuración</i>.</p>
+							</section>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<h4 id="ossr">Opciones para sitios o subdominios raíz</h4>
+					<section>
+						<p>Estas opciones son únicamente para sitios o subdominios raíz: se configuran allí, aunque <i>Redirección a raíz</i> actúa sobre las visitas al subdominio www. La interfaz no las muestra en los demás subdominios.</p>
+					</section>
+					<ol>
+						<li>
+							<h5 id="ossr-0">Redirección a www <i lang="en">(R. www)</i></h5><br>
+							<span>Redirige automáticamente hacia el subdominio www las visitas o peticiones al subdominio raíz. Si esta opción se activa, la redirección contraria no podrá activarse. Ejemplo:</span>
+							<blockquote class="note muted">
+								<b>Visita: </b><b class="c-yellow">https://example.com</b><br>
+								<b>Redirección: </b><b class="c-orange">https://www.example.com</b>
+							</blockquote>
+							<ol>
+								<li>
+									<h6>Sin redirección a www <i lang="en">(No r. www)</i></h6><br>
+									<span>Desactiva la redirección automática al subdominio www desde el subdominio raíz.</span>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<h5 id="ossr-1">Redirección a raíz <i lang="en">(R. root)</i></h5><br>
+							<span>Redirige automáticamente hacia el subdominio raíz las visitas o peticiones al subdominio www. Si esta opción se activa, la redirección contraria no podrá activarse. Ejemplo:</span>
+							<blockquote class="note muted">
+								<b>Visita: </b><b class="c-yellow">https://www.example.com</b><br>
+								<b>Redirección: </b><b class="c-orange">https://example.com</b>
+							</blockquote>
+							<ol>
+								<li>
+									<h6>Sin redirección a raíz <i lang="en">(No r. root)</i></h6><br>
+									<span>Desactiva la redirección automática al subdominio raíz desde el subdominio www.</span>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<h4 id="aso">Agregar subdominio <i lang="en">(Add subdomain)</i></h4>
+					<section>
+						<div>
+							<a href="../data/add-subdomain.png"><img src="../data/add-subdomain.png" alt="Imagen de Agregar subdominio" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Esta opción crea la estructura de directorios (carpetas) de cada subdominio dentro del directorio del sitio al que pertenece, a excepción del subdominio raíz (<i>Root</i>). Se puede agregar como multinivel (nivel3.nivel2.subdominio) y puede incluir <i>wildcards</i>. Un subdominio sin comodín sirve solo su propio host: <i>api</i> sirve <i>api.example.com</i>, y los niveles más profundos (<i>x.api.example.com</i>) los sirve un comodín, <i>*.api</i> (o el <i>*</i> del sitio). Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier subdominio agregado se mostrarán las opciones disponibles y las configuraciones de cada subdominio. No hay límite de subdominios ni datos relativos a subdominios. Los archivos públicos de cada subdominio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="c-yellow">@</b>. El servidor traducirá a <b class="c-yellow">#</b> físicamente en el disco los comodines <b class="c-yellow">*</b> de los subdominios con <i>wildcards</i> (p. ej. <b class="c-yellow">*.example.com</b>, <b class="c-yellow">*.area.example.org</b>).</p>
+					</section>
+				</li>
+				<li>
+					<h4 id="so">Opciones de subdominios</h4>
+					<section>
+						<div>
+							<a href="../data/subdomains-options.png"><img src="../data/subdomains-options.png" alt="Imagen de Opciones de subdominios" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Opciones disponibles para cualquier subdominio.</p>
+					</section>
+					<ol>
+						<li>
+							<h5 id="so-0">Agregar MIME <i lang="en">(Add MIME)</i></h5>
+							<section>
+								<div>
+									<a href="../data/add-mimes.png"><img src="../data/add-mimes.png" alt="Imagen de Agregar MIME" width="1920" height="1080" loading="lazy"></a>
+								</div>
+								<p>Reemplaza la cabecera (<i>header</i>) <i>Content-Type</i> por defecto de los archivos del subdominio que tengan la extensión especificada, por el contenido ingresado (de 4 a 128 caracteres). Es posible especificar una extensión vacía para referirse a archivos sin extensión (como en la imagen); un punto solo (<b class="c-yellow">.</b>) no equivale a "sin extensión" y se rechaza. Como un tipo MIME puede hacer que un archivo del sitio se ejecute como una página (por ejemplo, <i>text/html</i>), agregarlo y borrarlo piden la contraseña actual.</p>
+							</section>
+						</li>
+						<li>
+							<h5 id="so-1">Agregar cabecera <i lang="en">(Add header)</i></h5>
+							<section>
+								<div>
+									<a href="../data/add-headers.png"><img src="../data/add-headers.png" alt="Imagen de Agregar cabecera" width="1920" height="1080" loading="lazy"></a>
+								</div>
+								<p>Agrega la cabecera (<i>header</i>) con el nombre y el contenido especificados a las respuestas de los archivos y preprocesadores del subdominio (no a las respuestas 404 ni a las redirecciones de reescrituras, HTTPS o www). El nombre admite letras, números, <b class="c-yellow">-</b> y <b class="c-yellow">.</b>, hasta 48 caracteres; el contenido, hasta 512. Agregarla y borrarla piden la contraseña actual. Una <i>Content-Security-Policy</i> agregada aquí se envía junto a la de Turbo, nunca en su lugar.</p>
+							</section>
+						</li>
+						<li>
+							<h5 id="so-2">Agregar reescritura <i lang="en">(Add rewrite)</i></h5>
+							<section>
+								<div>
+									<a href="../data/add-rewrites.png"><img src="../data/add-rewrites.png" alt="Imagen de Agregar reescritura" width="1920" height="1080" loading="lazy"></a>
+								</div>
+								<p>Agrega una reescritura de la ruta de archivo, directorio o recurso (URI) determinado, para tratarlo internamente como otra ruta de archivo, directorio o recurso especificado <b>sin redireccionarlo</b>. No es obligatorio ingresar una URI existente. La URI de origen empieza por <b class="c-yellow">/</b> (hasta 128 caracteres), y el destino, por <b class="c-yellow">/</b>, <b class="c-yellow">http://</b> o <b class="c-yellow">https://</b> (hasta 512). Se puede acceder a la información de la primera URI y datos del sitio y subdominio con palabras clave (útil en sitios o subdominios con <i>wildcards</i> y para preprocesadores); una palabra clave desconocida se rechaza (en el archivo de configuración, la reescritura se descarta con un aviso en el registro). La URI de origen se compara con la ruta pedida ya decodificada (<b class="c-yellow">/a b</b> coincide con <b class="c-yellow">/a%20b</b>); un origen que acaba en <b class="c-yellow">/</b> también toma la carpeta sin ella (<b class="c-yellow">/private/</b> toma <b class="c-yellow">/private</b>). El destino también se trata como una ruta URL (un <b class="c-yellow">%</b> literal se escribe <b class="c-yellow">%25</b>). Si, tras reemplazar las palabras clave, la ruta sale de la carpeta <b class="c-yellow">@</b> o contiene <b class="c-yellow">\</b>, se responde con <b class="c-aqua">estado 404</b>.<br><br>Un preprocesador al que se llega por una reescritura cuyo destino tiene consulta (<i>query string</i>) recibe la consulta de la petición sin los parámetros que fija la del destino, y después la del destino: con <b class="c-yellow">/x</b> → <b class="c-yellow">/app.cgi?role=user</b>, la petición <b class="c-yellow">/x?role=admin&amp;z=1</b> le llega como <b class="c-yellow">z=1&amp;role=user</b>.<br><br><b>Para redireccionar</b>, ingrese un destino que empiece por <b class="c-yellow">http://</b> o <b class="c-yellow">https://</b> (en mayúsculas o minúsculas; se guarda en minúsculas) seguido de un <i>host</i>, escrito o dado por una palabra clave: se responde con <b class="c-aqua">estado 302</b>. Un destino sin <i>host</i> (como <b class="c-yellow">https://</b> solo) se rechaza, y si la palabra clave del <i>host</i> no da ningún valor al responder, se responde con <b class="c-aqua">estado 500</b>. Si el destino tiene ruta o consulta (<i>query string</i>), se redirige exactamente a ese destino; si es solo un dominio, se le añade la URI original.</p>
+							</section>
+							<ol>
+								<li>
+									<h6>Información accesible</h6><br>
+									<span>Al incluir <b>palabras clave</b> en las reescrituras, se reemplazarán por la información respectiva. Se escriben de la siguiente manera:</span>
+									<blockquote class="note muted text-lg">
+										<b class="c-orange">{<b class="c-aqua">PALABRA_CLAVE</b>}</b>
+									</blockquote>
+									<span>Los valores de <b>FIRST_REQUEST</b>, <b>DIR</b>, <b>FILE</b>, <b>EXT</b>, <b>REWRITE</b> y <b>REWRITE_COMPLEMENT</b> salen de la ruta pedida ya decodificada, y los de <b>FIRST_QUERY</b>, de su consulta. Cada valor se inserta codificado según dónde va en el destino: en la ruta, por segmentos, sin tocar <b class="c-yellow">/</b>; en la consulta (<i>query string</i>), como un valor (por ejemplo, <b class="c-yellow">/</b> se convierte en <b class="c-yellow">%2F</b>); en el <i>host</i>, de forma que no pueda cambiar la URL. Por ejemplo, con el origen <b class="c-yellow">/blog/</b> y el destino <b class="c-yellow">/new/{REWRITE_COMPLEMENT}</b>, <b class="c-yellow">/blog/a/b?x=1</b> pasa a <b class="c-yellow">/new/a/b?x=1</b>. Cuando se accede por un alias de un sitio <i>wildcard</i>, <b>SUBDOMAIN</b> y <b>SITE</b> contienen el patrón (con <b class="c-yellow">*</b>); los nombres del alias están en las palabras <b>FIRST_</b>.</span><br><br>
+									<span><b>Palabras clave disponibles:</b></span>
+									<ol>
+										<li>
+											<h6 data-no-toc="">TURBO_CURRENT_DIR</h6><br>
+											<span>Contiene la ruta desde donde se sirven los sitios web.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">WILDCARD_SITE</h6><br>
+											<span>Contiene la dirección web completa (con subdominio y dominio) del sitio <i>wildcard</i> al que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">WILDCARD_DOMAIN</h6><br>
+											<span>Contiene el dominio web del sitio <i>wildcard</i> al que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">WILDCARD_SUBDOMAIN</h6><br>
+											<span>Contiene el subdominio web del sitio <i>wildcard</i> al que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">DOMAIN</h6><br>
+											<span>Contiene el dominio web del sitio al que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">SUBDOMAIN</h6><br>
+											<span>Contiene el subdominio web del sitio al que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">SITE</h6><br>
+											<span>Contiene la dirección web completa (con subdominio y dominio) del sitio al que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">FIRST_DOMAIN</h6><br>
+											<span>Contiene el dominio web alias al que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">FIRST_SUBDOMAIN</h6><br>
+											<span>Contiene el subdominio web alias al que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">FIRST_SITE</h6><br>
+											<span>Contiene la dirección web alias completa (con subdominio y dominio) a la que pertenece.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">FIRST_REQUEST</h6><br>
+											<span>Contiene la ruta o URI completa que se reescribió.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">FIRST_QUERY</h6><br>
+											<span>Contiene los parámetros de consulta (<i>query string</i>) de la URI que se reescribió.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">DIR</h6><br>
+											<span>Contiene el directorio (carpeta) de la URI que se reescribió.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">FILE</h6><br>
+											<span>Contiene el nombre del archivo que se reescribió.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">EXT</h6><br>
+											<span>Contiene la extensión del archivo que se reescribió.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">REWRITE</h6><br>
+											<span>Contiene la URI de origen de la reescritura que coincidió.</span>
+										</li>
+										<li>
+											<h6 data-no-toc="">REWRITE_COMPLEMENT</h6><br>
+											<span>Contiene el resto de la URI pedida tras la URI de origen de la reescritura (ruta y parámetros de consulta). En la ruta del destino, contiene solo el resto de la ruta, y los parámetros de consulta de la petición se añaden a los del destino.</span>
+										</li>
+									</ol>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<h5 id="so-3">Agregar preprocesador <i lang="en">(Add preprocessor)</i></h5>
+							<section>
+								<div>
+									<a href="../data/add-preprocessors.png"><img src="../data/add-preprocessors.png" alt="Imagen de Agregar preprocesador" width="1920" height="1080" loading="lazy"></a>
+								</div>
+								<p>Asigna el preprocesador determinado para todos los archivos con la extensión especificada del subdominio, sin distinguir mayúsculas (<b class="c-yellow">.PHP</b> también se ejecuta como <b class="c-yellow">.php</b>). El preprocesador debe procesar y responder, mediante CGI y las variables de entorno respectivas, las peticiones de los archivos con la extensión especificada.<br><br><b>PHP:</b> agregue un preprocesador para la extensión <b class="c-yellow">php</b> con la ruta de <b class="c-yellow">php-cgi</b> (por ejemplo, <b class="c-yellow">/usr/bin/php-cgi</b>, del paquete <i>php-cgi</i>). Turbo inyecta automáticamente la variable de entorno <b class="c-yellow">REDIRECT_STATUS</b>, permitiendo ejecutar scripts de PHP sin modificar el archivo <i>php.ini</i>; PHP recibe la ruta URL del script en <i>PHP_SELF</i> y <i>SCRIPT_NAME</i>, la <i>REQUEST_URI</i> original y la carpeta temporal de Turbo, donde guarda las subidas. Con la unidad systemd de referencia, la carpeta de sesiones por defecto de PHP (<b class="c-aqua">/var/lib/php/sessions</b>) es de solo lectura: indique en <b class="c-yellow">session.save_path</b> una carpeta dentro de la de los sitios.<br><br><b>Lo que recibe el preprocesador de la petición:</b> las cabeceras con <b class="c-yellow">_</b> en su nombre no le llegan, como en Apache, y <i>HTTP_HOST</i> y <i>SERVER_NAME</i> llevan el <i>host</i> tal como eligió el sitio (en minúsculas, sin punto final y con su puerto).<br><br><b>Su respuesta:</b> es Turbo quien la delimita: de la que escribe el preprocesador se descartan las cabeceras sobre la conexión (<i>Transfer-Encoding</i>, <i>Connection</i>, <i>Keep-Alive</i>, <i>Upgrade</i>…), un <i>Content-Length</i> repetido y las cabeceras con caracteres de control. La salida espera a un cliente lento en memoria (hasta 1 MiB por respuesta y 64 MiB en total) y después en archivos temporales sin nombre de 32 MiB, cada uno borrado en cuanto se envía (hasta 256 MiB por respuesta y 1 GiB en total), así que el preprocesador libera su hueco al terminar; un cliente puede ocupar una cuarta parte de esos totales. Un preprocesador que sigue en marcha y lleva 100 ms sin escribir envía lo que escribió, y desde entonces todo lo que escribe se envía al momento: los <i>server-sent events</i>, las barras de progreso y el <i>long polling</i> funcionan. Uno que termina antes se envía entero, con su tamaño.<br><br>La ruta del preprocesador admite hasta 128 caracteres y debe existir al agregarlo; el prefijo <b class="c-yellow">dx&gt;</b> no está disponible. Como un preprocesador ejecuta programas en el servidor, esta opción pide la contraseña actual. Borrarlo (la <b>X</b> junto a él) también la pide: sin su preprocesador, los archivos de esa extensión se servirían como texto, con su código fuente. Si más tarde el binario no existe (por ejemplo, al cargar la configuración guardada), los archivos con esa extensión responden con <b class="c-aqua">estado 500</b> en lugar de servirse. Lo mismo ocurre con un preprocesador del archivo de configuración que no se puede usar (ruta vacía o demasiado larga, extensión incorrecta, otro prefijo, ejecutable inexistente, caracteres de control): se conserva, con un aviso en el registro, y su extensión responde con <b class="c-aqua">estado 500</b>; los archivos nunca se sirven como texto.<br><br>Los preprocesadores que se ejecutan a la vez están limitados por <a href="/es/#lp-3"><i>Procesos CGI simultáneos</i></a>, y su tiempo, por <a href="/es/#tp-2"><i>Escritura de respuesta</i></a>. Un preprocesador termina cuando su cliente se va, y al parar Turbo, a los 10 s, con lo que haya lanzado.<br><br><b>IMPORTANTE:</b> Si la configuración para preprocesar los archivos no está activa en el subdominio, los archivos para uso dinámico (preprocesados, usualmente código) serán servidos como estáticos (texto plano, etc., dependiendo del MIME), <b>lo que puede comprometer la confidencialidad de estos archivos y su código fuente</b>.</p>
+							</section>
+						</li>
+						<li>
+							<h5 id="so-4">Agregar índice <i lang="en">(Add index)</i></h5>
+							<section>
+								<div>
+									<a href="../data/add-indexes.png"><img src="../data/add-indexes.png" alt="Imagen de Agregar índice" width="1920" height="1080" loading="lazy"></a>
+								</div>
+								<p>Agrega el archivo por defecto para responder a peticiones (<i>requests</i>) de directorios (carpetas). Es necesario que el archivo especificado exista en cada directorio. Si se especifica más de uno, se prueban en el orden en que se agregaron. Los sitios y subdominios nuevos incluyen <b class="c-yellow">index.html</b> por defecto. Una petición cuya ruta termina en <b class="c-yellow">/index.html</b> se redirige (<b class="c-aqua">estado 301</b>) a su directorio (<b class="c-yellow">./</b>).</p>
+							</section>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<h4 id="al">Archivos de registros (<i>logs</i>)</h4>
+					<section>
+						<p>Para registrar los bloqueos del limitador de frecuencia y de los intentos de acceso fallidos (una línea por bloqueo, no por petición rechazada; las rechazadas por el <i>Límite global de peticiones</i> no se registran), cree un archivo accesible llamado <b class="c-aqua">turbo.denials</b>, y para registrar cada acceso a cada archivo o ruta en el servidor, cree otro archivo llamado <b class="c-aqua">turbo.visits</b>, en el <i>Directorio de sitios</i>. Turbo solo escribe en estos archivos si existen; los detecta (o deja de usarlos al borrarlos) en su revisión periódica, cada 30 segundos, y también nota entonces un archivo rotado por cambio de nombre (la opción <i>create</i> de <i>logrotate</i>). Los campos con espacios o caracteres de control se escriben entre comillas y escapados. Ya que pueden aumentar mucho de tamaño, no cree estos archivos si no necesita registros.<br><br>Los demás mensajes de Turbo (arranque, configuración, sitios, certificados, errores) se muestran en la salida estándar (<i>stdout</i>) o en la consola, con nivel (<i>INFO</i>, <i>WARN</i>, <i>ERROR</i>) y fecha y hora; con el servicio de Linux, quedan en el <i>journal</i> (<b>journalctl -u turbo</b>). Los errores de las conexiones (negociaciones TLS fallidas, clientes sin SNI, tramas HTTP/2 mal formadas…) y los de los preprocesadores cuyo cliente se va se agrupan por tipo: el primero de cada tipo se registra al momento, y después como mucho una línea por minuto con la cuenta y el último, para que no llenen el registro.<br><br><b class="c-aqua">turbo.visits</b> no registra las peticiones rechazadas por los limitadores (<b class="c-aqua">429</b>, <b class="c-aqua">503</b>), las conexiones cerradas al llegar desde una IP bloqueada, ni las peticiones mal formadas o demasiado grandes que se rechazan antes de procesarlas (<b class="c-aqua">400</b>, <b class="c-aqua">414</b>, <b class="c-aqua">431</b>); los bloqueos, también los de intentos de acceso fallidos, quedan en <b class="c-aqua">turbo.denials</b>.<br><br><b>Privacidad:</b> <b class="c-aqua">turbo.visits</b> registra, por cada petición que procesa, la IP del emisor, la fecha (<i>timestamp</i> UNIX), el método, el <i>host</i> y la URI completa, con sus parámetros de consulta, incluidas las peticiones a la interfaz (la interfaz envía sus datos, como la contraseña actual, en el cuerpo de la petición, que no se registra). Un cliente de la API que ponga la contraseña u otros datos sensibles en la URL los dejaría en este archivo: debe enviarlos en el cuerpo, como la interfaz. La sesión de la interfaz no aparece en él, porque viaja en una <i>cookie</i>. Trate este archivo como información personal y sensible: restrinja su acceso y bórrelo o rótelo según sus necesidades.</p>
+					</section>
+				</li>
+				<li>
+					<h4 id="aid">Agregar IP denegada <i lang="en">(Add denied IP)</i></h4>
+					<section>
+						<div>
+							<a href="../data/add-denied-ip.png"><img src="../data/add-denied-ip.png" alt="Imagen de Agregar IP denegada" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Permite bloquear de forma manual e inmediata direcciones IP específicas (IPv4 o IPv6). Se ingresa la dirección IP y la fecha en formato <b class="c-yellow">timestamp UNIX</b> hasta la cual la IP permanecerá bloqueada. Mientras dure el bloqueo, sus peticiones reciben el <b class="c-aqua">estado 429</b> (con <i>Retry-After</i>) y sus conexiones nuevas se cierran. Una dirección IPv6 bloquea todo su bloque <b>/64</b>, el emisor que cuentan los límites de <a href="/es/#fp"><i>Frecuencias de peticiones</i></a> (sus direcciones cambian solas). No se pueden bloquear las direcciones de <i>loopback</i> (<b>127.x.x.x</b>, <b>::1</b> y cualquier otra de <b>::/64</b>, que contiene <b>::1</b>) ni la IP desde la que se usa la interfaz (en IPv6, su /64). Transcurrido ese tiempo, el servidor la desbloquea automáticamente. Para eliminar el bloqueo manualmente antes de la fecha, haga clic sobre la <b class="c-yellow">X</b> de la IP en la lista.</p>
+					</section>
+				</li>
+				<li>
+					<h4 id="arc">Agregar respuesta a código HTTP <i lang="en">(Add HTTP code response)</i></h4>
+					<section>
+						<div>
+							<a href="../data/add-http-code-response.png"><img src="../data/add-http-code-response.png" alt="Imagen de Agregar respuesta a código HTTP" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Permite personalizar la respuesta o plantilla de texto/HTML devuelta por el servidor cuando ocurre un código de estado de error HTTP determinado (códigos entre <b class="c-aqua">400 y 599</b>, o <b class="c-aqua">0</b> para la respuesta general por defecto, <i>Default</i> en la lista). Se utiliza la etiqueta <b class="c-yellow">{TURBO_RESPONSE_CODE}</b> para incluir dinámicamente el código de error en la respuesta. Si la plantilla empieza por <b class="c-yellow">&lt;</b>, se sirve como HTML; si no, como texto plano, donde <b class="c-yellow">\n</b> es un salto de línea. Admite hasta 2048 caracteres. Como una plantilla es la página de error de todos los sitios, agregarla y borrarla piden la contraseña actual.<br><br>Una página de error nunca ejecuta <i>scripts</i>: se envía, en todos los <i>hosts</i>, con una <i>Content-Security-Policy</i> sin ellos y con <i>sandbox</i>, así que tampoco puede redirigir por sí misma (<i>meta refresh</i>), enviar formularios ni abrir ventanas. También bloquea los estilos, fuentes e imágenes externos: una plantilla puede usar sus propios estilos y las imágenes <i>data:</i>.</p>
+					</section>
+				</li>
+				<li>
+					<h4 id="arcr">Agregar reemplazo de caracteres <i lang="en">(Add character replacement)</i></h4>
+					<section>
+						<div>
+							<a href="../data/add-character-replacement.png"><img src="../data/add-character-replacement.png" alt="Imagen de Agregar reemplazo de caracteres" width="1920" height="1080" loading="lazy"></a>
+						</div>
+						<p>Permite definir reglas globales de sustitución de caracteres especiales en los valores que la interfaz envía al servidor (reescrituras, MIME, cabeceras, etc.); no se aplican a las URI de las peticiones que recibe el servidor. Sustituye caracteres que puedan causar conflictos con delimitadores de URL (por ejemplo: <b class="c-yellow">;</b> por <b class="c-aqua">-.-</b>, <b class="c-yellow">#</b> por <b class="c-aqua">-,-</b>, o <b class="c-yellow">&amp;</b> por <b class="c-aqua">-_-</b>, los tres fijos) por cadenas seguras para enviarlos, y Turbo los restituye al recibirlos. Un reemplazo es de 1 a 4 <i>bytes</i>, sin letras ni números, y su cadena, de 2 a 16 caracteres. Turbo no los restituye en las opciones que piden la contraseña actual, ni en el sitio y el subdominio de ninguna opción. Agregarlo y borrarlo piden la contraseña actual. Ningún valor puede contener caracteres de control (las plantillas de respuesta sí admiten saltos de línea y tabuladores).</p>
+					</section>
+				</li>
+			</ol>
+		</article>
+	</main>
+	<footer id="License">
+		<div>
+			<div class="brand"><img src="../i.png" alt="Logotipo de Turbo"><b>Turbo</b></div>
+			<h2>Licencia</h2>
+			<p>Turbo utiliza un modelo de licencia dual:</p>
+			<ul class="list">
+				<li><strong>Código abierto (AGPL v3):</strong> Es software libre bajo la licencia <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License (AGPL v3)</a>. Al modificar este software y ofrecerlo como servicio a través de una red, debe publicar los cambios bajo la misma licencia.</li>
+				<li><strong>Licencia comercial:</strong> Si desea usar Turbo en proyectos propietarios, integrarlo en un producto cerrado o eximirse de los requisitos de la AGPL v3, puede adquirir una licencia comercial. Para consultas o contacto, visite uno de los siguientes enlaces:
+					<ul class="list">
+						<li><a href="https://okzgn.com/#contact">https://okzgn.com/#contact</a></li>
+						<li><a href="https://okzgn.github.io/#contact">https://okzgn.github.io/#contact</a></li>
+					</ul>
+				</li>
+			</ul>
+			<hr>
+			<h4>Componentes de terceros</h4>
+			<p>El paquete <code class="c-aqua">customNetHttp</code> contiene la librería estándar <code class="c-aqua">net/http</code> de Go 1.26.x (la versión exacta figura en <code class="c-aqua">customNetHttp/UPSTREAM</code>) con los parches de Turbo, descritos en <code class="c-aqua">customNetHttp/PATCHES.md</code>, distribuida bajo la licencia <a target="_blank" rel="noopener" href="https://opensource.org/license/bsd-3-clause">BSD de 3 cláusulas</a>. Consulte los archivos <code class="c-aqua">customNetHttp/LICENCE</code>, <code class="c-aqua">customNetHttp/PATENTS</code> y <code class="c-aqua">customNetHttp/NOTICE</code> en el directorio para obtener todos los detalles y atribuciones.</p>
+			<hr>
+			<h4>Seguridad</h4>
+			<p>Informe de cualquier vulnerabilidad en privado, nunca en un <i>issue</i>: desde la pestaña <i>Security</i> del repositorio (<b>Report a vulnerability</b>) o mediante los formularios de contacto. Vea <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/SECURITY.md">SECURITY.md</a>.</p>
+			<hr>
+			<h4>GitHub</h4>
+			<p><a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go">https://github.com/okzgn/turbo-go</a></p>
+			<p><a href="/" hreflang="en" lang="en">Read this page in English</a></p>
+			<div class="copyright">&copy; 2026 <a target="_blank" rel="noopener" href="https://okzgn.com">OKZGN</a></div>
+		</div>
+		<div class="arrow-links">
+			<p><img src="../okzgn_logo_mobile.svg" alt="Logotipo de OKZGN"></p>
+			<ul>
+				<li><a target="_blank" rel="noopener" href="https://okzgn.com/#main">Inicio</a></li>
+				<li><a target="_blank" rel="noopener" href="https://okzgn.com/#services">Servicios</a></li>
+				<li><a target="_blank" rel="noopener" href="https://okzgn.com/#projects">Proyectos</a></li>
+				<li><a target="_blank" rel="noopener" href="https://okzgn.com/#contact">Contacto</a></li>
+			</ul>
+		</div>
+	</footer>
+	<div id="menu">
+		<a><img src="../i.png" alt="Logotipo de Turbo"></a>
+		<input type="checkbox" id="menu-toggle" aria-label="Menú"><label for="menu-toggle"><b></b><b></b><b></b></label>
+		<nav>
+			<ol data-index="">
+				<li><a href="/es/#Start" class="is-active">Inicio</a></li>
+				<li><a href="/es/#Description">Descripción</a></li>
+				<li><a href="/es/#Install">Instalación</a></li>
+				<li><a href="/es/#Downloads">Descargas</a></li>
+				<li><a href="/es/#Get-started">Cómo utilizar</a></li>
+				<li><a href="/es/#Docs">Documentación</a></li>
+				<li><a href="/es/#License">Licencia</a></li>
+				<li><a href="/" hreflang="en" lang="en">English</a></li>
+			</ol>
+		</nav>
+	</div>
+	<div id="rain" aria-hidden="true">
+		<div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div>
+		<div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div>
+	</div>
+</body>
+</html>

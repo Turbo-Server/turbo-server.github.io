@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Highlight the menu link of the section being read.
     function navLink(section){
-        return document.querySelector('[data-index] [href="/#' + section.id + '"]');
+        return document.querySelector('[data-index] [href$="#' + section.id + '"]');
     }
     watchVisibility('main article, footer',
         function(state){
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     );
 
-    // "Copiar" button under every code block. Prompt-style blocks ("> cmd") are copied as one line joined by "; ".
+    // "Copy" button under every code block. Prompt-style blocks ("> cmd") are copied as one line joined by "; ".
     document.querySelectorAll('pre').forEach(function(pre){
         var bar = document.createElement('div'),
             button = document.createElement('a');
