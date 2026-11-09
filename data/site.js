@@ -7,13 +7,26 @@ document.addEventListener('DOMContentLoaded', function(){
         es = root.lang == 'es',
         hasObserver = 'IntersectionObserver' in window;
 
-    // Header: transparent over the hero, solid (glass) once the hero is no longer behind it.
+    // Header: clear (blur only) while the hero or the footer, both dark, is behind it; light glass elsewhere.
+    // "Behind" means the section crosses the middle line of the header.
     var header = document.querySelector('.site-header'),
-        hero = document.getElementById('Start');
-    if(header && hero && hasObserver){
-        new IntersectionObserver(function(entries){
-            header.classList.toggle('is-scrolled', !entries[0].isIntersecting);
-        }, { rootMargin: '-' + header.offsetHeight + 'px 0px 0px 0px' }).observe(hero);
+        darkSections = [document.getElementById('Start'), document.querySelector('footer')].filter(Boolean),
+        headerTicking = false;
+    function updateHeader(){
+        headerTicking = false;
+        var line = header.offsetHeight / 2,
+            overDark = darkSections.some(function(section){
+                var box = section.getBoundingClientRect();
+                return box.top <= line && box.bottom >= line;
+            });
+        header.classList.toggle('is-scrolled', !overDark);
+    }
+    if(header && darkSections.length){
+        window.addEventListener('scroll', function(){
+            if(!headerTicking){ headerTicking = true; requestAnimationFrame(updateHeader); }
+        }, { passive: true });
+        window.addEventListener('resize', updateHeader);
+        updateHeader();
     }
 
     // Mobile menu: a button with aria-expanded that opens the drawer. Closes with Escape, a link, or a click outside.

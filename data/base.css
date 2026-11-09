@@ -198,16 +198,16 @@ a:hover { color: var(--primary-hover); }
 	transition: color var(--dur);
 }
 /* The glass background is a pseudo-element: a backdrop-filter on the header itself would trap the fixed drawer.
-   Over the hero it is clear glass, only a strong blur (the hero is already dark, so the white text stays readable);
-   past the hero it turns into the light glass. */
+   Over the hero and the footer (both dark) it is clear glass: only a strong blur, no tint and no color boost, so
+   what is behind keeps its own color; elsewhere it turns into the light glass. */
 .site-header::before {
 	content: '';
 	position: absolute;
 	inset: 0;
 	z-index: -1;
 	background: transparent;
-	-webkit-backdrop-filter: saturate(1.4) blur(24px);
-	backdrop-filter: saturate(1.4) blur(24px);
+	-webkit-backdrop-filter: blur(24px);
+	backdrop-filter: blur(24px);
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 	transition: background-color var(--dur), box-shadow var(--dur);
 }
