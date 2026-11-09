@@ -170,5 +170,121 @@ document.addEventListener('DOMContentLoaded', function(){
                 });
             });
         });
+
+        tocSpy(toc);
+    }
+
+    // Scroll-spy of the documentation index: marks the entry being read (.is-active, aria-current) and its
+    // parents (.is-current), with a marker that slides along the index to it.
+    //  - Reading line: a heading becomes the current one when it crosses a line a third of the way down the
+    //    visible area (where the eyes rest while reading), not when it touches the header.
+    //  - Scroll progress: in the last screen of the docs that line sweeps down to the bottom edge, so the short
+    //    final sections, which can never reach the top, still get their turn as the reader advances.
+    //  - Intent: an entry chosen from the index (or any link to a heading) stays marked while the page scrolls
+    //    to it and once it lands, even near the end, until the reader scrolls by themselves.
+    //  - Outside the docs (above the first heading, or once its end leaves the reading line) nothing is marked.
+    function tocSpy(toc){
+        var docs = document.getElementById('docs-list'),
+            links = Array.prototype.slice.call(toc.querySelectorAll('a')),
+            targets = links.map(function(link){ return document.getElementById(link.hash.slice(1)); }),
+            byId = {},
+            reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)'),
+            marker = document.createElement('li'),
+            current = null,
+            pinned = null,
+            settling = 0,
+            ticking = false;
+        if(!docs || !links.length){ return; }
+        links.forEach(function(link, i){ byId[targets[i].id] = link; });
+        marker.className = 'toc-marker';
+        marker.setAttribute('aria-hidden', 'true');
+        toc.appendChild(marker);
+
+        function readingLine(){
+            var top = header ? header.offsetHeight : 0,
+                height = window.innerHeight,
+                base = top + (height - top) * 0.3,
+                // Distance left until the end of the docs reaches the bottom of the window.
+                left = docs.getBoundingClientRect().bottom - height,
+                sweep = Math.min(1, Math.max(0, 1 - left / (height - base)));
+            return { base: base, line: base + (height - 8 - base) * sweep };
+        }
+        function find(){
+            var reading = readingLine(),
+                index = -1;
+            if(docs.getBoundingClientRect().bottom < reading.base){ return null; }
+            for(var i = 0; i < targets.length; i++){
+                if(targets[i].getBoundingClientRect().top <= reading.line){ index = i; } else { break; }
+            }
+            return index < 0 ? null : links[index];
+        }
+        function place(){
+            if(!current){ marker.classList.remove('is-visible'); return; }
+            var box = toc.getBoundingClientRect(),
+                rect = current.getBoundingClientRect();
+            marker.style.transform = 'translateY(' + (rect.top - box.top - toc.clientTop + toc.scrollTop) + 'px)';
+            marker.style.height = rect.height + 'px';
+            marker.classList.add('is-visible');
+        }
+        function reveal(){
+            // Keeps the entry in the middle part of the index when the index scrolls in its own box
+            // (the page itself never moves).
+            if(toc.scrollHeight <= toc.clientHeight){ return; }
+            var box = toc.getBoundingClientRect(),
+                rect = current.getBoundingClientRect(),
+                margin = Math.min(96, box.height / 4);
+            if(rect.top >= box.top + margin && rect.bottom <= box.bottom - margin){ return; }
+            var top = toc.scrollTop + rect.top - box.top - box.height / 3;
+            toc.scrollTo ? toc.scrollTo({ top: top, behavior: reduceMotion && reduceMotion.matches ? 'auto' : 'smooth' }) : (toc.scrollTop = top);
+        }
+        function mark(link){
+            if(link === current){ return; }
+            toc.querySelectorAll('.is-active, .is-current').forEach(function(item){ item.classList.remove('is-active', 'is-current'); });
+            if(current){ current.removeAttribute('aria-current'); }
+            current = link;
+            if(link){
+                link.classList.add('is-active');
+                link.setAttribute('aria-current', 'location');
+                for(var item = link.parentNode.parentNode.closest('li'); item && toc.contains(item); item = item.parentNode.closest('li')){
+                    item.firstElementChild.classList.add('is-current');
+                }
+                reveal();
+            }
+            place();
+        }
+        function update(){
+            ticking = false;
+            mark(pinned || find());
+        }
+        function request(){
+            if(!ticking){ ticking = true; requestAnimationFrame(update); }
+        }
+        // The jump to a chosen heading is "settling" until its scroll stops for a moment; a scroll after that
+        // is the reader's own, and frees the pinned entry.
+        function settle(delay){
+            clearTimeout(settling);
+            settling = setTimeout(function(){ settling = 0; request(); }, delay);
+        }
+        function choose(id){
+            var link = byId[id];
+            if(!link){ return; }
+            pinned = link;
+            mark(link);
+            settle(300);
+        }
+
+        window.addEventListener('scroll', function(){
+            if(settling){ settle(150); return; }
+            pinned = null;
+            request();
+        }, { passive: true });
+        window.addEventListener('resize', function(){ place(); request(); });
+        document.addEventListener('click', function(event){
+            var link = event.target.closest && event.target.closest('a[href*="#"]');
+            if(link && link.pathname == location.pathname && link.hostname == location.hostname){ choose(decodeURIComponent(link.hash.slice(1))); }
+        });
+        window.addEventListener('hashchange', function(){ choose(decodeURIComponent(location.hash.slice(1))); });
+        if(location.hash && byId[decodeURIComponent(location.hash.slice(1))]){ choose(decodeURIComponent(location.hash.slice(1))); }
+        else { update(); }
     }
 });

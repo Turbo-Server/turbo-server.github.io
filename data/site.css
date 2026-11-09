@@ -15,22 +15,26 @@ main > article > * {
 .pre-title + .code, .pre-title + pre { margin-top: 0 !important; }
 #Install li > span, #docs-list li > span { display: block; }
 
-/* Section titles, with the accent bar of the brand */
+/* Section titles: centered between two hairlines that grow out of the title in the accent color and fade
+   into the page, so each title also works as the divider between sections. */
 article > h3 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(1rem, 3vw, 1.75rem);
 	text-align: center;
 	font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
 	letter-spacing: -0.02em;
 	margin-bottom: 2.25rem;
 }
-article > h3::after {
+article > h3::before, article > h3::after {
 	content: '';
-	display: block;
-	width: 3rem;
-	height: 0.25rem;
-	margin: 0.875rem auto 0;
-	border-radius: 1rem;
-	background: var(--accent-gradient);
+	flex: 1 1 0;
+	max-width: 12rem;
+	height: 1px;
+	background: linear-gradient(to left, color-mix(in srgb, var(--orange) 75%, transparent), transparent);
 }
+article > h3::after { background: linear-gradient(to right, color-mix(in srgb, var(--orange) 75%, transparent), transparent); }
 main > article > h3 + * { margin-top: 0; }
 
 /* Image + text rows (the image goes first, or last with .media-right). */
@@ -42,6 +46,8 @@ section:not(.gallery) {
 }
 section.media-right { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
 section:not(.gallery) > * { margin-top: 0 !important; }
+/* A row with no image (text alone) takes the whole width. */
+section:not(.gallery) > :only-child { grid-column: 1 / -1; }
 @media (max-width: 640px) {
 	section:not(.gallery), section.media-right { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 }
@@ -60,9 +66,9 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	color: #f0f0f0;
+	color: var(--on-dark);
 	background:
-		radial-gradient(60rem 30rem at 50% -10%, rgba(99, 158, 191, 0.45), transparent 70%),
+		radial-gradient(60rem 30rem at 50% -10%, color-mix(in srgb, var(--aqua) 25%, transparent), transparent 70%),
 		linear-gradient(to bottom, var(--blue), var(--navy));
 }
 #Start > :not(.rain) { max-width: 52rem; }
@@ -79,7 +85,7 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 	font-size: 0.5em;
 	line-height: 1.25;
 	letter-spacing: -0.01em;
-	background: linear-gradient(90deg, var(--yellow), var(--orange));
+	background: var(--accent-gradient);
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
@@ -89,7 +95,7 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 	margin-top: 1.5rem;
 	max-width: 42rem;
 	font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1875rem);
-	color: rgba(240, 240, 240, 0.8);
+	color: color-mix(in srgb, var(--on-dark) 80%, transparent);
 }
 #Start ul {
 	margin-top: 2.25rem;
@@ -106,13 +112,21 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 	backdrop-filter: blur(6px);
 }
 #Start ul a:hover { color: #fff; background: rgba(255, 255, 255, 0.18); }
+/* Main call to action. On hover it stays in place: its gradient slides toward the orange end and its glow
+   grows; the arrow nudges down, toward the downloads. */
 #Start ul a.cta {
 	padding-block: 0.625rem;
-	color: #1d1d1d;
+	color: var(--on-accent);
 	background: var(--accent-gradient);
-	box-shadow: 0 0.5rem 1.5rem rgba(255, 157, 45, 0.35);
+	background-size: 200% 200%;
+	background-position: 0% 0%;
+	box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--orange) 30%, transparent);
 }
-#Start ul a.cta:hover { color: #1d1d1d; box-shadow: 0 0.75rem 2rem rgba(255, 157, 45, 0.5); transform: translateY(-1px); }
+#Start ul a.cta:hover, #Start ul a.cta:focus-visible {
+	color: var(--on-accent);
+	background-position: 100% 100%;
+	box-shadow: 0 0.5rem 2.25rem color-mix(in srgb, var(--orange) 55%, transparent), 0 0 0 4px color-mix(in srgb, var(--yellow) 22%, transparent);
+}
 #Start ul a.cta span { text-align: left; }
 #Start ul a sub {
 	display: block;
@@ -129,9 +143,9 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 	border-bottom: 2.5px solid currentColor;
 	transform: rotate(45deg);
 	margin: -0.25rem 0.125rem 0 0.25rem;
-	transition: transform 0.2s var(--ease);
+	transition: transform var(--dur) var(--ease);
 }
-#Start ul a.cta:hover::after { transform: translateY(0.2rem) rotate(45deg); }
+#Start ul a.cta:hover::after, #Start ul a.cta:focus-visible::after { transform: translateY(0.2rem) rotate(45deg); }
 @media (max-width: 640px) {
 	#Start { min-height: 92svh; padding-bottom: 3.5rem; }
 	#Start ul { width: 100%; }
@@ -190,9 +204,9 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 	place-items: center;
 	border-radius: 50%;
 	background: var(--accent-gradient);
-	color: #1d1d1d;
+	color: var(--on-accent);
 	font-weight: 700;
-	box-shadow: 0 2px 6px rgba(255, 157, 45, 0.35);
+	box-shadow: 0 2px 6px color-mix(in srgb, var(--orange) 35%, transparent);
 }
 #Install details > ol > li::after {
 	content: '';
@@ -257,7 +271,7 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 	text-decoration: none;
 	overflow-wrap: anywhere;
 	box-shadow: var(--shadow-1);
-	transition: background-color 0.15s, transform 0.15s var(--ease);
+	transition: background-color var(--dur), box-shadow var(--dur);
 }
 .dl-file > a::before {
 	content: '↓';
@@ -271,7 +285,11 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 	font-size: 0.875rem;
 	line-height: 1;
 }
-.dl-file > a:hover { background: var(--primary-hover); color: var(--on-primary); transform: translateY(-1px); }
+.dl-file > a:hover {
+	background: var(--primary-hover);
+	color: var(--on-primary);
+	box-shadow: var(--shadow-1), 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent);
+}
 .dl-file ul {
 	margin-top: 0.75rem;
 	display: grid;
@@ -298,7 +316,8 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 #Docs > ol { margin-top: 0; }
 
 #toc {
-	padding: 1.25rem 1.25rem 1.25rem 1rem;
+	position: relative;
+	padding: 1.25rem 1.25rem 1.25rem 1.25rem;
 	border: 1px solid var(--border);
 	border-radius: var(--radius-l);
 	background: var(--surface);
@@ -321,6 +340,26 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 }
 #toc > li > a { color: var(--text); font-weight: 700; }
 #toc a:hover { color: var(--primary); }
+/* Where the reader is (site.js): the current entry in the link color, its parents in full text color,
+   and a marker that slides along the left edge of the index to the current entry. */
+#toc a { transition: color var(--dur); }
+#toc a.is-current { color: var(--text); }
+#toc a.is-active { color: var(--primary); }
+#toc a.is-active::before { color: inherit; opacity: 1; }
+#toc > .toc-marker {
+	counter-increment: none;
+	position: absolute;
+	top: 0;
+	left: 0.5rem;
+	width: 3px;
+	margin: 0;
+	border-radius: 3px;
+	background: var(--primary);
+	opacity: 0;
+	pointer-events: none;
+	transition: transform 0.3s var(--ease), height 0.3s var(--ease), opacity var(--dur);
+}
+#toc > .toc-marker.is-visible { opacity: 1; }
 
 #docs-list { margin-top: 2.5rem !important; }
 @media (max-width: 1100px) {
@@ -347,7 +386,7 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 #docs-list h6[data-no-toc] {
 	font-family: var(--font-mono);
 	font-size: 0.9375rem;
-	color: var(--hl-orange);
+	color: var(--accent-text);
 }
 #docs-list li > * + * { margin-top: 0.5rem; }
 #docs-list li > h4 + section { margin-top: 1.25rem; }
@@ -386,8 +425,8 @@ section:not(.gallery) > * { margin-top: 0 !important; }
 footer {
 	margin-top: clamp(4rem, 10vw, 7rem);
 	padding: 4rem var(--gutter) 2.5rem;
-	background: linear-gradient(to bottom, var(--navy), #162e47);
-	color: rgba(240, 240, 240, 0.85);
+	background: linear-gradient(to bottom, var(--navy), color-mix(in srgb, var(--navy) 70%, #000));
+	color: color-mix(in srgb, var(--on-dark) 85%, transparent);
 	display: grid;
 	grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
 	gap: 3rem;
@@ -400,7 +439,7 @@ footer .brand { font-size: 1.5rem; color: #fff; }
 footer h2 {
 	margin-top: 1.5rem;
 	font-size: 0.8125rem;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	color: var(--yellow);
 }
@@ -414,7 +453,7 @@ footer h4 {
 footer p, footer .list { margin-top: 0.625rem; }
 footer .list .list { margin-top: 0.5rem; }
 footer hr { margin-top: 1.25rem; background: rgba(255, 255, 255, 0.12); }
-footer a { text-decoration: underline; text-decoration-color: rgba(240, 240, 240, 0.35); }
+footer a { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--on-dark) 35%, transparent); }
 footer a:hover { color: #fff; text-decoration-color: var(--yellow); }
 footer code { background: rgba(0, 0, 0, 0.25); }
 footer .arrow-links > p { margin: 0 0 1.25rem; }
@@ -435,7 +474,7 @@ footer .arrow-links a::after {
 	border-right: 2px solid var(--orange);
 	border-bottom: 2px solid var(--orange);
 	transform: rotate(-45deg);
-	transition: transform 0.2s var(--ease);
+	transition: transform var(--dur) var(--ease);
 }
 footer .arrow-links a:hover::after { transform: translateX(0.25rem) rotate(-45deg); }
 footer .copyright {

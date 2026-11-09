@@ -2,8 +2,12 @@
    code blocks, accordion, image viewer, background rain). The section styles are in site.css. */
 
 /* ---------- Tokens ----------
-   The neutrals, the deep blue and the orange/yellow accent come from Turbo's own interface (GUI);
-   the navy/blue gradient is the site's brand backdrop, used only on the hero and the footer. */
+   The palette has two hues, both from Turbo's own interface (GUI), over a gray scale:
+   - Blue: the brand backdrop (navy/blue, hero and footer only), and the interactive color (--primary: links,
+     buttons, the current place). --aqua is its light tint, for dark backgrounds.
+   - Amber (yellow to orange): the accent. --orange draws marks (bullets, chevrons, note borders);
+     --accent-text is its readable shade for text; --yellow is the accent text on dark backgrounds.
+   Every other color (hovers, tints, warning note, code chrome) is mixed from these with color-mix(). */
 
 :root {
 	color-scheme: light dark;
@@ -11,12 +15,12 @@
 	/* Brand */
 	--navy: #214263;
 	--blue: #2f6283;
-	--blue-light: #639ebf;
 	--aqua: #b3dcff;
 	--yellow: #ffdd66;
 	--orange: #ff9d2d;
-	--orange-text: #ffbd6e;
 	--accent-gradient: linear-gradient(135deg, var(--yellow), var(--orange));
+	--on-dark: #f0f0f0;
+	--on-accent: #1d1d1d;
 
 	/* Neutrals and roles (light) */
 	--bg: #f0f0f0;
@@ -26,23 +30,26 @@
 	--text: #2b2b2b;
 	--text-muted: #5e5e5e;
 	--primary: #00509e;
-	--primary-hover: #003e7a;
-	--on-primary: #fff;
+	--primary-hover: color-mix(in srgb, var(--primary) 78%, #000);
+	--on-primary: var(--surface);
 	--accent-text: #9c5200;
-	--warn-bg: #fff4d1;
-	--warn-border: #f0c25a;
+	--warn-bg: color-mix(in srgb, var(--orange) 12%, var(--surface));
+	--warn-border: color-mix(in srgb, var(--orange) 45%, var(--surface));
 	--focus: var(--primary);
 
-	/* Highlight colors used in text (.c-*); brighter ones in dark contexts (see .on-dark) */
-	--hl-yellow: #8a5d00;
-	--hl-orange: #b05a00;
+	/* Highlights in text (.c-*). On light and dark pages there are two: amber for values and actions
+	   (.c-yellow, .c-orange), blue for places and codes (.c-aqua). Dark backgrounds (code, hero, footer)
+	   tell yellow from orange, as syntax colors (see .on-dark). */
+	--hl-yellow: var(--accent-text);
+	--hl-orange: var(--accent-text);
 	--hl-aqua: var(--primary);
 	--hl-white: var(--text);
 
 	/* Code */
 	--code-bg: #1c1e22;
-	--code-title-bg: #2a2d33;
 	--code-text: #ececec;
+	--code-title-bg: color-mix(in srgb, var(--code-text) 8%, var(--code-bg));
+	--code-muted: color-mix(in srgb, var(--code-text) 72%, var(--code-bg));
 
 	/* Shape, depth, type and layout */
 	--radius-s: 0.5rem;
@@ -56,6 +63,9 @@
 	--wide: 76rem;
 	--gutter: clamp(1rem, 4vw, 2.5rem);
 	--header-h: 4rem;
+
+	/* Motion: every hover, focus and state change uses this duration; --ease for things that move. */
+	--dur: 0.2s;
 	--ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -67,29 +77,23 @@
 		--border: #31363c;
 		--text: #e8e8e8;
 		--text-muted: #a5abb2;
-		--primary: #8cc4ef;
-		--primary-hover: var(--aqua);
-		--on-primary: #0b1826;
-		--accent-text: var(--orange-text);
-		--warn-bg: #2a2416;
-		--warn-border: #6b5520;
+		--primary: var(--aqua);
+		--primary-hover: color-mix(in srgb, var(--aqua) 55%, #fff);
+		--on-primary: var(--bg);
+		--accent-text: var(--orange);
 		--focus: var(--yellow);
-		--hl-yellow: var(--yellow);
-		--hl-orange: var(--orange-text);
-		--hl-aqua: var(--aqua);
 		--code-bg: #0e1013;
-		--code-title-bg: #1f2227;
 		--shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3);
 		--shadow-2: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.35);
 	}
 }
 
-/* Dark backgrounds (hero, footer, code) use the bright highlights whatever the color scheme. */
+/* Dark backgrounds (hero, footer, code) use the brand colors themselves, whatever the color scheme. */
 .on-dark, #Start, footer, pre {
 	--hl-yellow: var(--yellow);
-	--hl-orange: var(--orange-text);
+	--hl-orange: var(--orange);
 	--hl-aqua: var(--aqua);
-	--hl-white: #f0f0f0;
+	--hl-white: var(--on-dark);
 	--focus: var(--yellow);
 }
 
@@ -163,7 +167,7 @@ a {
 	color: var(--primary);
 	text-decoration-thickness: 1px;
 	text-underline-offset: 0.2em;
-	transition: color 0.15s;
+	transition: color var(--dur), text-decoration-color var(--dur);
 }
 a:hover { color: var(--primary-hover); }
 .on-dark a, #Start a, footer a { color: inherit; }
@@ -188,7 +192,7 @@ a:hover { color: var(--primary-hover); }
 	align-items: center;
 	gap: 1rem;
 	color: #fff;
-	transition: color 0.2s;
+	transition: color var(--dur);
 }
 /* The glass background is a pseudo-element: a backdrop-filter on the header itself would trap the fixed drawer. */
 .site-header::before {
@@ -201,7 +205,7 @@ a:hover { color: var(--primary-hover); }
 	backdrop-filter: saturate(1.5) blur(14px);
 	box-shadow: 0 1px 0 var(--border);
 	opacity: 0;
-	transition: opacity 0.2s;
+	transition: opacity var(--dur);
 }
 .site-header.is-scrolled { color: var(--text); }
 .site-header.is-scrolled::before { opacity: 1; }
@@ -239,7 +243,7 @@ a:hover { color: var(--primary-hover); }
 	font-weight: 700;
 	font-size: 0.9375rem;
 	opacity: 0.78;
-	transition: opacity 0.15s, background-color 0.15s;
+	transition: opacity var(--dur), background-color var(--dur), color var(--dur);
 }
 #site-nav a:hover { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
 #site-nav a.is-active {
@@ -259,7 +263,7 @@ a:hover { color: var(--primary-hover); }
 	border-radius: 999px;
 	place-content: center;
 	gap: 0.3rem;
-	transition: background-color 0.15s;
+	transition: background-color var(--dur);
 }
 .menu-toggle:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
 .menu-toggle span {
@@ -268,7 +272,7 @@ a:hover { color: var(--primary-hover); }
 	height: 2px;
 	border-radius: 2px;
 	background: currentColor;
-	transition: transform 0.25s var(--ease), opacity 0.2s;
+	transition: transform 0.25s var(--ease), opacity var(--dur);
 }
 .menu-open .menu-toggle span:nth-child(1) { transform: translateY(calc(0.3rem + 2px)) rotate(45deg); }
 .menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
@@ -303,7 +307,7 @@ a:hover { color: var(--primary-hover); }
 		position: fixed;
 		inset: 0;
 		z-index: 9;
-		background: rgba(8, 14, 22, 0.45);
+		background: rgba(8, 12, 18, 0.45);
 		-webkit-backdrop-filter: blur(2px);
 		backdrop-filter: blur(2px);
 	}
@@ -345,31 +349,68 @@ a:hover { color: var(--primary-hover); }
 	font-size: 1.0625rem;
 	line-height: 1.2;
 	text-decoration: none;
-	transition: transform 0.15s var(--ease), box-shadow 0.15s, background-color 0.15s, color 0.15s;
+	transition: transform 0.15s var(--ease), box-shadow var(--dur), background-color var(--dur), color var(--dur), background-position 0.45s var(--ease);
 }
 .btn:active, #Start ul a:active { transform: scale(0.97); }
 
-/* ---------- Notes (blockquote): warning by default, .note informative, .muted neutral ---------- */
+/* ---------- Notes (blockquote): warning by default, .note informative, .muted neutral ----------
+   A tinted card with an even border; the kind is told by a round badge ("!" warning, "i" information)
+   aligned with the first line. Neutral notes (examples) have no badge. */
 
 blockquote {
-	padding: 1rem 1.25rem;
+	--badge: var(--orange);
+	--badge-ink: var(--on-accent);
+	position: relative;
+	padding: 1rem 1.25rem 1rem 3.25rem;
 	border-radius: var(--radius);
 	background: var(--warn-bg);
 	border: 1px solid var(--warn-border);
-	border-left-width: 4px;
-	border-left-color: var(--orange);
+}
+blockquote::before {
+	content: '!';
+	position: absolute;
+	left: 1.125rem;
+	top: calc(1rem + (1.65em - 1.375rem) / 2);
+	width: 1.375rem;
+	height: 1.375rem;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	background: var(--badge);
+	color: var(--badge-ink);
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: 1;
 }
 blockquote a { color: inherit; text-decoration: underline; }
 blockquote.note {
-	background: var(--surface);
-	border-color: var(--border);
-	border-left-color: var(--primary);
+	--badge: var(--primary);
+	--badge-ink: var(--on-primary);
+	background: color-mix(in srgb, var(--primary) 6%, var(--surface));
+	border-color: color-mix(in srgb, var(--primary) 22%, var(--border));
+}
+blockquote.note::before { content: 'i'; }
+/* A note that opens with a small heading centers its badge on that heading instead. */
+blockquote:has(> h5:first-child)::before { top: calc(1rem + (1.25 * 0.8125rem - 1.375rem) / 2); }
+@media (max-width: 640px) {
+	/* On narrow screens the badge sits beside the first line and the content keeps the whole width. */
+	blockquote, blockquote.muted { padding: 0.875rem 1rem; }
+	blockquote::before {
+		position: static;
+		float: left;
+		width: 1.25rem;
+		height: 1.25rem;
+		margin: calc((1.65em - 1.25rem) / 2) 0.625rem 0 0;
+		font-size: 0.8125rem;
+	}
+	blockquote:has(> h5:first-child)::before { margin-top: -0.125rem; }
 }
 blockquote.muted {
+	padding-left: 1.25rem;
 	background: var(--surface-2);
 	border-color: var(--border);
-	border-left-color: var(--border);
 }
+blockquote.muted::before { content: none; }
 blockquote > h5 {
 	font-size: 0.8125rem;
 	letter-spacing: 0.08em;
@@ -413,14 +454,14 @@ pre {
 	font-size: 0.875rem;
 	line-height: 1.7;
 	tab-size: 4;
-	scrollbar-color: #444 transparent;
+	scrollbar-color: color-mix(in srgb, var(--code-text) 25%, var(--code-bg)) transparent;
 }
-pre ::selection, pre::selection { background: rgba(255, 221, 102, 0.3); }
+pre ::selection, pre::selection { background: color-mix(in srgb, var(--yellow) 30%, transparent); }
 .pre-title {
 	padding: 0.5rem 1.25rem;
 	border-radius: var(--radius) var(--radius) 0 0;
 	background: var(--code-title-bg);
-	color: #b9bec5;
+	color: var(--code-muted);
 	font-size: 0.8125rem;
 	font-weight: 700;
 	letter-spacing: 0.02em;
@@ -445,16 +486,16 @@ pre ::selection, pre::selection { background: rgba(255, 221, 102, 0.3); }
 	right: 0.5rem;
 	padding: 0.25rem 0.75rem;
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.08);
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
-	color: #d6d9dd;
+	background: color-mix(in srgb, var(--code-text) 8%, transparent);
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--code-text) 14%, transparent);
+	color: var(--code-muted);
 	font-size: 0.8125rem;
 	font-weight: 700;
-	transition: background-color 0.15s, color 0.15s;
+	transition: background-color var(--dur), color var(--dur), box-shadow var(--dur);
 	--focus: var(--yellow);
 }
-.copy:hover { background: rgba(255, 255, 255, 0.16); color: #fff; }
-.copy.is-copied { color: #1d1d1d; background: var(--yellow); box-shadow: none; }
+.copy:hover { background: color-mix(in srgb, var(--code-text) 16%, transparent); color: var(--code-text); }
+.copy.is-copied { color: var(--on-accent); background: var(--yellow); box-shadow: none; }
 code {
 	font-family: var(--font-mono);
 	font-size: 0.875em;
@@ -470,8 +511,9 @@ details.accordion {
 	border: 1px solid var(--border);
 	border-radius: var(--radius-l);
 	box-shadow: var(--shadow-1);
-	transition: box-shadow 0.2s;
+	transition: box-shadow var(--dur), border-color var(--dur);
 }
+details.accordion:hover { border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
 details.accordion[open] { box-shadow: var(--shadow-2); }
 details.accordion > summary {
 	list-style: none;
@@ -488,6 +530,7 @@ details.accordion > summary > span {
 	padding: 1.125rem 1.5rem;
 	font-size: 1.25rem;
 	font-weight: 700;
+	transition: color var(--dur);
 }
 details.accordion > summary > span::after {
 	content: '';
@@ -517,23 +560,52 @@ details.accordion > summary + * { margin-top: 0.25rem; }
 	details.accordion > :last-child:not(summary) { margin-bottom: 1rem; }
 }
 
-/* ---------- Screenshots and image viewer ---------- */
+/* ---------- Screenshots and image viewer ----------
+   Hover (or keyboard focus) on a screenshot: it stays in place; a ring in the link color outlines it,
+   the picture brightens a touch, and a zoom badge fades in at its corner. */
 
 .shot, section a > img {
 	border-radius: var(--radius);
 	border: 1px solid var(--border);
 	box-shadow: var(--shadow-2);
 	background: var(--surface);
-	transition: transform 0.25s var(--ease), box-shadow 0.25s;
+	transition: box-shadow var(--dur), border-color var(--dur), filter var(--dur);
 }
-a:hover > img { transform: translateY(-2px); }
-a[href$='.webp'] { display: block; cursor: zoom-in; }
+a[href$='.webp'] {
+	position: relative;
+	display: block;
+	border-radius: var(--radius);
+	cursor: zoom-in;
+}
+a[href$='.webp']:hover > img, a[href$='.webp']:focus-visible > img {
+	border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+	box-shadow: var(--shadow-2), 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent);
+	filter: brightness(1.04);
+}
+a[href$='.webp']:focus-visible { outline: none; }
+a[href$='.webp']::after {
+	content: '';
+	position: absolute;
+	top: 0.625rem;
+	right: 0.625rem;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background: rgba(8, 12, 18, 0.62) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / 1rem no-repeat;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+	opacity: 0;
+	transform: scale(0.85);
+	transition: opacity var(--dur), transform var(--dur) var(--ease);
+	pointer-events: none;
+}
+a[href$='.webp']:hover::after, a[href$='.webp']:focus-visible::after { opacity: 1; transform: none; }
 .viewer {
 	margin: auto;
 	padding: 0;
 	max-width: min(96vw, 1920px);
 	background: none;
-	color: #f0f0f0;
+	color: var(--on-dark);
 	overflow: visible;
 	cursor: zoom-out;
 }
