@@ -34,18 +34,13 @@
 	<meta name="twitter:description" content="Servidor web de alto rendimiento con interfaz visual para configuración en tiempo real.">
 	<meta name="twitter:image" content="https://turbo.okzgn.com/i.png">
 
-	<link rel="preload" href="../i.png" as="image">
-	<link rel="preload" href="../data/base.css" as="style">
-	<link rel="preload" href="../data/site.css" as="style">
-	<link rel="preload" href="../data/site.js" as="script">
-
-	<link rel="preload" href="../data/fb.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../data/fr.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="../data/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+	<meta name="color-scheme" content="light dark">
+	<link rel="preload" href="../data/karla-regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="../data/karla-bold.woff2" as="font" type="font/woff2" crossorigin>
 
 	<link rel="stylesheet" href="../data/base.css">
 	<link rel="stylesheet" href="../data/site.css">
-	<script src="../data/site.js" defer></script>
+	<script src="../data/site.js"></script>
 
 	<script type="application/ld+json">
 	{
@@ -73,11 +68,25 @@
 	</script>
 </head>
 <body>
-	<header>
-		<h1><img src="../i.png" alt="Logotipo de Turbo"><span>Turbo</span></h1>
+	<header class="site-header">
+		<h1 class="brand"><a href="/es/#Start"><img src="../i.png" alt="" width="36" height="36"><span>Turbo</span></a></h1>
+		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menú"><span></span><span></span><span></span></button>
+		<nav id="site-nav" aria-label="Principal">
+			<ol data-index="">
+				<li><a href="/es/#Start" class="is-active">Inicio</a></li>
+				<li><a href="/es/#Description">Descripción</a></li>
+				<li><a href="/es/#Install">Instalación</a></li>
+				<li><a href="/es/#Downloads">Descargas</a></li>
+				<li><a href="/es/#Get-started">Cómo utilizar</a></li>
+				<li><a href="/es/#Docs">Documentación</a></li>
+				<li><a href="/es/#License">Licencia</a></li>
+				<li class="nav-lang"><a href="/" hreflang="en" lang="en">English</a></li>
+			</ol>
+		</nav>
 	</header>
 	<main>
 		<article id="Start">
+			<div class="rain" aria-hidden="true"></div>
 			<h2>Servidor web de alto rendimiento<b> con interfaz visual para configuración en tiempo real.</b></h2>
 			<p>Soporta dominios y subdominios multinivel, certificados SSL, direcciones alias, redirecciones, reescrituras, cabeceras (<i>headers</i>) o MIME personalizados. Adapta diferentes lenguajes de programación. Controla frecuencias, cantidades, tiempos y tamaños de las peticiones (<i>requests</i>).</p>
 			<ul>
@@ -89,10 +98,10 @@
 		<article id="Description">
 			<h3>Descripción</h3>
 			<section class="gallery">
-				<a href="../data/signin.png"><img src="../data/signin.png" alt="Formulario de acceso a la interfaz" width="1920" height="1080" loading="lazy"></a>
-				<a href="../data/gui.png"><img src="../data/gui.png" alt="Vista inicial de la interfaz" width="1920" height="1080" loading="lazy"></a>
-				<a href="../data/root-sites-subdomains-options.png"><img src="../data/root-sites-subdomains-options.png" alt="Opciones para sitios y subdominios" width="1920" height="1080" loading="lazy"></a>
-				<a href="../data/subdomains-options.png"><img src="../data/subdomains-options.png" alt="Opciones para subdominios" width="1920" height="1080" loading="lazy"></a>
+				<a href="../data/img/signin.webp"><img src="../data/img/signin-sm.webp" alt="Formulario de acceso a la interfaz" width="960" height="540" loading="lazy" decoding="async"></a>
+				<a href="../data/img/gui.webp"><img src="../data/img/gui-sm.webp" alt="Vista inicial de la interfaz" width="960" height="540" loading="lazy" decoding="async"></a>
+				<a href="../data/img/root-sites-subdomains-options.webp"><img src="../data/img/root-sites-subdomains-options-sm.webp" alt="Opciones para sitios y subdominios" width="960" height="540" loading="lazy" decoding="async"></a>
+				<a href="../data/img/subdomains-options.webp"><img src="../data/img/subdomains-options-sm.webp" alt="Opciones para subdominios" width="960" height="540" loading="lazy" decoding="async"></a>
 			</section>
 			<p>Turbo es un servidor web rápido que incluye una interfaz sencilla para configurarlo en tiempo real. Con ella se pueden organizar uno o más sitios web como dominios y subdominios multinivel; instalar y cambiar certificados SSL fácilmente, o crearlos y renovarlos con la integración a Certbot; adaptar distintos lenguajes de programación asignando preprocesadores a archivos con extensiones específicas; aplicar direcciones web alias, redirecciones de URL y reescrituras de URI; incluir cabeceras (<i>headers</i>) adicionales o modificar los tipos de contenido (MIME) según la extensión de los archivos; ajustar las frecuencias y cantidades de peticiones permitidas; y limitar los tiempos de procesamiento y los tamaños de las peticiones (<i>requests</i>). Por HTTPS usa TLS 1.3, y TLS 1.2 solo con ECDHE y AES-GCM o ChaCha20-Poly1305. Además, incluye mitigación contra el ataque DDoS HTTP/2 Rapid Reset (CVE-2023-44487): la protección de Go más un límite propio de tramas <i>RST_STREAM</i> que cancelan un <i>stream</i> abierto (200 por segundo y conexión).</p>
 			<p>La interfaz y los mensajes de Turbo están en inglés: esta documentación cita cada opción con el nombre que muestra la interfaz, entre paréntesis. Los cambios de cada versión y cómo actualizar están en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/CHANGELOG.es.md">registro de cambios</a>.</p>
@@ -298,16 +307,16 @@ WantedBy=multi-user.target
 		<article id="Downloads">
 			<h3>Descargas</h3>
 			<blockquote>La versión gratuita se distribuye bajo la licencia <b><a href="/es/#License">GNU Affero General Public License (AGPL v3)</a></b>. Al descargarla, acepta sus términos.</blockquote>
-			<ul>
+			<ul class="dl dl-head">
 				<li>S.O.</li>
 				<li>Arquitectura</li>
-				<li>Ejecutable</li>
+				<li class="dl-file">Ejecutable</li>
 			</ul>
-			<ul>
+			<ul class="dl dl-body">
 				<li><b>Linux</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
-				<li>
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-amd64">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-amd64</a>
+				<li class="dl-file">
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-amd64">turbo-linux-amd64</a>
 					<ul>
 						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
 						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
@@ -315,8 +324,8 @@ WantedBy=multi-user.target
 				</li>
 				<li><b>Linux</b></li>
 				<li><b>64 <i>bits</i></b><br>ARM64<br>AArch64</li>
-				<li>
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-arm64">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-arm64</a>
+				<li class="dl-file">
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-arm64">turbo-linux-arm64</a>
 					<ul>
 						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
 						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
@@ -324,8 +333,8 @@ WantedBy=multi-user.target
 				</li>
 				<li><b>Windows</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
-				<li>
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe</a>
+				<li class="dl-file">
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe">turbo-windows-x64.exe</a>
 					<ul>
 						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
 						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
@@ -393,7 +402,7 @@ WantedBy=multi-user.target
 				<p><b>Allí</b>, el formulario de acceso se verá como a continuación.</p>
 				<section>
 					<div>
-						<a href="../data/signin.png"><img src="../data/signin.png" alt="Formulario de acceso a la interfaz" width="1920" height="1080" loading="lazy"></a>
+						<a href="../data/img/signin.webp"><img src="../data/img/signin-sm.webp" alt="Formulario de acceso a la interfaz" width="960" height="540" loading="lazy" decoding="async"></a>
 					</div>
 					<blockquote class="note">
 						<h5>Ingrese con los datos por defecto:</h5>
@@ -421,7 +430,7 @@ WantedBy=multi-user.target
 				<section class="media-right">
 					<p><b>Al ingresar</b>, según la pantalla del dispositivo, la interfaz luce como en la imagen. Desde dentro podrá cambiar el usuario y la contraseña por defecto, o instalar certificados SSL para conectarse de forma segura. <b>Cada inicio de sesión genera un token único, que se guarda en una <i>cookie</i> ligada a la IP desde la que se ingresó; la sesión se cierra automáticamente si el lapso de inactividad supera 10 minutos, y como mucho 12 horas después de iniciarla.</b> Por HTTPS, la <i>cookie</i> es <b>__Host-turbo_session</b>, que los navegadores solo aceptan del propio <i>host</i> de la interfaz. Cambiar el usuario o la contraseña, o <a href="/es/#cp-2"><i>Cerrar todas las sesiones</i></a>, cierra todas las sesiones, y el navegador que lo hizo sigue con una nueva.</p>
 					<div>
-						<a href="../data/gui.png"><img src="../data/gui.png" alt="Vista inicial de la interfaz" width="1920" height="1080" loading="lazy"></a>
+						<a href="../data/img/gui.webp"><img src="../data/img/gui-sm.webp" alt="Vista inicial de la interfaz" width="960" height="540" loading="lazy" decoding="async"></a>
 					</div>
 				</section>
 				<p>
@@ -437,7 +446,7 @@ WantedBy=multi-user.target
 					<h4 id="cp">Configuración general <i lang="en">(General settings)</i></h4>
 					<section>
 						<div>
-							<a href="../data/config.png"><img src="../data/config.png" alt="Imagen de Configuración general" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/config.webp"><img src="../data/img/config-sm.webp" alt="Imagen de Configuración general" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Estas opciones piden la contraseña actual en el primer cuadro de diálogo (<i>Certificado del panel</i>, solo para eliminar el certificado). Si se usan por primera vez, ingrese la contraseña por defecto (vea la sección <a href="/es/#Get-started-on-interface"><i>Interfaz de configuración</i></a>). Una contraseña errónea cuenta para la sesión: la quinta la cierra.</p>
 					</section>
@@ -476,7 +485,7 @@ WantedBy=multi-user.target
 					<h4 id="tp">Tiempo para cada petición <i lang="en">(Time for each request)</i></h4>
 					<section>
 						<div>
-							<a href="../data/request-times.png"><img src="../data/request-times.png" alt="Imagen de Tiempo para cada petición" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/request-times.webp"><img src="../data/img/request-times-sm.webp" alt="Imagen de Tiempo para cada petición" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Estas opciones se refieren a los tiempos permitidos para procesar o responder las peticiones recibidas por el servidor web. Se pueden especificar en milisegundos (<i>ms</i>), segundos (<i>s</i>) o minutos (<i>m</i>). Piden la contraseña actual. Un límite desactivado (<b class="c-yellow">0s</b>) deja que un cliente mantenga una conexión, o un preprocesador en marcha, todo el tiempo que quiera: Turbo lo avisa al arrancar y al guardarlo desde la interfaz.</p>
 					</section>
@@ -503,7 +512,7 @@ WantedBy=multi-user.target
 					<h4 id="fp">Frecuencias de peticiones <i lang="en">(Request rate)</i></h4>
 					<section>
 						<div>
-							<a href="../data/rate-limiting.png"><img src="../data/rate-limiting.png" alt="Imagen de Frecuencias de peticiones" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/rate-limiting.webp"><img src="../data/img/rate-limiting-sm.webp" alt="Imagen de Frecuencias de peticiones" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Estas opciones fijan lapsos de tiempo de referencia y el número de peticiones que, durante esos lapsos, el servidor web aceptará de cada emisor (IP). Cada emisor es una dirección IPv4 o, en IPv6, un bloque <b>/64</b>: todas sus direcciones cuentan como un solo emisor. Al superar el límite, el emisor queda bloqueado durante <b>5 segundos</b>: sus peticiones reciben el <b class="c-aqua">estado 429</b> con la cabecera <i>Retry-After</i> (segundos restantes), y sus conexiones nuevas se cierran. Turbo recuerda hasta 200.000 emisores; por encima, mientras no olvida los antiguos, un emisor nuevo comparte la cuenta de su red (un /24 de IPv4 o un /48 de IPv6, y después un /16 o un /32), sin afectar a los ya conocidos. El límite para el total de peticiones del servidor es otra opción, <i>Límite global de peticiones</i>, desactivada por defecto. Piden la contraseña actual.</p>
 					</section>
@@ -530,7 +539,7 @@ WantedBy=multi-user.target
 					<h4 id="lp">Límites para cada petición <i lang="en">(Limits for each request)</i></h4>
 					<section>
 						<div>
-							<a href="../data/request-limits.png"><img src="../data/request-limits.png" alt="Imagen de Límites para cada petición" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/request-limits.webp"><img src="../data/img/request-limits-sm.webp" alt="Imagen de Límites para cada petición" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Estas opciones especifican la cantidad de <i>bytes</i> que el servidor procesará de las peticiones entrantes, y cuántos preprocesadores pueden ejecutarse a la vez. Piden la contraseña actual.</p>
 					</section>
@@ -557,7 +566,7 @@ WantedBy=multi-user.target
 					<h4 id="as">Agregar sitio <i lang="en">(Add site)</i></h4>
 					<section>
 						<div>
-							<a href="../data/add-site.png"><img src="../data/add-site.png" alt="Imagen de Agregar sitio" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/add-site.webp"><img src="../data/img/add-site-sm.webp" alt="Imagen de Agregar sitio" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Esta opción crea la estructura de directorios (carpetas) para cada sitio en el <i>Directorio de sitios</i>. Se puede agregar como <i>localhost</i>, IP (v4) o dirección web multinivel, con o sin comodines (<i>wildcards</i>). Las direcciones IPv6 no están soportadas. Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier sitio agregado se mostrarán las opciones disponibles, las configuraciones de cada sitio y sus subdominios. En cada sitio, se incluye automáticamente el subdominio raíz (<i>Root</i>), que equivale al mismo sitio, para configurarlo específicamente. No hay límite de sitios ni datos relativos a sitios. Los archivos públicos de cada sitio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="c-yellow">@</b>. El servidor traducirá a <b class="c-yellow">#</b> físicamente en el disco los comodines <b class="c-yellow">*</b> de los dominios con <i>wildcards</i> (p. ej. <b class="c-yellow">*.org</b>, <b class="c-yellow">*.com.es</b>). Los nombres de los sitios van en minúsculas: una carpeta de sitio con mayúsculas no se sirve, y el registro lo avisa una vez.<br><br>Ningún sitio (ni subdominio suyo) puede llamarse <b class="c-yellow">turbo.dev</b>, <b class="c-yellow">turbo.panel</b>, <b class="c-yellow">turbo.certificates</b>, <b class="c-yellow">turbo.config</b>, <b class="c-yellow">turbo.visits</b> ni <b class="c-yellow">turbo.denials</b>: son las carpetas y archivos que Turbo guarda en el <i>Directorio de sitios</i>. Tampoco pueden existir a la vez el sitio <b class="c-yellow">c.a.b</b> y el subdominio <b class="c-yellow">c</b> de <b class="c-yellow">a.b</b>, que compartirían sus ajustes: si los dos aparecen en la configuración o en el disco, se queda el primero en orden, con un aviso en el registro. Un sitio no puede tener el nombre de un alias (vea <a href="/es/#oss-0"><i>Agregar alias</i></a>). Un sitio creado desde la interfaz empieza con los valores por defecto.</p>
 					</section>
@@ -572,7 +581,7 @@ WantedBy=multi-user.target
 					<h4 id="sf">Sitios sin su carpeta <i lang="en">(Sites without their folder)</i></h4>
 					<section>
 						<div>
-							<a href="../data/sites-without-folder.png"><img src="../data/sites-without-folder.png" alt="Imagen de Sitios sin su carpeta" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/sites-without-folder.webp"><img src="../data/img/sites-without-folder-sm.webp" alt="Imagen de Sitios sin su carpeta" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Un sitio cuya carpeta (o su <b class="c-yellow">@</b>) desaparece, por ejemplo durante un despliegue que borra y vuelve a crear <b class="c-yellow">@</b>, una subida por FTP o un disco de red que no responde un momento, deja de servirse mientras no está, y vuelve con todos sus ajustes (preprocesadores, HTTPS, cabeceras, reescrituras, alias…), también tras reiniciar: siguen en <b>turbo.config</b>. Solo cuenta una carpeta que no existe, la que su carpeta superior, listada, no tiene: si el disco no responde (permisos, E/S, un recurso de red), el sitio sigue como está. Un sitio de <b>turbo.config</b> cuya carpeta aún no existe recibe sus ajustes cuando aparece.<br><br>La interfaz los lista en esta sección, que solo aparece cuando hay alguno. Una vez borrada su carpeta, la <b class="c-yellow">X</b> hace que Turbo olvide sus ajustes (los de un sitio, con sus subdominios); pide la contraseña actual y no borra ninguna carpeta. Mientras un sitio está en esta lista, no se puede crear otro con su nombre desde la interfaz: <b>borrar la carpeta de un sitio no borra el sitio</b>.</p>
 					</section>
@@ -581,7 +590,7 @@ WantedBy=multi-user.target
 					<h4 id="oss">Opciones para sitios y subdominios</h4>
 					<section>
 						<div>
-							<a href="../data/root-sites-subdomains-options.png"><img src="../data/root-sites-subdomains-options.png" alt="Imagen de Opciones para sitios y subdominios" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/root-sites-subdomains-options.webp"><img src="../data/img/root-sites-subdomains-options-sm.webp" alt="Imagen de Opciones para sitios y subdominios" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Opciones disponibles para cualquier sitio o subdominio.</p>
 					</section>
@@ -590,7 +599,7 @@ WantedBy=multi-user.target
 							<h5 id="oss-0">Agregar alias <i lang="en">(Add alias)</i></h5>
 							<section>
 								<div>
-									<a href="../data/site-aliases.png"><img src="../data/site-aliases.png" alt="Imagen de Agregar alias" width="1920" height="1080" loading="lazy"></a>
+									<a href="../data/img/site-aliases.webp"><img src="../data/img/site-aliases-sm.webp" alt="Imagen de Agregar alias" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Añade direcciones que dirigen al mismo sitio o subdominio, <b>sin redireccionar</b>. Los alias añadidos se eliminan haciendo clic en cada uno. Por HTTPS, un alias necesita un certificado SSL que cubra su nombre; sin él, se sigue sirviendo por HTTP. Un alias no puede ser el nombre de un sitio o subdominio existente (lo taparía), y no se puede agregar un sitio con el nombre de un alias; si coinciden al cargar la configuración, gana el sitio y el alias se descarta, con un aviso en el registro.</p>
 							</section>
@@ -690,7 +699,7 @@ WantedBy=multi-user.target
 					<h4 id="aso">Agregar subdominio <i lang="en">(Add subdomain)</i></h4>
 					<section>
 						<div>
-							<a href="../data/add-subdomain.png"><img src="../data/add-subdomain.png" alt="Imagen de Agregar subdominio" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/add-subdomain.webp"><img src="../data/img/add-subdomain-sm.webp" alt="Imagen de Agregar subdominio" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Esta opción crea la estructura de directorios (carpetas) de cada subdominio dentro del directorio del sitio al que pertenece, a excepción del subdominio raíz (<i>Root</i>). Se puede agregar como multinivel (nivel3.nivel2.subdominio) y puede incluir <i>wildcards</i>. Un subdominio sin comodín sirve solo su propio host: <i>api</i> sirve <i>api.example.com</i>, y los niveles más profundos (<i>x.api.example.com</i>) los sirve un comodín, <i>*.api</i> (o el <i>*</i> del sitio). Al agregarlo, se verá en la interfaz, y al hacer clic en cualquier subdominio agregado se mostrarán las opciones disponibles y las configuraciones de cada subdominio. No hay límite de subdominios ni datos relativos a subdominios. Los archivos públicos de cada subdominio deben colocarse dentro de la subcarpeta creada automáticamente con el nombre <b class="c-yellow">@</b>. El servidor traducirá a <b class="c-yellow">#</b> físicamente en el disco los comodines <b class="c-yellow">*</b> de los subdominios con <i>wildcards</i> (p. ej. <b class="c-yellow">*.example.com</b>, <b class="c-yellow">*.area.example.org</b>).</p>
 					</section>
@@ -699,7 +708,7 @@ WantedBy=multi-user.target
 					<h4 id="so">Opciones de subdominios</h4>
 					<section>
 						<div>
-							<a href="../data/subdomains-options.png"><img src="../data/subdomains-options.png" alt="Imagen de Opciones de subdominios" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/subdomains-options.webp"><img src="../data/img/subdomains-options-sm.webp" alt="Imagen de Opciones de subdominios" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Opciones disponibles para cualquier subdominio.</p>
 					</section>
@@ -708,7 +717,7 @@ WantedBy=multi-user.target
 							<h5 id="so-0">Agregar MIME <i lang="en">(Add MIME)</i></h5>
 							<section>
 								<div>
-									<a href="../data/add-mimes.png"><img src="../data/add-mimes.png" alt="Imagen de Agregar MIME" width="1920" height="1080" loading="lazy"></a>
+									<a href="../data/img/add-mimes.webp"><img src="../data/img/add-mimes-sm.webp" alt="Imagen de Agregar MIME" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Reemplaza la cabecera (<i>header</i>) <i>Content-Type</i> por defecto de los archivos del subdominio que tengan la extensión especificada, por el contenido ingresado (de 4 a 128 caracteres). Es posible especificar una extensión vacía para referirse a archivos sin extensión (como en la imagen); un punto solo (<b class="c-yellow">.</b>) no equivale a "sin extensión" y se rechaza. Como un tipo MIME puede hacer que un archivo del sitio se ejecute como una página (por ejemplo, <i>text/html</i>), agregarlo y borrarlo piden la contraseña actual.</p>
 							</section>
@@ -717,7 +726,7 @@ WantedBy=multi-user.target
 							<h5 id="so-1">Agregar cabecera <i lang="en">(Add header)</i></h5>
 							<section>
 								<div>
-									<a href="../data/add-headers.png"><img src="../data/add-headers.png" alt="Imagen de Agregar cabecera" width="1920" height="1080" loading="lazy"></a>
+									<a href="../data/img/add-headers.webp"><img src="../data/img/add-headers-sm.webp" alt="Imagen de Agregar cabecera" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Agrega la cabecera (<i>header</i>) con el nombre y el contenido especificados a las respuestas de los archivos y preprocesadores del subdominio (no a las respuestas 404 ni a las redirecciones de reescrituras, HTTPS o www). El nombre admite letras, números, <b class="c-yellow">-</b> y <b class="c-yellow">.</b>, hasta 48 caracteres; el contenido, hasta 512. Agregarla y borrarla piden la contraseña actual. Una <i>Content-Security-Policy</i> agregada aquí se envía junto a la de Turbo, nunca en su lugar.</p>
 							</section>
@@ -726,7 +735,7 @@ WantedBy=multi-user.target
 							<h5 id="so-2">Agregar reescritura <i lang="en">(Add rewrite)</i></h5>
 							<section>
 								<div>
-									<a href="../data/add-rewrites.png"><img src="../data/add-rewrites.png" alt="Imagen de Agregar reescritura" width="1920" height="1080" loading="lazy"></a>
+									<a href="../data/img/add-rewrites.webp"><img src="../data/img/add-rewrites-sm.webp" alt="Imagen de Agregar reescritura" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Agrega una reescritura de la ruta de archivo, directorio o recurso (URI) determinado, para tratarlo internamente como otra ruta de archivo, directorio o recurso especificado <b>sin redireccionarlo</b>. No es obligatorio ingresar una URI existente. La URI de origen empieza por <b class="c-yellow">/</b> (hasta 128 caracteres), y el destino, por <b class="c-yellow">/</b>, <b class="c-yellow">http://</b> o <b class="c-yellow">https://</b> (hasta 512). Se puede acceder a la información de la primera URI y datos del sitio y subdominio con palabras clave (útil en sitios o subdominios con <i>wildcards</i> y para preprocesadores); una palabra clave desconocida se rechaza (en el archivo de configuración, la reescritura se descarta con un aviso en el registro). La URI de origen se compara con la ruta pedida ya decodificada (<b class="c-yellow">/a b</b> coincide con <b class="c-yellow">/a%20b</b>); un origen que acaba en <b class="c-yellow">/</b> también toma la carpeta sin ella (<b class="c-yellow">/private/</b> toma <b class="c-yellow">/private</b>). El destino también se trata como una ruta URL (un <b class="c-yellow">%</b> literal se escribe <b class="c-yellow">%25</b>). Si, tras reemplazar las palabras clave, la ruta sale de la carpeta <b class="c-yellow">@</b> o contiene <b class="c-yellow">\</b>, se responde con <b class="c-aqua">estado 404</b>.<br><br>Un preprocesador al que se llega por una reescritura cuyo destino tiene consulta (<i>query string</i>) recibe la consulta de la petición sin los parámetros que fija la del destino, y después la del destino: con <b class="c-yellow">/x</b> → <b class="c-yellow">/app.cgi?role=user</b>, la petición <b class="c-yellow">/x?role=admin&amp;z=1</b> le llega como <b class="c-yellow">z=1&amp;role=user</b>.<br><br><b>Para redireccionar</b>, ingrese un destino que empiece por <b class="c-yellow">http://</b> o <b class="c-yellow">https://</b> (en mayúsculas o minúsculas; se guarda en minúsculas) seguido de un <i>host</i>, escrito o dado por una palabra clave: se responde con <b class="c-aqua">estado 302</b>. Un destino sin <i>host</i> (como <b class="c-yellow">https://</b> solo) se rechaza, y si la palabra clave del <i>host</i> no da ningún valor al responder, se responde con <b class="c-aqua">estado 500</b>. Si el destino tiene ruta o consulta (<i>query string</i>), se redirige exactamente a ese destino; si es solo un dominio, se le añade la URI original.</p>
 							</section>
@@ -816,7 +825,7 @@ WantedBy=multi-user.target
 							<h5 id="so-3">Agregar preprocesador <i lang="en">(Add preprocessor)</i></h5>
 							<section>
 								<div>
-									<a href="../data/add-preprocessors.png"><img src="../data/add-preprocessors.png" alt="Imagen de Agregar preprocesador" width="1920" height="1080" loading="lazy"></a>
+									<a href="../data/img/add-preprocessors.webp"><img src="../data/img/add-preprocessors-sm.webp" alt="Imagen de Agregar preprocesador" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Asigna el preprocesador determinado para todos los archivos con la extensión especificada del subdominio, sin distinguir mayúsculas (<b class="c-yellow">.PHP</b> también se ejecuta como <b class="c-yellow">.php</b>). El preprocesador debe procesar y responder, mediante CGI y las variables de entorno respectivas, las peticiones de los archivos con la extensión especificada.<br><br><b>PHP:</b> agregue un preprocesador para la extensión <b class="c-yellow">php</b> con la ruta de <b class="c-yellow">php-cgi</b> (por ejemplo, <b class="c-yellow">/usr/bin/php-cgi</b>, del paquete <i>php-cgi</i>). Turbo inyecta automáticamente la variable de entorno <b class="c-yellow">REDIRECT_STATUS</b>, permitiendo ejecutar scripts de PHP sin modificar el archivo <i>php.ini</i>; PHP recibe la ruta URL del script en <i>PHP_SELF</i> y <i>SCRIPT_NAME</i>, la <i>REQUEST_URI</i> original y la carpeta temporal de Turbo, donde guarda las subidas. Con la unidad systemd de referencia, la carpeta de sesiones por defecto de PHP (<b class="c-aqua">/var/lib/php/sessions</b>) es de solo lectura: indique en <b class="c-yellow">session.save_path</b> una carpeta dentro de la de los sitios.<br><br><b>Lo que recibe el preprocesador de la petición:</b> las cabeceras con <b class="c-yellow">_</b> en su nombre no le llegan, como en Apache, y <i>HTTP_HOST</i> y <i>SERVER_NAME</i> llevan el <i>host</i> tal como eligió el sitio (en minúsculas, sin punto final y con su puerto).<br><br><b>Su respuesta:</b> es Turbo quien la delimita: de la que escribe el preprocesador se descartan las cabeceras sobre la conexión (<i>Transfer-Encoding</i>, <i>Connection</i>, <i>Keep-Alive</i>, <i>Upgrade</i>…), un <i>Content-Length</i> repetido y las cabeceras con caracteres de control. La salida espera a un cliente lento en memoria (hasta 1 MiB por respuesta y 64 MiB en total) y después en archivos temporales sin nombre de 32 MiB, cada uno borrado en cuanto se envía (hasta 256 MiB por respuesta y 1 GiB en total), así que el preprocesador libera su hueco al terminar; un cliente puede ocupar una cuarta parte de esos totales. Un preprocesador que sigue en marcha y lleva 100 ms sin escribir envía lo que escribió, y desde entonces todo lo que escribe se envía al momento: los <i>server-sent events</i>, las barras de progreso y el <i>long polling</i> funcionan. Uno que termina antes se envía entero, con su tamaño.<br><br>La ruta del preprocesador admite hasta 128 caracteres y debe existir al agregarlo; el prefijo <b class="c-yellow">dx&gt;</b> no está disponible. Como un preprocesador ejecuta programas en el servidor, esta opción pide la contraseña actual. Borrarlo (la <b>X</b> junto a él) también la pide: sin su preprocesador, los archivos de esa extensión se servirían como texto, con su código fuente. Si más tarde el binario no existe (por ejemplo, al cargar la configuración guardada), los archivos con esa extensión responden con <b class="c-aqua">estado 500</b> en lugar de servirse. Lo mismo ocurre con un preprocesador del archivo de configuración que no se puede usar (ruta vacía o demasiado larga, extensión incorrecta, otro prefijo, ejecutable inexistente, caracteres de control): se conserva, con un aviso en el registro, y su extensión responde con <b class="c-aqua">estado 500</b>; los archivos nunca se sirven como texto.<br><br>Los preprocesadores que se ejecutan a la vez están limitados por <a href="/es/#lp-3"><i>Procesos CGI simultáneos</i></a>, y su tiempo, por <a href="/es/#tp-2"><i>Escritura de respuesta</i></a>. Un preprocesador termina cuando su cliente se va, y al parar Turbo, a los 10 s, con lo que haya lanzado.<br><br><b>IMPORTANTE:</b> Si la configuración para preprocesar los archivos no está activa en el subdominio, los archivos para uso dinámico (preprocesados, usualmente código) serán servidos como estáticos (texto plano, etc., dependiendo del MIME), <b>lo que puede comprometer la confidencialidad de estos archivos y su código fuente</b>.</p>
 							</section>
@@ -825,7 +834,7 @@ WantedBy=multi-user.target
 							<h5 id="so-4">Agregar índice <i lang="en">(Add index)</i></h5>
 							<section>
 								<div>
-									<a href="../data/add-indexes.png"><img src="../data/add-indexes.png" alt="Imagen de Agregar índice" width="1920" height="1080" loading="lazy"></a>
+									<a href="../data/img/add-indexes.webp"><img src="../data/img/add-indexes-sm.webp" alt="Imagen de Agregar índice" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Agrega el archivo por defecto para responder a peticiones (<i>requests</i>) de directorios (carpetas). Es necesario que el archivo especificado exista en cada directorio. Si se especifica más de uno, se prueban en el orden en que se agregaron. Los sitios y subdominios nuevos incluyen <b class="c-yellow">index.html</b> por defecto. Una petición cuya ruta termina en <b class="c-yellow">/index.html</b> se redirige (<b class="c-aqua">estado 301</b>) a su directorio (<b class="c-yellow">./</b>).</p>
 							</section>
@@ -842,7 +851,7 @@ WantedBy=multi-user.target
 					<h4 id="aid">Agregar IP denegada <i lang="en">(Add denied IP)</i></h4>
 					<section>
 						<div>
-							<a href="../data/add-denied-ip.png"><img src="../data/add-denied-ip.png" alt="Imagen de Agregar IP denegada" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/add-denied-ip.webp"><img src="../data/img/add-denied-ip-sm.webp" alt="Imagen de Agregar IP denegada" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Permite bloquear de forma manual e inmediata direcciones IP específicas (IPv4 o IPv6). Se ingresa la dirección IP y la fecha en formato <b class="c-yellow">timestamp UNIX</b> hasta la cual la IP permanecerá bloqueada. Mientras dure el bloqueo, sus peticiones reciben el <b class="c-aqua">estado 429</b> (con <i>Retry-After</i>) y sus conexiones nuevas se cierran. Una dirección IPv6 bloquea todo su bloque <b>/64</b>, el emisor que cuentan los límites de <a href="/es/#fp"><i>Frecuencias de peticiones</i></a> (sus direcciones cambian solas). No se pueden bloquear las direcciones de <i>loopback</i> (<b>127.x.x.x</b>, <b>::1</b> y cualquier otra de <b>::/64</b>, que contiene <b>::1</b>) ni la IP desde la que se usa la interfaz (en IPv6, su /64). Transcurrido ese tiempo, el servidor la desbloquea automáticamente. Para eliminar el bloqueo manualmente antes de la fecha, haga clic sobre la <b class="c-yellow">X</b> de la IP en la lista.</p>
 					</section>
@@ -851,7 +860,7 @@ WantedBy=multi-user.target
 					<h4 id="arc">Agregar respuesta a código HTTP <i lang="en">(Add HTTP code response)</i></h4>
 					<section>
 						<div>
-							<a href="../data/add-http-code-response.png"><img src="../data/add-http-code-response.png" alt="Imagen de Agregar respuesta a código HTTP" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/add-http-code-response.webp"><img src="../data/img/add-http-code-response-sm.webp" alt="Imagen de Agregar respuesta a código HTTP" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Permite personalizar la respuesta o plantilla de texto/HTML devuelta por el servidor cuando ocurre un código de estado de error HTTP determinado (códigos entre <b class="c-aqua">400 y 599</b>, o <b class="c-aqua">0</b> para la respuesta general por defecto, <i>Default</i> en la lista). Se utiliza la etiqueta <b class="c-yellow">{TURBO_RESPONSE_CODE}</b> para incluir dinámicamente el código de error en la respuesta. Si la plantilla empieza por <b class="c-yellow">&lt;</b>, se sirve como HTML; si no, como texto plano, donde <b class="c-yellow">\n</b> es un salto de línea. Admite hasta 2048 caracteres. Como una plantilla es la página de error de todos los sitios, agregarla y borrarla piden la contraseña actual.<br><br>Una página de error nunca ejecuta <i>scripts</i>: se envía, en todos los <i>hosts</i>, con una <i>Content-Security-Policy</i> sin ellos y con <i>sandbox</i>, así que tampoco puede redirigir por sí misma (<i>meta refresh</i>), enviar formularios ni abrir ventanas. También bloquea los estilos, fuentes e imágenes externos: una plantilla puede usar sus propios estilos y las imágenes <i>data:</i>.</p>
 					</section>
@@ -860,7 +869,7 @@ WantedBy=multi-user.target
 					<h4 id="arcr">Agregar reemplazo de caracteres <i lang="en">(Add character replacement)</i></h4>
 					<section>
 						<div>
-							<a href="../data/add-character-replacement.png"><img src="../data/add-character-replacement.png" alt="Imagen de Agregar reemplazo de caracteres" width="1920" height="1080" loading="lazy"></a>
+							<a href="../data/img/add-character-replacement.webp"><img src="../data/img/add-character-replacement-sm.webp" alt="Imagen de Agregar reemplazo de caracteres" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Permite definir reglas globales de sustitución de caracteres especiales en los valores que la interfaz envía al servidor (reescrituras, MIME, cabeceras, etc.); no se aplican a las URI de las peticiones que recibe el servidor. Sustituye caracteres que puedan causar conflictos con delimitadores de URL (por ejemplo: <b class="c-yellow">;</b> por <b class="c-aqua">-.-</b>, <b class="c-yellow">#</b> por <b class="c-aqua">-,-</b>, o <b class="c-yellow">&amp;</b> por <b class="c-aqua">-_-</b>, los tres fijos) por cadenas seguras para enviarlos, y Turbo los restituye al recibirlos. Un reemplazo es de 1 a 4 <i>bytes</i>, sin letras ni números, y su cadena, de 2 a 16 caracteres. Turbo no los restituye en las opciones que piden la contraseña actual, ni en el sitio y el subdominio de ninguna opción. Agregarlo y borrarlo piden la contraseña actual. Ningún valor puede contener caracteres de control (las plantillas de respuesta sí admiten saltos de línea y tabuladores).</p>
 					</section>
@@ -904,25 +913,5 @@ WantedBy=multi-user.target
 			</ul>
 		</div>
 	</footer>
-	<div id="menu">
-		<a><img src="../i.png" alt="Logotipo de Turbo"></a>
-		<input type="checkbox" id="menu-toggle" aria-label="Menú"><label for="menu-toggle"><b></b><b></b><b></b></label>
-		<nav>
-			<ol data-index="">
-				<li><a href="/es/#Start" class="is-active">Inicio</a></li>
-				<li><a href="/es/#Description">Descripción</a></li>
-				<li><a href="/es/#Install">Instalación</a></li>
-				<li><a href="/es/#Downloads">Descargas</a></li>
-				<li><a href="/es/#Get-started">Cómo utilizar</a></li>
-				<li><a href="/es/#Docs">Documentación</a></li>
-				<li><a href="/es/#License">Licencia</a></li>
-				<li><a href="/" hreflang="en" lang="en">English</a></li>
-			</ol>
-		</nav>
-	</div>
-	<div id="rain" aria-hidden="true">
-		<div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div>
-		<div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div>
-	</div>
 </body>
 </html>

@@ -34,18 +34,13 @@
 	<meta name="twitter:description" content="High-performance web server with a visual interface for real-time configuration.">
 	<meta name="twitter:image" content="https://turbo.okzgn.com/i.png">
 
-	<link rel="preload" href="./i.png" as="image">
-	<link rel="preload" href="./data/base.css" as="style">
-	<link rel="preload" href="./data/site.css" as="style">
-	<link rel="preload" href="./data/site.js" as="script">
-
-	<link rel="preload" href="./data/fb.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="./data/fr.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="./data/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+	<meta name="color-scheme" content="light dark">
+	<link rel="preload" href="./data/karla-regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="./data/karla-bold.woff2" as="font" type="font/woff2" crossorigin>
 
 	<link rel="stylesheet" href="./data/base.css">
 	<link rel="stylesheet" href="./data/site.css">
-	<script src="./data/site.js" defer></script>
+	<script src="./data/site.js"></script>
 
 	<script type="application/ld+json">
 	{
@@ -73,11 +68,25 @@
 	</script>
 </head>
 <body>
-	<header>
-		<h1><img src="./i.png" alt="Turbo logo"><span>Turbo</span></h1>
+	<header class="site-header">
+		<h1 class="brand"><a href="/#Start"><img src="./i.png" alt="" width="36" height="36"><span>Turbo</span></a></h1>
+		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+		<nav id="site-nav" aria-label="Main">
+			<ol data-index="">
+				<li><a href="/#Start" class="is-active">Home</a></li>
+				<li><a href="/#Description">Description</a></li>
+				<li><a href="/#Install">Installation</a></li>
+				<li><a href="/#Downloads">Downloads</a></li>
+				<li><a href="/#Get-started">Getting started</a></li>
+				<li><a href="/#Docs">Documentation</a></li>
+				<li><a href="/#License">License</a></li>
+				<li class="nav-lang"><a href="/es/" hreflang="es" lang="es">Español</a></li>
+			</ol>
+		</nav>
 	</header>
 	<main>
 		<article id="Start">
+			<div class="rain" aria-hidden="true"></div>
 			<h2>High-performance web server<b> with a visual interface for real-time configuration.</b></h2>
 			<p>Supports multi-level domains and subdomains, SSL certificates, aliases, redirections, rewrites, and custom headers or MIME types. Adapts to different programming languages. Controls the rate, count, time and size of requests.</p>
 			<ul>
@@ -89,10 +98,10 @@
 		<article id="Description">
 			<h3>Description</h3>
 			<section class="gallery">
-				<a href="./data/signin.png"><img src="./data/signin.png" alt="Sign-in form of the interface" width="1920" height="1080" loading="lazy"></a>
-				<a href="./data/gui.png"><img src="./data/gui.png" alt="Main view of the interface" width="1920" height="1080" loading="lazy"></a>
-				<a href="./data/root-sites-subdomains-options.png"><img src="./data/root-sites-subdomains-options.png" alt="Options for sites and subdomains" width="1920" height="1080" loading="lazy"></a>
-				<a href="./data/subdomains-options.png"><img src="./data/subdomains-options.png" alt="Options for subdomains" width="1920" height="1080" loading="lazy"></a>
+				<a href="./data/img/signin.webp"><img src="./data/img/signin-sm.webp" alt="Sign-in form of the interface" width="960" height="540" loading="lazy" decoding="async"></a>
+				<a href="./data/img/gui.webp"><img src="./data/img/gui-sm.webp" alt="Main view of the interface" width="960" height="540" loading="lazy" decoding="async"></a>
+				<a href="./data/img/root-sites-subdomains-options.webp"><img src="./data/img/root-sites-subdomains-options-sm.webp" alt="Options for sites and subdomains" width="960" height="540" loading="lazy" decoding="async"></a>
+				<a href="./data/img/subdomains-options.webp"><img src="./data/img/subdomains-options-sm.webp" alt="Options for subdomains" width="960" height="540" loading="lazy" decoding="async"></a>
 			</section>
 			<p>Turbo is a fast web server with a simple interface to configure it in real time. With it you can organize one or more websites as multi-level domains and subdomains; install and change SSL certificates easily, or issue and renew them through its Certbot integration; adapt different programming languages by assigning preprocessors to files with specific extensions; set up aliases, URL redirections and URI rewrites; add headers or change the content types (MIME) by file extension; adjust the allowed request rates and counts; and limit the processing times and sizes of requests. Over HTTPS it uses TLS 1.3, and TLS 1.2 only with ECDHE and AES-GCM or ChaCha20-Poly1305. It also mitigates the HTTP/2 Rapid Reset DDoS attack (CVE-2023-44487): Go's protection plus Turbo's own limit of <i>RST_STREAM</i> frames that cancel an open stream (200 per second and connection).</p>
 			<p>The changes of each version, and how to upgrade, are in the <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/CHANGELOG.md">changelog</a>. This page is also <a href="/es/" hreflang="es" lang="es">available in Spanish</a>.</p>
@@ -298,16 +307,16 @@ WantedBy=multi-user.target
 		<article id="Downloads">
 			<h3>Downloads</h3>
 			<blockquote>The free version is distributed under the <b><a href="/#License">GNU Affero General Public License (AGPL v3)</a></b>. By downloading it, you accept its terms.</blockquote>
-			<ul>
+			<ul class="dl dl-head">
 				<li>OS</li>
 				<li>Architecture</li>
-				<li>Binary</li>
+				<li class="dl-file">Binary</li>
 			</ul>
-			<ul>
+			<ul class="dl dl-body">
 				<li><b>Linux</b></li>
 				<li><b>64-bit</b><br>x64<br>x86-64<br>AMD64</li>
-				<li>
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-amd64">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-amd64</a>
+				<li class="dl-file">
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-amd64">turbo-linux-amd64</a>
 					<ul>
 						<li><b>SHA256 checksum:</b> <i class="checksum">PENDING: SHA-256 from SHA256SUMS on release</i></li>
 						<li><b>Size:</b> PENDING on release</li>
@@ -315,8 +324,8 @@ WantedBy=multi-user.target
 				</li>
 				<li><b>Linux</b></li>
 				<li><b>64-bit</b><br>ARM64<br>AArch64</li>
-				<li>
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-arm64">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-arm64</a>
+				<li class="dl-file">
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-linux-arm64">turbo-linux-arm64</a>
 					<ul>
 						<li><b>SHA256 checksum:</b> <i class="checksum">PENDING: SHA-256 from SHA256SUMS on release</i></li>
 						<li><b>Size:</b> PENDING on release</li>
@@ -324,8 +333,8 @@ WantedBy=multi-user.target
 				</li>
 				<li><b>Windows</b></li>
 				<li><b>64-bit</b><br>x64<br>x86-64<br>AMD64</li>
-				<li>
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe">https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe</a>
+				<li class="dl-file">
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.2/turbo-windows-x64.exe">turbo-windows-x64.exe</a>
 					<ul>
 						<li><b>SHA256 checksum:</b> <i class="checksum">PENDING: SHA-256 from SHA256SUMS on release</i></li>
 						<li><b>Size:</b> PENDING on release</li>
@@ -393,7 +402,7 @@ WantedBy=multi-user.target
 				<p><b>There</b>, the sign-in form looks like this.</p>
 				<section>
 					<div>
-						<a href="./data/signin.png"><img src="./data/signin.png" alt="Sign-in form of the interface" width="1920" height="1080" loading="lazy"></a>
+						<a href="./data/img/signin.webp"><img src="./data/img/signin-sm.webp" alt="Sign-in form of the interface" width="960" height="540" loading="lazy" decoding="async"></a>
 					</div>
 					<blockquote class="note">
 						<h5>Sign in with the default credentials:</h5>
@@ -421,7 +430,7 @@ WantedBy=multi-user.target
 				<section class="media-right">
 					<p><b>Once signed in</b>, depending on the device's screen, the interface looks like the picture. From there you can change the default user and password, or install SSL certificates to connect securely. <b>Each sign-in creates a unique token, kept in a cookie bound to the IP it came from; the session ends after 10 minutes without requests, and 12 hours after the sign-in at most.</b> Over HTTPS, the cookie is <b>__Host-turbo_session</b>, which browsers accept only from the interface's own host. Changing the user or the password, or <a href="/#cp-2"><i>Close every session</i></a>, ends every session, and the browser that did it goes on with a new one.</p>
 					<div>
-						<a href="./data/gui.png"><img src="./data/gui.png" alt="Main view of the interface" width="1920" height="1080" loading="lazy"></a>
+						<a href="./data/img/gui.webp"><img src="./data/img/gui-sm.webp" alt="Main view of the interface" width="960" height="540" loading="lazy" decoding="async"></a>
 					</div>
 				</section>
 				<p>
@@ -437,7 +446,7 @@ WantedBy=multi-user.target
 					<h4 id="cp">General settings</h4>
 					<section>
 						<div>
-							<a href="./data/config.png"><img src="./data/config.png" alt="General settings" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/config.webp"><img src="./data/img/config-sm.webp" alt="General settings" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>These options ask for the current password in the first dialog (<i>Panel certificate</i>, only to delete the certificate). If you use them for the first time, enter the default password (see <a href="/#Get-started-on-interface"><i>Configuration interface</i></a>). A wrong password counts for the session: the fifth closes it.</p>
 					</section>
@@ -476,7 +485,7 @@ WantedBy=multi-user.target
 					<h4 id="tp">Time for each request</h4>
 					<section>
 						<div>
-							<a href="./data/request-times.png"><img src="./data/request-times.png" alt="Time for each request" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/request-times.webp"><img src="./data/img/request-times-sm.webp" alt="Time for each request" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>These options set the times allowed to process or answer the requests the web server receives. They can be given in milliseconds (<i>ms</i>), seconds (<i>s</i>) or minutes (<i>m</i>), and ask for the current password. A disabled limit (<b class="c-yellow">0s</b>) lets a client hold a connection, or keep a preprocessor running, as long as it wants: Turbo warns about it at startup and when it is saved from the interface.</p>
 					</section>
@@ -503,7 +512,7 @@ WantedBy=multi-user.target
 					<h4 id="fp">Request rate</h4>
 					<section>
 						<div>
-							<a href="./data/rate-limiting.png"><img src="./data/rate-limiting.png" alt="Request rate" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/rate-limiting.webp"><img src="./data/img/rate-limiting-sm.webp" alt="Request rate" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>These options set reference time windows and the number of requests that, within them, the web server accepts from each client (IP). Each client is an IPv4 address or, in IPv6, a <b>/64</b>: all its addresses count as one client. Past the limit, the client is blocked for <b>5 seconds</b>: its requests get <b class="c-aqua">status 429</b> with the <i>Retry-After</i> header (seconds left), and its new connections are closed. Turbo keeps up to 200,000 clients; beyond that, until it forgets the old ones, a new client shares the count of its network (an IPv4 /24 or an IPv6 /48, then a /16 or a /32), without affecting the clients already known. The limit for all the requests of the server is another option, <i>Global request limit</i>, off by default. They ask for the current password.</p>
 					</section>
@@ -530,7 +539,7 @@ WantedBy=multi-user.target
 					<h4 id="lp">Limits for each request</h4>
 					<section>
 						<div>
-							<a href="./data/request-limits.png"><img src="./data/request-limits.png" alt="Limits for each request" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/request-limits.webp"><img src="./data/img/request-limits-sm.webp" alt="Limits for each request" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>These options set how many bytes of the incoming requests the server processes, and how many preprocessors can run at once. They ask for the current password.</p>
 					</section>
@@ -557,7 +566,7 @@ WantedBy=multi-user.target
 					<h4 id="as">Add site</h4>
 					<section>
 						<div>
-							<a href="./data/add-site.png"><img src="./data/add-site.png" alt="Add site" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/add-site.webp"><img src="./data/img/add-site-sm.webp" alt="Add site" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>This option creates the directory (folder) structure of each site in the <i>Sites directory</i>. A site can be <i>localhost</i>, an IP (v4) or a multi-level web address, with or without wildcards. IPv6 addresses are not supported. Once added, it shows in the interface, and a click on a site shows its options, its settings and its subdomains. Each site automatically includes the root subdomain (<i>Root</i>), which is the site itself, to configure it specifically. There is no limit of sites or of site data. The public files of each site go inside the subfolder created automatically with the name <b class="c-yellow">@</b>. On disk, the server translates the <b class="c-yellow">*</b> of wildcard domains to <b class="c-yellow">#</b> (e.g. <b class="c-yellow">*.org</b>, <b class="c-yellow">*.com.es</b>). Site names are in lower case: a site folder with capital letters isn't served, and the log says so once.<br><br>No site (nor any of its subdomains) can be named <b class="c-yellow">turbo.dev</b>, <b class="c-yellow">turbo.panel</b>, <b class="c-yellow">turbo.certificates</b>, <b class="c-yellow">turbo.config</b>, <b class="c-yellow">turbo.visits</b> or <b class="c-yellow">turbo.denials</b>: those are the folders and files Turbo keeps in the <i>Sites directory</i>. Nor can the site <b class="c-yellow">c.a.b</b> and the subdomain <b class="c-yellow">c</b> of <b class="c-yellow">a.b</b> exist together, as they would share their settings: if both are in the configuration or on disk, the first in order stays, with a warning in the log. A site can't have the name of an alias (see <a href="/#oss-0"><i>Add alias</i></a>). A site created from the interface starts with the defaults.</p>
 					</section>
@@ -572,7 +581,7 @@ WantedBy=multi-user.target
 					<h4 id="sf">Sites without their folder</h4>
 					<section>
 						<div>
-							<a href="./data/sites-without-folder.png"><img src="./data/sites-without-folder.png" alt="Sites without their folder" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/sites-without-folder.webp"><img src="./data/img/sites-without-folder-sm.webp" alt="Sites without their folder" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>A site whose folder (or its <b class="c-yellow">@</b>) disappears, for example during a deploy that deletes and recreates <b class="c-yellow">@</b>, an upload by FTP or a network disk that is gone for a moment, isn't served while it is missing, and comes back with all its settings (preprocessors, HTTPS, headers, rewrites, aliases…), also after a restart: they stay in <b>turbo.config</b>. Only a folder that doesn't exist counts, one that its parent folder, listed, doesn't have: when the disk doesn't answer (permissions, I/O, a network share), the site stays as it is. A site of <b>turbo.config</b> whose folder doesn't exist yet gets its settings when the folder appears.<br><br>The interface lists them in this section, which shows only when there is one. Once its folder is gone, the <b class="c-yellow">X</b> makes Turbo forget its settings (a site's, together with its subdomains); it asks for the current password and deletes no folder. While a site is in this list, no other site with its name can be created from the interface: <b>deleting the folder of a site doesn't delete the site</b>.</p>
 					</section>
@@ -581,7 +590,7 @@ WantedBy=multi-user.target
 					<h4 id="oss">Options for sites and subdomains</h4>
 					<section>
 						<div>
-							<a href="./data/root-sites-subdomains-options.png"><img src="./data/root-sites-subdomains-options.png" alt="Options for sites and subdomains" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/root-sites-subdomains-options.webp"><img src="./data/img/root-sites-subdomains-options-sm.webp" alt="Options for sites and subdomains" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Options available for any site or subdomain.</p>
 					</section>
@@ -590,7 +599,7 @@ WantedBy=multi-user.target
 							<h5 id="oss-0">Add alias</h5>
 							<section>
 								<div>
-									<a href="./data/site-aliases.png"><img src="./data/site-aliases.png" alt="Add alias" width="1920" height="1080" loading="lazy"></a>
+									<a href="./data/img/site-aliases.webp"><img src="./data/img/site-aliases-sm.webp" alt="Add alias" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Adds addresses that lead to the same site or subdomain, <b>without redirecting</b>. A click on an alias deletes it. Over HTTPS, an alias needs an SSL certificate that covers its name; without one, it is still served over HTTP. An alias can't be the name of an existing site or subdomain (it would hide it), and a site can't be added with the name of an alias; if they match when the configuration is loaded, the site wins and the alias is dropped, with a warning in the log.</p>
 							</section>
@@ -690,7 +699,7 @@ WantedBy=multi-user.target
 					<h4 id="aso">Add subdomain</h4>
 					<section>
 						<div>
-							<a href="./data/add-subdomain.png"><img src="./data/add-subdomain.png" alt="Add subdomain" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/add-subdomain.webp"><img src="./data/img/add-subdomain-sm.webp" alt="Add subdomain" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>This option creates the directory (folder) structure of each subdomain inside the directory of its site, except for the root subdomain (<i>Root</i>). It can be multi-level (level3.level2.subdomain) and can include wildcards. A subdomain without a wildcard serves only its own host: <i>api</i> serves <i>api.example.com</i>, and deeper levels (<i>x.api.example.com</i>) are served by a wildcard, <i>*.api</i> (or the site's <i>*</i>). Once added, it shows in the interface, and a click on a subdomain shows its options and settings. There is no limit of subdomains or of subdomain data. The public files of each subdomain go inside the subfolder created automatically with the name <b class="c-yellow">@</b>. On disk, the server translates the <b class="c-yellow">*</b> of wildcard subdomains to <b class="c-yellow">#</b> (e.g. <b class="c-yellow">*.example.com</b>, <b class="c-yellow">*.area.example.org</b>).</p>
 					</section>
@@ -699,7 +708,7 @@ WantedBy=multi-user.target
 					<h4 id="so">Subdomain options</h4>
 					<section>
 						<div>
-							<a href="./data/subdomains-options.png"><img src="./data/subdomains-options.png" alt="Subdomain options" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/subdomains-options.webp"><img src="./data/img/subdomains-options-sm.webp" alt="Subdomain options" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Options available for any subdomain.</p>
 					</section>
@@ -708,7 +717,7 @@ WantedBy=multi-user.target
 							<h5 id="so-0">Add MIME</h5>
 							<section>
 								<div>
-									<a href="./data/add-mimes.png"><img src="./data/add-mimes.png" alt="Add MIME" width="1920" height="1080" loading="lazy"></a>
+									<a href="./data/img/add-mimes.webp"><img src="./data/img/add-mimes-sm.webp" alt="Add MIME" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Replaces the default <i>Content-Type</i> header of the subdomain's files with the given extension by the content entered (4 to 128 characters). An empty extension refers to files without an extension (as in the picture); a lone dot (<b class="c-yellow">.</b>) isn't "no extension" and is refused. As a MIME type can make one of the site's files run as a page (<i>text/html</i>, for example), adding and deleting one ask for the current password.</p>
 							</section>
@@ -717,7 +726,7 @@ WantedBy=multi-user.target
 							<h5 id="so-1">Add header</h5>
 							<section>
 								<div>
-									<a href="./data/add-headers.png"><img src="./data/add-headers.png" alt="Add header" width="1920" height="1080" loading="lazy"></a>
+									<a href="./data/img/add-headers.webp"><img src="./data/img/add-headers-sm.webp" alt="Add header" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Adds the header with the given name and content to the responses of the subdomain's files and preprocessors (not to 404 responses, nor to the redirections of rewrites, HTTPS or www). The name takes letters, digits, <b class="c-yellow">-</b> and <b class="c-yellow">.</b>, up to 48 characters; the content, up to 512. Adding and deleting one ask for the current password. A <i>Content-Security-Policy</i> added here is sent next to Turbo's, never in its place.</p>
 							</section>
@@ -726,7 +735,7 @@ WantedBy=multi-user.target
 							<h5 id="so-2">Add rewrite</h5>
 							<section>
 								<div>
-									<a href="./data/add-rewrites.png"><img src="./data/add-rewrites.png" alt="Add rewrite" width="1920" height="1080" loading="lazy"></a>
+									<a href="./data/img/add-rewrites.webp"><img src="./data/img/add-rewrites-sm.webp" alt="Add rewrite" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Adds a rewrite of the given path of a file, directory or resource (URI), to handle it internally as another given path, <b>without redirecting</b>. The URI doesn't have to exist. The source URI starts with <b class="c-yellow">/</b> (up to 128 characters), and the target with <b class="c-yellow">/</b>, <b class="c-yellow">http://</b> or <b class="c-yellow">https://</b> (up to 512). Keywords give access to the data of the first URI and of the site and subdomain (useful on wildcard sites or subdomains and for preprocessors); an unknown keyword is refused (in the configuration file, the rewrite is dropped with a warning in the log). The source URI is compared with the decoded request path (<b class="c-yellow">/a b</b> matches <b class="c-yellow">/a%20b</b>); a source that ends in <b class="c-yellow">/</b> also takes the folder without it (<b class="c-yellow">/private/</b> takes <b class="c-yellow">/private</b>). The target is a URL path too (a literal <b class="c-yellow">%</b> is written <b class="c-yellow">%25</b>). If, once the keywords are replaced, the path leaves the <b class="c-yellow">@</b> folder or contains <b class="c-yellow">\</b>, the answer is <b class="c-aqua">status 404</b>.<br><br>A preprocessor reached through a rewrite whose target has a query string gets the request's query without the parameters that the target's sets, and then the target's: with <b class="c-yellow">/x</b> → <b class="c-yellow">/app.cgi?role=user</b>, the request <b class="c-yellow">/x?role=admin&amp;z=1</b> reaches it as <b class="c-yellow">z=1&amp;role=user</b>.<br><br><b>To redirect</b>, enter a target that starts with <b class="c-yellow">http://</b> or <b class="c-yellow">https://</b> (in any case; it is saved in lower case) followed by a host, written or given by a keyword: the answer is <b class="c-aqua">status 302</b>. A target without a host (<b class="c-yellow">https://</b> alone) is refused, and if the host keyword gives no value when answering, the answer is <b class="c-aqua">status 500</b>. If the target has a path or a query string, the redirection goes exactly there; if it is only a domain, the original URI is added to it.</p>
 							</section>
@@ -816,7 +825,7 @@ WantedBy=multi-user.target
 							<h5 id="so-3">Add preprocessor</h5>
 							<section>
 								<div>
-									<a href="./data/add-preprocessors.png"><img src="./data/add-preprocessors.png" alt="Add preprocessor" width="1920" height="1080" loading="lazy"></a>
+									<a href="./data/img/add-preprocessors.webp"><img src="./data/img/add-preprocessors-sm.webp" alt="Add preprocessor" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Assigns the given preprocessor to every file of the subdomain with the given extension, in any case (<b class="c-yellow">.PHP</b> also runs as <b class="c-yellow">.php</b>). The preprocessor must handle and answer, through CGI and its environment variables, the requests for the files with that extension.<br><br><b>PHP:</b> add a preprocessor for the <b class="c-yellow">php</b> extension with the path of <b class="c-yellow">php-cgi</b> (for example <b class="c-yellow">/usr/bin/php-cgi</b>, from the <i>php-cgi</i> package). Turbo sets the <b class="c-yellow">REDIRECT_STATUS</b> environment variable, so PHP scripts run without changing <i>php.ini</i>; PHP gets the URL path of the script in <i>PHP_SELF</i> and <i>SCRIPT_NAME</i>, the original <i>REQUEST_URI</i>, and Turbo's temporary folder, where it keeps uploads. Under the reference systemd unit, PHP's default sessions folder (<b class="c-aqua">/var/lib/php/sessions</b>) is read-only: point <b class="c-yellow">session.save_path</b> to a folder inside the sites folder.<br><br><b>What the preprocessor gets of the request:</b> headers with <b class="c-yellow">_</b> in their name don't reach it, as in Apache, and <i>HTTP_HOST</i> and <i>SERVER_NAME</i> carry the host as it chose the site (in lower case, without a final dot, and with its port).<br><br><b>Its response:</b> Turbo frames it: from what the preprocessor writes, the connection headers (<i>Transfer-Encoding</i>, <i>Connection</i>, <i>Keep-Alive</i>, <i>Upgrade</i>…), a repeated <i>Content-Length</i> and headers with control characters are dropped. The output waits for a slow client in memory (up to 1 MiB per response and 64 MiB in all) and then in unnamed temporary files of 32 MiB, each deleted as soon as it is sent (up to 256 MiB per response and 1 GiB in all), so the preprocessor frees its slot when it ends; one client may take a quarter of those totals. Once a preprocessor that goes on has been quiet for 100 ms, what it wrote is sent, and from then on what it writes is sent at once: server-sent events, progress and long polling work. One that ends sooner is sent whole, with its length.<br><br>The preprocessor path takes up to 128 characters and must exist when it is added; the <b class="c-yellow">dx&gt;</b> prefix isn't available. As a preprocessor runs programs on the server, this option asks for the current password. Deleting one (the <b>X</b> next to it) asks for it too: without its preprocessor, the files of that extension would be served as text, their source code included. If the binary is gone later (for example, when the saved configuration is loaded), the files with that extension answer <b class="c-aqua">status 500</b> instead of being served. So does a preprocessor of the configuration file that can't be used (an empty or too long path, a wrong extension, another prefix, a missing binary, control characters): it is kept, with a warning in the log, and its extension answers <b class="c-aqua">status 500</b>; the files are never served as text.<br><br>How many preprocessors run at once is limited by <a href="/#lp-3"><i>Concurrent CGI processes</i></a>, and how long, by <a href="/#tp-2"><i>Response write</i></a>. A preprocessor ends when its client goes away, and when Turbo stops, after 10 s, with whatever it started.<br><br><b>IMPORTANT:</b> if preprocessing isn't set up on the subdomain, the files meant for dynamic use (preprocessed, usually code) are served as static files (plain text, etc., depending on the MIME type), <b>which can expose those files and their source code</b>.</p>
 							</section>
@@ -825,7 +834,7 @@ WantedBy=multi-user.target
 							<h5 id="so-4">Add index</h5>
 							<section>
 								<div>
-									<a href="./data/add-indexes.png"><img src="./data/add-indexes.png" alt="Add index" width="1920" height="1080" loading="lazy"></a>
+									<a href="./data/img/add-indexes.webp"><img src="./data/img/add-indexes-sm.webp" alt="Add index" width="960" height="540" loading="lazy" decoding="async"></a>
 								</div>
 								<p>Adds the default file that answers the requests for directories (folders). The file has to exist in each directory. With more than one, they are tried in the order they were added. New sites and subdomains start with <b class="c-yellow">index.html</b>. A request whose path ends in <b class="c-yellow">/index.html</b> is redirected (<b class="c-aqua">status 301</b>) to its directory (<b class="c-yellow">./</b>).</p>
 							</section>
@@ -842,7 +851,7 @@ WantedBy=multi-user.target
 					<h4 id="aid">Add denied IP</h4>
 					<section>
 						<div>
-							<a href="./data/add-denied-ip.png"><img src="./data/add-denied-ip.png" alt="Add denied IP" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/add-denied-ip.webp"><img src="./data/img/add-denied-ip-sm.webp" alt="Add denied IP" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Blocks specific IP addresses (IPv4 or IPv6) by hand, at once. Enter the IP address and the date, as a <b class="c-yellow">UNIX timestamp</b>, until which it stays blocked. While the block lasts, its requests get <b class="c-aqua">status 429</b> (with <i>Retry-After</i>) and its new connections are closed. An IPv6 address blocks its whole <b>/64</b>, the client that the limits of <a href="/#fp"><i>Request rate</i></a> count (its addresses change by themselves). Loopback addresses (<b>127.x.x.x</b>, <b>::1</b> and any other of <b>::/64</b>, which holds <b>::1</b>) and the IP the interface is used from (in IPv6, its /64) can't be blocked. Once the date passes, the server unblocks it by itself. To remove the block earlier, click the <b class="c-yellow">X</b> of the IP in the list.</p>
 					</section>
@@ -851,7 +860,7 @@ WantedBy=multi-user.target
 					<h4 id="arc">Add HTTP code response</h4>
 					<section>
 						<div>
-							<a href="./data/add-http-code-response.png"><img src="./data/add-http-code-response.png" alt="Add HTTP code response" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/add-http-code-response.webp"><img src="./data/img/add-http-code-response-sm.webp" alt="Add HTTP code response" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Customizes the response, a text or HTML template, that the server sends for a given HTTP error status code (codes from <b class="c-aqua">400 to 599</b>, or <b class="c-aqua">0</b> for the general default response, <i>Default</i> in the list). The <b class="c-yellow">{TURBO_RESPONSE_CODE}</b> tag inserts the error code in the response. If the template starts with <b class="c-yellow">&lt;</b>, it is served as HTML; otherwise as plain text, where <b class="c-yellow">\n</b> is a line break. It takes up to 2048 characters. As a template is the error page of every site, adding and deleting one ask for the current password.<br><br>An error page never runs scripts: on every host, it is sent with a <i>Content-Security-Policy</i> without them and with <i>sandbox</i>, so it can't redirect by itself (<i>meta refresh</i>), send forms or open windows either. External styles, fonts and images are blocked too: a template can use its own styles and <i>data:</i> images.</p>
 					</section>
@@ -860,7 +869,7 @@ WantedBy=multi-user.target
 					<h4 id="arcr">Add character replacement</h4>
 					<section>
 						<div>
-							<a href="./data/add-character-replacement.png"><img src="./data/add-character-replacement.png" alt="Add character replacement" width="1920" height="1080" loading="lazy"></a>
+							<a href="./data/img/add-character-replacement.webp"><img src="./data/img/add-character-replacement-sm.webp" alt="Add character replacement" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
 						<p>Sets global rules to replace special characters in the values the interface sends to the server (rewrites, MIME types, headers, etc.); they don't apply to the URIs of the requests the server receives. Characters that could clash with URL delimiters (for example: <b class="c-yellow">;</b> with <b class="c-aqua">-.-</b>, <b class="c-yellow">#</b> with <b class="c-aqua">-,-</b>, or <b class="c-yellow">&amp;</b> with <b class="c-aqua">-_-</b>, the three fixed ones) are sent as safe strings, and Turbo restores them on arrival. A replacement is for 1 to 4 bytes, without letters or digits, and its string has 2 to 16 characters. Turbo doesn't restore them in the options that ask for the current password, nor in the site and the subdomain of any option. Adding and deleting one ask for the current password. No value may contain control characters (response templates may contain line breaks and tabs).</p>
 					</section>
@@ -904,25 +913,5 @@ WantedBy=multi-user.target
 			</ul>
 		</div>
 	</footer>
-	<div id="menu">
-		<a><img src="./i.png" alt="Turbo logo"></a>
-		<input type="checkbox" id="menu-toggle" aria-label="Menu"><label for="menu-toggle"><b></b><b></b><b></b></label>
-		<nav>
-			<ol data-index="">
-				<li><a href="/#Start" class="is-active">Home</a></li>
-				<li><a href="/#Description">Description</a></li>
-				<li><a href="/#Install">Installation</a></li>
-				<li><a href="/#Downloads">Downloads</a></li>
-				<li><a href="/#Get-started">Getting started</a></li>
-				<li><a href="/#Docs">Documentation</a></li>
-				<li><a href="/#License">License</a></li>
-				<li><a href="/es/" hreflang="es" lang="es">Español</a></li>
-			</ol>
-		</nav>
-	</div>
-	<div id="rain" aria-hidden="true">
-		<div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div><div class="rain-l"></div>
-		<div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div><div class="rain-r"></div>
-	</div>
 </body>
 </html>
