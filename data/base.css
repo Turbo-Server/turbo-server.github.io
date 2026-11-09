@@ -19,6 +19,8 @@
 	--yellow: #ffdd66;
 	--orange: #ff9d2d;
 	--accent-gradient: linear-gradient(135deg, var(--yellow), var(--orange));
+	/* The blue counterpart, for informative marks and the download buttons (redefined for dark below). */
+	--primary-gradient: linear-gradient(135deg, color-mix(in srgb, var(--primary) 65%, var(--aqua)), var(--primary));
 	--on-dark: #f0f0f0;
 	--on-accent: #1d1d1d;
 
@@ -81,6 +83,7 @@
 		--primary-hover: color-mix(in srgb, var(--aqua) 55%, #fff);
 		--on-primary: var(--bg);
 		--accent-text: var(--orange);
+		--primary-gradient: linear-gradient(135deg, var(--aqua), color-mix(in srgb, var(--aqua) 70%, var(--blue)));
 		--focus: var(--yellow);
 		--code-bg: #0e1013;
 		--shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -194,21 +197,25 @@ a:hover { color: var(--primary-hover); }
 	color: #fff;
 	transition: color var(--dur);
 }
-/* The glass background is a pseudo-element: a backdrop-filter on the header itself would trap the fixed drawer. */
+/* The glass background is a pseudo-element: a backdrop-filter on the header itself would trap the fixed drawer.
+   Over the hero it is a dark (navy) glass so the white text never blends with the hero content scrolling under it;
+   past the hero it turns into the light glass. */
 .site-header::before {
 	content: '';
 	position: absolute;
 	inset: 0;
 	z-index: -1;
-	background: color-mix(in srgb, var(--surface) 82%, transparent);
+	background: color-mix(in srgb, var(--navy) 72%, transparent);
 	-webkit-backdrop-filter: saturate(1.5) blur(14px);
 	backdrop-filter: saturate(1.5) blur(14px);
-	box-shadow: 0 1px 0 var(--border);
-	opacity: 0;
-	transition: opacity var(--dur);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+	transition: background-color var(--dur), box-shadow var(--dur);
 }
 .site-header.is-scrolled { color: var(--text); }
-.site-header.is-scrolled::before { opacity: 1; }
+.site-header.is-scrolled::before {
+	background: color-mix(in srgb, var(--surface) 82%, transparent);
+	box-shadow: 0 1px 0 var(--border);
+}
 .site-header:not(.is-scrolled) { --focus: var(--yellow); }
 
 .brand a, .brand {
@@ -265,18 +272,27 @@ a:hover { color: var(--primary-hover); }
 	gap: 0.3rem;
 	transition: background-color var(--dur);
 }
-.menu-toggle:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+/* Only devices with a real pointer get the hover tint (on touch it would stay stuck after a tap). */
+@media (hover: hover) {
+	.menu-toggle:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+}
+/* The same three rounded lines morph into the X in two beats, using the separate translate and rotate
+   properties so each beat has its own timing. Opening: the outer lines meet in the middle (the middle one
+   fades), then they turn into the X. Closing: the reverse, they straighten first and then spread apart. */
 .menu-toggle span {
 	display: block;
 	width: 1.375rem;
-	height: 2px;
-	border-radius: 2px;
+	height: 3px;
+	border-radius: 999px;
 	background: currentColor;
-	transition: transform 0.25s var(--ease), opacity var(--dur);
+	transition: rotate 0.2s var(--ease), translate 0.2s var(--ease) 0.16s, opacity 0.12s linear 0.18s;
 }
-.menu-open .menu-toggle span:nth-child(1) { transform: translateY(calc(0.3rem + 2px)) rotate(45deg); }
+.menu-open .menu-toggle span {
+	transition: translate 0.2s var(--ease), rotate 0.24s var(--ease) 0.16s, opacity 0.12s linear 0.06s;
+}
+.menu-open .menu-toggle span:nth-child(1) { translate: 0 calc(0.3rem + 3px); rotate: 45deg; }
 .menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
-.menu-open .menu-toggle span:nth-child(3) { transform: translateY(calc(-0.3rem - 2px)) rotate(-45deg); }
+.menu-open .menu-toggle span:nth-child(3) { translate: 0 calc(-0.3rem - 3px); rotate: -45deg; }
 
 @media (max-width: 960px) {
 	/* With JS the links fold into a drawer; without it they stay as a scrollable row under the brand. */
@@ -301,6 +317,7 @@ a:hover { color: var(--primary-hover); }
 		transition: transform 0.3s var(--ease);
 	}
 	.js.menu-open .site-header { color: var(--text); }
+	.js.menu-open .site-header::before { background: color-mix(in srgb, var(--surface) 82%, transparent); }
 	.js.menu-open body { overflow: hidden; }
 	.js.menu-open body::after {
 		content: '';
@@ -354,16 +371,18 @@ a:hover { color: var(--primary-hover); }
 .btn:active, #Start ul a:active { transform: scale(0.97); }
 
 /* ---------- Notes (blockquote): warning by default, .note informative, .muted neutral ----------
-   A tinted card with an even border; the kind is told by a round badge ("!" warning, "i" information)
-   aligned with the first line. Neutral notes (examples) have no badge. */
+   A card washed with a soft diagonal tint of its hue (the same direction as the button gradients) and an even
+   border; the kind is told by a round badge in that hue's gradient, like the step numbers ("!" warning,
+   "i" information), aligned with the first line. Neutral notes (examples) have no badge. */
 
 blockquote {
-	--badge: var(--orange);
+	--badge: var(--accent-gradient);
 	--badge-ink: var(--on-accent);
+	--badge-glow: var(--orange);
 	position: relative;
 	padding: 1rem 1.25rem 1rem 3.25rem;
 	border-radius: var(--radius);
-	background: var(--warn-bg);
+	background: linear-gradient(135deg, color-mix(in srgb, var(--yellow) 14%, var(--surface)), var(--warn-bg));
 	border: 1px solid var(--warn-border);
 }
 blockquote::before {
@@ -381,12 +400,14 @@ blockquote::before {
 	font-size: 0.875rem;
 	font-weight: 700;
 	line-height: 1;
+	box-shadow: 0 2px 6px color-mix(in srgb, var(--badge-glow) 35%, transparent);
 }
 blockquote a { color: inherit; text-decoration: underline; }
 blockquote.note {
-	--badge: var(--primary);
+	--badge: var(--primary-gradient);
 	--badge-ink: var(--on-primary);
-	background: color-mix(in srgb, var(--primary) 6%, var(--surface));
+	--badge-glow: var(--primary);
+	background: linear-gradient(135deg, color-mix(in srgb, var(--aqua) 14%, var(--surface)), color-mix(in srgb, var(--primary) 6%, var(--surface)));
 	border-color: color-mix(in srgb, var(--primary) 22%, var(--border));
 }
 blockquote.note::before { content: 'i'; }
@@ -591,7 +612,8 @@ a[href$='.webp']::after {
 	width: 2rem;
 	height: 2rem;
 	border-radius: 50%;
-	background: rgba(8, 12, 18, 0.62) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / 1rem no-repeat;
+	/* The icon is a file, not a data: URI: the page's CSP (img-src 'self') blocks data: images. */
+	background: rgba(8, 12, 18, 0.62) url(zoom.svg) center / 1rem no-repeat;
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
 	opacity: 0;
@@ -662,11 +684,19 @@ a[href$='.webp']:hover::after, a[href$='.webp']:focus-visible::after { opacity: 
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
+	/* Fades and color changes stay (they move nothing); what slides, scales or nudges is instant or removed. */
 	*, ::before, ::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
+	}
+	/* The menu icon keeps its morph: it changes shape in place, nothing travels across the screen. */
+	#site-nav, details.accordion > summary > span::after, #toc > .toc-marker {
 		transition-duration: 0.01ms !important;
 	}
+	.btn:active, #Start ul a:active { transform: none; }
+	#Start ul a.cta:hover::after, #Start ul a.cta:focus-visible::after { transform: rotate(45deg); }
+	footer .arrow-links a:hover::after { transform: rotate(-45deg); }
+	a[href$='.webp']::after { transform: none; }
 	/* The rain is part of the identity: it stays, but slow and faint. */
 	.rain i {
 		animation-duration: calc(var(--d) * 6) !important;
