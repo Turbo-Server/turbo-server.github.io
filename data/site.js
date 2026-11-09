@@ -117,23 +117,32 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }
 
-    // Background rain of the hero: evenly spread drops with some jitter; negative delays so it is already raining.
-    var rain = document.querySelector('.rain');
-    if(rain){
-        var count = Math.max(14, Math.min(44, Math.round(window.innerWidth / 34))),
+    // Background traffic of the hero: columns of HTTP code, requests falling toward the server and responses
+    // rising back. Evenly spread with some jitter; negative delays so the traffic is already flowing.
+    var traffic = document.querySelector('.traffic');
+    if(traffic){
+        var requests = ['GET /', 'GET /index.html', 'POST /api/login', 'HEAD /', 'GET /app.js', 'PUT /data.json', 'OPTIONS *', 'GET /img/logo.webp', 'Host: example.com', 'Accept: */*', 'HTTP/2', 'DELETE /cache', 'GET /?q=turbo', 'Range: bytes=0-'],
+            responses = ['200 OK', '304', '201 Created', 'HTTP/2 200', 'gzip', 'text/html', '{"ok":true}', '301', 'TLS 1.3', 'ETag: "a4f2"', 'max-age=3600', '204', '206 Partial', 'Content-Length: 512'],
+            count = Math.max(10, Math.min(36, Math.round(window.innerWidth / 42))),
             fragment = document.createDocumentFragment();
+        function pick(list){ return list[Math.floor(Math.random() * list.length)]; }
         for(var i = 0; i < count; i++){
-            var drop = document.createElement('i'),
-                duration = 1 + Math.random() * 1.4;
-            drop.style.setProperty('--x', ((i + 0.5 + (Math.random() - 0.5) * 0.7) / count * 100).toFixed(2) + '%');
-            drop.style.setProperty('--w', (i % 2 ? 1.5 : 2.25) + 'px');
-            drop.style.setProperty('--h', Math.round(25 + Math.random() * 50) + 'vh');
-            drop.style.setProperty('--o', (0.22 + Math.random() * 0.26).toFixed(2));
-            drop.style.setProperty('--d', duration.toFixed(2) + 's');
-            drop.style.setProperty('--delay', (-Math.random() * duration * 2).toFixed(2) + 's');
-            fragment.appendChild(drop);
+            var line = document.createElement('i'),
+                up = Math.random() < 0.45,
+                list = up ? responses : requests,
+                text = pick(list),
+                duration = 4 + Math.random() * 5;
+            // Two or three messages per column, so each one reads as a short burst of traffic.
+            for(var n = 1 + Math.round(Math.random()); n > 0; n--) text += '  ' + pick(list);
+            line.textContent = text;
+            if(up) line.className = 'up';
+            line.style.setProperty('--x', ((i + 0.5 + (Math.random() - 0.5) * 0.6) / count * 100).toFixed(2) + '%');
+            line.style.setProperty('--o', (0.28 + Math.random() * 0.3).toFixed(2));
+            line.style.setProperty('--d', duration.toFixed(2) + 's');
+            line.style.setProperty('--delay', (-Math.random() * duration).toFixed(2) + 's');
+            fragment.appendChild(line);
         }
-        rain.appendChild(fragment);
+        traffic.appendChild(fragment);
     }
 
     // Documentation index (#toc) built from the h4 > h5 > h6 headings of #Docs (h6[data-no-toc] are skipped).
