@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if(root.classList.contains('menu-open') && !nav.contains(event.target) && !toggle.contains(event.target)){ setMenu(false); }
         });
         if(window.matchMedia){
-            var wide = window.matchMedia('(min-width: 961px)');
+            var wide = window.matchMedia('(min-width: 1101px)');
             var onWide = function(){ if(wide.matches){ setMenu(false); } };
             wide.addEventListener ? wide.addEventListener('change', onWide) : wide.addListener(onWide);
         }

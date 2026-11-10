@@ -131,6 +131,8 @@
 html {
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
+	/* No browser tap flash on touch: every control has its own :active or :focus-visible state. */
+	-webkit-tap-highlight-color: transparent;
 	scroll-padding-top: calc(var(--header-h) + 1rem);
 	scrollbar-color: color-mix(in srgb, var(--text) 35%, var(--bg)) transparent;
 	scrollbar-width: thin;
@@ -197,6 +199,10 @@ a:hover { color: var(--primary-hover); }
 	color: #fff;
 	transition: color var(--dur);
 }
+/* On wide screens the brand and the menu line up with the edges of the wide content (docs, footer). */
+@media (min-width: 1101px) {
+	.site-header { padding-inline: max(var(--gutter), (100% - var(--wide)) / 2); }
+}
 /* The glass background is a pseudo-element: a backdrop-filter on the header itself would trap the fixed drawer.
    Over the hero and the footer (both dark) it is clear glass: only a strong blur, no tint and no color boost, so
    what is behind keeps its own color; elsewhere it turns into the light glass. */
@@ -251,10 +257,11 @@ a:hover { color: var(--primary-hover); }
 	text-decoration: none;
 	font-weight: 700;
 	font-size: 0.9375rem;
+	white-space: nowrap;
 	opacity: 0.78;
 	transition: opacity var(--dur), background-color var(--dur), color var(--dur);
 }
-#site-nav a:hover { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
+#site-nav a:hover, #site-nav a:active { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
 #site-nav a.is-active {
 	opacity: 1;
 	background: color-mix(in srgb, currentColor 14%, transparent);
@@ -296,7 +303,8 @@ a:hover { color: var(--primary-hover); }
 .menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
 .menu-open .menu-toggle span:nth-child(3) { translate: 0 calc(-0.3rem - 3px); rotate: -45deg; }
 
-@media (max-width: 960px) {
+/* Below 1100px the row of links no longer fits beside the brand (in either language). */
+@media (max-width: 1100px) {
 	/* With JS the links fold into a drawer; without it they stay as a scrollable row under the brand. */
 	.js .menu-toggle { display: grid; }
 	.js #site-nav {
@@ -643,7 +651,7 @@ details.accordion > summary > span::after {
 	transition: transform 0.25s var(--ease);
 }
 details.accordion[open] > summary > span::after { transform: translateY(25%) rotate(-135deg); }
-details.accordion > summary:hover > span { color: var(--primary); }
+details.accordion > summary:hover > span, details.accordion > summary:active > span { color: var(--primary); }
 details.accordion > :not(summary) {
 	margin-inline: 1.5rem;
 	animation: accordion-in 0.35s var(--ease);
