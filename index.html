@@ -389,15 +389,16 @@ WantedBy=multi-user.target
 				<p>Open the interface (control or admin panel, GUI) at one of the following addresses.</p>
 
 				<p>With <b class="c-orange">localhost</b>, from the same machine where Turbo runs (the only place where the default password works):</p>
-				<blockquote class="note muted"><b class="text-lg c-yellow">http://<b class="c-orange">localhost</b>/admin:</b></blockquote>
+				<div class="url-bars">
+					<div class="url-bar"><span class="url-scheme">http://</span><b class="url-host">localhost</b><span class="url-path">/admin:</span><span class="url-tag">Local</span></div>
+				</div>
 
 				<p>Or through the <b class="c-orange">public IP</b> or the <b class="c-orange">domain</b> of the server where you installed Turbo, once it has a password of your own.</p>
 				<h4>Examples:</h4>
-				<blockquote class="note muted">
-					<b class="text-lg c-yellow">http://<b class="c-orange">11.22.33.44</b>/admin:</b>
-					<hr>
-					<b class="text-lg c-yellow">http://<b class="c-orange">example.com</b>/admin:</b>
-				</blockquote>
+				<div class="url-bars">
+					<div class="url-bar"><span class="url-scheme">http://</span><b class="url-host">11.22.33.44</b><span class="url-path">/admin:</span><span class="url-tag">IP</span></div>
+					<div class="url-bar"><span class="url-scheme">http://</span><b class="url-host">example.com</b><span class="url-path">/admin:</span><span class="url-tag">Domain</span></div>
+				</div>
 
 				<p><b>There</b>, the sign-in form looks like this.</p>
 				<section>

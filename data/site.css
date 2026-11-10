@@ -440,7 +440,10 @@ footer {
 @media (min-width: 961px) {
 	footer { padding-inline: max(var(--gutter), (100% - var(--wide)) / 2); }
 }
-footer .brand { font-size: 1.5rem; color: #fff; }
+/* In the footer the brand is one white mark, see-through so it sits back on the navy: the logo is turned into a
+   white silhouette and the opacity is set on the whole brand, so the logo and the name share it exactly. */
+footer .brand { font-size: 1.5rem; color: #fff; opacity: 0.7; }
+footer .brand img { filter: brightness(0) invert(1); }
 footer h2 {
 	margin-top: 1.5rem;
 	font-size: 0.8125rem;

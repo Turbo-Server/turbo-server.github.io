@@ -465,6 +465,82 @@ blockquote ul > li::before, .list > li::before {
 }
 blockquote.note ul > li::before { background: var(--primary); }
 
+/* ---------- Addresses to open (.url-bars): each one drawn as a browser's address bar ----------
+   A rounded field with a globe, the scheme muted, the host in the accent and a small tag naming the kind of
+   address. The set sits on a soft card with the accent gradient on its left edge. */
+
+.url-bars {
+	display: grid;
+	gap: 0.625rem;
+	padding: 0.875rem;
+	border-radius: var(--radius);
+	background:
+		linear-gradient(var(--surface-2), var(--surface-2)) padding-box,
+		linear-gradient(135deg, color-mix(in srgb, var(--orange) 55%, var(--border)), var(--border) 45%) border-box;
+	border: 1px solid transparent;
+	box-shadow: inset 4px 0 0 -1px var(--orange);
+}
+.url-bar {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	padding: 0.625rem 0.75rem 0.625rem 0.875rem;
+	border-radius: 999px;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow-1);
+	font-family: var(--font-mono);
+	font-size: 1.0625rem;
+	line-height: 1.4;
+	transition: border-color var(--dur), box-shadow var(--dur), transform var(--dur) var(--ease);
+}
+.url-bar::before {
+	content: '';
+	flex: none;
+	width: 1.125rem;
+	height: 1.125rem;
+	margin-right: 0.625rem;
+	background: var(--accent-gradient);
+	-webkit-mask: url("img/globe.svg") center / contain no-repeat;
+	mask: url("img/globe.svg") center / contain no-repeat;
+}
+.url-bar:hover {
+	border-color: color-mix(in srgb, var(--orange) 60%, var(--border));
+	box-shadow: var(--shadow-2), 0 0 0 3px color-mix(in srgb, var(--orange) 14%, transparent);
+	transform: translateY(-1px);
+}
+.url-scheme { color: var(--text-muted); }
+.url-host { color: var(--accent-text); font-weight: 700; }
+.url-scheme, .url-host, .url-path { white-space: nowrap; }
+.url-path { color: var(--text); }
+.url-tag {
+	flex: none;
+	margin-left: auto;
+	padding: 0.125rem 0.625rem;
+	border-radius: 999px;
+	background: var(--accent-gradient);
+	color: var(--on-accent);
+	font-family: var(--font-body);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+.url-bar > .url-path { margin-right: 0.75rem; }
+@media (max-width: 640px) {
+	.url-bars { padding: 0.625rem; }
+	.url-bar { flex-wrap: wrap; row-gap: 0.25rem; font-size: 0.875rem; padding: 0.5rem 0.625rem; }
+	.url-tag { font-size: 0.6875rem; padding: 0.125rem 0.5rem; }
+}
+@media (max-width: 420px) {
+	/* On phones the address keeps the whole line; the paragraph above already says what kind it is. */
+	.url-tag { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.url-bar { transition: none; }
+	.url-bar:hover { transform: none; }
+}
+
 /* ---------- Code blocks (.code wrapper and copy button are added by site.js) ---------- */
 
 pre, pre * { font-family: var(--font-mono); }
