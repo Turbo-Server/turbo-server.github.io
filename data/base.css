@@ -132,7 +132,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
 	scroll-padding-top: calc(var(--header-h) + 1rem);
-	scrollbar-color: var(--border) transparent;
+	scrollbar-color: color-mix(in srgb, var(--text) 35%, var(--bg)) transparent;
 	scrollbar-width: thin;
 }
 @media (prefers-reduced-motion: no-preference) {
