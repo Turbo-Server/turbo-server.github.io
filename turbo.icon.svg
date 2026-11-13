@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Turbo">
+	<defs>
+		<linearGradient id="turbo-flame" x1="30" y1="50" x2="380" y2="340" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#FFCF00"/>
+			<stop offset="0.55" stop-color="#FFAE00"/>
+			<stop offset="1" stop-color="#FF8A00"/>
+		</linearGradient>
+		<linearGradient id="turbo-flame-shine" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#fff" stop-opacity="0.26"/>
+			<stop offset="1" stop-color="#fff" stop-opacity="0"/>
+		</linearGradient>
+	</defs>
+	<!-- Curves join with matching tangents; the two small bites share one radius (15), the big one is a true circle (36).
+	     Every tip has the same 28° point and 22-unit handles on both sides; only its heading changes:
+	     the two upper tongues point 20° down, the short middle one straight right, the bottom one 20° up. -->
+	<path fill="url(#turbo-flame)" d="
+		M22 160
+		C20 104 70 52 130 52
+		C190 52 247.8 79.7 266 92
+		C244.1 89.7 210 96 192 96
+		A15 15 0 0 0 192 126
+		C250 126 300 118 340 124
+		C360 127 369.8 147.7 388 160
+		C366.1 157.7 330 178 300 178
+		A36 36 0 0 0 300 250
+		C308 250 318.7 252.7 340 258
+		C318.7 263.3 236 276 170 276
+		A15 15 0 0 0 170 306
+		C210 306 250.1 312.3 272 310
+		C253.8 322.3 190 342 130 342
+		C60 342 16 310 16 262
+		C16 245 19 232 24 226
+		C44 246 66 254 92 250
+		C124 245 140 226 162 208
+		C176 196.5 192 188 206 184
+		C186 180 156 182 128 186
+		C98 190 66 182 50 164
+		C40 153 30 150 22 160Z"/>
+	<path fill="url(#turbo-flame-shine)" d="M40 138C38 100 76 64 130 63C172 62 212 74 240 88C214 84 188 84 168 94C130 92 84 102 56 140C50 148 41 148 40 138Z"/>
+</svg>
