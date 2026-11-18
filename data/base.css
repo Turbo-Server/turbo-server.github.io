@@ -25,12 +25,12 @@
 	--on-accent: #1d1d1d;
 
 	/* Neutrals and roles (light) */
-	--bg: #f0f0f0;
-	--surface: #fafafa;
-	--surface-2: #e7e7e7;
-	--border: #d9d9d9;
-	--text: #2b2b2b;
-	--text-muted: #5e5e5e;
+	--bg: #edf1f6;
+	--surface: #fbfcfe;
+	--surface-2: #e2e8f0;
+	--border: #d2dbe6;
+	--text: #1f2a37;
+	--text-muted: #526173;
 	--primary: #00509e;
 	--primary-hover: color-mix(in srgb, var(--primary) 78%, #000);
 	--on-primary: var(--surface);
@@ -38,6 +38,14 @@
 	--warn-bg: color-mix(in srgb, var(--orange) 12%, var(--surface));
 	--warn-border: color-mix(in srgb, var(--orange) 45%, var(--surface));
 	--focus: var(--primary);
+	/* The informative tint (notes .note, the upgrade panel): the blue counterpart of the warning one. */
+	--info-bg: linear-gradient(135deg, color-mix(in srgb, var(--aqua) 14%, var(--surface)), color-mix(in srgb, var(--primary) 6%, var(--surface)));
+	--info-border: color-mix(in srgb, var(--primary) 22%, var(--border));
+	/* Bands: the sections that alternate with the page background, to set the rhythm of the page. */
+	--bg-band: color-mix(in srgb, var(--primary) 4%, var(--bg));
+	/* Screenshots are light pictures: on dark pages they are dimmed until they are hovered or opened. */
+	--shot-brightness: 1;
+	--shot-brightness-hover: 1.04;
 
 	/* Highlights in text (.c-*). On light and dark pages there are two: amber for values and actions
 	   (.c-yellow, .c-orange), blue for places and codes (.c-aqua). Dark backgrounds (code, hero, footer)
@@ -48,7 +56,7 @@
 	--hl-white: var(--text);
 
 	/* Code */
-	--code-bg: #1c1e22;
+	--code-bg: #151d28;
 	--code-text: #ececec;
 	--code-title-bg: color-mix(in srgb, var(--code-text) 8%, var(--code-bg));
 	--code-muted: color-mix(in srgb, var(--code-text) 72%, var(--code-bg));
@@ -57,14 +65,17 @@
 	--radius-s: 0.5rem;
 	--radius: 0.875rem;
 	--radius-l: 1.25rem;
-	--shadow-1: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.07);
-	--shadow-2: 0 2px 4px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.08);
+	--shadow-1: 0 1px 2px rgba(33, 66, 99, 0.06), 0 1px 3px rgba(33, 66, 99, 0.08);
+	--shadow-2: 0 2px 4px rgba(33, 66, 99, 0.05), 0 8px 24px rgba(33, 66, 99, 0.1);
 	--font-body: 'Karla', 'Segoe UI', Helvetica, Arial, sans-serif;
 	--font-mono: 'Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, 'Courier New', monospace;
 	--content: 56rem;
 	--wide: 76rem;
 	--gutter: clamp(1rem, 4vw, 2.5rem);
 	--header-h: 4rem;
+	/* Vertical rhythm: the space above each section, and how far the hero's screenshot hangs over the next one. */
+	--section-gap: clamp(3.5rem, 8vw, 6rem);
+	--hero-overhang: clamp(3rem, 9vw, 7rem);
 
 	/* Motion: every hover, focus and state change uses this duration; --ease for things that move. */
 	--dur: 0.2s;
@@ -73,19 +84,22 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg: #131518;
-		--surface: #1b1e22;
-		--surface-2: #23272c;
-		--border: #31363c;
-		--text: #e8e8e8;
-		--text-muted: #a5abb2;
+		--bg: #0e141c;
+		--surface: #151d28;
+		--surface-2: #1c2634;
+		--border: #2a3748;
+		--text: #e6ebf2;
+		--text-muted: #9dacbf;
 		--primary: var(--aqua);
 		--primary-hover: color-mix(in srgb, var(--aqua) 55%, #fff);
 		--on-primary: var(--bg);
 		--accent-text: var(--orange);
 		--primary-gradient: linear-gradient(135deg, var(--aqua), color-mix(in srgb, var(--aqua) 70%, var(--blue)));
 		--focus: var(--yellow);
-		--code-bg: #0e1013;
+		--bg-band: color-mix(in srgb, #000 30%, var(--bg));
+		--shot-brightness: 0.86;
+		--shot-brightness-hover: 1;
+		--code-bg: #0a1017;
 		--shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3);
 		--shadow-2: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.35);
 	}
@@ -417,8 +431,8 @@ blockquote.note {
 	--badge: var(--primary-gradient);
 	--badge-ink: var(--on-primary);
 	--badge-glow: var(--primary);
-	background: linear-gradient(135deg, color-mix(in srgb, var(--aqua) 14%, var(--surface)), color-mix(in srgb, var(--primary) 6%, var(--surface)));
-	border-color: color-mix(in srgb, var(--primary) 22%, var(--border));
+	background: var(--info-bg);
+	border-color: var(--info-border);
 }
 blockquote.note::before { content: 'i'; }
 /* A note that opens with a small heading centers its badge on that heading instead. */
@@ -661,6 +675,38 @@ details.accordion > summary + * { margin-top: 0.25rem; }
 @keyframes accordion-in {
 	from { opacity: 0; transform: translateY(-0.375rem); }
 }
+/* Informative accordion (.info): a note that folds. It has the tint and the "i" badge of the notes .note, and
+   its title may carry a second line (<small>) that stays in view while it is closed. */
+details.accordion.info {
+	background: var(--info-bg);
+	border-color: var(--info-border);
+}
+details.accordion.info > summary > span { justify-content: flex-start; align-items: flex-start; }
+details.accordion.info > summary > span::before {
+	content: 'i';
+	flex: none;
+	width: 1.375rem;
+	height: 1.375rem;
+	margin-top: calc((1.25em - 1.375rem) / 2);
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	background: var(--primary-gradient);
+	color: var(--on-primary);
+	font-size: 0.875rem;
+	line-height: 1;
+	box-shadow: 0 2px 6px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+details.accordion.info > summary > span::after { margin-top: 0.375rem; border-color: var(--primary); }
+details.accordion.info > summary > span > b { flex: 1; display: grid; gap: 0.25rem; line-height: 1.25; }
+details.accordion.info > summary small {
+	font-size: 0.9375rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--text-muted);
+}
+details.accordion.info .list > li::before { background: var(--primary); }
+details.accordion.info a { color: inherit; }
 @media (max-width: 640px) {
 	details.accordion > summary > span { padding: 1rem 1.125rem; font-size: 1.125rem; }
 	details.accordion > :not(summary) { margin-inline: 1rem; }
@@ -678,6 +724,7 @@ details.accordion > summary + * { margin-top: 0.25rem; }
 	background: var(--surface);
 	transition: box-shadow var(--dur), border-color var(--dur), filter var(--dur);
 }
+.shot, section a > img, .hero-shot img { filter: brightness(var(--shot-brightness)); }
 a[href$='.webp'] {
 	position: relative;
 	display: block;
@@ -687,7 +734,7 @@ a[href$='.webp'] {
 a[href$='.webp']:hover > img, a[href$='.webp']:focus-visible > img {
 	border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
 	box-shadow: var(--shadow-2), 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent);
-	filter: brightness(1.04);
+	filter: brightness(var(--shot-brightness-hover));
 }
 a[href$='.webp']:focus-visible { outline: none; }
 a[href$='.webp']::after {

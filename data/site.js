@@ -8,18 +8,20 @@ document.addEventListener('DOMContentLoaded', function(){
         hasObserver = 'IntersectionObserver' in window;
 
     // Header: clear (blur only) while the hero or the footer, both dark, is behind it; light glass elsewhere.
-    // "Behind" means the section crosses the middle line of the header.
+    // "Behind" means the section crosses the middle line of the header. The hero's screenshot is a light picture
+    // inside a dark section: while it is behind the header, the header is the light glass too.
     var header = document.querySelector('.site-header'),
         darkSections = [document.getElementById('Start'), document.querySelector('footer')].filter(Boolean),
+        lightPictures = [document.querySelector('.hero-shot')].filter(Boolean),
         headerTicking = false;
     function updateHeader(){
         headerTicking = false;
         var line = header.offsetHeight / 2,
-            overDark = darkSections.some(function(section){
-                var box = section.getBoundingClientRect();
+            behind = function(element){
+                var box = element.getBoundingClientRect();
                 return box.top <= line && box.bottom >= line;
-            });
-        header.classList.toggle('is-scrolled', !overDark);
+            };
+        header.classList.toggle('is-scrolled', !darkSections.some(behind) || lightPictures.some(behind));
     }
     if(header && darkSections.length){
         window.addEventListener('scroll', function(){
