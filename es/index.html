@@ -52,7 +52,7 @@
 		"name": "Turbo",
 		"applicationCategory": "DeveloperApplication",
 		"operatingSystem": "Linux, Windows",
-		"softwareVersion": "2.4.3",
+		"softwareVersion": "2.4.4",
 		"url": "https://turbo.okzgn.com/es/",
 		"inLanguage": "es",
 		"image": "https://turbo.okzgn.com/turbo.icon.png",
@@ -95,7 +95,7 @@
 			<ul>
 				<li><a href="/es/#Description"><span>Descripción</span></a></li>
 				<li><a href="/es/#Install"><span>Instalación</span></a></li>
-				<li class="wide"><a href="/es/#Downloads" class="cta"><span>Descargar gratis<sub>Versión: 2.4.3</sub></span></a></li>
+				<li class="wide"><a href="/es/#Downloads" class="cta"><span>Descargar gratis<sub>Versión: 2.4.4</sub></span></a></li>
 			</ul>
 			<ul class="facts">
 				<li>Linux y Windows</li>
@@ -131,9 +131,9 @@
 		<article id="Install">
 			<h3>Instalación</h3>
 			<details class="accordion info">
-				<summary><span><b>¿Actualiza desde una versión anterior?<small>v2.4.3 corrige fallos de seguridad: actualice cuanto antes.</small></b></span></summary>
-				<p>Si actualiza desde v2.4.2, v2.4.1, v2.4 o v2.3.rc3, lea primero en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/CHANGELOG.es.md">registro de cambios</a> la sección de actualización de su versión (y luego las de las posteriores), y haga una copia de la carpeta de sitios, <b>turbo.config</b> incluido.</p>
-				<p><b>Entre los cambios incompatibles de v2.4.3:</b></p>
+				<summary><span><b>¿Actualiza desde una versión anterior?<small>v2.4.4 trae las correcciones de seguridad de v2.4.3: actualice cuanto antes.</small></b></span></summary>
+				<p>Si viene de v2.4.3, sustituya el binario y nada más: v2.4.4 es el mismo servidor, con su isotipo nuevo. Si actualiza desde v2.4.2, v2.4.1, v2.4 o v2.3.rc3, lea primero en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/CHANGELOG.es.md">registro de cambios</a> la sección de actualización de su versión (y luego las de las posteriores), y haga una copia de la carpeta de sitios, <b>turbo.config</b> incluido.</p>
+				<p><b>Entre los cambios incompatibles de v2.4.3 (v2.4.4 no añade ninguno):</b></p>
 				<ul class="list">
 					<li>Una carpeta pedida sin su <b>/</b> final se redirige a la misma ruta con ella.</li>
 					<li>Añadir una reescritura hacia otra dirección, añadir una IP denegada y desactivar el HTTPS de un sitio piden la contraseña actual.</li>
@@ -187,7 +187,7 @@
 
 							<h4 class="pre-title">Ejemplo:</h4>
 	<pre>&gt; cd <b class="c-aqua">$(mktemp -d)</b>
-&gt; <b class="c-yellow">wget https://github.com/okzgn/turbo-go/releases/download/v2.4.3/turbo-linux<b class="c-orange">-amd64</b></b></pre>
+&gt; <b class="c-yellow">wget https://github.com/okzgn/turbo-go/releases/download/v2.4.4/turbo-linux<b class="c-orange">-amd64</b></b></pre>
 							<blockquote class="note">En ARM64 (AArch64), descargue <b class="c-orange">turbo-linux-arm64</b> (y use ese nombre en el paso siguiente). Compruebe la descarga con el archivo <b>SHA256SUMS</b> de la versión, descargado en el mismo directorio (<b>sha256sum -c --ignore-missing SHA256SUMS</b>: <i>--ignore-missing</i> comprueba solo los ejecutables descargados). Una versión firmada por su editor trae además un archivo <b>SHA256SUMS.sig</b>, que muestra que las sumas son las del editor; <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/SECURITY.md">SECURITY.md</a> explica cómo comprobarlo.</blockquote>
 
 					</li>
@@ -288,7 +288,7 @@ WantedBy=multi-user.target
 								<li>Para detener <b>momentáneamente</b> el servicio, use el comando <b class="c-orange"><i>stop</i></b>.</li>
 								<li>O use <b class="c-orange"><i>disable --now</i></b> para detener <b>completamente</b> el servicio e impedir que se inicie con el sistema.</li>
 								<li>Los mensajes de Turbo (con nivel y hora) quedan en el registro del sistema (<i>journal</i>); para verlos, use <b class="c-orange"><i>journalctl -u turbo</i></b> (con <b><i>-f</i></b>, para seguirlos en tiempo real).</li>
-								<li>La primera línea de cada arranque (<b><i>msg=Starting</i></b>) dice la versión de Turbo, el commit del que se compiló y la versión de Go, por ejemplo <b><i>version=v2.4.3 commit=… go=go1.26.11</i></b> (<b class="c-orange"><i>journalctl -u turbo | grep msg=Starting</i></b>): compárela con las versiones afectadas de un aviso de seguridad.</li>
+								<li>La primera línea de cada arranque (<b><i>msg=Starting</i></b>) dice la versión de Turbo, el commit del que se compiló y la versión de Go, por ejemplo <b><i>version=v2.4.4 commit=… go=go1.26.11</i></b> (<b class="c-orange"><i>journalctl -u turbo | grep msg=Starting</i></b>): compárela con las versiones afectadas de un aviso de seguridad.</li>
 							</ul>
 						</blockquote>
 					</li>
@@ -316,7 +316,7 @@ WantedBy=multi-user.target
 						<span><b class="c-yellow"><a href="/es/#Downloads">Descargar</a></b> el ejecutable para Windows en el <b class="c-aqua">directorio anterior</b>, con el nombre <b class="c-orange">turbo.exe</b>.</span>
 
 						<h4 class="pre-title">Ejemplo:</h4>
-	<pre>&gt; <b class="c-yellow">Invoke-WebRequest https://github.com/okzgn/turbo-go/releases/download/v2.4.3/turbo-windows-x64.exe -OutFile <b class="c-aqua">C:\server\</b><b class="c-orange">turbo.exe</b></b></pre>
+	<pre>&gt; <b class="c-yellow">Invoke-WebRequest https://github.com/okzgn/turbo-go/releases/download/v2.4.4/turbo-windows-x64.exe -OutFile <b class="c-aqua">C:\server\</b><b class="c-orange">turbo.exe</b></b></pre>
 						<blockquote class="note">Compruebe la descarga con la suma de <a href="/es/#Downloads">Descargas</a> (<b>Get-FileHash C:\server\turbo.exe</b>).</blockquote>
 					</li>
 					<li>
@@ -349,7 +349,7 @@ WantedBy=multi-user.target
 				<li><b>Linux</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
 				<li class="dl-file">
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.3/turbo-linux-amd64">turbo-linux-amd64</a>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.4/turbo-linux-amd64">turbo-linux-amd64</a>
 					<ul>
 						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
 						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
@@ -358,7 +358,7 @@ WantedBy=multi-user.target
 				<li><b>Linux</b></li>
 				<li><b>64 <i>bits</i></b><br>ARM64<br>AArch64</li>
 				<li class="dl-file">
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.3/turbo-linux-arm64">turbo-linux-arm64</a>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.4/turbo-linux-arm64">turbo-linux-arm64</a>
 					<ul>
 						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
 						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
@@ -367,7 +367,7 @@ WantedBy=multi-user.target
 				<li><b>Windows</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
 				<li class="dl-file">
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.3/turbo-windows-x64.exe">turbo-windows-x64.exe</a>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.4.4/turbo-windows-x64.exe">turbo-windows-x64.exe</a>
 					<ul>
 						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
 						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
@@ -511,7 +511,7 @@ WantedBy=multi-user.target
 						</li>
 						<li>
 							<h5 id="cp-6">Guardar configuración <i lang="en">(Save configuration)</i></h5><br>
-							<span>Crea un archivo (<b class="c-aqua">turbo.config</b>) con toda la configuración del servidor web al momento de guardarse, incluidos el usuario y el <i>hash</i> de la contraseña, dentro del <i>Directorio de sitios</i>. El archivo se sustituye de una vez al guardar (si algo falla, queda el anterior), y antes se guarda una copia en estos casos: si era de una versión anterior de Turbo (<b>turbo.config.v1.bak</b>), si no era JSON válido (<b>turbo.config.invalid.&lt;fecha&gt;.bak</b>) o si cambió fuera de Turbo desde que lo leyó (<b>turbo.config.&lt;fecha&gt;.bak</b>). Las copias se escriben en disco antes de sustituir el archivo. Si el archivo es de una versión posterior de Turbo, guardar perdería sus ajustes nuevos: la interfaz pide confirmarlo.<br><br><b>Si al arrancar el archivo no es JSON válido</b> (por ejemplo, tras editarlo a mano), Turbo no arranca, para no perder la configuración (ni volver a la contraseña por defecto): muestra el archivo, la línea y la columna del error, esa línea con una marca y las copias <b>.bak</b> que haya, para corregirlo o restaurar una. Tampoco arranca si el archivo no se puede leer, si su <i>Dónde responde el panel</i>, su usuario o su contraseña no se pueden usar, si un sitio o una de sus listas no es un objeto JSON, o si una lista está escrita directamente en un sitio, fuera de su sección <b>""</b>; y dice por qué. Si el archivo se rompe con Turbo en marcha, se mantiene la configuración en uso y el mismo mensaje va al registro. Un ajuste suelto que no se puede aplicar (fuera de rango, de otro tipo) no impide arrancar: se usa su valor por defecto, con un aviso en el registro.<br><br><b>Si edita el archivo a mano</b> con Turbo en marcha, Turbo lo revisa cada 30 segundos y, cuando cambia, lo aplica entero y de una vez: lo que ya no está en el archivo (una cabecera, un alias, un preprocesador, una IP denegada, etc.) deja de aplicarse, y <b>los cambios hechos desde la interfaz y no guardados se pierden</b>. Los certificados en uso siguen respondiendo. Las entradas se aplican en un orden fijo: cuando dos chocan (por ejemplo, <i>Redirección a www</i> y <i>Redirección a raíz</i> activas a la vez, la misma extensión escrita como <b>PHP</b> y <b>php</b>, o un alias en dos sitios), gana la primera (con las dos redirecciones, <i>Redirección a raíz</i>), con un aviso en el registro. Un sitio que el archivo nombra solo por sus subdominios, o como <b>{}</b> o <b>null</b>, se sirve como uno encontrado en el disco, con <b>index.html</b> como índice. Hay un ejemplo de <b>turbo.config</b> en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/testdata/config/v2-example.json">repositorio</a>.</span>
+							<span>Crea un archivo (<b class="c-aqua">turbo.config</b>) con toda la configuración del servidor web al momento de guardarse, incluidos el usuario y el <i>hash</i> de la contraseña, dentro del <i>Directorio de sitios</i>. El archivo se sustituye de una vez al guardar (si algo falla, queda el anterior), y antes se guarda una copia en estos casos: si era de una versión anterior de Turbo (<b>turbo.config.v1.bak</b>), si no era JSON válido (<b>turbo.config.invalid.&lt;fecha&gt;.bak</b>) o si cambió fuera de Turbo desde que lo leyó (<b>turbo.config.&lt;fecha&gt;.bak</b>). Las copias se escriben en disco antes de sustituir el archivo. Si el archivo es de una versión posterior de Turbo, guardar perdería sus ajustes nuevos: la interfaz pide confirmarlo.<br><br><b>Si al arrancar el archivo no es JSON válido</b> (por ejemplo, tras editarlo a mano), Turbo no arranca, para no perder la configuración (ni volver a la contraseña por defecto): muestra el archivo, la línea y la columna del error, esa línea con una marca y las copias <b>.bak</b> que haya, para corregirlo o restaurar una. Tampoco arranca si el archivo no se puede leer, si su <i>Dónde responde el panel</i>, su usuario o su contraseña no se pueden usar, si un sitio o una de sus listas no es un objeto JSON, o si una lista está escrita directamente en un sitio, fuera de su sección <b>""</b>; y dice por qué. Si el archivo se rompe con Turbo en marcha, se mantiene la configuración en uso y el mismo mensaje va al registro. Un ajuste suelto que no se puede aplicar (fuera de rango, de otro tipo) no impide arrancar: se usa su valor por defecto, con un aviso en el registro.<br><br><b>Si edita el archivo a mano</b> con Turbo en marcha, Turbo lo revisa cada 30 segundos y, cuando cambia, lo aplica entero y de una vez: lo que ya no está en el archivo (una cabecera, un alias, un preprocesador, una IP denegada, etc.) deja de aplicarse, y <b>los cambios hechos desde la interfaz y no guardados se pierden</b>. Los certificados en uso siguen respondiendo. Las entradas se aplican en un orden fijo: cuando dos chocan (por ejemplo, <i>Redirección a www</i> y <i>Redirección a raíz</i> activas a la vez, la misma extensión escrita como <b>PHP</b> y <b>php</b>, o un alias en dos sitios), gana la primera (con las dos redirecciones, <i>Redirección a raíz</i>), con un aviso en el registro. Un sitio que el archivo nombra solo por sus subdominios, o como <b>{}</b> o <b>null</b>, se sirve como uno encontrado en el disco, con <b>index.html</b> como índice. Hay un ejemplo de <b>turbo.config</b> en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/server/testdata/config/v2-example.json">repositorio</a>.</span>
 						</li>
 					</ol>
 				</li>
