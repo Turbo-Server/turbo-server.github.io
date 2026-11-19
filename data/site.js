@@ -183,7 +183,9 @@ document.addEventListener('DOMContentLoaded', function(){
             if(!h5s.length){ return; }
             var h5List = subList(item);
             h5s.forEach(function(h5, i){
-                h5.id = h4.id + '-' + i;
+                // A section keeps the id it was written with: the links from elsewhere (the README, the panel's
+                // help) go to it, wherever it is in the list. Those without one are numbered by their place.
+                h5.id = h5.id || h4.id + '-' + i;
                 var h5Item = tocItem(h5List, h5),
                     h6s = h5.parentNode.querySelectorAll('h6:not([data-no-toc])');
                 if(!h6s.length){ return; }
