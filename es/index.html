@@ -52,7 +52,7 @@
 		"name": "Turbo",
 		"applicationCategory": "DeveloperApplication",
 		"operatingSystem": "Linux, Windows",
-		"softwareVersion": "2.5.2",
+		"softwareVersion": "2.5.3",
 		"url": "https://turbo.okzgn.com/es/",
 		"inLanguage": "es",
 		"image": "https://turbo.okzgn.com/turbo.icon.png",
@@ -95,7 +95,7 @@
 			<ul>
 				<li><a href="/es/#Description"><span>Descripción</span></a></li>
 				<li><a href="/es/#Install"><span>Instalación</span></a></li>
-				<li class="wide"><a href="/es/#Downloads" class="cta"><span>Descargar gratis<sub>Versión: 2.5.2</sub></span></a></li>
+				<li class="wide"><a href="/es/#Downloads" class="cta"><span>Descargar gratis<sub>Versión: 2.5.3</sub></span></a></li>
 			</ul>
 			<ul class="facts">
 				<li>Linux y Windows</li>
@@ -131,8 +131,18 @@
 		<article id="Install">
 			<h3>Instalación</h3>
 			<details class="accordion info">
-				<summary><span><b>¿Actualiza desde una versión anterior?<small>v2.5.2 es la primera versión con binarios desde v2.3.rc3: lleva las correcciones de seguridad de todas las versiones desde entonces, y lo que encontró una revisión de v2.5.1. Actualice cuanto antes.</small></b></span></summary>
-				<p>Si viene de v2.5.1, sustituya el binario (o su compilación): lo configurado sigue haciendo lo mismo, con las excepciones que el registro de cambios enumera en <i>Actualizar desde v2.5.1</i>, las principales abajo. Si viene de v2.5, se aplican además las de <i>Actualizar desde v2.5</i>, que van a continuación; si viene de v2.4.4 o v2.4.3, también las de <i>Actualizar desde v2.4.4</i>. Si actualiza desde v2.4.2, v2.4.1, v2.4 o v2.3.rc3, lea primero en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/CHANGELOG.es.md">registro de cambios</a> la sección de actualización de su versión (y luego las de las posteriores), y haga una copia de la carpeta de sitios, <b>turbo.config</b> incluido.</p>
+				<summary><span><b>¿Actualiza desde una versión anterior?<small>v2.5.3 corrige lo que encontró una revisión externa de v2.5.2. v2.5.2 fue la primera versión con binarios desde v2.3.rc3: lleva las correcciones de seguridad de todas las versiones desde entonces. Actualice cuanto antes.</small></b></span></summary>
+				<p>Si viene de v2.5.2, sustituya el binario (o su compilación): lo configurado sigue haciendo lo mismo, con las excepciones que el registro de cambios enumera en <i>Actualizar desde v2.5.2</i>, las principales abajo. Si viene de v2.5.1, se aplican además las de <i>Actualizar desde v2.5.1</i>, que van a continuación; si viene de v2.5, también las de <i>Actualizar desde v2.5</i>; si viene de v2.4.4 o v2.4.3, también las de <i>Actualizar desde v2.4.4</i>. Si actualiza desde v2.4.2, v2.4.1, v2.4 o v2.3.rc3, lea primero en el <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/CHANGELOG.es.md">registro de cambios</a> la sección de actualización de su versión (y luego las de las posteriores), y haga una copia de la carpeta de sitios, <b>turbo.config</b> incluido.</p>
+				<p><b>Entre los cambios de v2.5.3:</b></p>
+				<ul class="list">
+					<li>Un sitio sin su <b class="c-yellow">@</b> se va solo: sus subdominios, con sus carpetas, se siguen sirviendo, y el propio nombre del sitio responde <b class="c-aqua">estado 404</b>.</li>
+					<li><b>QUERY('nombre')</b> lee la consulta como un script: <b>&amp;</b> separa los parámetros, no <b>;</b>, un <b>%</b> que no se puede descodificar se queda tal cual, y donde los scripts podrían leer valores distintos (un nombre repetido con otro valor) no da nada.</li>
+					<li><b>COOKIE('nombre')</b> lee las cookies como un script: la primera de un nombre, esté escrita como esté, y donde los scripts podrían leer valores distintos (un valor con <b>%XX</b>, entre comillas dobles o con espacios alrededor) no da nada.</li>
+					<li>Una redirección cuyo host deja vacío, empezando por <b>.</b> o con <b>..</b>, un valor que no da nada responde <b class="c-aqua">estado 500</b>; un <b>#</b> en el destino de una reescritura empieza su fragmento.</li>
+					<li>Un <i>POST</i> a <b>/admin:</b> sin sus credenciales, o a la API sin acción, responde <b class="c-aqua">estado 400</b>, y también añadir un índice que el sitio ya tiene.</li>
+					<li>Cada etiqueta del nombre de un sitio puede tener 63 bytes, y se puede crear un sitio que solo cubre un comodín (un subdominio comodín de otro sitio, o un sitio comodín).</li>
+					<li><b>dx-lua</b> es la 0.3.3: vuelva a compilarlo.</li>
+				</ul>
 				<p><b>Entre los cambios de v2.5.2:</b></p>
 				<ul class="list">
 					<li>Las cabeceras <i>Refresh</i>, <i>Location</i> y <i>Content-Location</i> no admiten <b>SUBDOMAIN</b> ni <b>FIRST_SUBDOMAIN</b> en una expresión: una de <b>turbo.config</b> se conserva, y el sitio responde <b class="c-aqua">estado 500</b> hasta que se cambie.</li>
@@ -217,15 +227,15 @@
 
 							<h4 class="pre-title">Ejemplo:</h4>
 	<pre>&gt; cd <b class="c-aqua">$(mktemp -d)</b>
-&gt; <b class="c-yellow">wget https://github.com/okzgn/turbo-go/releases/download/v2.5.2/turbo-v2.5.2-linux<b class="c-orange">-amd64</b></b></pre>
-							<blockquote class="note">En ARM64 (AArch64), descargue <b class="c-orange">turbo-v2.5.2-linux-arm64</b> (y use ese nombre en el paso siguiente). Compruebe la descarga con el archivo <b>SHA256SUMS</b> de la versión, descargado en el mismo directorio (<b>sha256sum -c --ignore-missing SHA256SUMS</b>: <i>--ignore-missing</i> comprueba solo los ejecutables descargados). Una versión firmada por su editor trae además un archivo <b>SHA256SUMS.sig</b>, que muestra que las sumas son las del editor; <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/SECURITY.md">SECURITY.md</a> explica cómo comprobarlo.</blockquote>
+&gt; <b class="c-yellow">wget https://github.com/okzgn/turbo-go/releases/download/v2.5.3/turbo-v2.5.3-linux<b class="c-orange">-amd64</b></b></pre>
+							<blockquote class="note">En ARM64 (AArch64), descargue <b class="c-orange">turbo-v2.5.3-linux-arm64</b> (y use ese nombre en el paso siguiente). Compruebe la descarga con el archivo <b>SHA256SUMS</b> de la versión, descargado en el mismo directorio (<b>sha256sum -c --ignore-missing SHA256SUMS</b>: <i>--ignore-missing</i> comprueba solo los ejecutables descargados). Una versión firmada por su editor trae además un archivo <b>SHA256SUMS.sig</b>, que muestra que las sumas son las del editor; <a target="_blank" rel="noopener" href="https://github.com/okzgn/turbo-go/blob/main/SECURITY.md">SECURITY.md</a> explica cómo comprobarlo.</blockquote>
 
 					</li>
 					<li>
 						<span><b class="c-yellow">Instalar</b> el <b class="c-orange">ejecutable descargado</b> en <b class="c-aqua">/usr/local/bin/</b>, con el nombre <b>turbo</b>, de <i>root</i> y con permisos de lectura y ejecución. Queda fuera del directorio de sitios, donde los preprocesadores pueden escribir, así que no pueden sustituirlo.</span>
 
 						<h4 class="pre-title">Ejemplo:</h4>
-	<pre>&gt; sudo <b class="c-yellow">install -o root -g root -m 0755 turbo-v2.5.2-linux<b class="c-orange">-amd64</b> <b class="c-aqua">/usr/local/bin/</b>turbo</b></pre>
+	<pre>&gt; sudo <b class="c-yellow">install -o root -g root -m 0755 turbo-v2.5.3-linux<b class="c-orange">-amd64</b> <b class="c-aqua">/usr/local/bin/</b>turbo</b></pre>
 
 						<blockquote class="note"><b>Para pruebas</b>, pasar de aquí a <a href="/es/#Get-started">Cómo utilizar</a>.</blockquote>
 					</li>
@@ -318,7 +328,7 @@ WantedBy=multi-user.target
 								<li>Para detener <b>momentáneamente</b> el servicio, use el comando <b class="c-orange"><i>stop</i></b>.</li>
 								<li>O use <b class="c-orange"><i>disable --now</i></b> para detener <b>completamente</b> el servicio e impedir que se inicie con el sistema.</li>
 								<li>Los mensajes de Turbo (con nivel y hora) quedan en el registro del sistema (<i>journal</i>); para verlos, use <b class="c-orange"><i>journalctl -u turbo</i></b> (con <b><i>-f</i></b>, para seguirlos en tiempo real).</li>
-								<li>La primera línea de cada arranque (<b><i>msg=Starting</i></b>) dice la versión de Turbo, el commit del que se compiló y la versión de Go, por ejemplo <b><i>version=v2.5.2 commit=… go=go1.26.11</i></b> (<b class="c-orange"><i>journalctl -u turbo | grep msg=Starting</i></b>): compárela con las versiones afectadas de un aviso de seguridad.</li>
+								<li>La primera línea de cada arranque (<b><i>msg=Starting</i></b>) dice la versión de Turbo, el commit del que se compiló y la versión de Go, por ejemplo <b><i>version=v2.5.3 commit=… go=go1.26.11</i></b> (<b class="c-orange"><i>journalctl -u turbo | grep msg=Starting</i></b>): compárela con las versiones afectadas de un aviso de seguridad.</li>
 							</ul>
 						</blockquote>
 					</li>
@@ -346,7 +356,7 @@ WantedBy=multi-user.target
 						<span><b class="c-yellow"><a href="/es/#Downloads">Descargar</a></b> el ejecutable para Windows en el <b class="c-aqua">directorio anterior</b>, con el nombre <b class="c-orange">turbo.exe</b>.</span>
 
 						<h4 class="pre-title">Ejemplo:</h4>
-	<pre>&gt; <b class="c-yellow">Invoke-WebRequest https://github.com/okzgn/turbo-go/releases/download/v2.5.2/turbo-v2.5.2-windows-x64.exe -OutFile <b class="c-aqua">C:\server\</b><b class="c-orange">turbo.exe</b></b></pre>
+	<pre>&gt; <b class="c-yellow">Invoke-WebRequest https://github.com/okzgn/turbo-go/releases/download/v2.5.3/turbo-v2.5.3-windows-x64.exe -OutFile <b class="c-aqua">C:\server\</b><b class="c-orange">turbo.exe</b></b></pre>
 						<blockquote class="note">Compruebe la descarga con la suma de <a href="/es/#Downloads">Descargas</a> (<b>Get-FileHash C:\server\turbo.exe</b>).</blockquote>
 					</li>
 					<li>
@@ -379,28 +389,28 @@ WantedBy=multi-user.target
 				<li><b>Linux</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
 				<li class="dl-file">
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.5.2/turbo-v2.5.2-linux-amd64">turbo-v2.5.2-linux-amd64</a>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.5.3/turbo-v2.5.3-linux-amd64">turbo-v2.5.3-linux-amd64</a>
 					<ul>
-						<li><b>Checksum SHA256:</b> <i class="checksum">fbf860df6d2ef776b4d0b4db793ad8416fb0ac00fcb41f8aa346247669033aba</i></li>
-						<li><b>Tamaño:</b> 8,15 MB</li>
+						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
+						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
 					</ul>
 				</li>
 				<li><b>Linux</b></li>
 				<li><b>64 <i>bits</i></b><br>ARM64<br>AArch64</li>
 				<li class="dl-file">
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.5.2/turbo-v2.5.2-linux-arm64">turbo-v2.5.2-linux-arm64</a>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.5.3/turbo-v2.5.3-linux-arm64">turbo-v2.5.3-linux-arm64</a>
 					<ul>
-						<li><b>Checksum SHA256:</b> <i class="checksum">0ade0cc679fc6c53dd9455746e05d1c2fe6a0a3bbc6d5838cc3ae1e27525f042</i></li>
-						<li><b>Tamaño:</b> 7,50 MB</li>
+						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
+						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
 					</ul>
 				</li>
 				<li><b>Windows</b></li>
 				<li><b>64 <i>bits</i></b><br>x64<br>x86-64<br>AMD64</li>
 				<li class="dl-file">
-					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.5.2/turbo-v2.5.2-windows-x64.exe">turbo-v2.5.2-windows-x64.exe</a>
+					<a href="https://github.com/okzgn/turbo-go/releases/download/v2.5.3/turbo-v2.5.3-windows-x64.exe">turbo-v2.5.3-windows-x64.exe</a>
 					<ul>
-						<li><b>Checksum SHA256:</b> <i class="checksum">ac9af085a1c7f1f30ec5dc89254cb4359f1a46d006d2244df3a53da0d772443c</i></li>
-						<li><b>Tamaño:</b> 8,41 MB</li>
+						<li><b>Checksum SHA256:</b> <i class="checksum">PENDIENTE: SHA-256 de SHA256SUMS al publicar</i></li>
+						<li><b>Tamaño:</b> PENDIENTE al publicar</li>
 					</ul>
 				</li>
 			</ul>
@@ -651,7 +661,7 @@ WantedBy=multi-user.target
 						<div>
 							<a href="../data/img/sites-without-folder.webp"><img src="../data/img/sites-without-folder-sm.webp" alt="Imagen de Sitios sin su carpeta" width="960" height="540" loading="lazy" decoding="async"></a>
 						</div>
-						<p>Un sitio cuya carpeta (o su <b class="c-yellow">@</b>) desaparece, por ejemplo durante un despliegue que borra y vuelve a crear <b class="c-yellow">@</b>, una subida por FTP o un disco de red que no responde un momento, deja de servirse mientras no está, y vuelve con todos sus ajustes (preprocesadores, HTTPS, cabeceras, reescrituras, alias…), también tras reiniciar: siguen en <b>turbo.config</b>. Solo cuenta una carpeta que no existe, la que su carpeta superior, listada, no tiene: si el disco no responde (permisos, E/S, un recurso de red), el sitio sigue como está. Un sitio de <b>turbo.config</b> cuya carpeta aún no existe recibe sus ajustes cuando aparece.<br><br>La interfaz los lista en esta sección, que solo aparece cuando hay alguno. Una vez borrada su carpeta, la <b class="c-yellow">X</b> hace que Turbo olvide sus ajustes (los de un sitio, con sus subdominios); pide la contraseña actual y no borra ninguna carpeta. Mientras un sitio está en esta lista, no se puede crear otro con su nombre desde la interfaz: <b>borrar la carpeta de un sitio no borra el sitio</b>.</p>
+						<p>Un sitio cuya carpeta (o su <b class="c-yellow">@</b>) desaparece, por ejemplo durante un despliegue que borra y vuelve a crear <b class="c-yellow">@</b>, una subida por FTP o un disco de red que no responde un momento, deja de servirse mientras no está, y vuelve con todos sus ajustes (preprocesadores, HTTPS, cabeceras, reescrituras, alias…), también tras reiniciar: siguen en <b>turbo.config</b>. Solo cuenta una carpeta que no existe, la que su carpeta superior, listada, no tiene: si el disco no responde (permisos, E/S, un recurso de red), el sitio sigue como está. Un sitio de <b>turbo.config</b> cuya carpeta aún no existe recibe sus ajustes cuando aparece. Un sitio y cada uno de sus subdominios van por su cuenta: mientras solo falta la <b class="c-yellow">@</b> de un sitio, sus subdominios, con su propia <b class="c-yellow">@</b>, se siguen sirviendo.<br><br>La interfaz los lista en esta sección, que solo aparece cuando hay alguno. Una vez borrada su carpeta, la <b class="c-yellow">X</b> hace que Turbo olvide sus ajustes (los de un sitio, con sus subdominios); pide la contraseña actual y no borra ninguna carpeta. Mientras un sitio está en esta lista, no se puede crear otro con su nombre desde la interfaz: <b>borrar la carpeta de un sitio no borra el sitio</b>.</p>
 					</section>
 				</li>
 				<li>
@@ -920,7 +930,7 @@ WantedBy=multi-user.target
 								</li>
 								<li>
 									<h6>Funciones</h6><br>
-									<span><b>HEADER('Nombre')</b>, <b>QUERY('nombre')</b> y <b>COOKIE('nombre')</b> leen la petición; <b>oneOf(v, ['a', 'b'])</b> da el elemento de la lista igual a <b>v</b>; <b>token(v)</b>, <b>quoted(v)</b> y <b>urlencode(v)</b> restringen o codifican un texto (<b>quoted</b>, no en <i>Set-Cookie</i>, en <i>Content-Security-Policy</i> ni en <i>Content-Security-Policy-Report-Only</i>, cuya gramática no mantiene unido un texto entre comillas, ni en <i>Refresh</i>, cuya URL toma un navegador sin sus comillas); <b>lower(v)</b> y <b>upper(v)</b> cambian sus mayúsculas; <b>v.startsWith(s)</b>, <b>v.endsWith(s)</b>, <b>v.contains(s)</b> y <b>v.matches('patrón')</b> son condiciones.</span>
+									<span><b>HEADER('Nombre')</b>, <b>QUERY('nombre')</b> (como un script lee la consulta: <b>&amp;</b> separa los parámetros, no <b>;</b>) y <b>COOKIE('nombre')</b> (como un script lee las cookies) leen la petición; <b>oneOf(v, ['a', 'b'])</b> da el elemento de la lista igual a <b>v</b>; <b>token(v)</b>, <b>quoted(v)</b> y <b>urlencode(v)</b> restringen o codifican un texto (<b>quoted</b>, no en <i>Set-Cookie</i>, en <i>Content-Security-Policy</i> ni en <i>Content-Security-Policy-Report-Only</i>, cuya gramática no mantiene unido un texto entre comillas, ni en <i>Refresh</i>, cuya URL toma un navegador sin sus comillas); <b>lower(v)</b> y <b>upper(v)</b> cambian sus mayúsculas; <b>v.startsWith(s)</b>, <b>v.endsWith(s)</b>, <b>v.contains(s)</b> y <b>v.matches('patrón')</b> son condiciones.</span>
 									<blockquote class="note muted text-lg">
 										<b class="c-aqua">oneOf</b>(<b class="c-aqua">HEADER</b>('Origin'), ['https://app.example.com', 'https://admin.example.com'])
 									</blockquote>
